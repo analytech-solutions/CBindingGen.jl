@@ -45,7 +45,7 @@ module CBindingGen
 	struct JuliaizedC
 		decl::Union{CLCursor, Nothing}
 		expr::String
-		kind::Symbol  # :atdevelop, :atcompile, :atcompile_typedefs, :atcompile_bindings, :atload
+		kind::Symbol  # :atdevelop, :atcompile, :atcompile_typedefs, :atload
 		
 		JuliaizedC(decl::CLCursor, expr::String, kind::Symbol) = new(decl, expr, kind)
 	end
@@ -138,7 +138,7 @@ module CBindingGen
 			end
 		end
 		
-		for kind in (:atdevelop, :atcompile, :atcompile_typedefs, :atcompile_bindings, :atload)
+		for kind in (:atdevelop, :atcompile, :atcompile_typedefs, :atload)
 			f = function (io)
 				if kind === :atcompile
 					for i in 1:10:length(ctx.exports)
@@ -151,11 +151,11 @@ module CBindingGen
 					end
 				elseif kind === :atload
 					libs = isnothing(ctx.libs) ? ("CBinding.Clibrary()",) : map(lib -> "CBinding.Clibrary($(repr(lib)))", ctx.libs)
-					expr = "$(_gensym(ctx, "libraries")) = ($(isempty(libs) ? "" : join(libs, ", ")*","))"
 					if isnothing(where)
-						push!(result.args, Meta.parse(expr))
+						libs = map(Meta.parse, libs)
 					else
-						println(io, expr)
+						expr = "CBinding.@cbindings $(join(libs, ' ')) begin"
+						isempty(libs) || println(io, expr)
 					end
 				end
 				
@@ -165,10 +165,24 @@ module CBindingGen
 							push!(result.args, Meta.parse(c.expr))
 						else
 							if !isnothing(c.decl)
-								println(io, "# ", CodeLocation(c.decl))
+								println(io, (kind === :atload ? '\t' : ""), "# ", CodeLocation(c.decl))
 							end
-							println(io, c.expr)
+							println(io, (kind === :atload ? '\t' : ""), c.expr)
 						end
+					end
+				end
+				
+				if kind === :atload
+					if isnothing(where)
+						expr = "end"
+						result = quote
+							CBinding.@cbindings $(libs...) begin
+								$(result)
+							end
+						end
+					else
+						expr = "end"
+						isempty(libs) || println(io, expr)
 					end
 				end
 			end

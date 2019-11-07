@@ -24,7 +24,6 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 		push!(names, "$(_gensym(ctx, string(length(names)+1)))...")
 		push!(types, "Base.Vararg")
 	end
-	sig  = "CBinding.Cfunction{$(ret), Base.Tuple{$(join(types, ", "))}}"
 	
 	body = ""
 	if isinlined(decl)
@@ -34,24 +33,10 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 		push!(ctx.oneofs, name)
 		
 		_export(ctx, name)
-		def = "$(name)($(join(names, ", "))) = $(_gensym(ctx, name))[]($(join([names..., "convention = $(convention)"], ", ")))"
+		def = "@cextern $(name)($(join(map((n, t) -> join((n, t), "::"), names, types), ", ")))::$(ret)"
 		push!(ctx.converted, JuliaizedC(
 			decl,
 			def,
-			:atcompile,
-		))
-		
-		ptr = "const $(_gensym(ctx, name)) = Base.Ref(Base.Ptr{$(sig)}(Base.C_NULL))"
-		push!(ctx.converted, JuliaizedC(
-			decl,
-			ptr,
-			:atcompile_bindings,
-		))
-		
-		load = "CBinding.bind($(_gensym(ctx, name)), $(csym), $(_gensym(ctx, "libraries"))...)"
-		push!(ctx.converted, JuliaizedC(
-			decl,
-			load,
 			:atload,
 		))
 	end
