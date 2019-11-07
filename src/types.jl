@@ -195,7 +195,7 @@ _convertType(ctx, typ::CLComplex) = "Base.Complex{$(_convertType(ctx, element_ty
 _convertType(ctx, typ::CLBool) = "Base.Cbool"
 _convertType(ctx, typ::CLVoid) = "Base.Cvoid"
 _convertType(ctx, typ::CLFirstBuiltin) = "Base.Cvoid"   # TODO:  this decision needs to be evaluated!
-_convertType(ctx, typ::CLVector) = error("$(typ) $(element_num(typ))")
+_convertType(ctx, typ::CLVector) = "Base.NTuple{$(element_num(typ)), Base.VecElement{$(_convertType(ctx, element_type(typ)))}}"
 function _convertType(ctx, typ::Union{CLTypedef, CLTypedefDecl})
 	name = typ isa CLTypedefDecl || typedecl(typ) isa CLNoDeclFound ? _convertName(ctx, typ) : _convertType(ctx, typedecl(typ))
 	return haskey(ctx.typedefs, name) ? ctx.typedefs[name] : name
