@@ -4,7 +4,6 @@ function _convert(ctx::ConverterContext, decl::CLTypedefDecl)
 	name = _convertType(ctx, decl)
 	(o, c, typ) = _convertTypedefType(ctx, underlying_type(decl))
 	typ = isdecl(typ) || typedecl(typ) isa CLNoDeclFound ? typ : typedecl(typ)
-	kind = :atcompile
 	
 	# if typ is the definition and it was just converted then we need to remove that conversion in favor of this one
 	if (typ isa CLEnumDecl || typ isa CLUnionDecl || typ isa CLStructDecl) && !isempty(ctx.converted) && getdef(typ) == last(ctx.converted).decl
@@ -12,15 +11,13 @@ function _convert(ctx::ConverterContext, decl::CLTypedefDecl)
 		typ = typ isa CLEnumDecl ? _convertEnum(ctx, typ) : _convertAggregate(ctx, typ)
 	else
 		typ = _convertType(ctx, typ)
-		ctx.typedefs[name] = "$(o)$(typ)$(c)"
-		kind = :atcompile_typedefs
 	end
 	
 	_export(ctx, name)
 	push!(ctx.converted, JuliaizedC(
 		decl,
 		"CBinding.@ctypedef $(name) $(o)$(typ)$(c)",
-		kind,
+		:atcompile,
 	))
 end
 
@@ -72,15 +69,14 @@ function _convertAggregate(ctx, decl::Union{CLUnionDecl, CLStructDecl}; indent::
 	name = _convertType(ctx, decl)
 	packing = nothing
 	
-	if getdef(decl) isa CLInvalidFile  # this is an opaque type, don't convert, use _convertType(ctx, decl) instead
-		return nothing
-	elseif getdef(decl) != decl  # this is a forward decl, so wait for actual decl to convert
-		return nothing
+	if getdef(decl) isa CLInvalidFile
+		return "$(kind) $(name)"
+	elseif getdef(decl) != decl  # this is a forward decl, so no body
+		body = ""
 	else
 		fields = []
 		lastAgg = nothing
 		for c in children(decl)
-			#@info c
 			if c isa CLFieldDecl
 				fname = _convertName(ctx, c)
 				ftype = type(c)
@@ -196,10 +192,7 @@ _convertType(ctx, typ::CLBool) = "Base.Cbool"
 _convertType(ctx, typ::CLVoid) = "Base.Cvoid"
 _convertType(ctx, typ::CLFirstBuiltin) = "Base.Cvoid"   # TODO:  this decision needs to be evaluated!
 _convertType(ctx, typ::CLVector) = "Base.NTuple{$(element_num(typ)), Base.VecElement{$(_convertType(ctx, element_type(typ)))}}"
-function _convertType(ctx, typ::Union{CLTypedef, CLTypedefDecl})
-	name = typ isa CLTypedefDecl || typedecl(typ) isa CLNoDeclFound ? _convertName(ctx, typ) : _convertType(ctx, typedecl(typ))
-	return haskey(ctx.typedefs, name) ? ctx.typedefs[name] : name
-end
+_convertType(ctx, typ::Union{CLTypedef, CLTypedefDecl}) = typ isa CLTypedefDecl || typedecl(typ) isa CLNoDeclFound ? _convertName(ctx, typ) : _convertType(ctx, typedecl(typ))
 _convertType(ctx, typ::CLPointer) = "Base.Ptr{$(_convertType(ctx, pointee_type(typ)))}"
 _convertType(ctx, typ::CLConstantArray) = "(CBinding.@carray ($(_convertType(ctx, element_type(typ))))[$(element_num(typ))])"
 _convertType(ctx, typ::CLIncompleteArray) = "Base.Ptr{$(_convertType(ctx, element_type(typ)))}"
