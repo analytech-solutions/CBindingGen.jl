@@ -22,7 +22,7 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 	end
 	if isvariadic(decl)
 		push!(names, "$(_gensym(ctx, string(length(names)+1)))...")
-		push!(types, "Base.Vararg")
+		push!(types, "")
 	end
 	
 	body = ""
@@ -33,7 +33,7 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 		push!(ctx.oneofs, name)
 		
 		_export(ctx, name)
-		def = "@cextern $(name)($(join(map((n, t) -> join((n, t), "::"), names, types), ", ")))::$(ret)"
+		def = "CBinding.@cextern $(name)($(join(map((n, t) -> (isempty(t) ? n : join((n, t), "::")), names, types), ", ")))::$(ret)"
 		push!(ctx.converted, JuliaizedC(
 			decl,
 			def,
