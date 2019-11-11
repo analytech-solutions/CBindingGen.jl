@@ -45,7 +45,7 @@ module CBindingGen
 	struct JuliaizedC
 		decl::Union{CLCursor, Nothing}
 		expr::String
-		kind::Symbol  # :atdevelop, :atcompile, :atcompile_typedefs, :atload
+		kind::Symbol  # :atcompile, :atload
 		
 		JuliaizedC(decl::CLCursor, expr::String, kind::Symbol) = new(decl, expr, kind)
 	end
@@ -68,7 +68,6 @@ module CBindingGen
 		args::Vector{String}
 		exports::Vector{String}
 		oneofs::Set{String}
-		typedefs::Dict{String, String}
 		converted::Vector{JuliaizedC}
 		# macroUses::Vector{MacroUse}
 		
@@ -85,7 +84,6 @@ module CBindingGen
 				
 				String[],
 				Set{String}(),
-				Dict{String, String}(),
 				JuliaizedC[],
 				# MacroUse[],
 			)
@@ -138,7 +136,7 @@ module CBindingGen
 			end
 		end
 		
-		for kind in (:atdevelop, :atcompile, :atcompile_typedefs, :atload)
+		for kind in (:atcompile, :atload)
 			f = function (io)
 				if kind === :atcompile
 					for i in 1:10:length(ctx.exports)
