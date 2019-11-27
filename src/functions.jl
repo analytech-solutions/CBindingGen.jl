@@ -22,36 +22,21 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 	end
 	if isvariadic(decl)
 		push!(names, "$(_gensym(ctx, string(length(names)+1)))...")
-		push!(types, "Base.Vararg")
+		push!(types, "")
 	end
-	sig  = "CBinding.Cfunction{$(ret), Base.Tuple{$(join(types, ", "))}}"
 	
 	body = ""
 	if isinlined(decl)
-		todo"need inlined functions to be saved/stored differently so the closure lasts forever"
+		# NOTE: need inlined functions to be saved/stored differently so the closure lasts forever
 		@warn "Unable to convert inline function:  $(name)"
 	elseif !(name in ctx.oneofs)
 		push!(ctx.oneofs, name)
 		
 		_export(ctx, name)
-		def = "$(name)($(join(names, ", "))) = $(_gensym(ctx, name))[]($(join([names..., "convention = $(convention)"], ", ")))"
+		def = "CBinding.@cextern $(name)($(join(map((n, t) -> (isempty(t) ? n : join((n, t), "::")), names, types), ", ")))::$(ret)"
 		push!(ctx.converted, JuliaizedC(
 			decl,
 			def,
-			:atcompile,
-		))
-		
-		ptr = "const $(_gensym(ctx, name)) = Base.Ref(Base.Ptr{$(sig)}(Base.C_NULL))"
-		push!(ctx.converted, JuliaizedC(
-			decl,
-			ptr,
-			:atcompile_bindings,
-		))
-		
-		load = "CBinding.bind($(_gensym(ctx, name)), $(csym), $(_gensym(ctx, "libraries"))...)"
-		push!(ctx.converted, JuliaizedC(
-			decl,
-			load,
 			:atload,
 		))
 	end

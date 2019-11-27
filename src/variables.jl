@@ -1,7 +1,7 @@
 
 
 function _convert(ctx::ConverterContext, decl::CLVarDecl)
-	kind = isconst(type(decl)) ? "CBinding.Cglobalconst" : "CBinding.Cglobal"
+	kind = isconst(type(decl))
 	typ  = _convertType(ctx, type(decl))
 	name = _convertName(ctx, decl)
 	csym = repr(Symbol(spelling(decl)))
@@ -10,17 +10,10 @@ function _convert(ctx::ConverterContext, decl::CLVarDecl)
 		push!(ctx.oneofs, name)
 		
 		_export(ctx, name)
-		def = "const $(name) = $(kind){$(typ)}()"
+		def = "CBinding.@cextern $(name)::$(typ)"
 		push!(ctx.converted, JuliaizedC(
 			decl,
 			def,
-			:atcompile_bindings,
-		))
-		
-		load = "CBinding.bind($(name), $(csym), $(_gensym(ctx, "libraries"))...)"
-		push!(ctx.converted, JuliaizedC(
-			decl,
-			load,
 			:atload,
 		))
 	end
