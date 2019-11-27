@@ -27,7 +27,7 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 	
 	body = ""
 	if isinlined(decl)
-		todo"need inlined functions to be saved/stored differently so the closure lasts forever"
+		# NOTE: need inlined functions to be saved/stored differently so the closure lasts forever
 		@warn "Unable to convert inline function:  $(name)"
 	elseif !(name in ctx.oneofs)
 		push!(ctx.oneofs, name)

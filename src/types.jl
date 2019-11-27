@@ -154,7 +154,7 @@ function _convertAugmentedType(ctx, decl::CLConstantArray)
 	(augment, typ) = _convertAugmentedType(ctx, element_type(decl))
 	return ("(CBinding.@carray ($(augment))[$(element_num(decl))])", typ)
 end
-todo"determine the best way to represent incomplete array types, as pointers, or as empty arrays"
+# TODO: determine the best way to represent incomplete array types, as pointers, or as empty arrays
 function _convertAugmentedType(ctx, decl::CLIncompleteArray)
 	(augment, typ) = _convertAugmentedType(ctx, element_type(decl))
 	augment = augment == "{}" ? "" : augment

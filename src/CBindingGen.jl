@@ -2,7 +2,6 @@ module CBindingGen
 	using Clang
 	using Clang: LibClang
 	# using Intervals
-	using Todo
 	
 	
 	export ConverterContext, generate
