@@ -147,11 +147,11 @@ module CBindingGen
 						end
 					end
 				elseif kind === :atload
-					libs = isnothing(ctx.libs) ? ("CBinding.Clibrary()",) : map(lib -> "CBinding.Clibrary($(repr(lib)))", ctx.libs)
+					libs = isnothing(ctx.libs) ? ("@CBinding().Clibrary()",) : map(lib -> "@CBinding().Clibrary($(repr(lib)))", ctx.libs)
 					if isnothing(where)
 						libs = map(Meta.parse, libs)
 					else
-						expr = "CBinding.@cbindings $(join(libs, ' ')) begin"
+						expr = "@cbindings $(join(libs, ' ')) begin"
 						isempty(libs) || println(io, expr)
 					end
 				end
@@ -173,7 +173,7 @@ module CBindingGen
 					if isnothing(where)
 						expr = "end"
 						result = quote
-							CBinding.@cbindings $(libs...) begin
+							@cbindings $(libs...) begin
 								$(result)
 							end
 						end

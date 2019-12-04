@@ -76,7 +76,7 @@ function _convert(ctx::ConverterContext, decl::CLMacroDefinition)
 	elseif !isnothing(literal)
 		body = literal isa Symbol || literal isa Expr ? replace(repr(literal), r"#=.*=# " => "") : ":($(repr(literal)))"
 	else
-		body = """:(error("Macro not converted:  "*$(repr(join(tokens, ' ')))))"""
+		body = """:(@CBinding().error("Macro not converted:  "*$(repr(join(tokens, ' ')))))"""
 	end
 	body = """function($(join(args, ", ")))
 		$(body)
@@ -87,7 +87,7 @@ function _convert(ctx::ConverterContext, decl::CLMacroDefinition)
 		push!(ctx.oneofs, "@$(name)")
 		
 		_export(ctx, "@$(name)")
-		binding = "const $(func) = Ref{Function}($(body))"
+		binding = "const $(func) = @CBinding().Ref{@CBinding().Function}($(body))"
 		expr = "macro $(name)($(join(args, ", "))) ; $(func)[]($(join(args, ", "))) ; end"
 		push!(ctx.converted, JuliaizedC(
 			decl,

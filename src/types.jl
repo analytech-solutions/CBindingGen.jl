@@ -16,7 +16,7 @@ function _convert(ctx::ConverterContext, decl::CLTypedefDecl)
 	_export(ctx, name)
 	push!(ctx.converted, JuliaizedC(
 		decl,
-		"CBinding.@ctypedef $(name) $(o)$(typ)$(c)",
+		"@ctypedef $(name) $(o)$(typ)$(c)",
 		:atcompile,
 	))
 end
@@ -59,13 +59,13 @@ function _convertEnum(ctx, decl::CLEnumDecl; indent::Int = 0)
 	body = "{"*(isempty(vals) ? "" : "\n$(tabs)\t$(join(vals, "\n$(tabs)\t"))")*"\n$(tabs)}"
 	
 	_export(ctx, name)
-	return "CBinding.@cenum $(name) $(body)"
+	return "@cenum $(name) $(body)"
 end
 
 
 
 function _convertAggregate(ctx, decl::Union{CLUnionDecl, CLStructDecl}; indent::Int = 0)
-	kind = decl isa CLUnionDecl ? "CBinding.@cunion" : "CBinding.@cstruct"
+	kind = decl isa CLUnionDecl ? "@cunion" : "@cstruct"
 	name = _convertType(ctx, decl)
 	packing = nothing
 	
@@ -143,7 +143,7 @@ _convertTypedefType(ctx, decl) = ("", "", decl)
 _convertTypedefType(ctx, decl::CLTypedef) = typedecl(decl) isa CLNoDeclFound ? ("", "", decl) : _convertTypedefType(ctx, typedecl(decl))
 function _convertTypedefType(ctx, decl::CLConstantArray)
 	(o, c, typ) = _convertTypedefType(ctx, element_type(decl))
-	return ("(CBinding.@carray ("*o,c*")[$(element_num(decl))])", typ)
+	return ("(@carray ("*o,c*")[$(element_num(decl))])", typ)
 end
 
 
@@ -152,50 +152,50 @@ _convertAugmentedType(ctx, decl) = ("{}", decl)
  _convertAugmentedType(ctx, decl::CLElaborated) = _convertAugmentedType(ctx, typedecl(decl))
 function _convertAugmentedType(ctx, decl::CLConstantArray)
 	(augment, typ) = _convertAugmentedType(ctx, element_type(decl))
-	return ("(CBinding.@carray ($(augment))[$(element_num(decl))])", typ)
+	return ("(@carray ($(augment))[$(element_num(decl))])", typ)
 end
 # TODO: determine the best way to represent incomplete array types, as pointers, or as empty arrays
 function _convertAugmentedType(ctx, decl::CLIncompleteArray)
 	(augment, typ) = _convertAugmentedType(ctx, element_type(decl))
 	augment = augment == "{}" ? "" : augment
-	return ("Base.Ptr{$(augment)}", typ)
+	return ("@CBinding().Ptr{$(augment)}", typ)
 end
 function _convertAugmentedType(ctx, decl::CLPointer)
 	(augment, typ) = _convertAugmentedType(ctx, pointee_type(decl))
 	augment = augment == "{}" ? "" : augment
-	return ("Base.Ptr{$(augment)}", typ)
+	return ("@CBinding().Ptr{$(augment)}", typ)
 end
 
 
 
-_convertType(ctx, typ::CLChar_S) = "Base.Cchar"
-_convertType(ctx, typ::CLChar_U) = "Base.Cuchar"
-_convertType(ctx, typ::CLSChar) = "Base.Cchar"
-_convertType(ctx, typ::CLUChar) = "Base.Cuchar"
+_convertType(ctx, typ::CLChar_S) = "@CBinding().Cchar"
+_convertType(ctx, typ::CLChar_U) = "@CBinding().Cuchar"
+_convertType(ctx, typ::CLSChar) = "@CBinding().Cchar"
+_convertType(ctx, typ::CLUChar) = "@CBinding().Cuchar"
 
-_convertType(ctx, typ::CLShort) = "Base.Cshort"
-_convertType(ctx, typ::CLInt) = "Base.Cint"
-_convertType(ctx, typ::CLLong) = "Base.Clong"
-_convertType(ctx, typ::CLLongLong) = "Base.Clonglong"
+_convertType(ctx, typ::CLShort) = "@CBinding().Cshort"
+_convertType(ctx, typ::CLInt) = "@CBinding().Cint"
+_convertType(ctx, typ::CLLong) = "@CBinding().Clong"
+_convertType(ctx, typ::CLLongLong) = "@CBinding().Clonglong"
 
-_convertType(ctx, typ::CLUShort) = "Base.Cushort"
-_convertType(ctx, typ::CLUInt) = "Base.Cuint"
-_convertType(ctx, typ::CLULong) = "Base.Culong"
-_convertType(ctx, typ::CLULongLong) = "Base.Culonglong"
+_convertType(ctx, typ::CLUShort) = "@CBinding().Cushort"
+_convertType(ctx, typ::CLUInt) = "@CBinding().Cuint"
+_convertType(ctx, typ::CLULong) = "@CBinding().Culong"
+_convertType(ctx, typ::CLULongLong) = "@CBinding().Culonglong"
 
-_convertType(ctx, typ::CLFloat) = "Base.Cfloat"
-_convertType(ctx, typ::CLDouble) = "Base.Cdouble"
-_convertType(ctx, typ::CLLongDouble) = "CBinding.Clongdouble"
-_convertType(ctx, typ::CLComplex) = "Base.Complex{$(_convertType(ctx, element_type(typ)))}"
+_convertType(ctx, typ::CLFloat) = "@CBinding().Cfloat"
+_convertType(ctx, typ::CLDouble) = "@CBinding().Cdouble"
+_convertType(ctx, typ::CLLongDouble) = "@CBinding().Clongdouble"
+_convertType(ctx, typ::CLComplex) = "@CBinding().Complex{$(_convertType(ctx, element_type(typ)))}"
 
-_convertType(ctx, typ::CLBool) = "Base.Cbool"
-_convertType(ctx, typ::CLVoid) = "Base.Cvoid"
-_convertType(ctx, typ::CLFirstBuiltin) = "Base.Cvoid"   # TODO:  this decision needs to be evaluated!
-_convertType(ctx, typ::CLVector) = "Base.NTuple{$(element_num(typ)), Base.VecElement{$(_convertType(ctx, element_type(typ)))}}"
+_convertType(ctx, typ::CLBool) = "@CBinding().Cbool"
+_convertType(ctx, typ::CLVoid) = "@CBinding().Cvoid"
+_convertType(ctx, typ::CLFirstBuiltin) = "@CBinding().Cvoid"   # TODO:  this decision needs to be evaluated!
+_convertType(ctx, typ::CLVector) = "@CBinding().NTuple{$(element_num(typ)), @CBinding().VecElement{$(_convertType(ctx, element_type(typ)))}}"
 _convertType(ctx, typ::Union{CLTypedef, CLTypedefDecl}) = typ isa CLTypedefDecl || typedecl(typ) isa CLNoDeclFound ? _convertName(ctx, typ) : _convertType(ctx, typedecl(typ))
-_convertType(ctx, typ::CLPointer) = "Base.Ptr{$(_convertType(ctx, pointee_type(typ)))}"
-_convertType(ctx, typ::CLConstantArray) = "(CBinding.@carray ($(_convertType(ctx, element_type(typ))))[$(element_num(typ))])"
-_convertType(ctx, typ::CLIncompleteArray) = "Base.Ptr{$(_convertType(ctx, element_type(typ)))}"
+_convertType(ctx, typ::CLPointer) = "@CBinding().Ptr{$(_convertType(ctx, pointee_type(typ)))}"
+_convertType(ctx, typ::CLConstantArray) = "(@carray ($(_convertType(ctx, element_type(typ))))[$(element_num(typ))])"
+_convertType(ctx, typ::CLIncompleteArray) = "@CBinding().Ptr{$(_convertType(ctx, element_type(typ)))}"
 _convertType(ctx, typ::CLElaborated) = _convertType(ctx, typedecl(typ))
 _convertType(ctx, typ::Union{CLEnumDecl, CLUnionDecl, CLStructDecl}) = _convertName(ctx, typ)
 
@@ -208,8 +208,8 @@ function _convertType(ctx, typ::CLUnexposed)
 	if num >= 0   # this is a function signature
 		ret = _convertType(ctx, result_type(typ))
 		args = map(i -> _convertType(ctx, argtype(typ, i-1)), 1:num)
-		isvariadic(typ) && push!(args, "Base.Vararg")
-		return "CBinding.Cfunction{$(ret), Base.Tuple{$(join(args, ", "))}}"
+		isvariadic(typ) && push!(args, "@CBinding().Vararg")
+		return "@CBinding().Cfunction{$(ret), @CBinding().Tuple{$(join(args, ", "))}}"
 	else
 		error("A non-function `unexposed` type is not yet supported")
 	end

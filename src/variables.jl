@@ -10,7 +10,7 @@ function _convert(ctx::ConverterContext, decl::CLVarDecl)
 		push!(ctx.oneofs, name)
 		
 		_export(ctx, name)
-		def = "CBinding.@cextern $(name)::$(typ)"
+		def = "@cextern $(name)::$(typ)"
 		push!(ctx.converted, JuliaizedC(
 			decl,
 			def,
