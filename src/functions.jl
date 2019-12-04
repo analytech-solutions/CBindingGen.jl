@@ -39,6 +39,11 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 			def,
 			:atload,
 		))
+		push!(ctx.converted, JuliaizedC(
+			decl,
+			"function $(name) end",
+			:atcompile,
+		))
 	end
 end
 
