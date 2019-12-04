@@ -5,7 +5,7 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 	csym = repr(Symbol(spelling(decl)))
 	
 	if Clang.calling_conv(type(decl)) == LibClang.CXCallingConv_C
-		convention = "CBinding.CDECL"
+		convention = "@CBinding().CDECL"
 	else
 		error("Support for function calling convention `$(Clang.calling_conv(type(decl)))` is not yet implemented")
 	end
@@ -33,11 +33,16 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 		push!(ctx.oneofs, name)
 		
 		_export(ctx, name)
-		def = "CBinding.@cextern $(name)($(join(map((n, t) -> (isempty(t) ? n : join((n, t), "::")), names, types), ", ")))::$(ret)"
+		def = "@cextern $(name)($(join(map((n, t) -> (isempty(t) ? n : join((n, t), "::")), names, types), ", ")))::$(ret)"
 		push!(ctx.converted, JuliaizedC(
 			decl,
 			def,
 			:atload,
+		))
+		push!(ctx.converted, JuliaizedC(
+			decl,
+			"function $(name) end",
+			:atcompile,
 		))
 	end
 end
