@@ -1,7 +1,8 @@
 
 
-function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
-	name = _convertName(ctx, decl)
+function _convert(ctx::ConverterContext, decl::CLFunctionDecl, name::Union{Symbol, Nothing})
+	sym  = _convertName(ctx, decl)
+	name = isnothing(name) ? sym : name
 	csym = repr(Symbol(spelling(decl)))
 	
 	if Clang.calling_conv(type(decl)) == LibClang.CXCallingConv_C
@@ -33,16 +34,11 @@ function _convert(ctx::ConverterContext, decl::CLFunctionDecl)
 		push!(ctx.oneofs, name)
 		
 		_export(ctx, name)
-		def = "@cextern $(name)($(join(map((n, t) -> (isempty(t) ? n : join((n, t), "::")), names, types), ", ")))::$(ret)"
+		def = "@cextern "*(sym === name ? "" : "const $(name) = ")*"$(sym)($(join(map((n, t) -> (isempty(t) ? n : join((n, t), "::")), names, types), ", ")))::$(ret)"
 		push!(ctx.converted, JuliaizedC(
 			decl,
 			def,
 			:atload,
-		))
-		push!(ctx.converted, JuliaizedC(
-			decl,
-			"function $(name) end",
-			:atcompile,
 		))
 	end
 end

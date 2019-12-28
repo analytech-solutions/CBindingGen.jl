@@ -67,7 +67,7 @@ module CBindingGen
 		ctx::DefaultContext
 		quiet::Bool
 		filt::Function
-		libs::Union{Vector{String}, Nothing}   # the library name (or library path) to dlopen, an array of library paths or names, or `nothing` for dlopening the running Julia process itself
+		libs::Union{Vector, Nothing}   # the library name (or library path) to dlopen, an array of library paths or names, or `nothing` for dlopening the running Julia process itself
 		includes::Vector{String}
 		args::Vector{String}
 		exports::Vector{String}
@@ -75,7 +75,7 @@ module CBindingGen
 		converted::Vector{JuliaizedC}
 		# macroUses::Vector{MacroUse}
 		
-		function ConverterContext(filter::Function, libs::Union{Vector{String}, Nothing} = String[], includes::Vector{String} = String[], args::Vector{String} = String[]; quiet::Bool = false)
+		function ConverterContext(filter::Function, libs::Union{Vector, Nothing} = [], includes::Vector{String} = String[], args::Vector{String} = String[]; quiet::Bool = false)
 			return new(
 				DefaultContext(),
 				
@@ -100,7 +100,7 @@ module CBindingGen
 	function Clang.parse_headers!(ctx::ConverterContext, headers::Vector{String}; args::Vector{String} = String[], includes::Vector{String} = String[], builtin::Bool = false)
 		(o, c)  = builtin ? ('<', '>') : ('"', '"')
 		
-		return mktempdir() do dir
+		mktempdir() do dir
 			hdr = joinpath(dir, "parse_headers.h")
 			open(hdr, "w+") do file
 				for header in headers
@@ -152,7 +152,7 @@ module CBindingGen
 						end
 					end
 				elseif kind === :atload
-					libs = isnothing(ctx.libs) ? ("@CBinding().Clibrary()",) : map(lib -> "@CBinding().Clibrary($(repr(lib)))", ctx.libs)
+					libs = isnothing(ctx.libs) ? ("@CBinding().Clibrary()",) : map(lib -> "@CBinding().Clibrary($(lib isa AbstractString ? repr(lib) : lib))", ctx.libs)
 					if isnothing(where)
 						libs = map(Meta.parse, libs)
 					else
@@ -200,19 +200,29 @@ module CBindingGen
 	end
 	
 	
-	
 	function _convert(ctx::ConverterContext, tu::TranslationUnit)
 		root = getcursor(tu)
-		
 		for decl in children(root)
 			if decl isa CLMacroInstantiation
 				# macroUse = MacroUse(spelling(decl), Interval(decl))
 				# push!(ctx.macroUses, macroUse)
-			elseif ctx.filt(decl)
-				_convert(ctx, decl)
+			else
+				# isbuiltin(decl) && continue
+				# HACK:  builtin check doesnt seem to work on all builtins, but code locations with unknown file seems to do the trick
+				CodeLocation(decl).file == "<unknown>" && continue
+				
+				x = ctx.filt(decl)
+				x === false && continue
+				
+				if decl isa CLVarDecl || decl isa CLFunctionDecl
+					_convert(ctx, decl, x isa Symbol ? x : nothing)
+				else
+					_convert(ctx, decl)
+				end
 			end
 		end
 	end
+	
 	
 	_convert(ctx::ConverterContext, decl) = @warn "Not wrapping $(decl)"
 	_convert(ctx::ConverterContext, decl::CLLastPreprocessing) = nothing

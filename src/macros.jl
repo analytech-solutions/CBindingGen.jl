@@ -1,9 +1,5 @@
 
 function _convert(ctx::ConverterContext, decl::CLMacroDefinition)
-	isbuiltin(decl) && return
-	# HACK:  builtin check doesnt seem to work on all builtins, but code locations with unknown file seems to do the trick
-	CodeLocation(decl).file == "<unknown>" && return
-	
 	loc = string(CodeLocation(decl))
 	name = _convertName(ctx, decl)
 	func = _gensym(ctx, name)*"_"
