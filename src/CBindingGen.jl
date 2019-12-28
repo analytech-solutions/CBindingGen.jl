@@ -15,18 +15,23 @@ module CBindingGen
 	CodeLocation(decl::CLCursor) = CodeLocation(decl.cursor)
 	CodeLocation(decl::Clang.LibClang.CXCursor) = CodeLocation(location(decl))
 	function CodeLocation(loc::Clang.LibClang.CXSourceLocation)
-		cxfile = Ref{Clang.LibClang.CXFile}()
-		line = Ref{Cuint}()
-		col = Ref{Cuint}()
-		offset = Ref{Cuint}()
+		cxfile = Ref{Clang.LibClang.CXFile}(C_NULL)
+		line = Ref{Cuint}(0)
+		col = Ref{Cuint}(0)
+		offset = Ref{Cuint}(0)
 		GC.@preserve loc begin
 			Clang.LibClang.clang_getSpellingLocation(loc, cxfile, line, col, offset)
-			cxstr = Clang.LibClang.clang_getFileName(cxfile[])
-			file = try
-				ptr = Clang.LibClang.clang_getCString(cxstr)
-				ptr == C_NULL ? "<unknown>" : unsafe_string(ptr)
-			finally
-				Clang.LibClang.clang_disposeString(cxstr)
+			file = "<unknown>"
+			if cxfile[] != C_NULL
+				cxstr = Clang.LibClang.clang_getFileName(cxfile[])
+				try
+					ptr = Clang.LibClang.clang_getCString(cxstr)
+					if ptr != C_NULL
+						file = unsafe_string(ptr)
+					end
+				finally
+					Clang.LibClang.clang_disposeString(cxstr)
+				end
 			end
 		end
 		return CodeLocation(file, line[], col[])
