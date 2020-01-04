@@ -1,47 +1,49 @@
 
 
-function _convert(ctx::ConverterContext, decl::CLFunctionDecl, name::Union{Symbol, Nothing})
-	sym  = _convertName(ctx, decl)
-	name = isnothing(name) ? sym : name
-	csym = repr(Symbol(spelling(decl)))
+function convert_function(cursor::LibClang.CXCursor, indent::Int)
+	typ = LibClang.clang_getCursorType(cursor)
 	
-	if Clang.calling_conv(type(decl)) == LibClang.CXCallingConv_C
-		convention = "@CBinding().CDECL"
-	else
-		error("Support for function calling convention `$(Clang.calling_conv(type(decl)))` is not yet implemented")
-	end
+	((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getResultType(typ), indent)
 	
-	ret = _convertType(ctx, result_type(decl))
-	args = [CLCursor(LibClang.clang_Cursor_getArgument(decl.cursor, UInt(i-1))) for i in 1:argnum(decl)]
-	names = map(arg -> _convertName(ctx, arg), args)
-	types = map(arg -> _convertType(ctx, type(arg)), args)
-	names = map(enumerate(names)) do (i, aname)
-		if isempty(aname)
-			aname = _gensym(ctx, string(i))
-		end
-		return aname
-	end
-	if isvariadic(decl)
-		push!(names, "$(_gensym(ctx, string(length(names)+1)))...")
-		push!(types, "")
-	end
-	
-	body = ""
-	if isinlined(decl)
-		# NOTE: need inlined functions to be saved/stored differently so the closure lasts forever
-		@warn "Unable to convert inline function:  $(name)"
-	elseif !(name in ctx.oneofs)
-		push!(ctx.oneofs, name)
+	num = LibClang.clang_Cursor_getNumArguments(cursor)
+	args = map(1:num) do i
+		arg = LibClang.clang_Cursor_getArgument(cursor, i-1)
 		
-		_export(ctx, name)
-		def = "@cextern "*(sym === name ? "" : "const $(name) = ")*"$(sym)($(join(map((n, t) -> (isempty(t) ? n : join((n, t), "::")), names, types), ", ")))::$(ret)"
-		push!(ctx.converted, JuliaizedC(
-			decl,
-			def,
-			:atload,
-		))
+		argName = convert_name(arg)
+		argName = isempty(argName) ? "var\"?$(i)?\"" : argName
+		
+		((argPre, argT, argPost), argComments) = convert_type(arg, LibClang.clang_getCursorType(arg), indent)
+		merge_comments!(comments, argComments)
+		
+		decl = LibClang.clang_getTypeDeclaration(argT)
+		if decl.kind == LibClang.CXCursor_EnumDecl && decl in arg
+			convert_decl = convert_enum
+		elseif decl.kind == LibClang.CXCursor_StructDecl && decl in arg
+			convert_decl = convert_struct
+		elseif decl.kind == LibClang.CXCursor_UnionDecl && decl in arg
+			convert_decl = convert_union
+		else
+			convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, String}())
+		end
+		
+		cvt = convert_decl(decl, indent)
+		merge_comments!(comments, cvt.comments)
+		
+		if num > 1 && startswith(cvt.expr, '@') && !(endswith(argPre, "(") && startswith(argPost, ")")) && !(endswith(argPre, "{") && startswith(argPost, "}"))
+			(argPre, argPost) = (argPre*"(", ")"*argPost)
+		end
+		return "$(argName)::$(argPre)$(cvt.expr)$(argPost)"
 	end
+	Bool(LibClang.clang_Cursor_isVariadic(cursor)) && push!(args, "var\"?vararg?\"...")
+	args = join(args, ", ")
+	
+	conv = convert_convention(typ)
+	conv = "__$(lowercase(conv))__"
+	
+	# TODO: use calling convention
+	(pre, post) = ("($(args))::"*pre, post)
+	
+	return ((pre, t, post), comments)
 end
-
 
 

@@ -1,4 +1,5 @@
 #ifndef TEST_H
+#define TEST_H
 
 
 typedef void T1;
@@ -134,15 +135,15 @@ struct S17 {
 struct S18 {
 	char c;
 	int i;
-} __attribute__((__packed__));
+} __attribute__((packed));
 
 struct S19 {
 	struct {
 		char c;
-	} __attribute__((__packed__));
+	} __attribute__((packed));
 	struct {
 		int i;
-	} __attribute__((__packed__));
+	} __attribute__((packed));
 };
 
 struct S20 {
@@ -152,14 +153,14 @@ struct S20 {
 	struct {
 		int i;
 	};
-} __attribute__((__packed__));
+} __attribute__((packed));
 
 struct S21 {
 	void (*f)(void);
 };
 
 struct S22 {
-	int (*(*f)(struct S21 *x, int i))(int, float);
+	union { int i; float f; struct { int j; }; } (*(*f)(struct S22 x, int i))(int, float);
 };
 
 struct S23 {
@@ -197,21 +198,6 @@ typedef struct {
 	int i;
 } S28;
 
-typedef enum E4_ {
-	E4_1,
-} E4;
-
-typedef enum {
-	E5_1,
-} E5;
-
-typedef int T24[2];
-typedef int T25[5][2];
-typedef struct {
-	int i;
-} T26[3];
-
-
 struct S29;
 typedef struct S29 S29_;
 typedef struct S29 * S29_ptr;
@@ -223,14 +209,65 @@ struct S29 {
 struct S30;
 typedef void (*F1)(struct S30 s);
 struct S30 {
+	int i:10, j:5, k:3;
 	F1 f;
 };
+
+typedef struct F2ret { int i; float f; } (*F2)(union { int i; float f; } x);
+typedef struct F3ret { int i; float f; } (*F3[3])(union { int i; float f; } x[1], struct F3ret *p);
 
 struct _S31;
 typedef struct _S31 S31;
 struct S32 {
 	S31 *s;
 };
+
+typedef struct S33 {
+	int i;
+} S33;
+
+typedef struct {
+	int const i;
+	int const *p;
+	int const * const cp;
+	S33 const *s;
+	S33 const * const cs;
+} S34;
+
+typedef struct {
+	struct {
+		int i;
+	} const *cp, *p, s;
+} S35;
+
+typedef struct {
+	int length;
+	char data[];
+} S36;
+
+struct S37 {
+	int x, (*y)(void), (*z)(int i);
+};
+
+typedef enum E4_ {
+	E4_1,
+} E4;
+
+typedef enum {
+	E5_1,
+} E5;
+
+typedef enum {
+	E6_0,
+	E6_1,
+} __attribute__((packed)) E6;
+
+typedef int T24[2];
+typedef int T25[5][2];
+typedef int const *T26[2];
+typedef struct {
+	int i;
+} T27[3];
 
 
 extern int const g1;
@@ -254,6 +291,13 @@ void f7(int i1, int i2, int, int, int i5);
 void f8(int i1, int, int _2);
 void f9(int (*arg)(int, int));
 int (*f10(void))(int, int);
+struct { int i; float f; } (*f11)(union { int i; float f; } x);
+
+struct SG1 {
+	int i;
+} g8, (*f12)(union { int i; float j; } u, union N1 { int i; float j; } n, struct SG1 *s), f13(union { int i; float j; } u, union N2 { int i; float j; } n, struct SG1 *s);
+
+static void f14(void);
 
 
 #endif
