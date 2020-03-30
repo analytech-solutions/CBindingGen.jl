@@ -4,8 +4,8 @@ using CBindingGen
 lib = ARGS[1]  # LLVM_jll.libclang_path
 vers = let
 	v = nothing
-	for x in readdir(joinpath(dirname(lib), "clang"))
-		if !isnothing(match(r"^\d+\.\d+\.\d+$", x)) && isdir(joinpath(dirname(lib), "clang", x))
+	for x in readdir(joinpath(dirname(dirname(lib)), "lib", "clang"))
+		if !isnothing(match(r"^\d+\.\d+\.\d+$", x)) && isdir(joinpath(dirname(dirname(lib)), "lib", "clang", x))
 			v = x
 			break
 		end
