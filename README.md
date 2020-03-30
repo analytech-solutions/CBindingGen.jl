@@ -19,7 +19,7 @@ Se let's get started with an example!
 
 ## Generating
 
-To start, you must add `CBinding.jl = "^0.8.1"` as a dependency to your package, and `CBindingGen.jl = "^0.2"` as a build dependency.
+To start, you must add `CBinding = "^0.8.1"` as a dependency to your package, and `CBindingGen = "^0.2"` as a build dependency.
 CBindingGen.jl relies on the artifacts distributed with `LLVM_jll` for providing a `libclang.so` library and header files for your system, so we will use those to demonstrate.
 The following code shows what is necessary to generate bindings to `libclang.so`, and something like it would normally be placed in your package's `deps/build.jl` file.
 
