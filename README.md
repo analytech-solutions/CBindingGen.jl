@@ -17,13 +17,15 @@ Bindings files created by this package should _not_ be committed with your packa
 Se let's get started with an example!
 
 
-## Generating Bindings
+## Generating
 
-CBindingGen.jl relies on the artifacts distributed with `LLVM_jll` for providing a `libclang.so` library and header files for your system.
+To start, you must add `CBinding.jl = "^0.8.1"` as a dependency to your package, and `CBindingGen.jl = "^0.2"` as a build dependency.
+CBindingGen.jl relies on the artifacts distributed with `LLVM_jll` for providing a `libclang.so` library and header files for your system, so we will use those to demonstrate.
 The following code shows what is necessary to generate bindings to `libclang.so`, and something like it would normally be placed in your package's `deps/build.jl` file.
 
 ```julia
 using CBindingGen
+import LLVM_jll
 
 incdir = joinpath(dirname(dirname(LLVM_jll.libclang_path)), "include")
 hdrs = map(hdr -> joinpath("clang-c", hdr), readdir(joinpath(incdir, "clang-c")))
@@ -34,6 +36,9 @@ cvts = convert_headers(hdrs, args = ["-I", incdir]) do cursor
 	
 	# only wrap the libclang headers
 	startswith(header, "$(incdir)/") || return false
+	
+	# ignore function that uses time_t since we don't know what time_t is yet
+	name == "clang_getFileTime" && return false
 	
 	return true
 end
@@ -59,7 +64,7 @@ The result of `convert_headers` is an array of `Converted` objects.
 Finally, the `generate` function is used to write the converted expressions for one or more libraries into a bindings file.
 
 
-## Loading Bindings
+## Loading
 
 In order to load the bindings file within your package, it is best to define a `baremodule` within your package module to encapsulate the bindings.
 The namespace within the `baremodule` will have only a very few symbols that could conflict with those from C.
@@ -84,4 +89,35 @@ end
 
 Next is a section defining dependencies of the bindings and should be composed of hand-written code or imported packages that export the required symbols.
 Finishing the bindings module is the inclusion of the bindings file generated at build-time.
+
+
+## Help/Comments
+
+CBindingGen.jl automatically imports comments from the C header files, but it does not yet transform the syntax to Julia's `@doc` strings though.
+If you find that C header comments are not imported, you should try adding `-fparse-all-comments` to the list of `args` in your call to `convert_headers`.
+
+```julia
+julia> import MyModule
+
+help?> MyModule.LibClang.clang_getClangVersion
+  Return a version string, suitable for showing to a user, but not intended to be parsed (the format is not guaranteed to be stable).
+
+  C Reference (~/.julia/artifacts/24cf82e3b0e1edd69d7399a3912c9dcd5ba0f55d/include/clang-c/Index.h:5828:25)
+```
+
+
+## Using
+
+Use the generated bindings as you would any hand-written or generated `ccall` and `cglobal` wrappers.
+Remember, this is _very_ low-level interfacing, and segmentation faults can result from misuse.
+
+```julia
+julia> cxstr = MyModule.LibClang.clang_getClangVersion();
+
+julia> unsafe_string(MyModule.LibClang.clang_getCString(cxstr))
+"clang version 8.0.1 "
+
+julia> MyModule.LibClang.clang_disposeString(cxstr)
+
+```
 
