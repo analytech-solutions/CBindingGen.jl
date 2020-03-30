@@ -1,221 +1,237 @@
 
-Clang.isdecl(x) = false
-function _convert(ctx::ConverterContext, decl::CLTypedefDecl)
-	name = _convertType(ctx, decl)
-	(o, c, typ) = _convertTypedefType(ctx, underlying_type(decl))
-	typ = isdecl(typ) || typedecl(typ) isa CLNoDeclFound ? typ : typedecl(typ)
-	
-	# if typ is the definition and it was just converted then we need to remove that conversion in favor of this one
-	if (typ isa CLEnumDecl || typ isa CLUnionDecl || typ isa CLStructDecl) && !isempty(ctx.converted) && getdef(typ) == last(ctx.converted).decl
-		pop!(ctx.converted)
-		typ = typ isa CLEnumDecl ? _convertEnum(ctx, typ) : _convertAggregate(ctx, typ)
-	else
-		typ = _convertType(ctx, typ)
-	end
-	
-	_export(ctx, name)
-	push!(ctx.converted, JuliaizedC(
-		decl,
-		"@ctypedef $(name) $(o)$(typ)$(c)",
-		:atcompile,
-	))
-end
 
-
-function _convert(ctx::ConverterContext, decl::CLEnumDecl)
-	expr = _convertEnum(ctx, decl)
-	push!(ctx.converted, JuliaizedC(
-		decl,
+function convert_typedef(cursor::LibClang.CXCursor, indent::Int)
+	name = convert_name(cursor)
+	
+	((pre, typ, post), comments) = convert_type(cursor, LibClang.clang_getTypedefDeclUnderlyingType(cursor), indent)
+	
+	cvt = convert_nested_type(typ, cursor, indent)
+	merge_comments!(comments, cvt.comments)
+	merge_comment!(comments, convert_comment(cursor, name))
+	
+	expr = "@ctypedef $(name) $(pre)$(cvt.expr)$(post)"
+	
+	return Converted(
 		expr,
-		:atcompile,
-	))
-end
-
-
-function _convert(ctx::ConverterContext, decl::Union{CLUnionDecl, CLStructDecl})
-	expr = _convertAggregate(ctx, decl)
-	isnothing(expr) || push!(ctx.converted, JuliaizedC(
-		decl,
-		expr,
-		:atcompile,
-	))
+		comments,
+	)
 end
 
 
 
-function _convertEnum(ctx, decl::CLEnumDecl; indent::Int = 0)
-	name = _convertType(ctx, decl)
+function convert_enum(cursor::LibClang.CXCursor, indent::Int)
+	name     = convert_name(cursor)
+	comments = Dict{String, String}(convert_comment(cursor, name))
 	
-	vals = []
-	for c in children(decl)
-		vname = _convertName(ctx, c)
-		vtype = _convertType(ctx, type(c))
-		vval  = value(c)
-		_export(ctx, vname)
-		push!(vals, "$(vname) = $(vtype)($(vval))")
-	end
-	
-	tabs = repeat('\t', indent)
-	body = "{"*(isempty(vals) ? "" : "\n$(tabs)\t$(join(vals, "\n$(tabs)\t"))")*"\n$(tabs)}"
-	
-	_export(ctx, name)
-	return "@cenum $(name) $(body)"
-end
-
-
-
-function _convertAggregate(ctx, decl::Union{CLUnionDecl, CLStructDecl}; indent::Int = 0)
-	kind = decl isa CLUnionDecl ? "@cunion" : "@cstruct"
-	name = _convertType(ctx, decl)
-	packing = nothing
-	
-	if getdef(decl) isa CLInvalidFile
-		return "$(kind) $(name)"
-	elseif getdef(decl) != decl  # this is a forward decl, so no body
-		body = ""
+	if !Bool(LibClang.clang_isCursorDefinition(cursor))
+		expr = "@cenum $(name)"
 	else
-		fields = []
-		lastAgg = nothing
-		for c in children(decl)
-			if c isa CLFieldDecl
-				fname = _convertName(ctx, c)
-				ftype = type(c)
-				if ftype isa CLElaborated
-					ftype = typedecl(ftype)
-					if lastAgg == ftype && !isnothing(last(last(fields)))
-						push!(last(last(fields)), fname)
-					else
-						ftypename = _convertType(ctx, ftype)
-						push!(fields, ftypename => fname)
-						lastAgg = nothing
-					end
-				else
-					if isbit(c)
-						fname = "($(fname):$(bitwidth(c)))"
-						ftypename = _convertType(ctx, ftype)
-						push!(fields, ftypename => fname)
-						lastAgg = nothing
-					else
-						(augment, atype) = _convertAugmentedType(ctx, ftype)
-						if lastAgg == atype && !isnothing(last(last(fields))) && (atype isa CLEnumDecl || atype isa CLUnionDecl || atype isa CLStructDecl)
-							push!(last(last(fields)), fname*"::"*augment)
-						else
-							ftypename = _convertType(ctx, ftype)
-							push!(fields, ftypename => fname)
-							lastAgg = nothing
-						end
-					end
-				end
-			elseif c isa CLEnumDecl || c isa CLUnionDecl || c isa CLStructDecl
-				ftype = c isa CLEnumDecl ? _convertEnum(ctx, c, indent = indent+1) : _convertAggregate(ctx, c, indent = indent+1)
-				ftype = isnothing(ftype) ? _convertType(ctx, c) : ftype
-				push!(fields, ftype => (isempty(spelling(c)) ? [] : nothing))
-				lastAgg = c
-			elseif c isa CLPackedAttr && isnothing(packing)
-				packing = spelling(c)
-			else
-				error("Unable to convert nested aggregate type at $(Interval(c)) `$(c)`")
-			end
-		end
+		typ = LibClang.clang_getEnumDeclIntegerType(cursor)
+		isunsigned = typ.kind in (
+			LibClang.CXType_Char_U,
+			LibClang.CXType_UChar,
+			LibClang.CXType_UShort,
+			LibClang.CXType_UInt,
+			LibClang.CXType_ULong,
+			LibClang.CXType_ULongLong,
+		)
+		isunsigned || typ.kind in (
+			LibClang.CXType_Char_S,
+			LibClang.CXType_SChar,
+			LibClang.CXType_Short,
+			LibClang.CXType_Int,
+			LibClang.CXType_Long,
+			LibClang.CXType_LongLong,
+		) || error("Failed to convert enum due to an unexpected integer type")
+		typ = convert_name(typ)
 		
-		fields = map(fields) do (ftype, fname)
-			if isnothing(fname) || (fname isa Array && isempty(fname))
-				return ftype
-			elseif fname isa Array && !isempty(fname)
-				return "($(join(fname, ", ")))::$(ftype)"
+		pack = nothing
+		vals = String[]
+		for child in children(cursor)
+			if child.kind == LibClang.CXCursor_EnumConstantDecl
+				valName  = convert_name(child)
+				valValue = isunsigned ? LibClang.clang_getEnumConstantDeclUnsignedValue(child) : LibClang.clang_getEnumConstantDeclValue(child)
+				merge_comment!(comments, convert_comment(child, valName))
+				push!(vals, "$(valName) = ($(typ))($(valValue))")
+			elseif child.kind == LibClang.CXCursor_PackedAttr && isnothing(pack)
+				pack = convert_name(child)
 			else
-				return "$(fname)::$(ftype)"
+				error("Unexpected enum child encountered")
 			end
 		end
 		
 		tabs = repeat('\t', indent)
-		body = "{"*(isempty(fields) ? "" : "\n$(tabs)\t$(join(fields, "\n$(tabs)\t"))")*"\n$(tabs)}"
-		body = isnothing(packing) ? body : "$(body) __$(packing)__"
+		vals = join(vals, "\n$(tabs)\t")
+		vals = isempty(vals) ? " " : "\n$(tabs)\t$(vals)\n$(tabs)"
+		expr = isempty(name) ? "" : "$(name) "
+		expr = "@cenum $(expr){$(vals)}"
+		expr = isnothing(pack) ? expr : "$(expr) __$(pack)__"
 	end
 	
-	_export(ctx, name)
-	return "$(kind) $(name) $(body)"
+	return Converted(
+		expr,
+		comments,
+	)
 end
 
 
+convert_struct(cursor::LibClang.CXCursor, indent::Int) = convert_aggregate(cursor, :struct, indent)
+convert_union(cursor::LibClang.CXCursor, indent::Int) = convert_aggregate(cursor, :union, indent)
 
-_convertTypedefType(ctx, decl) = ("", "", decl)
-_convertTypedefType(ctx, decl::CLTypedef) = typedecl(decl) isa CLNoDeclFound ? ("", "", decl) : _convertTypedefType(ctx, typedecl(decl))
-function _convertTypedefType(ctx, decl::CLConstantArray)
-	(o, c, typ) = _convertTypedefType(ctx, element_type(decl))
-	return ("(@carray ("*o,c*")[$(element_num(decl))])", typ)
-end
-
-
-
-_convertAugmentedType(ctx, decl) = ("{}", decl)
- _convertAugmentedType(ctx, decl::CLElaborated) = _convertAugmentedType(ctx, typedecl(decl))
-function _convertAugmentedType(ctx, decl::CLConstantArray)
-	(augment, typ) = _convertAugmentedType(ctx, element_type(decl))
-	return ("(@carray ($(augment))[$(element_num(decl))])", typ)
-end
-# TODO: determine the best way to represent incomplete array types, as pointers, or as empty arrays
-function _convertAugmentedType(ctx, decl::CLIncompleteArray)
-	(augment, typ) = _convertAugmentedType(ctx, element_type(decl))
-	augment = augment == "{}" ? "" : augment
-	return ("@CBinding().Ptr{$(augment)}", typ)
-end
-function _convertAugmentedType(ctx, decl::CLPointer)
-	(augment, typ) = _convertAugmentedType(ctx, pointee_type(decl))
-	augment = augment == "{}" ? "" : augment
-	return ("@CBinding().Ptr{$(augment)}", typ)
-end
-
-
-
-_convertType(ctx, typ::CLChar_S) = "@CBinding().Cchar"
-_convertType(ctx, typ::CLChar_U) = "@CBinding().Cuchar"
-_convertType(ctx, typ::CLSChar) = "@CBinding().Cchar"
-_convertType(ctx, typ::CLUChar) = "@CBinding().Cuchar"
-
-_convertType(ctx, typ::CLShort) = "@CBinding().Cshort"
-_convertType(ctx, typ::CLInt) = "@CBinding().Cint"
-_convertType(ctx, typ::CLLong) = "@CBinding().Clong"
-_convertType(ctx, typ::CLLongLong) = "@CBinding().Clonglong"
-
-_convertType(ctx, typ::CLUShort) = "@CBinding().Cushort"
-_convertType(ctx, typ::CLUInt) = "@CBinding().Cuint"
-_convertType(ctx, typ::CLULong) = "@CBinding().Culong"
-_convertType(ctx, typ::CLULongLong) = "@CBinding().Culonglong"
-
-_convertType(ctx, typ::CLFloat) = "@CBinding().Cfloat"
-_convertType(ctx, typ::CLDouble) = "@CBinding().Cdouble"
-_convertType(ctx, typ::CLLongDouble) = "@CBinding().Clongdouble"
-_convertType(ctx, typ::CLComplex) = "@CBinding().Complex{$(_convertType(ctx, element_type(typ)))}"
-
-_convertType(ctx, typ::CLBool) = "@CBinding().Cbool"
-_convertType(ctx, typ::CLVoid) = "@CBinding().Cvoid"
-_convertType(ctx, typ::CLFirstBuiltin) = "@CBinding().Cvoid"   # TODO:  this decision needs to be evaluated!
-_convertType(ctx, typ::CLVector) = "@CBinding().NTuple{$(element_num(typ)), @CBinding().VecElement{$(_convertType(ctx, element_type(typ)))}}"
-_convertType(ctx, typ::Union{CLTypedef, CLTypedefDecl}) = typ isa CLTypedefDecl || typedecl(typ) isa CLNoDeclFound ? _convertName(ctx, typ) : _convertType(ctx, typedecl(typ))
-_convertType(ctx, typ::CLPointer) = "@CBinding().Ptr{$(_convertType(ctx, pointee_type(typ)))}"
-_convertType(ctx, typ::CLConstantArray) = "(@carray ($(_convertType(ctx, element_type(typ))))[$(element_num(typ))])"
-_convertType(ctx, typ::CLIncompleteArray) = "@CBinding().Ptr{$(_convertType(ctx, element_type(typ)))}"
-_convertType(ctx, typ::CLElaborated) = _convertType(ctx, typedecl(typ))
-_convertType(ctx, typ::Union{CLEnumDecl, CLUnionDecl, CLStructDecl}) = _convertName(ctx, typ)
-
-Clang.calling_conv(t::CLType) = Clang.calling_conv(t.type)
-Clang.argnum(t::CLType) = argnum(t.type)
-Clang.argtype(t::CLType, i) = CLType(argtype(t.type, UInt(i)))
-Clang.result_type(t::CLType) = CLType(result_type(t.type))
-function _convertType(ctx, typ::CLUnexposed)
-	num = argnum(typ)
-	if num >= 0   # this is a function signature
-		ret = _convertType(ctx, result_type(typ))
-		args = map(i -> _convertType(ctx, argtype(typ, i-1)), 1:num)
-		isvariadic(typ) && push!(args, "@CBinding().Vararg")
-		return "@CBinding().Cfunction{$(ret), @CBinding().Tuple{$(join(args, ", "))}}"
+function convert_aggregate(cursor::LibClang.CXCursor, kind::Symbol, indent::Int)
+	kind in (:struct, :union) || error("Unknown aggregate type $(kind)")
+	name     = convert_name(cursor)
+	comments = Dict{String, String}(convert_comment(cursor, name))
+	
+	if !Bool(LibClang.clang_isCursorDefinition(cursor))
+		expr = "@c$(kind) $(name)"
 	else
-		error("A non-function `unexposed` type is not yet supported")
+		pack = nothing
+		exprs = String[]
+		for coal in coalesce(children(cursor))
+			if length(coal) == 1 && coal[1].kind == LibClang.CXCursor_PackedAttr
+				isnothing(pack) || error("Multiple packing attributes encountered")
+				pack = convert_name(coal[1])
+			else
+				cvt = convert_fields(coal, indent+1)
+				if !isnothing(cvt)
+					push!(exprs, cvt.expr)
+					merge_comments!(comments, cvt.comments)
+				end
+			end
+		end
+		
+		tabs = repeat('\t', indent)
+		exprs = join(exprs, "\n$(tabs)\t")
+		exprs = isempty(exprs) ? " " : "\n$(tabs)\t$(exprs)\n$(tabs)"
+		expr = isempty(name) ? "" : "$(name) "
+		expr = "@c$(kind) $(expr){$(exprs)}"
+		expr = isnothing(pack) ? expr : "$(expr) __$(pack)__"
 	end
+	
+	return Converted(
+		expr,
+		comments,
+	)
 end
 
 
-_convertName(ctx, decl::CLCursor) = _convertName(ctx, spelling(decl))
-_convertName(ctx, name::String) = (name in Clang.RESERVED_WORDS) ? name*"_" : name
+
+function convert_nested_type(typ::LibClang.CXType, cursor::LibClang.CXCursor, indent::Int)
+	decl = LibClang.clang_getTypeDeclaration(typ)
+	if decl.kind == LibClang.CXCursor_EnumDecl && decl in cursor && !(cursor in decl)
+		convert_decl = convert_enum
+	elseif decl.kind == LibClang.CXCursor_StructDecl && decl in cursor && !(cursor in decl)
+		convert_decl = convert_struct
+	elseif decl.kind == LibClang.CXCursor_UnionDecl && decl in cursor && !(cursor in decl)
+		convert_decl = convert_union
+	else
+		return Converted(convert_name(typ), Dict{String, String}())
+	end
+	return convert_decl(decl, indent)
+end
+
+
+
+function convert_type(cursor::LibClang.CXCursor, typ::LibClang.CXType, indent::Int)
+	(pre, post) = ("", "")
+	comments = Dict{String, String}()
+	
+	if typ.kind in (
+		LibClang.CXType_Bool,
+		LibClang.CXType_Void,
+		LibClang.CXType_Char_S,
+		LibClang.CXType_Char_U,
+		LibClang.CXType_SChar,
+		LibClang.CXType_UChar,
+		LibClang.CXType_Short,
+		LibClang.CXType_Int,
+		LibClang.CXType_Long,
+		LibClang.CXType_LongLong,
+		LibClang.CXType_UShort,
+		LibClang.CXType_UInt,
+		LibClang.CXType_ULong,
+		LibClang.CXType_ULongLong,
+		LibClang.CXType_Float,
+		LibClang.CXType_Double,
+		LibClang.CXType_LongDouble,
+		LibClang.CXType_Typedef,
+		LibClang.CXType_Elaborated,
+		LibClang.CXType_Enum,
+		LibClang.CXType_Record,
+	)
+		t = typ
+	elseif typ.kind in (
+		LibClang.CXType_ConstantArray,
+		LibClang.CXType_IncompleteArray,
+	)
+		num = typ.kind == LibClang.CXType_ConstantArray ? LibClang.clang_getNumElements(typ) : ""
+		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getElementType(typ), indent)
+		(pre, post) = ("("*pre, post*")[$(num)]")
+	elseif typ.kind == LibClang.CXType_Complex
+		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getElementType(typ), indent)
+		(pre, post) = ("(@Complex){"*pre, post*"}")
+	elseif typ.kind == LibClang.CXType_Pointer
+		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getPointeeType(typ), indent)
+		(pre, post) = ("(@Ptr){"*pre, post*"}")
+	elseif typ.kind in (LibClang.CXType_Unexposed, LibClang.CXType_FunctionProto)
+		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getResultType(typ), indent)
+		
+		num = LibClang.clang_getNumArgTypes(typ)
+		args = map(1:num) do i
+			argType = LibClang.clang_getArgType(typ, i-1)
+			
+			((argPre, argT, argPost), argComments) = convert_type(cursor, argType, indent)
+			merge_comments!(comments, argComments)
+			
+			decl = LibClang.clang_getTypeDeclaration(argT)
+			if decl.kind == LibClang.CXCursor_EnumDecl && decl in cursor
+				convert_decl = convert_enum
+			elseif decl.kind == LibClang.CXCursor_StructDecl && decl in cursor
+				convert_decl = convert_struct
+			elseif decl.kind == LibClang.CXCursor_UnionDecl && decl in cursor
+				convert_decl = convert_union
+			else
+				convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, String}())
+			end
+			
+			cvt = convert_decl(decl, indent)
+			merge_comments!(comments, cvt.comments)
+			
+			return "($(argPre)$(cvt.expr)$(argPost))"
+		end
+		Bool(LibClang.clang_isFunctionTypeVariadic(typ)) && push!(args, "(@Vararg)")
+		args = join(args, ", ")
+		
+		conv = convert_convention(typ)
+		
+		(pre, post) = ("(@Cfunction){("*pre, post*"), (@Tuple){$(args)}, (@$(conv))}")
+	else
+		error("Unable to convert type $(typ.kind), not yet implemented")
+	end
+	
+	if Bool(LibClang.clang_isConstQualifiedType(typ))
+		(pre, post) = ("(@Cconst)("*pre, post*")")
+	end
+	
+	if Bool(LibClang.clang_isRestrictQualifiedType(typ))
+		(pre, post) = ("(@Crestrict)("*pre, post*")")
+	end
+	
+	if Bool(LibClang.clang_isVolatileQualifiedType(typ))
+		(pre, post) = ("(@Cvolatile)("*pre, post*")")
+	end
+	
+	return ((pre, t, post), comments)
+end
+
+
+function convert_convention(typ::LibClang.CXType)
+	conv = LibClang.clang_getFunctionTypeCallingConv(typ)
+	if conv == LibClang.CXCallingConv_C
+		return "CDECL"
+	end
+	
+	error("Support for function calling convention `$(conv)` is not yet implemented")
+end
 

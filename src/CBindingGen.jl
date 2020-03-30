@@ -1,221 +1,215 @@
 module CBindingGen
-	using Clang
-	using Clang: LibClang
-	# using Intervals
+	include(joinpath(dirname(@__DIR__), "deps", "deps.jl"))
+	baremodule LibClang
+		using CBinding: @macros
+		@macros
+		
+		const size_t = @Csize_t
+		
+		@include(@CBinding().joinpath(@CBinding().dirname(@CBinding().@__DIR__), "deps", "libclang.jl"))
+	end
 	
 	
-	export ConverterContext, generate
+	using CBinding
+	
+	
+	export LibClang
+	export Converted, CodeLocation, CodeRange
+	export convert_header, convert_headers, generate
+	
+	
+	function _string(func::Function, args...)
+		cxstr = nothing
+		try
+			cxstr = func(args...)
+			ptr = LibClang.clang_getCString(cxstr)
+			return ptr == C_NULL ? nothing : unsafe_string(ptr)
+		finally
+			isnothing(cxstr) || LibClang.clang_disposeString(cxstr)
+		end
+	end
+	
+	Base.string(cursor::LibClang.CXCursor) = _string(LibClang.clang_getCursorSpelling, cursor)
+	
+	function children(cursor::LibClang.CXCursor)
+		Cvisitor = @ccallback function visitor(c::LibClang.CXCursor, p::LibClang.CXCursor, cs::LibClang.CXClientData)::LibClang.CXChildVisitResult
+			push!(unsafe_pointer_to_objref(cs)::Vector{LibClang.CXCursor}, c)
+			return LibClang.CXChildVisit_Continue
+		end
+		
+		cursors = LibClang.CXCursor[]
+		Bool(LibClang.clang_visitChildren(cursor, Cvisitor, pointer_from_objref(cursors))) && error("Failed to visit cursor children")
+		return cursors
+	end
 	
 	
 	struct CodeLocation
 		file::String
 		line::Int
 		col::Int
-	end
-	CodeLocation(decl::CLCursor) = CodeLocation(decl.cursor)
-	CodeLocation(decl::Clang.LibClang.CXCursor) = CodeLocation(location(decl))
-	function CodeLocation(loc::Clang.LibClang.CXSourceLocation)
-		cxfile = Ref{Clang.LibClang.CXFile}()
-		line = Ref{Cuint}()
-		col = Ref{Cuint}()
-		offset = Ref{Cuint}()
-		GC.@preserve loc begin
-			Clang.LibClang.clang_getSpellingLocation(loc, cxfile, line, col, offset)
-			cxstr = Clang.LibClang.clang_getFileName(cxfile[])
-			file = try
-				ptr = Clang.LibClang.clang_getCString(cxstr)
-				ptr == C_NULL ? "<unknown>" : unsafe_string(ptr)
-			finally
-				Clang.LibClang.clang_disposeString(cxstr)
-			end
+		
+		function CodeLocation(loc::LibClang.CXSourceLocation)
+			cxfile = Ref{LibClang.CXFile}(C_NULL)
+			line = Ref{Cuint}(0)
+			col = Ref{Cuint}(0)
+			offset = Ref{Cuint}(0)
+			LibClang.clang_getSpellingLocation(loc, cxfile, line, col, offset)
+			
+			str = cxfile[] == C_NULL ? nothing : _string(LibClang.clang_getFileName, cxfile[])
+			file = isnothing(str) ? "<unknown>" : str
+			
+			return new(file, line[], col[])
 		end
-		return CodeLocation(file, line[], col[])
 	end
+	CodeLocation(cursor::LibClang.CXCursor) = CodeLocation(LibClang.clang_getCursorLocation(cursor))
 	
 	Base.isless(a::CodeLocation, b::CodeLocation) = a.file == b.file && (a.line < b.line || (a.line == b.line && a.col < b.col))
-	Base.show(io::IO, cl::CodeLocation) = print(io, "$(cl.file):$(cl.line):$(cl.col)")
 	
-	
-	# Intervals.Interval(decl::CLCursor) = Interval(decl.cursor)
-	# Intervals.Interval(decl::Clang.LibClang.CXCursor) = Interval(extent(decl))
-	# Intervals.Interval(ext::Clang.LibClang.CXSourceRange) = Interval(CodeLocation(Clang.LibClang.clang_getRangeStart(ext)), CodeLocation(Clang.LibClang.clang_getRangeEnd(ext)))
-	
-	
-	struct JuliaizedC
-		decl::Union{CLCursor, Nothing}
-		expr::String
-		kind::Symbol  # :atcompile, :atload
-		
-		JuliaizedC(decl::CLCursor, expr::String, kind::Symbol) = new(decl, expr, kind)
+	function Base.show(io::IO, cl::CodeLocation)
+		file = !startswith(relpath(cl.file), "../") ? "./$(relpath(cl.file))" : !startswith(relpath(cl.file, homedir()), "../") ? "~/$(relpath(cl.file, homedir()))" : cl.file
+		print(io, "$(file):$(cl.line):$(cl.col)")
 	end
 	
-	# struct MacroUse
-	# 	c::String
-	# 	loc::Interval{CodeLocation}
-	# end
 	
-	
-	_gensym(ctx, str) = join(("", string(str), string(hash(str), base = 16, pad = 16)), '_')
-	_export(ctx, str) = !isempty(str) && !startswith(str, '_') && push!(ctx.exports, str)
-	
-	struct ConverterContext <: AbstractContext
-		ctx::DefaultContext
-		quiet::Bool
-		filt::Function
-		libs::Union{Vector{String}, Nothing}   # the library name (or library path) to dlopen, an array of library paths or names, or `nothing` for dlopening the running Julia process itself
-		includes::Vector{String}
-		args::Vector{String}
-		exports::Vector{String}
-		oneofs::Set{String}
-		converted::Vector{JuliaizedC}
-		# macroUses::Vector{MacroUse}
+	struct CodeRange <: AbstractRange{CodeLocation}
+		start::CodeLocation
+		stop::CodeLocation
 		
-		function ConverterContext(filter::Function, libs::Union{Vector{String}, Nothing} = String[], includes::Vector{String} = String[], args::Vector{String} = String[]; quiet::Bool = false)
-			return new(
-				DefaultContext(),
-				
-				quiet,
-				
-				filter,
-				libs,
-				includes,
-				args,
-				
-				String[],
-				Set{String}(),
-				JuliaizedC[],
-				# MacroUse[],
-			)
+		function CodeRange(range::LibClang.CXSourceRange)
+			start = CodeLocation(LibClang.clang_getRangeStart(range))
+			stop  = CodeLocation(LibClang.clang_getRangeEnd(range))
+			return new(start, stop)
 		end
 	end
+	function CodeRange(cursor::LibClang.CXCursor)
+		cursor.kind == LibClang.CXCursor_NoDeclFound && error("Cannot create a CodeRange for a $(cursor.kind) cursor")
+		return CodeRange(LibClang.clang_getCursorExtent(cursor))
+	end
 	
 	
+	function Base.coalesce(cursors::Vector{LibClang.CXCursor})
+		# TODO: switch to OrderedDict and use in last part of this function so its not O(N^2)
+		coalesced = Vector{Pair{CodeRange, LibClang.CXCursor}}[]
+		startInds = Dict{CodeLocation, Int}()
+		for cursor in cursors
+			range = CodeRange(cursor)
+			
+			if !haskey(startInds, range.start)
+				push!(coalesced, [range => cursor])
+				startInds[range.start] = length(coalesced)
+			else
+				# NOTE: insertion sorting the coalesced group so we know where the largest range in the group is
+				coal = coalesced[startInds[range.start]]
+				ind = findfirst(c -> range in c.first, coal)
+				ind = isnothing(ind) ? length(coal) : ind
+				insert!(coal, ind+1, range => cursor)
+			end
+		end
+		
+		# once the cursors are coalesced, we need to remove groups that are nested within other groups
+		coalesced = filter(inners -> !any(outers -> last(inners) !== last(outers) && last(inners).first in last(outers).first, coalesced), coalesced)
+		return map(cs -> map(c -> c.second, cs), coalesced)
+	end
 	
-	Clang.parse_header!(ctx::ConverterContext, header::String; kwargs...) = Clang.parse_headers!(ctx, [header]; kwargs...)
-	function Clang.parse_headers!(ctx::ConverterContext, headers::Vector{String}; args::Vector{String} = String[], includes::Vector{String} = String[], builtin::Bool = false)
-		(o, c)  = builtin ? ('<', '>') : ('"', '"')
+	Base.in(inner::LibClang.CXCursor, outer::LibClang.CXCursor) = in(CodeRange(inner), CodeRange(outer))
+	function Base.in(inner::CodeRange, outer::CodeRange)
+		inner.start.file == outer.start.file || return false
+		inner.stop.file == outer.stop.file || return false
+		
+		!(inner.start < outer.start) && !(outer.stop < inner.stop)
+	end
+	
+	
+	struct Converted
+		expr::String
+		comments::Dict{String, String}
+	end
+	
+	
+	# NOTE: func returns:  false = don't convert, true = convert as `string(cursor)`, "jlname" = convert as "jlname"
+	convert_header(func::Function, header::String; kwargs...) = convert_headers(func, [header]; kwargs...)
+	function convert_headers(func::Function, headers::Vector{String}; args::Vector{String} = String[])
+		args = vcat(args, [
+			"-isystem", joinpath(dirname(LIBCLANG_PATH), "clang", LIBCLANG_VERSION, "include"),
+		])
 		
 		return mktempdir() do dir
 			hdr = joinpath(dir, "parse_headers.h")
 			open(hdr, "w+") do file
 				for header in headers
-					print(file,
-						"""
-						#include $(o)$(header)$(c)
-						"""
-					)
+					println(file, "#include <$(header)>")
 				end
 			end
 			
-			tu = parse_header(hdr; args = vcat(ctx.args, args), includes = vcat(Clang.CLANG_INCLUDE, ctx.includes, includes), flags = Clang.LibClang.CXTranslationUnit_DetailedPreprocessingRecord)
-			num = LibClang.clang_getNumDiagnostics(tu.ptr)
-			for i in 1:num
-				diag = LibClang.clang_getDiagnostic(tu.ptr, i-1)
-				sev = LibClang.clang_getDiagnosticSeverity(diag)
-				sev in (LibClang.CXDiagnostic_Error, LibClang.CXDiagnostic_Fatal) && error("Errors encountered parsing headers, unable to proceed with conversion")
-			end
-			
-			_convert(ctx, tu)
-		end
-		
-		return
-	end
-	
-	
-	
-	function generate(ctx::ConverterContext, where::Union{AbstractString, Nothing} = nothing, prefix::Union{AbstractString, Nothing} = nothing)
-		if isnothing(where)
-			result = quote end
-		else
-			prefix = prefix === nothing ? "" : prefix*"-"
-			
+			ind = nothing
 			try
-				mkpath(where)
+				ind = LibClang.clang_createIndex(0, 1)
+				ind == C_NULL && error("Failed to create index")
+				
+				tu = Ref(LibClang.CXTranslationUnit(C_NULL))
+				try
+					argsPtrs = map(i -> pointer(args[i]), eachindex(args))
+					err = LibClang.clang_parseTranslationUnit2(ind, hdr, argsPtrs, length(args), C_NULL, 0, LibClang.CXTranslationUnit_DetailedPreprocessingRecord, tu)
+					err == LibClang.CXError_Success || error("Failed to parse translation unit $(err)")
+					
+					for i in 1:LibClang.clang_getNumDiagnostics(tu[])
+						diag = nothing
+						try
+							diag = LibClang.clang_getDiagnostic(tu[], i-1)
+							sev = LibClang.clang_getDiagnosticSeverity(diag)
+							sev in (LibClang.CXDiagnostic_Error, LibClang.CXDiagnostic_Fatal) && error("Errors encountered parsing headers, unable to proceed with conversion")
+						finally
+							LibClang.clang_disposeDiagnostic(diag)
+						end
+					end
+					
+					return convert_parsed(func, tu[])
+				finally
+					tu[] == C_NULL || LibClang.clang_disposeTranslationUnit(tu[])
+				end
+			finally
+				isnothing(ind) || LibClang.clang_disposeIndex(ind)
+			end
+		end
+	end
+	
+	
+	function convert_parsed(func::Function, tu::LibClang.CXTranslationUnit)
+		root = LibClang.clang_getTranslationUnitCursor(tu)
+		
+		# TODO: only keep last occurrence of a macro definition
+		cursors = filter(c -> CodeLocation(c).file != "<unknown>" && !(c.kind in (  # remove compiler-internal cursors and pre-processor cursors
+			LibClang.CXCursor_InclusionDirective,
+			LibClang.CXCursor_MacroDefinition,
+			LibClang.CXCursor_MacroInstantiation,
+		)), children(root))
+		
+		cvts = Converted[]
+		for coal in coalesce(cursors)
+			try
+				coal[1].kind in (
+					LibClang.CXCursor_TypedefDecl,
+					LibClang.CXCursor_EnumDecl,
+					LibClang.CXCursor_StructDecl,
+					LibClang.CXCursor_UnionDecl,
+				) && func(coal[1]) === false && continue
+				
+				cvt = convert_fields(coal, 0, func)
+				isnothing(cvt) || push!(cvts, cvt)
 			catch
+				@warn "The following exception occurred when converting near $(CodeLocation(coal[1]))"
+				rethrow()
 			end
 		end
-		
-		for kind in (:atcompile, :atload)
-			f = function (io)
-				if kind === :atcompile
-					for i in 1:10:length(ctx.exports)
-						expr = "export $(join(ctx.exports[i:min(length(ctx.exports), i+9)], ", "))"
-						if isnothing(where)
-							push!(result.args, Meta.parse(expr))
-						else
-							println(io, expr)
-						end
-					end
-				elseif kind === :atload
-					libs = isnothing(ctx.libs) ? ("@CBinding().Clibrary()",) : map(lib -> "@CBinding().Clibrary($(repr(lib)))", ctx.libs)
-					if isnothing(where)
-						libs = map(Meta.parse, libs)
-					else
-						expr = "@cbindings $(join(libs, ' ')) begin"
-						isempty(libs) || println(io, expr)
-					end
-				end
-				
-				for c in ctx.converted
-					if c.kind === kind
-						if isnothing(where)
-							push!(result.args, Meta.parse(c.expr))
-						else
-							if !isnothing(c.decl)
-								println(io, (kind === :atload ? '\t' : ""), "# ", CodeLocation(c.decl))
-							end
-							println(io, (kind === :atload ? '\t' : ""), c.expr)
-						end
-					end
-				end
-				
-				if kind === :atload
-					if isnothing(where)
-						expr = "end"
-						result = quote
-							@cbindings $(libs...) begin
-								$(result)
-							end
-						end
-					else
-						expr = "end"
-						isempty(libs) || println(io, expr)
-					end
-				end
-			end
-			
-			if isnothing(where)
-				f(nothing)
-			else
-				open(f, joinpath(where, "$(prefix)$(kind).jl"), "w+")
-			end
-		end
-		
-		return isnothing(where) ? result : nothing
+		return cvts
 	end
 	
 	
 	
-	function _convert(ctx::ConverterContext, tu::TranslationUnit)
-		root = getcursor(tu)
-		
-		for decl in children(root)
-			if decl isa CLMacroInstantiation
-				# macroUse = MacroUse(spelling(decl), Interval(decl))
-				# push!(ctx.macroUses, macroUse)
-			elseif ctx.filt(decl)
-				_convert(ctx, decl)
-			end
-		end
-	end
-	
-	_convert(ctx::ConverterContext, decl) = @warn "Not wrapping $(decl)"
-	_convert(ctx::ConverterContext, decl::CLLastPreprocessing) = nothing
-	
-	
+	include("names.jl")
 	include("types.jl")
+	include("fields.jl")
 	include("functions.jl")
-	include("variables.jl")
-	include("macros.jl")
-	include("code.jl")
+	include("comments.jl")
+	include("generate.jl")
 end
