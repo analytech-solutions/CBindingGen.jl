@@ -68,14 +68,15 @@ using CBindingGen
 					E1_3 = (@Cuint)(2)
 				}""", "E1", "E1_1", "E1_2", "E1_3")
 			
+			culong = Sys.iswindows() ? "@Culonglong" : "@Culong"
 			check("""
 				@cenum E2 {
-					E2_1 = (@Culong)(1)
-					E2_2 = (@Culong)(1)
-					E2_3 = (@Culong)(11)
-					E2_4 = (@Culong)(0)
-					E2_5 = (@Culong)(4294967295)
-					E2_6 = (@Culong)(281474976710655)
+					E2_1 = ($(culong))(1)
+					E2_2 = ($(culong))(1)
+					E2_3 = ($(culong))(11)
+					E2_4 = ($(culong))(0)
+					E2_5 = ($(culong))(4294967295)
+					E2_6 = ($(culong))(281474976710655)
 				}""", "E2", "E2_1", "E2_2", "E2_3", "E2_4", "E2_5", "E2_6")
 		end
 		
