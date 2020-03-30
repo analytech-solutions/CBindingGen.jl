@@ -130,7 +130,7 @@ module CBindingGen
 	convert_header(func::Function, header::String; kwargs...) = convert_headers(func, [header]; kwargs...)
 	function convert_headers(func::Function, headers::Vector{String}; args::Vector{String} = String[])
 		args = vcat(args, [
-			"-isystem", joinpath(dirname(LIBCLANG_PATH), "clang", LIBCLANG_VERSION, "include"),
+			"-isystem", joinpath(dirname(dirname(LIBCLANG_PATH)), "lib", "clang", LIBCLANG_VERSION, "include"),
 		])
 		
 		return mktempdir() do dir
