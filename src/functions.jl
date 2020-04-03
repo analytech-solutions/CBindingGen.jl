@@ -29,9 +29,6 @@ function convert_function(cursor::LibClang.CXCursor, indent::Int)
 		cvt = convert_decl(decl, indent)
 		merge_comments!(comments, cvt.comments)
 		
-		if num > 1 && startswith(cvt.expr, '@') && !(endswith(argPre, "(") && startswith(argPost, ")")) && !(endswith(argPre, "{") && startswith(argPost, "}"))
-			(argPre, argPost) = (argPre*"(", ")"*argPost)
-		end
 		return "$(argName)::$(argPre)$(cvt.expr)$(argPost)"
 	end
 	Bool(LibClang.clang_Cursor_isVariadic(cursor)) && push!(args, "var\"?vararg?\"...")
