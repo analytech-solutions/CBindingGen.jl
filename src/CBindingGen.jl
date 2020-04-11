@@ -1,12 +1,24 @@
 module CBindingGen
-	include(joinpath(dirname(@__DIR__), "deps", "deps.jl"))
+	import LLVM_jll
+	
+	
+	const LIBCLANG_PATH = LLVM_jll.libclang_path
+	const LIBCLANG_VERSION = let
+		dir = joinpath(dirname(dirname(LIBCLANG_PATH)), "lib", "clang")
+		entries = readdir(dir)
+		ind = findfirst(x -> !isnothing(match(r"^\d+\.\d+\.\d+$", x)) && isdir(joinpath(dir, x)), entries)
+		isnothing(ind) && error("Failed to determine the version of libclang")
+		entries[ind]
+	end
+	
+	
 	baremodule LibClang
-		using CBinding: @macros
-		@macros
+		using CBinding: 𝐣𝐥
+		using ..CBindingGen: LIBCLANG_PATH, LIBCLANG_VERSION
 		
-		const size_t = @Csize_t
+		const size_t = 𝐣𝐥.Csize_t
 		
-		@include(@CBinding().joinpath(@CBinding().dirname(@CBinding().@__DIR__), "deps", "libclang.jl"))
+		𝐣𝐥.Base.include((𝐣𝐥.@__MODULE__), 𝐣𝐥.joinpath(𝐣𝐥.dirname(𝐣𝐥.@__DIR__), "deps", "libclang-$(LIBCLANG_VERSION).jl"))
 	end
 	
 	

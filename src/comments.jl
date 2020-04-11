@@ -53,7 +53,7 @@ function Markdown.MD(cxcomment::LibClang.CXComment)
 			cmd = _string(LibClang.clang_BlockCommandComment_getCommandName, child)
 			if cmd == "brief"
 				push!(contents, para)
-			elseif cmd == "returns"
+			elseif cmd == "returns" || cmd == "return"
 				if !hasReturns
 					hasReturns = true
 					
@@ -73,7 +73,7 @@ function Markdown.MD(cxcomment::LibClang.CXComment)
 					push!(contents, Markdown.List(para))
 				end
 			else
-				error("Unhandled block-command comment $(cmd)")
+				@warn "Unhandled block-command comment $(cmd)"
 			end
 		elseif kind == LibClang.CXComment_ParamCommand
 			if !hasParams
@@ -164,7 +164,7 @@ function _addInlineCommand(contents, cxcomment)
 			push!(contents, text)
 		end
 	else
-		error("Unhandled inline-command comment $(cmd)")
+		@warn "Unhandled inline-command comment $(cmd)"
 	end
 end
 
