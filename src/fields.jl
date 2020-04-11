@@ -1,6 +1,6 @@
 
 function convert_fields(coalesced::Vector{<:LibClang.CXCursor}, indent::Int, func::Union{Function, Nothing} = nothing)
-	comments = Dict{String, String}()
+	comments = Dict{String, Comment}()
 	common = nothing
 	expr = nothing
 	flds = map(coalesced) do fld

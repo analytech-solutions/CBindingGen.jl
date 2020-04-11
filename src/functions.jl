@@ -23,7 +23,7 @@ function convert_function(cursor::LibClang.CXCursor, indent::Int)
 		elseif decl.kind == LibClang.CXCursor_UnionDecl && decl in arg
 			convert_decl = convert_union
 		else
-			convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, String}())
+			convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, Comment}())
 		end
 		
 		cvt = convert_decl(decl, indent)

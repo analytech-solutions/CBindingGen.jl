@@ -11,6 +11,7 @@ module CBindingGen
 	
 	
 	using CBinding
+	import Markdown
 	
 	
 	export LibClang
@@ -65,9 +66,9 @@ module CBindingGen
 	
 	Base.isless(a::CodeLocation, b::CodeLocation) = a.file == b.file && (a.line < b.line || (a.line == b.line && a.col < b.col))
 	
-	function Base.show(io::IO, cl::CodeLocation)
-		file = !startswith(relpath(cl.file), "../") ? "./$(relpath(cl.file))" : !startswith(relpath(cl.file, homedir()), "../") ? "~/$(relpath(cl.file, homedir()))" : cl.file
-		print(io, "$(file):$(cl.line):$(cl.col)")
+	function Base.string(cl::CodeLocation; relto::String = ".")
+		file = !startswith(relpath(cl.file, relto), "../") ? "./$(relpath(cl.file, relto))" : !startswith(relpath(cl.file, homedir()), "../") ? "~/$(relpath(cl.file, homedir()))" : cl.file
+		return "$(file):$(cl.line):$(cl.col)"
 	end
 	
 	
@@ -120,9 +121,27 @@ module CBindingGen
 	end
 	
 	
+	struct Comment
+		md::Union{Markdown.MD, Nothing}
+		locs::Vector{CodeLocation}
+	end
+	
+	
+	function Base.string(comment::Comment; expr::String = "", relto::String = ".")
+		contents = []
+		isempty(expr) || push!(contents, Markdown.Code(expr))
+		isnothing(comment.md) || append!(contents, comment.md.content)
+		push!(contents, Markdown.Header(length(comment.locs) > 1 ? "References" : "Reference", 2))
+		for loc in comment.locs
+			push!(contents, Markdown.Paragraph(Markdown.Link("$(basename(loc.file)):$(loc.line)", string(loc, relto = relto))))
+		end
+		return string(Markdown.MD(contents))
+	end
+	
+	
 	struct Converted
 		expr::String
-		comments::Dict{String, String}
+		comments::Dict{String, Comment}
 	end
 	
 	

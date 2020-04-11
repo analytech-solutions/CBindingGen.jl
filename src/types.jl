@@ -21,7 +21,7 @@ end
 
 function convert_enum(cursor::LibClang.CXCursor, indent::Int)
 	name     = convert_name(cursor)
-	comments = Dict{String, String}(convert_comment(cursor, name))
+	comments = Dict{String, Comment}(convert_comment(cursor, name))
 	
 	if !Bool(LibClang.clang_isCursorDefinition(cursor))
 		expr = "𝐣𝐥.@cenum $(name)"
@@ -81,7 +81,7 @@ convert_union(cursor::LibClang.CXCursor, indent::Int) = convert_aggregate(cursor
 function convert_aggregate(cursor::LibClang.CXCursor, kind::Symbol, indent::Int)
 	kind in (:struct, :union) || error("Unknown aggregate type $(kind)")
 	name     = convert_name(cursor)
-	comments = Dict{String, String}(convert_comment(cursor, name))
+	comments = Dict{String, Comment}(convert_comment(cursor, name))
 	
 	if !Bool(LibClang.clang_isCursorDefinition(cursor))
 		expr = "𝐣𝐥.@c$(kind) $(name)"
@@ -126,7 +126,7 @@ function convert_nested_type(typ::LibClang.CXType, cursor::LibClang.CXCursor, in
 	elseif decl.kind == LibClang.CXCursor_UnionDecl && decl in cursor && !(cursor in decl)
 		convert_decl = convert_union
 	else
-		return Converted(convert_name(typ), Dict{String, String}())
+		return Converted(convert_name(typ), Dict{String, Comment}())
 	end
 	return convert_decl(decl, indent)
 end
@@ -135,7 +135,7 @@ end
 
 function convert_type(cursor::LibClang.CXCursor, typ::LibClang.CXType, indent::Int)
 	(pre, post) = ("", "")
-	comments = Dict{String, String}()
+	comments = Dict{String, Comment}()
 	
 	if typ.kind in (
 		LibClang.CXType_Bool,
@@ -195,7 +195,7 @@ function convert_type(cursor::LibClang.CXCursor, typ::LibClang.CXType, indent::I
 			elseif decl.kind == LibClang.CXCursor_UnionDecl && decl in cursor
 				convert_decl = convert_union
 			else
-				convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, String}())
+				convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, Comment}())
 			end
 			
 			cvt = convert_decl(decl, indent)
