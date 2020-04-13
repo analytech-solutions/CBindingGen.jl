@@ -63,11 +63,10 @@ function convert_fields(coalesced::Vector{<:LibClang.CXCursor}, indent::Int, fun
 	
 	if length(flds) == 1
 		(fld, jlname, pre, post) = flds[1]
-		if fld.kind == LibClang.CXCursor_FunctionDecl
-			colons = ""
-		else
-			colons = "::"
+		if startswith(expr, "𝐣𝐥.@") && endswith(pre, '{') && startswith(post, ',')
+			expr = "($(expr))"
 		end
+		colons = fld.kind == LibClang.CXCursor_FunctionDecl ? "" : "::"
 		expr = "$(jlname)$(colons)$(pre)$(expr)$(post)"
 	else
 		flds = map(flds) do (fld, jlname, pre, post)

@@ -30,437 +30,437 @@ using CBindingGen
 	
 	@testset "converted" begin
 		@testset "simple typedefs" begin
-			check("@ctypedef T1 @Cvoid", "T1")
-			check("@ctypedef T2 T1", "T2")
+			check("𝐣𝐥.@ctypedef T1 𝐣𝐥.Cvoid", "T1")
+			check("𝐣𝐥.@ctypedef T2 T1", "T2")
 			
-			check("@ctypedef T3 @Cchar", "T3")
-			check("@ctypedef T4 @Cshort", "T4")
-			check("@ctypedef T5 @Cint", "T5")
-			check("@ctypedef T6 @Clong", "T6")
-			check("@ctypedef T7 @Clonglong", "T7")
+			check("𝐣𝐥.@ctypedef T3 𝐣𝐥.Cchar", "T3")
+			check("𝐣𝐥.@ctypedef T4 𝐣𝐥.Cshort", "T4")
+			check("𝐣𝐥.@ctypedef T5 𝐣𝐥.Cint", "T5")
+			check("𝐣𝐥.@ctypedef T6 𝐣𝐥.Clong", "T6")
+			check("𝐣𝐥.@ctypedef T7 𝐣𝐥.Clonglong", "T7")
 			
-			check("@ctypedef T8 @Cchar", "T8")
-			check("@ctypedef T9 @Cshort", "T9")
-			check("@ctypedef T10 @Cint", "T10")
-			check("@ctypedef T11 @Clong", "T11")
-			check("@ctypedef T12 @Clonglong", "T12")
+			check("𝐣𝐥.@ctypedef T8 𝐣𝐥.Cchar", "T8")
+			check("𝐣𝐥.@ctypedef T9 𝐣𝐥.Cshort", "T9")
+			check("𝐣𝐥.@ctypedef T10 𝐣𝐥.Cint", "T10")
+			check("𝐣𝐥.@ctypedef T11 𝐣𝐥.Clong", "T11")
+			check("𝐣𝐥.@ctypedef T12 𝐣𝐥.Clonglong", "T12")
 			
-			check("@ctypedef T13 @Cuchar", "T13")
-			check("@ctypedef T14 @Cushort", "T14")
-			check("@ctypedef T15 @Cuint", "T15")
-			check("@ctypedef T16 @Culong", "T16")
-			check("@ctypedef T17 @Culonglong", "T17")
+			check("𝐣𝐥.@ctypedef T13 𝐣𝐥.Cuchar", "T13")
+			check("𝐣𝐥.@ctypedef T14 𝐣𝐥.Cushort", "T14")
+			check("𝐣𝐥.@ctypedef T15 𝐣𝐥.Cuint", "T15")
+			check("𝐣𝐥.@ctypedef T16 𝐣𝐥.Culong", "T16")
+			check("𝐣𝐥.@ctypedef T17 𝐣𝐥.Culonglong", "T17")
 			
-			check("@ctypedef T18 @Cfloat", "T18")
-			check("@ctypedef T19 @Cdouble", "T19")
-			check("@ctypedef T20 @Clongdouble", "T20")
+			check("𝐣𝐥.@ctypedef T18 𝐣𝐥.Cfloat", "T18")
+			check("𝐣𝐥.@ctypedef T19 𝐣𝐥.Cdouble", "T19")
+			check("𝐣𝐥.@ctypedef T20 𝐣𝐥.Clongdouble", "T20")
 			
-			check("@ctypedef T21 (@Complex){@Cfloat}", "T21")
-			check("@ctypedef T22 (@Complex){@Cdouble}", "T22")
-			check("@ctypedef T23 (@Complex){@Clongdouble}", "T23")
+			check("𝐣𝐥.@ctypedef T21 𝐣𝐥.Complex{𝐣𝐥.Cfloat}", "T21")
+			check("𝐣𝐥.@ctypedef T22 𝐣𝐥.Complex{𝐣𝐥.Cdouble}", "T22")
+			check("𝐣𝐥.@ctypedef T23 𝐣𝐥.Complex{𝐣𝐥.Clongdouble}", "T23")
 		end
 		
 		@testset "enums" begin
 			check("""
-				@cenum E1 {
-					E1_1 = (@Cuint)(0)
-					E1_2 = (@Cuint)(1)
-					E1_3 = (@Cuint)(2)
+				𝐣𝐥.@cenum E1 {
+					E1_1 = 𝐣𝐥.Cuint(0)
+					E1_2 = 𝐣𝐥.Cuint(1)
+					E1_3 = 𝐣𝐥.Cuint(2)
 				}""", "E1", "E1_1", "E1_2", "E1_3")
 			
-			culong = Sys.iswindows() ? "@Culonglong" : "@Culong"
+			culong = Sys.iswindows() ? "𝐣𝐥.Culonglong" : "𝐣𝐥.Culong"
 			check("""
-				@cenum E2 {
-					E2_1 = ($(culong))(1)
-					E2_2 = ($(culong))(1)
-					E2_3 = ($(culong))(11)
-					E2_4 = ($(culong))(0)
-					E2_5 = ($(culong))(4294967295)
-					E2_6 = ($(culong))(281474976710655)
+				𝐣𝐥.@cenum E2 {
+					E2_1 = $(culong)(1)
+					E2_2 = $(culong)(1)
+					E2_3 = $(culong)(11)
+					E2_4 = $(culong)(0)
+					E2_5 = $(culong)(4294967295)
+					E2_6 = $(culong)(281474976710655)
 				}""", "E2", "E2_1", "E2_2", "E2_3", "E2_4", "E2_5", "E2_6")
 		end
 		
 		@testset "structs" begin
 			check("""
-				@cstruct S1 { }""", "S1")
+				𝐣𝐥.@cstruct S1 { }""", "S1")
 			
 			check("""
-				@cstruct S2 {
-					i::@Cint
+				𝐣𝐥.@cstruct S2 {
+					i::𝐣𝐥.Cint
 				}""", "S2")
 			
 			check("""
-				@cstruct S3 {
+				𝐣𝐥.@cstruct S3 {
 					s::S1
 				}""", "S3")
 			
 			check("""
-				@cstruct S4 {
-					@cstruct {
-						i::@Cint
+				𝐣𝐥.@cstruct S4 {
+					𝐣𝐥.@cstruct {
+						i::𝐣𝐥.Cint
 						s::S3
 					}
 				}""", "S4")
 			
 			check("""
-				@cstruct S5 {
-					s::@cstruct {
-						i::@Cint
+				𝐣𝐥.@cstruct S5 {
+					s::𝐣𝐥.@cstruct {
+						i::𝐣𝐥.Cint
 						s::S3
 					}
 				}""", "S5")
 			
 			check("""
-				@cstruct S6 {
-					(s, s1)::@cstruct S7 {
-						i::@Cint
+				𝐣𝐥.@cstruct S6 {
+					(s, s1)::𝐣𝐥.@cstruct S7 {
+						i::𝐣𝐥.Cint
 						s::S3
 					}
-					i::@Cint
+					i::𝐣𝐥.Cint
 					s2::S7
 				}""", "S6", "S7")
 			
 			check("""
-				@cstruct S8 {
+				𝐣𝐥.@cstruct S8 {
 					s::S7
 				}""", "S8")
 			
 			check("""
-				@cstruct S9 {
-					(s1, s2)::@cstruct {
-						i::@Cint
+				𝐣𝐥.@cstruct S9 {
+					(s1, s2)::𝐣𝐥.@cstruct {
+						i::𝐣𝐥.Cint
 					}
 				}""", "S9")
 			
 			check("""
-				@cstruct S10 {
-					@cstruct S11 {
-						i::@Cint
+				𝐣𝐥.@cstruct S10 {
+					𝐣𝐥.@cstruct S11 {
+						i::𝐣𝐥.Cint
 					}
 				}""", "S10", "S11")
 			
 			check("""
-				@cstruct S12 {
-					(s1, s2::(@Ptr){_}, s3::(@Ptr){(@Ptr){_}}, s4::(@Ptr){(@Ptr){(@Ptr){_}}})::@cstruct {
-						i::@Cint
+				𝐣𝐥.@cstruct S12 {
+					(s1, s2::𝐣𝐥.Ptr{_}, s3::𝐣𝐥.Ptr{𝐣𝐥.Ptr{_}}, s4::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Ptr{_}}})::𝐣𝐥.@cstruct {
+						i::𝐣𝐥.Cint
 					}
 				}""", "S12")
 			
 			check("""
-				@cstruct S13 {
-					s::(@Ptr){@cstruct {
-						i::@Cint
+				𝐣𝐥.@cstruct S13 {
+					s::𝐣𝐥.Ptr{𝐣𝐥.@cstruct {
+						i::𝐣𝐥.Cint
 					}}
 				}""", "S13")
 			
 			check("""
-			@cstruct S14 {
-				(s1, s2::(@Ptr){_}, s3::(_)[2], s4::((_)[2])[5], s5::(((@Ptr){_})[2])[5], s6::(((@Ptr){_})[2])[])::@cstruct {
-					i::@Cint
+			𝐣𝐥.@cstruct S14 {
+				(s1, s2::𝐣𝐥.Ptr{_}, s3::_[2], s4::(_[2])[5], s5::(𝐣𝐥.Ptr{_}[2])[5], s6::(𝐣𝐥.Ptr{_}[2])[])::𝐣𝐥.@cstruct {
+					i::𝐣𝐥.Cint
 				}
 			}""", "S14")
 			
 			check("""
-				@cstruct S15 {
-					s::(@cstruct {
-						i::@Cint
-					})[2]
+				𝐣𝐥.@cstruct S15 {
+					s::𝐣𝐥.@cstruct {
+						i::𝐣𝐥.Cint
+					}[2]
 				}""", "S15")
 			
 			check("""
-				@cstruct S16 {
-					i::@Cint
-					u::@Cuint
+				𝐣𝐥.@cstruct S16 {
+					i::𝐣𝐥.Cint
+					u::𝐣𝐥.Cuint
 				}""", "S16")
 			
 			check("""
-				@cstruct S17 {
-					c::@Cchar
-					i::@Cint
+				𝐣𝐥.@cstruct S17 {
+					c::𝐣𝐥.Cchar
+					i::𝐣𝐥.Cint
 				}""", "S17")
 			
 			check("""
-				@cstruct S18 {
-					c::@Cchar
-					i::@Cint
+				𝐣𝐥.@cstruct S18 {
+					c::𝐣𝐥.Cchar
+					i::𝐣𝐥.Cint
 				} __packed__""", "S18")
 			
 			check("""
-				@cstruct S19 {
-					@cstruct {
-						c::@Cchar
+				𝐣𝐥.@cstruct S19 {
+					𝐣𝐥.@cstruct {
+						c::𝐣𝐥.Cchar
 					} __packed__
-					@cstruct {
-						i::@Cint
+					𝐣𝐥.@cstruct {
+						i::𝐣𝐥.Cint
 					} __packed__
 				}""", "S19")
 			
 			check("""
-				@cstruct S20 {
-					@cstruct {
-						c::@Cchar
+				𝐣𝐥.@cstruct S20 {
+					𝐣𝐥.@cstruct {
+						c::𝐣𝐥.Cchar
 					}
-					@cstruct {
-						i::@Cint
+					𝐣𝐥.@cstruct {
+						i::𝐣𝐥.Cint
 					}
 				} __packed__""", "S20")
 			
 			check("""
-				@cstruct S21 {
-					f::(@Ptr){(@Cfunction){(@Cvoid), (@Tuple){}, (@CDECL)}}
+				𝐣𝐥.@cstruct S21 {
+					f::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{}, 𝐣𝐥.CDECL}}
 				}""", "S21")
 			
 			check("""
-				@cstruct S22 {
-					f::(@Ptr){(@Cfunction){((@Ptr){(@Cfunction){(@cunion {
-						i::@Cint
-						f::@Cfloat
-						@cstruct {
-							j::@Cint
+				𝐣𝐥.@cstruct S22 {
+					f::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cunion {
+						i::𝐣𝐥.Cint
+						f::𝐣𝐥.Cfloat
+						𝐣𝐥.@cstruct {
+							j::𝐣𝐥.Cint
 						}
-					}), (@Tuple){(@Cint), (@Cfloat)}, (@CDECL)}}), (@Tuple){(S22), (@Cint)}, (@CDECL)}}
+					}), 𝐣𝐥.Tuple{𝐣𝐥.Cint, 𝐣𝐥.Cfloat}, 𝐣𝐥.CDECL}}, 𝐣𝐥.Tuple{S22, 𝐣𝐥.Cint}, 𝐣𝐥.CDECL}}
 				}""", "S22")
 			
 			check("""
-				@cstruct S23 {
-					f::(@Ptr){(@Cfunction){(@Cint), (@Tuple){((@Ptr){(@Cconst)(@Cchar)}), (@Vararg)}, (@CDECL)}}
+				𝐣𝐥.@cstruct S23 {
+					f::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cint, 𝐣𝐥.Tuple{𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, 𝐣𝐥.Vararg}, 𝐣𝐥.CDECL}}
 				}""", "S23")
 			
 			check("""
-				@cstruct S24""", "S24")
+				𝐣𝐥.@cstruct S24""", "S24")
 			
 			check("""
-				@cstruct _S24""", "_S24")
+				𝐣𝐥.@cstruct _S24""", "_S24")
 			
 			check("""
-				@cstruct S25 {
-					s1::(@Ptr){S24}
-					s2::(@Ptr){_S24}
-					s3::(@Ptr){S25}
+				𝐣𝐥.@cstruct S25 {
+					s1::𝐣𝐥.Ptr{S24}
+					s2::𝐣𝐥.Ptr{_S24}
+					s3::𝐣𝐥.Ptr{S25}
 				}""", "S25")
 			
 			check("""
-				@cstruct S24 {
-					s1::(@Ptr){S24}
-					s2::(@Ptr){_S24}
+				𝐣𝐥.@cstruct S24 {
+					s1::𝐣𝐥.Ptr{S24}
+					s2::𝐣𝐥.Ptr{_S24}
 					s3::S25
 				}""", "S24")
 			
 			check("""
-				@cstruct S26 {
-					(e1, e2::(@Ptr){_})::@cenum E3 {
-						E3_1 = (@Cuint)(0)
+				𝐣𝐥.@cstruct S26 {
+					(e1, e2::𝐣𝐥.Ptr{_})::𝐣𝐥.@cenum E3 {
+						E3_1 = 𝐣𝐥.Cuint(0)
 					}
 					e3::E3
-					(e4, e5::(@Ptr){_})::E1
+					(e4, e5::𝐣𝐥.Ptr{_})::E1
 				}""", "S26", "E3", "E3_1")
 		end
 		
 		@testset "typedefs" begin
 			check("""
-				@ctypedef S27 @cstruct S27_ {
-					i::@Cint
+				𝐣𝐥.@ctypedef S27 𝐣𝐥.@cstruct S27_ {
+					i::𝐣𝐥.Cint
 				}""", "S27", "S27_")
 			
 			check("""
-				@ctypedef S28 @cstruct {
-					i::@Cint
+				𝐣𝐥.@ctypedef S28 𝐣𝐥.@cstruct {
+					i::𝐣𝐥.Cint
 				}""", "S28")
 			
 			check("""
-				@cstruct S29""", "S29")
+				𝐣𝐥.@cstruct S29""", "S29")
 			
 			check("""
-				@ctypedef S29_ S29""", "S29_")
+				𝐣𝐥.@ctypedef S29_ S29""", "S29_")
 			
 			check("""
-				@ctypedef S29_ptr (@Ptr){S29}""", "S29_ptr")
+				𝐣𝐥.@ctypedef S29_ptr 𝐣𝐥.Ptr{S29}""", "S29_ptr")
 			
 			check("""
-				@cstruct S29 {
-					s1::(@Ptr){S29_}
+				𝐣𝐥.@cstruct S29 {
+					s1::𝐣𝐥.Ptr{S29_}
 					s2::S29_ptr
 				}""", "S29")
 			
 			check("""
-				@cstruct S30""", "S30")
+				𝐣𝐥.@cstruct S30""", "S30")
 			
 			check("""
-				@ctypedef F1 (@Ptr){(@Cfunction){(@Cvoid), (@Tuple){(S30)}, (@CDECL)}}""", "F1")
+				𝐣𝐥.@ctypedef F1 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{S30}, 𝐣𝐥.CDECL}}""", "F1")
 			
 			check("""
-				@cstruct S30 {
-					(i, j, k)::@Cint
+				𝐣𝐥.@cstruct S30 {
+					(i, j, k)::𝐣𝐥.Cint
 					f::F1
 				}""", "S30")
 			
 			check("""
-				@ctypedef F2 (@Ptr){(@Cfunction){(@cstruct F2ret {
-					i::@Cint
-					f::@Cfloat
-				}), (@Tuple){(@cunion {
-					i::@Cint
-					f::@Cfloat
-				})}, (@CDECL)}}""", "F2", "F2ret")
+				𝐣𝐥.@ctypedef F2 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cstruct F2ret {
+					i::𝐣𝐥.Cint
+					f::𝐣𝐥.Cfloat
+				}), 𝐣𝐥.Tuple{𝐣𝐥.@cunion {
+					i::𝐣𝐥.Cint
+					f::𝐣𝐥.Cfloat
+				}}, 𝐣𝐥.CDECL}}""", "F2", "F2ret")
 			
 			check(true, """
-				@ctypedef F3 ((@Ptr){(@Cfunction){(@cstruct F3ret {
-					i::@Cint
-					f::@Cfloat
-				}), (@Tuple){((@cunion {
-					i::@Cint
-					f::@Cfloat
-				})[1]), ((@Ptr){F3ret})}, (@CDECL)}})[3]""", "F3", "F3ret")
+				𝐣𝐥.@ctypedef F3 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cstruct F3ret {
+					i::𝐣𝐥.Cint
+					f::𝐣𝐥.Cfloat
+				}), 𝐣𝐥.Tuple{(𝐣𝐥.@cunion {
+					i::𝐣𝐥.Cint
+					f::𝐣𝐥.Cfloat
+				}[1]), 𝐣𝐥.Ptr{F3ret}}, 𝐣𝐥.CDECL}}[3]""", "F3", "F3ret")
 			
 			check("""
-				@cstruct _S31""", "_S31")
+				𝐣𝐥.@cstruct _S31""", "_S31")
 			
 			check("""
-				@ctypedef S31 _S31""", "S31")
+				𝐣𝐥.@ctypedef S31 _S31""", "S31")
 			
 			check("""
-				@cstruct S32 {
-					s::(@Ptr){S31}
+				𝐣𝐥.@cstruct S32 {
+					s::𝐣𝐥.Ptr{S31}
 				}""", "S32")
 			
 			check("""
-				@ctypedef S33 @cstruct S33 {
-					i::@Cint
+				𝐣𝐥.@ctypedef S33 𝐣𝐥.@cstruct S33 {
+					i::𝐣𝐥.Cint
 				}""", "S33")
 			
 			check("""
-				@ctypedef S34 @cstruct {
-					i::(@Cconst)(@Cint)
-					p::(@Ptr){(@Cconst)(@Cint)}
-					cp::(@Cconst)((@Ptr){(@Cconst)(@Cint)})
-					s::(@Ptr){(@Cconst)(S33)}
-					cs::(@Cconst)((@Ptr){(@Cconst)(S33)})
+				𝐣𝐥.@ctypedef S34 𝐣𝐥.@cstruct {
+					i::𝐣𝐥.Cconst(𝐣𝐥.Cint)
+					p::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}
+					cp::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)})
+					s::𝐣𝐥.Ptr{𝐣𝐥.Cconst(S33)}
+					cs::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(S33)})
 				}""", "S34")
 			
 			check("""
-				@ctypedef S35 @cstruct {
-					(cp::(@Ptr){(@Cconst)(_)}, p::(@Ptr){(@Cconst)(_)}, s::(@Cconst)(_))::@cstruct {
-						i::@Cint
+				𝐣𝐥.@ctypedef S35 𝐣𝐥.@cstruct {
+					(cp::𝐣𝐥.Ptr{𝐣𝐥.Cconst(_)}, p::𝐣𝐥.Ptr{𝐣𝐥.Cconst(_)}, s::𝐣𝐥.Cconst(_))::𝐣𝐥.@cstruct {
+						i::𝐣𝐥.Cint
 					}
 				}""", "S35")
 			
 			check("""
-				@ctypedef S36 @cstruct {
-					length::@Cint
-					data::(@Cchar)[]
+				𝐣𝐥.@ctypedef S36 𝐣𝐥.@cstruct {
+					length::𝐣𝐥.Cint
+					data::𝐣𝐥.Cchar[]
 				}""", "S36")
 			
 			check("""
-				@cstruct S37 {
-					(x, y::(@Ptr){(@Cfunction){(_), (@Tuple){}, (@CDECL)}}, z::(@Ptr){(@Cfunction){(_), (@Tuple){(@Cint)}, (@CDECL)}})::@Cint
+				𝐣𝐥.@cstruct S37 {
+					(x, y::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{_, 𝐣𝐥.Tuple{}, 𝐣𝐥.CDECL}}, z::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{_, 𝐣𝐥.Tuple{𝐣𝐥.Cint}, 𝐣𝐥.CDECL}})::𝐣𝐥.Cint
 				}""", "S37")
 			
 			check("""
-				@ctypedef E4 @cenum E4_ {
-					E4_1 = (@Cuint)(0)
+				𝐣𝐥.@ctypedef E4 𝐣𝐥.@cenum E4_ {
+					E4_1 = 𝐣𝐥.Cuint(0)
 				}""", "E4", "E4_", "E4_1")
 			
 			check("""
-				@ctypedef E5 @cenum {
-					E5_1 = (@Cuint)(0)
+				𝐣𝐥.@ctypedef E5 𝐣𝐥.@cenum {
+					E5_1 = 𝐣𝐥.Cuint(0)
 				}""", "E5", "E5_1")
 			
 			check("""
-				@ctypedef E6 @cenum {
-					E6_0 = (@Cuchar)(0)
-					E6_1 = (@Cuchar)(1)
+				𝐣𝐥.@ctypedef E6 𝐣𝐥.@cenum {
+					E6_0 = 𝐣𝐥.Cuchar(0)
+					E6_1 = 𝐣𝐥.Cuchar(1)
 				} __packed__""", "E6", "E6_0", "E6_1")
 			
 			check("""
-				@ctypedef T24 (@Cint)[2]""", "T24")
+				𝐣𝐥.@ctypedef T24 𝐣𝐥.Cint[2]""", "T24")
 			
 			check("""
-				@ctypedef T25 ((@Cint)[2])[5]""", "T25")
+				𝐣𝐥.@ctypedef T25 (𝐣𝐥.Cint[2])[5]""", "T25")
 			
 			check("""
-				@ctypedef T26 ((@Ptr){(@Cconst)(@Cint)})[2]""", "T26")
+				𝐣𝐥.@ctypedef T26 𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}[2]""", "T26")
 			
 			check("""
-				@ctypedef T27 (@cstruct {
-					i::@Cint
-				})[3]""", "T27")
+				𝐣𝐥.@ctypedef T27 𝐣𝐥.@cstruct {
+					i::𝐣𝐥.Cint
+				}[3]""", "T27")
 		end
 		
 		@testset "variables" begin
 			check("""
-				@cextern g1::(@Cconst)(@Cint)""", "g1")
+				𝐣𝐥.@cextern g1::𝐣𝐥.Cconst(𝐣𝐥.Cint)""", "g1")
 			
 			check("""
-				@cextern g2::(@Cconst)(S24)""", "g2")
+				𝐣𝐥.@cextern g2::𝐣𝐥.Cconst(S24)""", "g2")
 			
 			check("""
-				@cextern g3::(@Cconst)((@Ptr){S24})""", "g3")
+				𝐣𝐥.@cextern g3::𝐣𝐥.Cconst(𝐣𝐥.Ptr{S24})""", "g3")
 			
 			check("""
-				@cextern g4::@Cint""", "g4")
+				𝐣𝐥.@cextern g4::𝐣𝐥.Cint""", "g4")
 			
 			check("""
-				@cextern g5::S24""", "g5")
+				𝐣𝐥.@cextern g5::S24""", "g5")
 			
 			check("""
-				@cextern g6::(@Ptr){S24}""", "g6")
+				𝐣𝐥.@cextern g6::𝐣𝐥.Ptr{S24}""", "g6")
 		end
 		
 		@testset "functions" begin
 			check("""
-				@cextern f1()::@Cvoid""", "f1")
+				𝐣𝐥.@cextern f1()::𝐣𝐥.Cvoid""", "f1")
 			
 			check("""
-				@cextern f2()::@Cvoid""", "f2")
+				𝐣𝐥.@cextern f2()::𝐣𝐥.Cvoid""", "f2")
 			
 			check("""
-				@cextern f3()::@Cint""", "f3")
+				𝐣𝐥.@cextern f3()::𝐣𝐥.Cint""", "f3")
 			
 			check("""
-				@cextern f4(i::@Cint)::@Cvoid""", "f4")
+				𝐣𝐥.@cextern f4(i::𝐣𝐥.Cint)::𝐣𝐥.Cvoid""", "f4")
 			
 			check("""
-				@cextern f5(i::@Cint, var"?vararg?"...)::@Cint""", "f5")
+				𝐣𝐥.@cextern f5(i::𝐣𝐥.Cint, var"?vararg?"...)::𝐣𝐥.Cint""", "f5")
 			
 			check("""
-				@cextern f6(p::(@Ptr){(@Cconst)(@Cchar)})::@Cvoid""", "f6")
+				𝐣𝐥.@cextern f6(p::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cvoid""", "f6")
 			
 			check("""
-				@cextern f7(i1::(@Cint), i2::(@Cint), var"?3?"::(@Cint), var"?4?"::(@Cint), i5::(@Cint))::@Cvoid""", "f7")
+				𝐣𝐥.@cextern f7(i1::𝐣𝐥.Cint, i2::𝐣𝐥.Cint, var"?3?"::𝐣𝐥.Cint, var"?4?"::𝐣𝐥.Cint, i5::𝐣𝐥.Cint)::𝐣𝐥.Cvoid""", "f7")
 			
 			check("""
-				@cextern f8(i1::(@Cint), var"?2?"::(@Cint), _2::(@Cint))::@Cvoid""", "f8")
+				𝐣𝐥.@cextern f8(i1::𝐣𝐥.Cint, var"?2?"::𝐣𝐥.Cint, _2::𝐣𝐥.Cint)::𝐣𝐥.Cvoid""", "f8")
 			
 			check("""
-				@cextern f9(arg::(@Ptr){(@Cfunction){(@Cint), (@Tuple){(@Cint), (@Cint)}, (@CDECL)}})::@Cvoid""", "f9")
+				𝐣𝐥.@cextern f9(arg::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cint, 𝐣𝐥.Tuple{𝐣𝐥.Cint, 𝐣𝐥.Cint}, 𝐣𝐥.CDECL}})::𝐣𝐥.Cvoid""", "f9")
 			
 			check("""
-				@cextern f10()::(@Ptr){(@Cfunction){(@Cint), (@Tuple){(@Cint), (@Cint)}, (@CDECL)}}""", "f10")
+				𝐣𝐥.@cextern f10()::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cint, 𝐣𝐥.Tuple{𝐣𝐥.Cint, 𝐣𝐥.Cint}, 𝐣𝐥.CDECL}}""", "f10")
 			
 			check("""
-				@cextern f11::(@Ptr){(@Cfunction){(@cstruct {
-					i::@Cint
-					f::@Cfloat
-				}), (@Tuple){(@cunion {
-					i::@Cint
-					f::@Cfloat
-				})}, (@CDECL)}}""", "f11")
+				𝐣𝐥.@cextern f11::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cstruct {
+					i::𝐣𝐥.Cint
+					f::𝐣𝐥.Cfloat
+				}), 𝐣𝐥.Tuple{𝐣𝐥.@cunion {
+					i::𝐣𝐥.Cint
+					f::𝐣𝐥.Cfloat
+				}}, 𝐣𝐥.CDECL}}""", "f11")
 			
 			check(true, """
-				@cextern (g8, f12::(@Ptr){(@Cfunction){(_), (@Tuple){(@cunion {
-					i::@Cint
-					j::@Cfloat
-				}), (@cunion N1 {
-					i::@Cint
-					j::@Cfloat
-				}), ((@Ptr){SG1})}, (@CDECL)}}, f13(u::(@cunion {
-					i::@Cint
-					j::@Cfloat
-				}), n::(@cunion N2 {
-					i::@Cint
-					j::@Cfloat
-				}), s::(@Ptr){SG1})::_)::@cstruct SG1 {
-					i::@Cint
+				𝐣𝐥.@cextern (g8, f12::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{_, 𝐣𝐥.Tuple{(𝐣𝐥.@cunion {
+					i::𝐣𝐥.Cint
+					j::𝐣𝐥.Cfloat
+				}[2]), (𝐣𝐥.@cunion N1 {
+					i::𝐣𝐥.Cint
+					j::𝐣𝐥.Cfloat
+				}), 𝐣𝐥.Ptr{SG1}}, 𝐣𝐥.CDECL}}, f13(u::(𝐣𝐥.@cunion {
+					i::𝐣𝐥.Cint
+					j::𝐣𝐥.Cfloat
+				}), n::(𝐣𝐥.@cunion N2 {
+					i::𝐣𝐥.Cint
+					j::𝐣𝐥.Cfloat
+				}), s::𝐣𝐥.Ptr{SG1})::_)::𝐣𝐥.@cstruct SG1 {
+					i::𝐣𝐥.Cint
 				}""", "SG1", "N1", "N2", "f12", "f13", "g8")
 		end
 	end

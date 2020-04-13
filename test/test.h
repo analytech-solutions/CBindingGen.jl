@@ -295,7 +295,7 @@ struct { int i; float f; } (*f11)(union { int i; float f; } x);
 
 struct SG1 {
 	int i;
-} g8, (*f12)(union { int i; float j; } u, union N1 { int i; float j; } n, struct SG1 *s), f13(union { int i; float j; } u, union N2 { int i; float j; } n, struct SG1 *s);
+} g8, (*f12)(union { int i; float j; } u[2], union N1 { int i; float j; } n, struct SG1 *s), f13(union { int i; float j; } u, union N2 { int i; float j; } n, struct SG1 *s);
 
 static void f14(void);
 

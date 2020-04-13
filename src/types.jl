@@ -9,7 +9,11 @@ function convert_typedef(cursor::LibClang.CXCursor, indent::Int)
 	merge_comments!(comments, cvt.comments)
 	merge_comment!(comments, convert_comment(cursor, name))
 	
-	expr = "𝐣𝐥.@ctypedef $(name) $(pre)$(cvt.expr)$(post)"
+	expr = cvt.expr
+	if startswith(expr, "𝐣𝐥.@") && endswith(pre, '{') && startswith(post, ',')
+		expr = "($(expr))"
+	end
+	expr = "𝐣𝐥.@ctypedef $(name) $(pre)$(expr)$(post)"
 	
 	return Converted(
 		expr,
@@ -201,7 +205,11 @@ function convert_type(cursor::LibClang.CXCursor, typ::LibClang.CXType, indent::I
 			cvt = convert_decl(decl, indent)
 			merge_comments!(comments, cvt.comments)
 			
-			return "$(argPre)$(cvt.expr)$(argPost)"
+			expr = "$(argPre)$(cvt.expr)$(argPost)"
+			if startswith(expr, "𝐣𝐥.@") && num > 1
+				expr = "($(expr))"
+			end
+			return expr
 		end
 		Bool(LibClang.clang_isFunctionTypeVariadic(typ)) && push!(args, "𝐣𝐥.Vararg")
 		args = join(args, ", ")

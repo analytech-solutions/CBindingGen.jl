@@ -29,7 +29,11 @@ function convert_function(cursor::LibClang.CXCursor, indent::Int)
 		cvt = convert_decl(decl, indent)
 		merge_comments!(comments, cvt.comments)
 		
-		return "$(argName)::$(argPre)$(cvt.expr)$(argPost)"
+		expr = "$(argPre)$(cvt.expr)$(argPost)"
+		if startswith(expr, "𝐣𝐥.@") && num > 1
+			expr = "($(expr))"
+		end
+		return "$(argName)::$(expr)"
 	end
 	Bool(LibClang.clang_Cursor_isVariadic(cursor)) && push!(args, "var\"?vararg?\"...")
 	args = join(args, ", ")
