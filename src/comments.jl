@@ -73,7 +73,7 @@ function Markdown.MD(cxcomment::LibClang.CXComment)
 					push!(contents, Markdown.List(para))
 				end
 			else
-				@warn "Unhandled block-command comment $(cmd)"
+				@warn "Unhandled block-command comment: $(cmd)"
 			end
 		elseif kind == LibClang.CXComment_ParamCommand
 			if !hasParams
@@ -94,7 +94,7 @@ function Markdown.MD(cxcomment::LibClang.CXComment)
 			text = _string(LibClang.clang_VerbatimLineComment_getText, child)
 			push!(contents, Markdown.Paragraph(text))
 		else
-			error("Unhandled document child $(kind)")
+			error("Unhandled document child: $(kind)")
 		end
 	end
 	
@@ -119,7 +119,7 @@ function Markdown.Paragraph(cxcomment::LibClang.CXComment)
 		elseif kind == LibClang.CXComment_InlineCommand
 			_addInlineCommand(contents, child)
 		else
-			error("Unhandled paragraph child $(kind)")
+			error("Unhandled paragraph child: $(kind)")
 		end
 	end
 	
@@ -140,7 +140,7 @@ function Markdown.Code(cxcomment::LibClang.CXComment)
 			# a line with newlines is probably incorrectly parsed, so only keep before a newline
 			push!(lines, first(split(line, '\n', limit=2)))
 		else
-			error("Unhandled code-block child $(kind)")
+			error("Unhandled code-block child: $(kind)")
 		end
 	end
 	
@@ -164,7 +164,7 @@ function _addInlineCommand(contents, cxcomment)
 			push!(contents, text)
 		end
 	else
-		@warn "Unhandled inline-command comment $(cmd)"
+		@warn "Unhandled inline-command comment: $(cmd)"
 	end
 end
 

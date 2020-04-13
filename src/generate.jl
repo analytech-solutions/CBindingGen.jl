@@ -27,7 +27,7 @@ function generate(io::IO, cvt::Converted, indent::Int; relto::String = ".")
 		
 		comment = """
 		𝐣𝐥.@doc \"\"\"
-		$(rstrip(replace(replace(string(comment, expr = cvt.expr, relto = relto), '\\' => "\\\\"), '\"' => "\\\""), '\n'))
+		$(rstrip(replace(replace(string(comment, expr = (startswith(cvt.expr, "𝐣𝐥.@cextern") ? cvt.expr : ""), relto = relto), '\\' => "\\\\"), '\"' => "\\\""), '\n'))
 		\"\"\" $(name)
 		"""
 		
