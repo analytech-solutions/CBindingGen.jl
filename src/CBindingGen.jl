@@ -43,6 +43,7 @@ module CBindingGen
 	end
 	
 	Base.string(cursor::LibClang.CXCursor) = _string(LibClang.clang_getCursorSpelling, cursor)
+	Base.string(tu::LibClang.CXTranslationUnit, token::LibClang.CXToken) = _string(LibClang.clang_getTokenSpelling, tu, token)
 	
 	function children(cursor::LibClang.CXCursor)
 		Cvisitor = @ccallback function visitor(c::LibClang.CXCursor, p::LibClang.CXCursor, cs::LibClang.CXClientData)::LibClang.CXChildVisitResult
@@ -208,8 +209,8 @@ module CBindingGen
 	function convert_parsed(func::Function, tu::LibClang.CXTranslationUnit)
 		root = LibClang.clang_getTranslationUnitCursor(tu)
 		
-		# TODO: only keep last occurrence of a macro definition
-		cursors = filter(c -> CodeLocation(c).file != "<unknown>" && !(c.kind in (  # remove compiler-internal cursors and pre-processor cursors
+		# remove compiler-internal cursors and pre-processor cursors
+		cursors = filter(c -> CodeLocation(c).file != "<unknown>" && !(c.kind in (
 			LibClang.CXCursor_InclusionDirective,
 			LibClang.CXCursor_MacroDefinition,
 			LibClang.CXCursor_MacroInstantiation,
@@ -228,16 +229,43 @@ module CBindingGen
 				cvt = convert_fields(coal, 0, func)
 				isnothing(cvt) || push!(cvts, cvt)
 			catch
-				@warn "The following exception occurred when converting near $(CodeLocation(coal[1]))"
+				@warn "The following exception occurred when converting near $(string(CodeLocation(coal[1])))"
 				rethrow()
 			end
 		end
+		
+		exports = mapreduce(cvt -> collect(keys(cvt.comments)), vcat, cvts, init = String[])
+		cursors = filter(c -> CodeLocation(c).file != "<unknown>" && c.kind == LibClang.CXCursor_MacroDefinition, children(root))
+		
+		macros = Converted[]
+		names = Dict{String, Int}()
+		for cursor in cursors
+			try
+				func(cursor) || continue
+				
+				cvt = convert_macro(tu, cursor, exports)
+				if !isnothing(cvt)
+					(name, m) = cvt
+					if haskey(names, name)
+						macros[names[name]] = m
+					else
+						push!(macros, m)
+						names[name] = length(macros)
+					end
+				end
+			catch
+				@warn "The following exception occurred when converting macro near $(string(CodeLocation(cursor)))"
+				rethrow()
+			end
+		end
+		append!(cvts, macros)
+		
 		return cvts
 	end
 	
 	
-	
 	include("names.jl")
+	include("macros.jl")
 	include("types.jl")
 	include("fields.jl")
 	include("functions.jl")
