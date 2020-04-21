@@ -1,6 +1,7 @@
 
-function convert_name(x::Union{LibClang.CXCursor, LibClang.CXType})
-	str = string(x)
+convert_name(x::Union{LibClang.CXCursor, LibClang.CXType}) = convert_name(string(x))
+
+function convert_name(str::String)
 	# TODO: some of these are actually safe to use
 	issafe = !(str in (
 		"begin", "let", "quote", "do", "end",
