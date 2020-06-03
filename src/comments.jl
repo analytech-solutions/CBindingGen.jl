@@ -52,6 +52,11 @@ function Markdown.MD(cxcomment::LibClang.CXComment)
 			num = LibClang.clang_BlockCommandComment_getNumArgs(child)
 			cmd = _string(LibClang.clang_BlockCommandComment_getCommandName, child)
 			if cmd == "brief"
+			elseif cmd == "note" || cmd == "warning"
+				para = Markdown.Paragraph(["$(uppercase(cmd)):", para.content...])
+				push!(contents, para)
+			elseif cmd == "sa" || cmd == "see"
+				para = isempty(para.content) ? para : Markdown.Paragraph("See also: [`$(strip(first(para.content)))`](@ref)")
 				push!(contents, para)
 			elseif cmd == "returns" || cmd == "return"
 				if !hasReturns
@@ -118,6 +123,8 @@ function Markdown.Paragraph(cxcomment::LibClang.CXComment)
 			push!(contents, text)
 		elseif kind == LibClang.CXComment_InlineCommand
 			_addInlineCommand(contents, child)
+		elseif kind == LibClang.CXComment_HTMLStartTag || kind == LibClang.CXComment_HTMLEndTag
+			# TODO: handle HTML stuff...
 		else
 			error("Unhandled paragraph child: $(kind)")
 		end
@@ -151,20 +158,17 @@ end
 function _addInlineCommand(contents, cxcomment)
 	num = LibClang.clang_InlineCommandComment_getNumArgs(cxcomment)
 	cmd = _string(LibClang.clang_InlineCommandComment_getCommandName, cxcomment)
-	if cmd == "c" || cmd == "p" || cmd == "available"
-		text = _string(LibClang.clang_InlineCommandComment_getArgText, cxcomment, 0)
-		kind = LibClang.clang_InlineCommandComment_getRenderKind(cxcomment)
-		if kind == LibClang.CXCommentInlineCommandRenderKind_Bold
-			push!(contents, Markdown.Bold(text))
-		elseif kind == LibClang.CXCommentInlineCommandRenderKind_Emphasized
-			push!(contents, Markdown.Italic(text))
-		elseif kind == LibClang.CXCommentInlineCommandRenderKind_Monospaced
-			push!(contents, Markdown.Code(text))  # TODO: maybe need Code(language, text)
-		else
-			push!(contents, text)
-		end
+	
+	text = _string(LibClang.clang_InlineCommandComment_getArgText, cxcomment, 0)
+	kind = LibClang.clang_InlineCommandComment_getRenderKind(cxcomment)
+	if kind == LibClang.CXCommentInlineCommandRenderKind_Bold
+		push!(contents, Markdown.Bold(text))
+	elseif kind == LibClang.CXCommentInlineCommandRenderKind_Emphasized
+		push!(contents, Markdown.Italic(text))
+	elseif kind == LibClang.CXCommentInlineCommandRenderKind_Monospaced
+		push!(contents, Markdown.Code(text))  # TODO: maybe need Code(language, text)
 	else
-		@warn "Unhandled inline-command comment: $(cmd)"
+		push!(contents, text)
 	end
 end
 
