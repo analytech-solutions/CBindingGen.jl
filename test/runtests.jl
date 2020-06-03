@@ -381,9 +381,9 @@ using CBindingGen
 				𝐣𝐥.@ctypedef T26 𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}[2]""", "T26")
 			
 			check("""
-				𝐣𝐥.@ctypedef T27 𝐣𝐥.@cstruct {
+				𝐣𝐥.@ctypedef T27 (𝐣𝐥.@cstruct {
 					i::𝐣𝐥.Cint
-				}[3]""", "T27")
+				})[3]""", "T27")
 		end
 		
 		@testset "variables" begin

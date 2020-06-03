@@ -10,7 +10,10 @@ function convert_typedef(cursor::LibClang.CXCursor, indent::Int)
 	merge_comment!(comments, convert_comment(cursor, name))
 	
 	expr = cvt.expr
-	if startswith(expr, "𝐣𝐥.@") && endswith(pre, '{') && startswith(post, ',')
+	if startswith(expr, "𝐣𝐥.@") && (
+		startswith(post, '[') ||                       # @cstruct {...}[N]
+		(endswith(pre, '{') && startswith(post, ','))  # Cfunction{@cstruct {...}, ...}
+	)
 		expr = "($(expr))"
 	end
 	expr = "𝐣𝐥.@ctypedef $(name) $(pre)$(expr)$(post)"
