@@ -21,6 +21,7 @@ function convert_macro(tu::LibClang.CXTranslationUnit, cursor::LibClang.CXCursor
 	name = convert_name(cursor)
 	expr = nothing
 	deps = Set{String}()
+	tokens = []
 	try
 		Bool(LibClang.clang_Cursor_isMacroFunctionLike(cursor)) && error("Function-like macros are not yet supported")
 		
@@ -31,14 +32,15 @@ function convert_macro(tu::LibClang.CXTranslationUnit, cursor::LibClang.CXCursor
 			expr = e
 		end
 	catch
-		@warn "Unable to convert macro `$(name)`"
+		tokens = isempty(tokens) ? "" : "\n"*join(map(last, tokens), ' ')
+		@warn "Unable to convert macro `$(name)` near $(string(CodeLocation(cursor)))$(tokens)"
 	end
 	isnothing(expr) && return nothing
 	
-	expr = "macro $(name)() return quote $(expr) end end"
+	expr = "macro $(name)() return 𝐣𝐥.esc(quote $(expr) end) end"
 	comments = Dict{String, Comment}(convert_comment(cursor, "@"*name))
 	
-	if isempty(deps) && !(name in exports)
+	if isempty(deps) && !(name in exports)  # if macro has no deps and not yet exported, declare a const
 		expr = "$(expr)\nconst $(name) = (@$(name))"
 		push!(comments, convert_comment(cursor, name))
 	end
@@ -53,7 +55,7 @@ function convert_macro_def(deps::Set{String}, tokens::Vector{<:Pair}, range::Uni
 	elseif length(range) == 1 && tokens[range.start].first == LibClang.CXToken_Identifier
 		sym = tokens[range.start].second
 		push!(deps, sym)
-		return "\$(𝐣𝐥.isdefined(𝐣𝐥.@__MODULE__, 𝐣𝐥.Symbol(\"@$(sym)\")) ? :(@$(sym)) : :($(sym)))"
+		return "(@$(sym))"
 	elseif length(range) == 1 && tokens[range.start].first == LibClang.CXToken_Literal
 		return convert_literal(tokens[range.start].second)
 	elseif length(range) >= 1 && all(i -> tokens[i].first == LibClang.CXToken_Keyword, range)
@@ -108,25 +110,25 @@ end
 
 function convert_keyword(keywords::String)
 	if keywords in ("char", "signed char")
-		return "𝐣𝐥.Cchar"
+		return "\$(𝐣𝐥.Cchar)"
 	elseif keywords in ("int",)
-		return "𝐣𝐥.Cint"
+		return "\$(𝐣𝐥.Cint)"
 	elseif keywords in ("short", "short int")
-		return "𝐣𝐥.Cshort"
+		return "\$(𝐣𝐥.Cshort)"
 	elseif keywords in ("long", "long int",)
-		return "𝐣𝐥.Clong"
+		return "\$(𝐣𝐥.Clong)"
 	elseif keywords in ("long long", "long long int")
-		return "𝐣𝐥.Clonglong"
+		return "\$(𝐣𝐥.Clonglong)"
 	elseif keywords in ("unsigned char",)
-		return "𝐣𝐥.Cuchar"
+		return "\$(𝐣𝐥.Cuchar)"
 	elseif keywords in ("unsigned int",)
-		return "𝐣𝐥.Cuint"
+		return "\$(𝐣𝐥.Cuint)"
 	elseif keywords in ("unsigned short", "unsigned short int")
-		return "𝐣𝐥.Cushort"
+		return "\$(𝐣𝐥.Cushort)"
 	elseif keywords in ("unsigned long", "unsigned long int")
-		return "𝐣𝐥.Culong"
+		return "\$(𝐣𝐥.Culong)"
 	elseif keywords in ("unsigned long long", "unsigned long long int")
-		return "𝐣𝐥.Culonglong"
+		return "\$(𝐣𝐥.Culonglong)"
 	elseif keywords in ("extern",)
 		return nothing
 	end
