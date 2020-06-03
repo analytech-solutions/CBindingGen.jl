@@ -162,9 +162,9 @@ using CBindingGen
 			
 			check("""
 				𝐣𝐥.@cstruct S15 {
-					s::𝐣𝐥.@cstruct {
+					s::(𝐣𝐥.@cstruct {
 						i::𝐣𝐥.Cint
-					}[2]
+					})[2]
 				}""", "S15")
 			
 			check("""
