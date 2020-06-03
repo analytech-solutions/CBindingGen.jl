@@ -37,7 +37,7 @@ function convert_macro(tu::LibClang.CXTranslationUnit, cursor::LibClang.CXCursor
 	end
 	isnothing(expr) && return nothing
 	
-	expr = "macro $(name)() return 𝐣𝐥.esc(quote $(expr) end) end"
+	expr = "macro $(name)() return quote $(expr) end end"
 	comments = Dict{String, Comment}(convert_comment(cursor, "@"*name))
 	
 	if isempty(deps) && !(name in exports)  # if macro has no deps and not yet exported, declare a const

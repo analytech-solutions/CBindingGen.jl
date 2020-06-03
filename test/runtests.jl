@@ -463,6 +463,78 @@ using CBindingGen
 					i::𝐣𝐥.Cint
 				}""", "SG1", "N1", "N2", "f12", "f13", "g8")
 		end
+		
+		@testset "pre-processor directives" begin
+			check("""
+				macro DEFINE_CHAR() return quote ('\\'') end end
+				const DEFINE_CHAR = (@DEFINE_CHAR)""", "@DEFINE_CHAR", "DEFINE_CHAR")
+			
+			check("""
+				macro DEFINE_STRING() return quote ("\\"") end end
+				const DEFINE_STRING = (@DEFINE_STRING)""", "@DEFINE_STRING", "DEFINE_STRING")
+			
+			check("""
+				macro DEFINE_INT() return quote (1234) end end
+				const DEFINE_INT = (@DEFINE_INT)""", "@DEFINE_INT", "DEFINE_INT")
+			
+			check("""
+				macro DEFINE_OxINT() return quote (0x0000abcd) end end
+				const DEFINE_OxINT = (@DEFINE_OxINT)""", "@DEFINE_OxINT", "DEFINE_OxINT")
+			
+			check("""
+				macro DEFINE_OINT() return quote (0x000001ff) end end
+				const DEFINE_OINT = (@DEFINE_OINT)""", "@DEFINE_OINT", "DEFINE_OINT")
+			
+			check("""
+				macro DEFINE_INTu() return quote (0x000010e1) end end
+				const DEFINE_INTu = (@DEFINE_INTu)""", "@DEFINE_INTu", "DEFINE_INTu")
+			
+			check("""
+				macro DEFINE_FLOAT() return quote (0.1234f0) end end
+				const DEFINE_FLOAT = (@DEFINE_FLOAT)""", "@DEFINE_FLOAT", "DEFINE_FLOAT")
+			
+			check("""
+				macro DEFINE_DOUBLE() return quote (0.1234) end end
+				const DEFINE_DOUBLE = (@DEFINE_DOUBLE)""", "@DEFINE_DOUBLE", "DEFINE_DOUBLE")
+			
+			check("""
+				macro DEFINE_DOT_FLOAT() return quote (0.1234f0) end end
+				const DEFINE_DOT_FLOAT = (@DEFINE_DOT_FLOAT)""", "@DEFINE_DOT_FLOAT", "DEFINE_DOT_FLOAT")
+			
+			check("""
+				macro DEFINE_DOT_DOUBLE() return quote (0.1234) end end
+				const DEFINE_DOT_DOUBLE = (@DEFINE_DOT_DOUBLE)""", "@DEFINE_DOT_DOUBLE", "DEFINE_DOT_DOUBLE")
+			
+			check("""
+				macro DEFINE_FLOAT_DOT() return quote (1234.0f0) end end
+				const DEFINE_FLOAT_DOT = (@DEFINE_FLOAT_DOT)""", "@DEFINE_FLOAT_DOT", "DEFINE_FLOAT_DOT")
+			
+			check("""
+				macro DEFINE_DOUBLE_DOT() return quote (1234.0) end end
+				const DEFINE_DOUBLE_DOT = (@DEFINE_DOUBLE_DOT)""", "@DEFINE_DOUBLE_DOT", "DEFINE_DOUBLE_DOT")
+			
+			check("""
+				macro DEFINE_EXP_FLOAT() return quote (-2140.0f0) end end
+				const DEFINE_EXP_FLOAT = (@DEFINE_EXP_FLOAT)""", "@DEFINE_EXP_FLOAT", "DEFINE_EXP_FLOAT")
+			
+			check("""
+				macro DEFINE_EXP_DOUBLE() return quote (-2140.0) end end
+				const DEFINE_EXP_DOUBLE = (@DEFINE_EXP_DOUBLE)""", "@DEFINE_EXP_DOUBLE", "DEFINE_EXP_DOUBLE")
+			
+			check("""
+				macro DEFINE_INT_TYPE() return quote (\$(𝐣𝐥.Cint)) end end
+				const DEFINE_INT_TYPE = (@DEFINE_INT_TYPE)""", "@DEFINE_INT_TYPE", "DEFINE_INT_TYPE")
+			
+			check("""
+				macro DEFINE_UINT_TYPE() return quote (\$(𝐣𝐥.Cuint)) end end
+				const DEFINE_UINT_TYPE = (@DEFINE_UINT_TYPE)""", "@DEFINE_UINT_TYPE", "DEFINE_UINT_TYPE")
+			
+			check("""
+				macro DEFINE_DEFINED() return quote (@DEFINE_INT_TYPE) end end""", "@DEFINE_DEFINED")
+			
+			check("""
+				macro E6_0() return quote 0 end end""", "@E6_0")
+		end
 	end
 	
 	@testset "generated" begin
