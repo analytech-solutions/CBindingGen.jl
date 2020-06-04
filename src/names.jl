@@ -1,6 +1,7 @@
 
-function convert_name(x::Union{LibClang.CXCursor, LibClang.CXType})
-	str = string(x)
+convert_name(x::Union{LibClang.CXCursor, LibClang.CXType}) = convert_name(string(x))
+
+function convert_name(str::String)
 	# TODO: some of these are actually safe to use
 	issafe = !(str in (
 		"begin", "let", "quote", "do", "end",
@@ -20,39 +21,39 @@ end
 
 function convert_name(typ::LibClang.CXType)
 	if typ.kind == LibClang.CXType_Bool
-		return "@Cbool"
+		return "𝐣𝐥.Cbool"
 	elseif typ.kind == LibClang.CXType_Void
-		return "@Cvoid"
+		return "𝐣𝐥.Cvoid"
 	elseif typ.kind == LibClang.CXType_Char_S
-		return "@Cchar"
+		return "𝐣𝐥.Cchar"
 	elseif typ.kind == LibClang.CXType_Char_U
-		return "@Cuchar"
+		return "𝐣𝐥.Cuchar"
 	elseif typ.kind == LibClang.CXType_SChar
-		return "@Cchar"
+		return "𝐣𝐥.Cchar"
 	elseif typ.kind == LibClang.CXType_UChar
-		return "@Cuchar"
+		return "𝐣𝐥.Cuchar"
 	elseif typ.kind == LibClang.CXType_Short
-		return "@Cshort"
+		return "𝐣𝐥.Cshort"
 	elseif typ.kind == LibClang.CXType_Int
-		return "@Cint"
+		return "𝐣𝐥.Cint"
 	elseif typ.kind == LibClang.CXType_Long
-		return "@Clong"
+		return "𝐣𝐥.Clong"
 	elseif typ.kind == LibClang.CXType_LongLong
-		return "@Clonglong"
+		return "𝐣𝐥.Clonglong"
 	elseif typ.kind == LibClang.CXType_UShort
-		return "@Cushort"
+		return "𝐣𝐥.Cushort"
 	elseif typ.kind == LibClang.CXType_UInt
-		return "@Cuint"
+		return "𝐣𝐥.Cuint"
 	elseif typ.kind == LibClang.CXType_ULong
-		return "@Culong"
+		return "𝐣𝐥.Culong"
 	elseif typ.kind == LibClang.CXType_ULongLong
-		return "@Culonglong"
+		return "𝐣𝐥.Culonglong"
 	elseif typ.kind == LibClang.CXType_Float
-		return "@Cfloat"
+		return "𝐣𝐥.Cfloat"
 	elseif typ.kind == LibClang.CXType_Double
-		return "@Cdouble"
+		return "𝐣𝐥.Cdouble"
 	elseif typ.kind == LibClang.CXType_LongDouble
-		return "@Clongdouble"
+		return "𝐣𝐥.Clongdouble"
 	elseif typ.kind in (
 		LibClang.CXType_Typedef,
 		LibClang.CXType_Elaborated,

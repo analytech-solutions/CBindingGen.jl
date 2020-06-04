@@ -1,16 +1,29 @@
 module CBindingGen
-	include(joinpath(dirname(@__DIR__), "deps", "deps.jl"))
+	import LLVM_jll
+	
+	
+	const LIBCLANG_PATH = LLVM_jll.libclang_path
+	const LIBCLANG_VERSION = let
+		dir = joinpath(dirname(dirname(LIBCLANG_PATH)), "lib", "clang")
+		entries = readdir(dir)
+		ind = findfirst(x -> !isnothing(match(r"^\d+\.\d+\.\d+$", x)) && isdir(joinpath(dir, x)), entries)
+		isnothing(ind) && error("Failed to determine the version of libclang")
+		entries[ind]
+	end
+	
+	
 	baremodule LibClang
-		using CBinding: @macros
-		@macros
+		using CBinding: 𝐣𝐥
+		using ..CBindingGen: LIBCLANG_PATH, LIBCLANG_VERSION
 		
-		const size_t = @Csize_t
+		const size_t = 𝐣𝐥.Csize_t
 		
-		@include(@CBinding().joinpath(@CBinding().dirname(@CBinding().@__DIR__), "deps", "libclang.jl"))
+		𝐣𝐥.Base.include((𝐣𝐥.@__MODULE__), 𝐣𝐥.joinpath(𝐣𝐥.dirname(𝐣𝐥.@__DIR__), "deps", "libclang-$(LIBCLANG_VERSION).jl"))
 	end
 	
 	
 	using CBinding
+	import Markdown
 	
 	
 	export LibClang
@@ -30,6 +43,7 @@ module CBindingGen
 	end
 	
 	Base.string(cursor::LibClang.CXCursor) = _string(LibClang.clang_getCursorSpelling, cursor)
+	Base.string(tu::LibClang.CXTranslationUnit, token::LibClang.CXToken) = _string(LibClang.clang_getTokenSpelling, tu, token)
 	
 	function children(cursor::LibClang.CXCursor)
 		Cvisitor = @ccallback function visitor(c::LibClang.CXCursor, p::LibClang.CXCursor, cs::LibClang.CXClientData)::LibClang.CXChildVisitResult
@@ -65,9 +79,9 @@ module CBindingGen
 	
 	Base.isless(a::CodeLocation, b::CodeLocation) = a.file == b.file && (a.line < b.line || (a.line == b.line && a.col < b.col))
 	
-	function Base.show(io::IO, cl::CodeLocation)
-		file = !startswith(relpath(cl.file), "../") ? "./$(relpath(cl.file))" : !startswith(relpath(cl.file, homedir()), "../") ? "~/$(relpath(cl.file, homedir()))" : cl.file
-		print(io, "$(file):$(cl.line):$(cl.col)")
+	function Base.string(cl::CodeLocation; relto::String = ".")
+		file = !startswith(relpath(cl.file, relto), "../") ? "./$(relpath(cl.file, relto))" : !startswith(relpath(cl.file, homedir()), "../") ? "~/$(relpath(cl.file, homedir()))" : cl.file
+		return "$(file):$(cl.line):$(cl.col)"
 	end
 	
 	
@@ -120,9 +134,27 @@ module CBindingGen
 	end
 	
 	
+	struct Comment
+		md::Union{Markdown.MD, Nothing}
+		locs::Vector{CodeLocation}
+	end
+	
+	
+	function Base.string(comment::Comment; expr::String = "", relto::String = ".")
+		contents = []
+		isempty(expr) || push!(contents, Markdown.Code(expr))
+		isnothing(comment.md) || append!(contents, comment.md.content)
+		push!(contents, Markdown.Header(length(comment.locs) > 1 ? "References" : "Reference", 2))
+		for loc in comment.locs
+			push!(contents, Markdown.Paragraph(Markdown.Link("$(basename(loc.file)):$(loc.line)", string(loc, relto = relto))))
+		end
+		return string(Markdown.MD(contents))
+	end
+	
+	
 	struct Converted
 		expr::String
-		comments::Dict{String, String}
+		comments::Dict{String, Comment}
 	end
 	
 	
@@ -177,8 +209,8 @@ module CBindingGen
 	function convert_parsed(func::Function, tu::LibClang.CXTranslationUnit)
 		root = LibClang.clang_getTranslationUnitCursor(tu)
 		
-		# TODO: only keep last occurrence of a macro definition
-		cursors = filter(c -> CodeLocation(c).file != "<unknown>" && !(c.kind in (  # remove compiler-internal cursors and pre-processor cursors
+		# remove compiler-internal cursors and pre-processor cursors
+		cursors = filter(c -> CodeLocation(c).file != "<unknown>" && !(c.kind in (
 			LibClang.CXCursor_InclusionDirective,
 			LibClang.CXCursor_MacroDefinition,
 			LibClang.CXCursor_MacroInstantiation,
@@ -197,16 +229,43 @@ module CBindingGen
 				cvt = convert_fields(coal, 0, func)
 				isnothing(cvt) || push!(cvts, cvt)
 			catch
-				@warn "The following exception occurred when converting near $(CodeLocation(coal[1]))"
+				@warn "The following exception occurred when converting near $(string(CodeLocation(coal[1])))"
 				rethrow()
 			end
 		end
+		
+		exports = mapreduce(cvt -> collect(keys(cvt.comments)), vcat, cvts, init = String[])
+		cursors = filter(c -> CodeLocation(c).file != "<unknown>" && c.kind == LibClang.CXCursor_MacroDefinition, children(root))
+		
+		macros = Converted[]
+		names = Dict{String, Int}()
+		for cursor in cursors
+			try
+				func(cursor) || continue
+				
+				cvt = convert_macro(tu, cursor, exports)
+				if !isnothing(cvt)
+					(name, m) = cvt
+					if haskey(names, name)
+						macros[names[name]] = m
+					else
+						push!(macros, m)
+						names[name] = length(macros)
+					end
+				end
+			catch
+				@warn "The following exception occurred when converting macro near $(string(CodeLocation(cursor)))"
+				rethrow()
+			end
+		end
+		append!(cvts, macros)
+		
 		return cvts
 	end
 	
 	
-	
 	include("names.jl")
+	include("macros.jl")
 	include("types.jl")
 	include("fields.jl")
 	include("functions.jl")

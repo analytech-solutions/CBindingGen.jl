@@ -1,6 +1,6 @@
 
 function convert_fields(coalesced::Vector{<:LibClang.CXCursor}, indent::Int, func::Union{Function, Nothing} = nothing)
-	comments = Dict{String, String}()
+	comments = Dict{String, Comment}()
 	common = nothing
 	expr = nothing
 	flds = map(coalesced) do fld
@@ -63,15 +63,23 @@ function convert_fields(coalesced::Vector{<:LibClang.CXCursor}, indent::Int, fun
 	
 	if length(flds) == 1
 		(fld, jlname, pre, post) = flds[1]
-		if fld.kind == LibClang.CXCursor_FunctionDecl
-			colons = ""
-		else
-			colons = "::"
+		if startswith(expr, "𝐣𝐥.@") && (
+			startswith(post, '[') ||                       # @cstruct {...}[N]
+			(endswith(pre, '{') && startswith(post, ','))  # Cfunction{@cstruct {...}, ...}
+		)
+			expr = "($(expr))"
 		end
+		colons = fld.kind == LibClang.CXCursor_FunctionDecl ? "" : "::"
 		expr = "$(jlname)$(colons)$(pre)$(expr)$(post)"
 	else
 		flds = map(flds) do (fld, jlname, pre, post)
-			if !isempty(pre*post) && ((!endswith(pre, '{') && !startswith(post, '}')) || (endswith(pre, '{') && startswith(post, '}')))
+			if !isempty(pre*post) && (
+				startswith(post, '[') ||                          # _[N]
+				(endswith(pre, "::") && isempty(post)) ||         # f()::_
+				(endswith(pre, '(') && startswith(post, ')')) ||  # Cconst(_)
+				(endswith(pre, '{') && startswith(post, '}')) ||  # Ptr{_}
+				(endswith(pre, '{') && startswith(post, ','))     # Cfunction{_, ...}
+			)
 				pre = pre*"_"
 			end
 			colons = fld.kind == LibClang.CXCursor_FunctionDecl ? "" : "::"
@@ -81,7 +89,7 @@ function convert_fields(coalesced::Vector{<:LibClang.CXCursor}, indent::Int, fun
 	end
 	
 	if !isnothing(func)
-		expr = "@cextern $(expr)"
+		expr = "𝐣𝐥.@cextern $(expr)"
 	end
 	
 	return Converted(

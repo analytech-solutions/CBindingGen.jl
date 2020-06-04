@@ -1,21 +1,17 @@
 using CBindingGen
 
 
-lib = ARGS[1]  # LLVM_jll.libclang_path
-vers = let
-	v = nothing
-	for x in readdir(joinpath(dirname(dirname(lib)), "lib", "clang"))
-		if !isnothing(match(r"^\d+\.\d+\.\d+$", x)) && isdir(joinpath(dirname(dirname(lib)), "lib", "clang", x))
-			v = x
-			break
-		end
-	end
-	v
+const LIBCLANG_PATH = ARGS[1]  # LLVM_jll.libclang_path
+const LIBCLANG_VERSION = let
+	dir = joinpath(dirname(dirname(LIBCLANG_PATH)), "lib", "clang")
+	entries = readdir(dir)
+	ind = findfirst(x -> !isnothing(match(r"^\d+\.\d+\.\d+$", x)) && isdir(joinpath(dir, x)), entries)
+	isnothing(ind) && error("Failed to determine the version of libclang")
+	entries[ind]
 end
-isnothing(vers) && error("Failed to determine the version of libclang")
 
 
-incdir = joinpath(dirname(dirname(lib)), "include")
+incdir = joinpath(dirname(dirname(LIBCLANG_PATH)), "include")
 hdrs = map(hdr -> joinpath("clang-c", hdr), readdir(joinpath(incdir, "clang-c")))
 
 cvts = convert_headers(hdrs, args = ["-I", incdir]) do cursor
@@ -32,6 +28,6 @@ cvts = convert_headers(hdrs, args = ["-I", incdir]) do cursor
 end
 
 
-open(joinpath(@__DIR__, "libclang-$(vers).jl"), "w+") do io
-	generate(io, "{{ LIBCLANG_PATH }}" => cvts)
+open(joinpath(@__DIR__, "libclang-$(LIBCLANG_VERSION).jl"), "w+") do io
+	generate(io, :LIBCLANG_PATH => cvts, relto = dirname(dirname(LIBCLANG_PATH)))
 end

@@ -23,16 +23,17 @@ function convert_function(cursor::LibClang.CXCursor, indent::Int)
 		elseif decl.kind == LibClang.CXCursor_UnionDecl && decl in arg
 			convert_decl = convert_union
 		else
-			convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, String}())
+			convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, Comment}())
 		end
 		
 		cvt = convert_decl(decl, indent)
 		merge_comments!(comments, cvt.comments)
 		
-		if num > 1 && startswith(cvt.expr, '@') && !(endswith(argPre, "(") && startswith(argPost, ")")) && !(endswith(argPre, "{") && startswith(argPost, "}"))
-			(argPre, argPost) = (argPre*"(", ")"*argPost)
+		expr = "$(argPre)$(cvt.expr)$(argPost)"
+		if startswith(expr, "𝐣𝐥.@") && num > 1
+			expr = "($(expr))"
 		end
-		return "$(argName)::$(argPre)$(cvt.expr)$(argPost)"
+		return "$(argName)::$(expr)"
 	end
 	Bool(LibClang.clang_Cursor_isVariadic(cursor)) && push!(args, "var\"?vararg?\"...")
 	args = join(args, ", ")

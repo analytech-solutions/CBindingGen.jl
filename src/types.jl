@@ -9,7 +9,14 @@ function convert_typedef(cursor::LibClang.CXCursor, indent::Int)
 	merge_comments!(comments, cvt.comments)
 	merge_comment!(comments, convert_comment(cursor, name))
 	
-	expr = "@ctypedef $(name) $(pre)$(cvt.expr)$(post)"
+	expr = cvt.expr
+	if startswith(expr, "𝐣𝐥.@") && (
+		startswith(post, '[') ||                       # @cstruct {...}[N]
+		(endswith(pre, '{') && startswith(post, ','))  # Cfunction{@cstruct {...}, ...}
+	)
+		expr = "($(expr))"
+	end
+	expr = "𝐣𝐥.@ctypedef $(name) $(pre)$(expr)$(post)"
 	
 	return Converted(
 		expr,
@@ -21,10 +28,10 @@ end
 
 function convert_enum(cursor::LibClang.CXCursor, indent::Int)
 	name     = convert_name(cursor)
-	comments = Dict{String, String}(convert_comment(cursor, name))
+	comments = Dict{String, Comment}(convert_comment(cursor, name))
 	
 	if !Bool(LibClang.clang_isCursorDefinition(cursor))
-		expr = "@cenum $(name)"
+		expr = "𝐣𝐥.@cenum $(name)"
 	else
 		typ = LibClang.clang_getEnumDeclIntegerType(cursor)
 		isunsigned = typ.kind in (
@@ -52,7 +59,7 @@ function convert_enum(cursor::LibClang.CXCursor, indent::Int)
 				valName  = convert_name(child)
 				valValue = isunsigned ? LibClang.clang_getEnumConstantDeclUnsignedValue(child) : LibClang.clang_getEnumConstantDeclValue(child)
 				merge_comment!(comments, convert_comment(child, valName))
-				push!(vals, "$(valName) = ($(typ))($(valValue))")
+				push!(vals, "$(valName) = $(typ)($(valValue))")
 			elseif child.kind == LibClang.CXCursor_PackedAttr && isnothing(pack)
 				pack = convert_name(child)
 			else
@@ -64,7 +71,7 @@ function convert_enum(cursor::LibClang.CXCursor, indent::Int)
 		vals = join(vals, "\n$(tabs)\t")
 		vals = isempty(vals) ? " " : "\n$(tabs)\t$(vals)\n$(tabs)"
 		expr = isempty(name) ? "" : "$(name) "
-		expr = "@cenum $(expr){$(vals)}"
+		expr = "𝐣𝐥.@cenum $(expr){$(vals)}"
 		expr = isnothing(pack) ? expr : "$(expr) __$(pack)__"
 	end
 	
@@ -81,10 +88,10 @@ convert_union(cursor::LibClang.CXCursor, indent::Int) = convert_aggregate(cursor
 function convert_aggregate(cursor::LibClang.CXCursor, kind::Symbol, indent::Int)
 	kind in (:struct, :union) || error("Unknown aggregate type $(kind)")
 	name     = convert_name(cursor)
-	comments = Dict{String, String}(convert_comment(cursor, name))
+	comments = Dict{String, Comment}(convert_comment(cursor, name))
 	
 	if !Bool(LibClang.clang_isCursorDefinition(cursor))
-		expr = "@c$(kind) $(name)"
+		expr = "𝐣𝐥.@c$(kind) $(name)"
 	else
 		pack = nothing
 		exprs = String[]
@@ -105,7 +112,7 @@ function convert_aggregate(cursor::LibClang.CXCursor, kind::Symbol, indent::Int)
 		exprs = join(exprs, "\n$(tabs)\t")
 		exprs = isempty(exprs) ? " " : "\n$(tabs)\t$(exprs)\n$(tabs)"
 		expr = isempty(name) ? "" : "$(name) "
-		expr = "@c$(kind) $(expr){$(exprs)}"
+		expr = "𝐣𝐥.@c$(kind) $(expr){$(exprs)}"
 		expr = isnothing(pack) ? expr : "$(expr) __$(pack)__"
 	end
 	
@@ -126,7 +133,7 @@ function convert_nested_type(typ::LibClang.CXType, cursor::LibClang.CXCursor, in
 	elseif decl.kind == LibClang.CXCursor_UnionDecl && decl in cursor && !(cursor in decl)
 		convert_decl = convert_union
 	else
-		return Converted(convert_name(typ), Dict{String, String}())
+		return Converted(convert_name(typ), Dict{String, Comment}())
 	end
 	return convert_decl(decl, indent)
 end
@@ -135,7 +142,7 @@ end
 
 function convert_type(cursor::LibClang.CXCursor, typ::LibClang.CXType, indent::Int)
 	(pre, post) = ("", "")
-	comments = Dict{String, String}()
+	comments = Dict{String, Comment}()
 	
 	if typ.kind in (
 		LibClang.CXType_Bool,
@@ -167,13 +174,16 @@ function convert_type(cursor::LibClang.CXCursor, typ::LibClang.CXType, indent::I
 	)
 		num = typ.kind == LibClang.CXType_ConstantArray ? LibClang.clang_getNumElements(typ) : ""
 		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getElementType(typ), indent)
-		(pre, post) = ("("*pre, post*")[$(num)]")
+		if endswith(post, ']')
+			(pre, post) = ("("*pre, post*")")
+		end
+		(pre, post) = (pre, post*"[$(num)]")
 	elseif typ.kind == LibClang.CXType_Complex
 		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getElementType(typ), indent)
-		(pre, post) = ("(@Complex){"*pre, post*"}")
+		(pre, post) = ("𝐣𝐥.Complex{"*pre, post*"}")
 	elseif typ.kind == LibClang.CXType_Pointer
 		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getPointeeType(typ), indent)
-		(pre, post) = ("(@Ptr){"*pre, post*"}")
+		(pre, post) = ("𝐣𝐥.Ptr{"*pre, post*"}")
 	elseif typ.kind in (LibClang.CXType_Unexposed, LibClang.CXType_FunctionProto)
 		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getResultType(typ), indent)
 		
@@ -192,34 +202,38 @@ function convert_type(cursor::LibClang.CXCursor, typ::LibClang.CXType, indent::I
 			elseif decl.kind == LibClang.CXCursor_UnionDecl && decl in cursor
 				convert_decl = convert_union
 			else
-				convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, String}())
+				convert_decl = (_, _) -> Converted(convert_name(argT), Dict{String, Comment}())
 			end
 			
 			cvt = convert_decl(decl, indent)
 			merge_comments!(comments, cvt.comments)
 			
-			return "($(argPre)$(cvt.expr)$(argPost))"
+			expr = "$(argPre)$(cvt.expr)$(argPost)"
+			if startswith(expr, "𝐣𝐥.@") && num > 1
+				expr = "($(expr))"
+			end
+			return expr
 		end
-		Bool(LibClang.clang_isFunctionTypeVariadic(typ)) && push!(args, "(@Vararg)")
+		Bool(LibClang.clang_isFunctionTypeVariadic(typ)) && push!(args, "𝐣𝐥.Vararg")
 		args = join(args, ", ")
 		
 		conv = convert_convention(typ)
 		
-		(pre, post) = ("(@Cfunction){("*pre, post*"), (@Tuple){$(args)}, (@$(conv))}")
+		(pre, post) = ("𝐣𝐥.Cfunction{"*pre, post*", 𝐣𝐥.Tuple{$(args)}, 𝐣𝐥.$(conv)}")
 	else
 		error("Unable to convert type $(typ.kind), not yet implemented")
 	end
 	
 	if Bool(LibClang.clang_isConstQualifiedType(typ))
-		(pre, post) = ("(@Cconst)("*pre, post*")")
+		(pre, post) = ("𝐣𝐥.Cconst("*pre, post*")")
 	end
 	
 	if Bool(LibClang.clang_isRestrictQualifiedType(typ))
-		(pre, post) = ("(@Crestrict)("*pre, post*")")
+		(pre, post) = ("𝐣𝐥.Crestrict("*pre, post*")")
 	end
 	
 	if Bool(LibClang.clang_isVolatileQualifiedType(typ))
-		(pre, post) = ("(@Cvolatile)("*pre, post*")")
+		(pre, post) = ("𝐣𝐥.Cvolatile("*pre, post*")")
 	end
 	
 	return ((pre, t, post), comments)

@@ -19,7 +19,7 @@ Se let's get started with an example!
 
 ## Generating
 
-To start, you must add `CBinding.jl = "^0.8.1"` as a dependency to your package, and `CBindingGen.jl = "^0.2"` as a build dependency.
+To start, you must add `CBinding = "^0.9"` as a dependency to your package, and `CBindingGen = "^0.3"` as a build dependency.
 CBindingGen.jl relies on the artifacts distributed with `LLVM_jll` for providing a `libclang.so` library and header files for your system, so we will use those to demonstrate.
 The following code shows what is necessary to generate bindings to `libclang.so`, and something like it would normally be placed in your package's `deps/build.jl` file.
 
@@ -68,19 +68,17 @@ Finally, the `generate` function is used to write the converted expressions for 
 
 In order to load the bindings file within your package, it is best to define a `baremodule` within your package module to encapsulate the bindings.
 The namespace within the `baremodule` will have only a very few symbols that could conflict with those from C.
-We rely on macro usage within Julia to carefully avoid introducing any more conflicting symbols.
-CBinding provides `@macros` to define macros for many of the C-types in Julia, and it also defines `@CBinding()` to allow for unrestrained, but less-concise, access to Julia symbols.
+CBinding provides `𝐣𝐥` (`\bfj<tab>\bfl<tab>`) to provide access to the CBinding types and macros without increasing the chance of nameing conflicts.
 
 ```julia
 module MyModule
 	baremodule LibClang
-		using CBinding: @macros
-		@macros
+		using CBinding: 𝐣𝐥
 		
-		const size_t = @Csize_t
-		@include("bindings-deps.jl"))
+		const size_t = 𝐣𝐥.Csize_t
+		𝐣𝐥.Base.include((𝐣𝐥.@__MODULE__), "bindings-deps.jl"))
 		
-		@include(@CBinding().joinpath(@CBinding().dirname(@CBinding().@__DIR__), "deps", "bindings.jl"))
+		𝐣𝐥.Base.include((𝐣𝐥.@__MODULE__), 𝐣𝐥.joinpath(𝐣𝐥.dirname(𝐣𝐥.@__DIR__), "deps", "libclang.jl"))
 	end
 	
 	# other module code, such as high-level Julian code wrapping the bindings...
@@ -100,9 +98,14 @@ If you find that C header comments are not imported, you should try adding `-fpa
 julia> import MyModule
 
 help?> MyModule.LibClang.clang_getClangVersion
+  𝐣𝐥.@cextern clang_getClangVersion()::CXString
+
   Return a version string, suitable for showing to a user, but not intended to be parsed (the format is not guaranteed to be stable).
 
-  C Reference (~/.julia/artifacts/24cf82e3b0e1edd69d7399a3912c9dcd5ba0f55d/include/clang-c/Index.h:5828:25)
+  Reference
+  ===========
+
+  Index.h:5482 (./include/clang-c/Index.h:5482:25)
 ```
 
 
