@@ -22,6 +22,7 @@ Se let's get started with an example!
 To start, you must add `CBinding = "^0.9"` as a dependency to your package, and `CBindingGen = "^0.3"` as a build dependency.
 CBindingGen.jl relies on the artifacts distributed with `LLVM_jll` for providing a `libclang.so` library and header files for your system, so we will use those to demonstrate.
 The following code shows what is necessary to generate bindings to `libclang.so`, and something like it would normally be placed in your package's `deps/build.jl` file.
+([another example found in PLCTag.jl](https://github.com/laurium-labs/PLCTag.jl/blob/09f7ed15bd470b4691846178d99f1a57b6917a48/deps/build.jl#L44))
 
 ```julia
 using CBindingGen
@@ -68,7 +69,8 @@ Finally, the `generate` function is used to write the converted expressions for 
 
 In order to load the bindings file within your package, it is best to define a `baremodule` within your package module to encapsulate the bindings.
 The namespace within the `baremodule` will have only a very few symbols that could conflict with those from C.
-CBinding provides `𝐣𝐥` (`\bfj<tab>\bfl<tab>`) to provide access to the CBinding types and macros without increasing the chance of nameing conflicts.
+CBinding provides `𝐣𝐥` (`\bfj<tab>\bfl<tab>`) to provide access to the CBinding types and macros without increasing the chance of naming conflicts.
+([another example found in PLCTag.jl](https://github.com/laurium-labs/PLCTag.jl/blob/09f7ed15bd470b4691846178d99f1a57b6917a48/src/PLCTag.jl#L2))
 
 ```julia
 module MyModule
@@ -76,9 +78,9 @@ module MyModule
 		using CBinding: 𝐣𝐥
 		
 		const size_t = 𝐣𝐥.Csize_t
-		𝐣𝐥.Base.include((𝐣𝐥.@__MODULE__), "bindings-deps.jl"))
-		
-		𝐣𝐥.Base.include((𝐣𝐥.@__MODULE__), 𝐣𝐥.joinpath(𝐣𝐥.dirname(𝐣𝐥.@__DIR__), "deps", "libclang.jl"))
+		𝐣𝐥.Base.include((𝐣𝐥.@__MODULE__), "pre-bindings.jl"))  # <-handwritten
+		𝐣𝐥.Base.include((𝐣𝐥.@__MODULE__), 𝐣𝐥.joinpath(𝐣𝐥.dirname(𝐣𝐥.@__DIR__), "deps", "libclang.jl"))  # <-generated
+		𝐣𝐥.Base.include((𝐣𝐥.@__MODULE__), "post-bindings.jl"))  # <-handwritten
 	end
 	
 	# other module code, such as high-level Julian code wrapping the bindings...
@@ -91,7 +93,7 @@ Finishing the bindings module is the inclusion of the bindings file generated at
 
 ## Help/Comments
 
-CBindingGen.jl automatically imports comments from the C header files, but it does not yet transform the syntax to Julia's `@doc` strings though.
+CBindingGen.jl automatically imports comments from the C header files into Julia's `@doc` string syntax.
 If you find that C header comments are not imported, you should try adding `-fparse-all-comments` to the list of `args` in your call to `convert_headers`.
 
 ```julia
