@@ -1,6 +1,6 @@
 # CBindingGen.jl
 
-[![Linux](https://travis-ci.com/analytech-solutions/CBindingGen.jl.svg?branch=master)](https://travis-ci.com/analytech-solutions/CBindingGen.jl) [![Windows](https://ci.appveyor.com/api/projects/status/lsudopndgam8cra7/branch/master?svg=true)](https://ci.appveyor.com/project/krrutkow/cbindinggen-jl/branch/master)
+[![Build Status](https://github.com/analytech-solutions/CBindingGen.jl/workflows/CI/badge.svg)](https://github.com/analytech-solutions/CBindingGen.jl/actions)
 
 Automatically generate Julia bindings to C API's!
 We are developing CBindingGen.jl and CBinding.jl to support the use of arbitrary local C libraries, such as those provided by your Linux distribution, from Julia.
