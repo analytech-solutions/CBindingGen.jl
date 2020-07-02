@@ -68,7 +68,7 @@ using CBindingGen
 					E1_3 = 𝐣𝐥.Cuint(2)
 				}""", "E1", "E1_1", "E1_2", "E1_3")
 			
-			culong = Sys.iswindows() ? "𝐣𝐥.Culonglong" : "𝐣𝐥.Culong"
+			culong = Sys.iswindows() || sizeof(Clong) == sizeof(Cint) ? "𝐣𝐥.Culonglong" : "𝐣𝐥.Culong"
 			check("""
 				𝐣𝐥.@cenum E2 {
 					E2_1 = $(culong)(1)
