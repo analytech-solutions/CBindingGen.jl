@@ -19,7 +19,7 @@ function convert_name(str::String)
 end
 
 
-function convert_name(typ::LibClang.CXType)
+function convert_name(typ::LibClang.CXType; nolongs::Bool = false)
 	if typ.kind == LibClang.CXType_Bool
 		return "𝐣𝐥.Cbool"
 	elseif typ.kind == LibClang.CXType_Void
@@ -37,7 +37,7 @@ function convert_name(typ::LibClang.CXType)
 	elseif typ.kind == LibClang.CXType_Int
 		return "𝐣𝐥.Cint"
 	elseif typ.kind == LibClang.CXType_Long
-		return "𝐣𝐥.Clong"
+		return nolongs ? (sizeof(Clong) == sizeof(Cint) ? "𝐣𝐥.Cint" : "𝐣𝐥.Clonglong") : "𝐣𝐥.Clong"
 	elseif typ.kind == LibClang.CXType_LongLong
 		return "𝐣𝐥.Clonglong"
 	elseif typ.kind == LibClang.CXType_UShort
@@ -45,7 +45,7 @@ function convert_name(typ::LibClang.CXType)
 	elseif typ.kind == LibClang.CXType_UInt
 		return "𝐣𝐥.Cuint"
 	elseif typ.kind == LibClang.CXType_ULong
-		return "𝐣𝐥.Culong"
+		return nolongs ? (sizeof(Culong) == sizeof(Cuint) ? "𝐣𝐥.Cuint" : "𝐣𝐥.Culonglong") : "𝐣𝐥.Culong"
 	elseif typ.kind == LibClang.CXType_ULongLong
 		return "𝐣𝐥.Culonglong"
 	elseif typ.kind == LibClang.CXType_Float
@@ -55,8 +55,22 @@ function convert_name(typ::LibClang.CXType)
 	elseif typ.kind == LibClang.CXType_LongDouble
 		return "𝐣𝐥.Clongdouble"
 	elseif typ.kind in (
-		LibClang.CXType_Typedef,
 		LibClang.CXType_Elaborated,
+		LibClang.CXType_Enum,
+	)
+		decl = LibClang.clang_getTypeDeclaration(typ)
+		if decl.kind == LibClang.CXCursor_EnumDecl
+			kind = "𝐣𝐥.@cenum"
+		elseif decl.kind == LibClang.CXCursor_StructDecl
+			kind = "𝐣𝐥.@cstruct"
+		elseif decl.kind == LibClang.CXCursor_UnionDecl
+			kind = "𝐣𝐥.@cunion"
+		else
+			error("Unable to handle kind of type $(decl.kind)")
+		end
+		return "$(kind) $(convert_name(decl))"
+	elseif typ.kind in (
+		LibClang.CXType_Typedef,
 		LibClang.CXType_Enum,
 		LibClang.CXType_Record,
 	)

@@ -68,15 +68,14 @@ using CBindingGen
 					E1_3 = 𝐣𝐥.Cuint(2)
 				}""", "E1", "E1_1", "E1_2", "E1_3")
 			
-			culong = Sys.iswindows() || sizeof(Clong) == sizeof(Cint) ? "𝐣𝐥.Culonglong" : "𝐣𝐥.Culong"
 			check("""
 				𝐣𝐥.@cenum E2 {
-					E2_1 = $(culong)(1)
-					E2_2 = $(culong)(1)
-					E2_3 = $(culong)(11)
-					E2_4 = $(culong)(0)
-					E2_5 = $(culong)(4294967295)
-					E2_6 = $(culong)(281474976710655)
+					E2_1 = 𝐣𝐥.Culonglong(1)
+					E2_2 = 𝐣𝐥.Culonglong(1)
+					E2_3 = 𝐣𝐥.Culonglong(11)
+					E2_4 = 𝐣𝐥.Culonglong(0)
+					E2_5 = 𝐣𝐥.Culonglong(4294967295)
+					E2_6 = 𝐣𝐥.Culonglong(281474976710655)
 				}""", "E2", "E2_1", "E2_2", "E2_3", "E2_4", "E2_5", "E2_6")
 		end
 		
@@ -91,14 +90,14 @@ using CBindingGen
 			
 			check("""
 				𝐣𝐥.@cstruct S3 {
-					s::S1
+					s::𝐣𝐥.@cstruct S1
 				}""", "S3")
 			
 			check("""
 				𝐣𝐥.@cstruct S4 {
 					𝐣𝐥.@cstruct {
 						i::𝐣𝐥.Cint
-						s::S3
+						s::𝐣𝐥.@cstruct S3
 					}
 				}""", "S4")
 			
@@ -106,7 +105,7 @@ using CBindingGen
 				𝐣𝐥.@cstruct S5 {
 					s::𝐣𝐥.@cstruct {
 						i::𝐣𝐥.Cint
-						s::S3
+						s::𝐣𝐥.@cstruct S3
 					}
 				}""", "S5")
 			
@@ -114,15 +113,15 @@ using CBindingGen
 				𝐣𝐥.@cstruct S6 {
 					(s, s1)::𝐣𝐥.@cstruct S7 {
 						i::𝐣𝐥.Cint
-						s::S3
+						s::𝐣𝐥.@cstruct S3
 					}
 					i::𝐣𝐥.Cint
-					s2::S7
+					s2::𝐣𝐥.@cstruct S7
 				}""", "S6", "S7")
 			
 			check("""
 				𝐣𝐥.@cstruct S8 {
-					s::S7
+					s::𝐣𝐥.@cstruct S7
 				}""", "S8")
 			
 			check("""
@@ -218,7 +217,7 @@ using CBindingGen
 						𝐣𝐥.@cstruct {
 							j::𝐣𝐥.Cint
 						}
-					}), 𝐣𝐥.Tuple{𝐣𝐥.Cint, 𝐣𝐥.Cfloat}, 𝐣𝐥.CDECL}}, 𝐣𝐥.Tuple{S22, 𝐣𝐥.Cint}, 𝐣𝐥.CDECL}}
+					}), 𝐣𝐥.Tuple{𝐣𝐥.Cint, 𝐣𝐥.Cfloat}, 𝐣𝐥.CDECL}}, 𝐣𝐥.Tuple{(𝐣𝐥.@cstruct S22), 𝐣𝐥.Cint}, 𝐣𝐥.CDECL}}
 				}""", "S22")
 			
 			check("""
@@ -234,16 +233,16 @@ using CBindingGen
 			
 			check("""
 				𝐣𝐥.@cstruct S25 {
-					s1::𝐣𝐥.Ptr{S24}
-					s2::𝐣𝐥.Ptr{_S24}
-					s3::𝐣𝐥.Ptr{S25}
+					s1::𝐣𝐥.Ptr{𝐣𝐥.@cstruct S24}
+					s2::𝐣𝐥.Ptr{𝐣𝐥.@cstruct _S24}
+					s3::𝐣𝐥.Ptr{𝐣𝐥.@cstruct S25}
 				}""", "S25")
 			
 			check("""
 				𝐣𝐥.@cstruct S24 {
-					s1::𝐣𝐥.Ptr{S24}
-					s2::𝐣𝐥.Ptr{_S24}
-					s3::S25
+					s1::𝐣𝐥.Ptr{𝐣𝐥.@cstruct S24}
+					s2::𝐣𝐥.Ptr{𝐣𝐥.@cstruct _S24}
+					s3::𝐣𝐥.@cstruct S25
 				}""", "S24")
 			
 			check("""
@@ -251,8 +250,8 @@ using CBindingGen
 					(e1, e2::𝐣𝐥.Ptr{_})::𝐣𝐥.@cenum E3 {
 						E3_1 = 𝐣𝐥.Cuint(0)
 					}
-					e3::E3
-					(e4, e5::𝐣𝐥.Ptr{_})::E1
+					e3::𝐣𝐥.@cenum E3
+					(e4, e5::𝐣𝐥.Ptr{_})::𝐣𝐥.@cenum E1
 				}""", "S26", "E3", "E3_1")
 		end
 		
@@ -271,10 +270,10 @@ using CBindingGen
 				𝐣𝐥.@cstruct S29""", "S29")
 			
 			check("""
-				𝐣𝐥.@ctypedef S29_ S29""", "S29_")
+				𝐣𝐥.@ctypedef S29_ 𝐣𝐥.@cstruct S29""", "S29_")
 			
 			check("""
-				𝐣𝐥.@ctypedef S29_ptr 𝐣𝐥.Ptr{S29}""", "S29_ptr")
+				𝐣𝐥.@ctypedef S29_ptr 𝐣𝐥.Ptr{𝐣𝐥.@cstruct S29}""", "S29_ptr")
 			
 			check("""
 				𝐣𝐥.@cstruct S29 {
@@ -286,7 +285,7 @@ using CBindingGen
 				𝐣𝐥.@cstruct S30""", "S30")
 			
 			check("""
-				𝐣𝐥.@ctypedef F1 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{S30}, 𝐣𝐥.CDECL}}""", "F1")
+				𝐣𝐥.@ctypedef F1 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.@cstruct S30}, 𝐣𝐥.CDECL}}""", "F1")
 			
 			check("""
 				𝐣𝐥.@cstruct S30 {
@@ -316,7 +315,7 @@ using CBindingGen
 				𝐣𝐥.@cstruct _S31""", "_S31")
 			
 			check("""
-				𝐣𝐥.@ctypedef S31 _S31""", "S31")
+				𝐣𝐥.@ctypedef S31 𝐣𝐥.@cstruct _S31""", "S31")
 			
 			check("""
 				𝐣𝐥.@cstruct S32 {
@@ -391,19 +390,19 @@ using CBindingGen
 				𝐣𝐥.@cextern g1::𝐣𝐥.Cconst(𝐣𝐥.Cint)""", "g1")
 			
 			check("""
-				𝐣𝐥.@cextern g2::𝐣𝐥.Cconst(S24)""", "g2")
+				𝐣𝐥.@cextern g2::𝐣𝐥.Cconst(𝐣𝐥.@cstruct S24)""", "g2")
 			
 			check("""
-				𝐣𝐥.@cextern g3::𝐣𝐥.Cconst(𝐣𝐥.Ptr{S24})""", "g3")
+				𝐣𝐥.@cextern g3::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.@cstruct S24})""", "g3")
 			
 			check("""
 				𝐣𝐥.@cextern g4::𝐣𝐥.Cint""", "g4")
 			
 			check("""
-				𝐣𝐥.@cextern g5::S24""", "g5")
+				𝐣𝐥.@cextern g5::𝐣𝐥.@cstruct S24""", "g5")
 			
 			check("""
-				𝐣𝐥.@cextern g6::𝐣𝐥.Ptr{S24}""", "g6")
+				𝐣𝐥.@cextern g6::𝐣𝐥.Ptr{𝐣𝐥.@cstruct S24}""", "g6")
 		end
 		
 		@testset "functions" begin
@@ -459,7 +458,7 @@ using CBindingGen
 				}), n::(𝐣𝐥.@cunion N2 {
 					i::𝐣𝐥.Cint
 					j::𝐣𝐥.Cfloat
-				}), s::𝐣𝐥.Ptr{SG1})::_)::𝐣𝐥.@cstruct SG1 {
+				}), s::𝐣𝐥.Ptr{𝐣𝐥.@cstruct SG1})::_)::𝐣𝐥.@cstruct SG1 {
 					i::𝐣𝐥.Cint
 				}""", "SG1", "N1", "N2", "f12", "f13", "g8")
 		end
