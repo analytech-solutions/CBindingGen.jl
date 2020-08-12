@@ -50,7 +50,7 @@ function convert_enum(cursor::LibClang.CXCursor, indent::Int)
 			LibClang.CXType_Long,
 			LibClang.CXType_LongLong,
 		) || error("Failed to convert enum due to an unexpected integer type")
-		typ = convert_name(typ)
+		typ = convert_name(typ, nolongs = true)
 		
 		pack = nothing
 		vals = String[]
