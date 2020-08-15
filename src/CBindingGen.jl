@@ -1,8 +1,8 @@
 module CBindingGen
-	import LLVM_jll
+	import Clang_jll
 	
 	
-	const LIBCLANG_PATH = LLVM_jll.libclang_path
+	const LIBCLANG_PATH = Clang_jll.libclang_path
 	const LIBCLANG_VERSION = let
 		dir = joinpath(dirname(dirname(LIBCLANG_PATH)), "lib", "clang")
 		entries = readdir(dir)
