@@ -51,9 +51,9 @@ function Markdown.MD(cxcomment::LibClang.CXComment)
 			
 			num = LibClang.clang_BlockCommandComment_getNumArgs(child)
 			cmd = _string(LibClang.clang_BlockCommandComment_getCommandName, child)
-			if cmd == "brief"
+			if cmd == "brief" || cmd == "par" || cmd == "paragraph"
 				push!(contents, para)
-			elseif cmd == "note" || cmd == "warning"
+			elseif cmd == "note" || cmd == "warning" || cmd == "deprecated"
 				para = Markdown.Paragraph(["$(uppercase(cmd)):", para.content...])
 				push!(contents, para)
 			elseif cmd == "sa" || cmd == "see"
