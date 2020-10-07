@@ -260,6 +260,8 @@ module CBindingGen
 		end
 		append!(cvts, macros)
 		
+		merge_comments!(cvts)
+		
 		return cvts
 	end
 	
