@@ -29,7 +29,8 @@ function convert_function(cursor::LibClang.CXCursor, indent::Int)
 		cvt = convert_decl(decl, indent)
 		merge_comments!(comments, cvt.comments)
 		
-		expr = "$(argPre)$(cvt.expr)$(argPost)"
+		expr = startswith(cvt.expr, "𝐣𝐥.@") && startswith(argPost, '[') ? "($(cvt.expr))" : cvt.expr
+		expr = "$(argPre)$(expr)$(argPost)"
 		if startswith(expr, "𝐣𝐥.@") && num > 1
 			expr = "($(expr))"
 		end
