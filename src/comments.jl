@@ -27,6 +27,23 @@ function merge_comment!(comments::Dict{String, Comment}, comment::Pair{String, C
 	end
 end
 
+# used to merge comments when both `struct S;` and later `typedef struct S S;` are documented
+function merge_comments!(cvts::Vector{Converted})
+	originals = Dict{String, Int}()
+	for (ind, cvt) in enumerate(cvts)
+		deletes = String[]
+		for (name, cmt) in cvt.comments
+			if !haskey(originals, name)
+				originals[name] = ind
+			else
+				merge_comment!(cvts[originals[name]].comments, name => cmt)
+				push!(deletes, name)
+			end
+		end
+		foreach(name -> delete!(cvt.comments, name), deletes)
+	end
+end
+
 
 function Markdown.MD(cxcomment::LibClang.CXComment)
 	hasDetails = false
@@ -51,9 +68,9 @@ function Markdown.MD(cxcomment::LibClang.CXComment)
 			
 			num = LibClang.clang_BlockCommandComment_getNumArgs(child)
 			cmd = _string(LibClang.clang_BlockCommandComment_getCommandName, child)
-			if cmd == "brief"
+			if cmd == "brief" || cmd == "par" || cmd == "paragraph"
 				push!(contents, para)
-			elseif cmd == "note" || cmd == "warning"
+			elseif cmd == "note" || cmd == "warning" || cmd == "deprecated"
 				para = Markdown.Paragraph(["$(uppercase(cmd)):", para.content...])
 				push!(contents, para)
 			elseif cmd == "sa" || cmd == "see"

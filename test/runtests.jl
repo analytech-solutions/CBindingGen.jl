@@ -243,7 +243,7 @@ using CBindingGen
 					s1::𝐣𝐥.Ptr{𝐣𝐥.@cstruct S24}
 					s2::𝐣𝐥.Ptr{𝐣𝐥.@cstruct _S24}
 					s3::𝐣𝐥.@cstruct S25
-				}""", "S24")
+				}""")
 			
 			check("""
 				𝐣𝐥.@cstruct S26 {
@@ -279,7 +279,7 @@ using CBindingGen
 				𝐣𝐥.@cstruct S29 {
 					s1::𝐣𝐥.Ptr{S29_}
 					s2::S29_ptr
-				}""", "S29")
+				}""")
 			
 			check("""
 				𝐣𝐥.@cstruct S30""", "S30")
@@ -291,7 +291,7 @@ using CBindingGen
 				𝐣𝐥.@cstruct S30 {
 					(i, j, k)::𝐣𝐥.Cint
 					f::F1
-				}""", "S30")
+				}""")
 			
 			check("""
 				𝐣𝐥.@ctypedef F2 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cstruct F2ret {
