@@ -27,7 +27,7 @@ module CBindingGen
 	
 	
 	export LibClang
-	export Converted, CodeLocation, CodeRange
+	export Comment, Converted, CodeLocation, CodeRange
 	export convert_header, convert_headers, generate
 	
 	
@@ -42,6 +42,7 @@ module CBindingGen
 		end
 	end
 	
+	Base.string(cursor::LibClang.CXType) = _string(LibClang.clang_getTypeSpelling, cursor)
 	Base.string(cursor::LibClang.CXCursor) = _string(LibClang.clang_getCursorSpelling, cursor)
 	Base.string(tu::LibClang.CXTranslationUnit, token::LibClang.CXToken) = _string(LibClang.clang_getTokenSpelling, tu, token)
 	
