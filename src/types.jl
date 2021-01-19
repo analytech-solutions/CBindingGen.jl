@@ -184,7 +184,7 @@ function convert_type(cursor::LibClang.CXCursor, typ::LibClang.CXType, indent::I
 	elseif typ.kind == LibClang.CXType_Pointer
 		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getPointeeType(typ), indent)
 		(pre, post) = ("𝐣𝐥.Ptr{"*pre, post*"}")
-	elseif typ.kind in (LibClang.CXType_Unexposed, LibClang.CXType_FunctionProto)
+	elseif typ.kind in (LibClang.CXType_Unexposed, LibClang.CXType_FunctionProto, LibClang.CXType_FunctionNoProto)
 		((pre, t, post), comments) = convert_type(cursor, LibClang.clang_getResultType(typ), indent)
 		
 		num = LibClang.clang_getNumArgTypes(typ)

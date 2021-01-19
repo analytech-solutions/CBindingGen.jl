@@ -299,6 +299,10 @@ struct SG1 {
 
 static void f14(void);
 
+struct S38 {
+	void (*f)();
+};
+
 
 #define DEFINE_CHAR ('\'')
 #define DEFINE_STRING ("\"")

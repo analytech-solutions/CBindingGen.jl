@@ -461,6 +461,11 @@ using CBindingGen
 				}), s::𝐣𝐥.Ptr{𝐣𝐥.@cstruct SG1})::_)::𝐣𝐥.@cstruct SG1 {
 					i::𝐣𝐥.Cint
 				}""", "SG1", "N1", "N2", "f12", "f13", "g8")
+			
+			check("""
+				𝐣𝐥.@cstruct S38 {
+					f::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Vararg}, 𝐣𝐥.CDECL}}
+				}""", "S38")
 		end
 		
 		@testset "pre-processor directives" begin
