@@ -39,6 +39,8 @@ function convert_fields(coalesced::Vector{<:LibClang.CXCursor}, indent::Int, fun
 		if !isnothing(func)
 			merge_comment!(comments, convert_comment(fld, jlname))
 			jlname = jlname == fldName ? jlname : "($(fldName) => $(jlname))"
+		elseif Bool(LibClang.clang_Cursor_isBitField(fld))
+			jlname = "$(jlname):$(LibClang.clang_getFieldDeclBitWidth(fld))"
 		end
 		
 		return (fld, jlname, pre, post)
@@ -68,6 +70,9 @@ function convert_fields(coalesced::Vector{<:LibClang.CXCursor}, indent::Int, fun
 			(endswith(pre, '{') && startswith(post, ','))  # Cfunction{@cstruct {...}, ...}
 		)
 			expr = "($(expr))"
+		end
+		if occursin(':', jlname)
+			jlname = "($(jlname))"
 		end
 		colons = fld.kind == LibClang.CXCursor_FunctionDecl ? "" : "::"
 		expr = "$(jlname)$(colons)$(pre)$(expr)$(post)"
