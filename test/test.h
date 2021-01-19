@@ -123,7 +123,7 @@ struct S15 {
 };
 
 struct S16 {
-	int i:3;
+	int i:3, j:3;
 	unsigned int u:10;
 };
 

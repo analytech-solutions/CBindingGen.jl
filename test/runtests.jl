@@ -168,8 +168,8 @@ using CBindingGen
 			
 			check("""
 				𝐣𝐥.@cstruct S16 {
-					i::𝐣𝐥.Cint
-					u::𝐣𝐥.Cuint
+					(i:3, j:3)::𝐣𝐥.Cint
+					(u:10)::𝐣𝐥.Cuint
 				}""", "S16")
 			
 			check("""
@@ -289,7 +289,7 @@ using CBindingGen
 			
 			check("""
 				𝐣𝐥.@cstruct S30 {
-					(i, j, k)::𝐣𝐥.Cint
+					(i:10, j:5, k:3)::𝐣𝐥.Cint
 					f::F1
 				}""")
 			
