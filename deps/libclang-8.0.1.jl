@@ -180,7 +180,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_addFileMapping(var\"?1?\"::CXVirtualFileOverlay, virtualPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, realPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_addFileMapping(var\"?1?\"::CXVirtualFileOverlay, virtualPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, realPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Map an absolute virtual file path to an absolute real one. The virtual path must be canonicalized (not contain \".\"/\"..\"). 
@@ -194,11 +194,11 @@ using CBinding: 𝐣𝐥
 	[BuildSystem.h:57](./include/clang-c/BuildSystem.h:57:1)
 	""" clang_VirtualFileOverlay_addFileMapping
 	export clang_VirtualFileOverlay_addFileMapping
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_addFileMapping(var"?1?"::CXVirtualFileOverlay, virtualPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, realPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_addFileMapping(var"?1?"::CXVirtualFileOverlay, virtualPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, realPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_setCaseSensitivity(var\"?1?\"::CXVirtualFileOverlay, caseSensitive::𝐣𝐥.Cint)::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_setCaseSensitivity(var\"?1?\"::CXVirtualFileOverlay, caseSensitive::𝐣𝐥.Cint)::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Set the case sensitivity for the `CXVirtualFileOverlay` object. The `CXVirtualFileOverlay` object is case-sensitive by default, this option can be used to override the default. 
@@ -212,11 +212,11 @@ using CBinding: 𝐣𝐥
 	[BuildSystem.h:68](./include/clang-c/BuildSystem.h:68:1)
 	""" clang_VirtualFileOverlay_setCaseSensitivity
 	export clang_VirtualFileOverlay_setCaseSensitivity
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_setCaseSensitivity(var"?1?"::CXVirtualFileOverlay, caseSensitive::𝐣𝐥.Cint)::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_setCaseSensitivity(var"?1?"::CXVirtualFileOverlay, caseSensitive::𝐣𝐥.Cint)::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_writeToBuffer(var\"?1?\"::CXVirtualFileOverlay, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_writeToBuffer(var\"?1?\"::CXVirtualFileOverlay, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Write out the `CXVirtualFileOverlay` object to a char buffer.
@@ -236,7 +236,7 @@ using CBinding: 𝐣𝐥
 	[BuildSystem.h:81](./include/clang-c/BuildSystem.h:81:1)
 	""" clang_VirtualFileOverlay_writeToBuffer
 	export clang_VirtualFileOverlay_writeToBuffer
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_writeToBuffer(var"?1?"::CXVirtualFileOverlay, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_writeToBuffer(var"?1?"::CXVirtualFileOverlay, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
@@ -305,7 +305,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setFrameworkModuleName(var\"?1?\"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setFrameworkModuleName(var\"?1?\"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Sets the framework module name that the module.map describes. 
@@ -319,11 +319,11 @@ using CBinding: 𝐣𝐥
 	[BuildSystem.h:117](./include/clang-c/BuildSystem.h:117:1)
 	""" clang_ModuleMapDescriptor_setFrameworkModuleName
 	export clang_ModuleMapDescriptor_setFrameworkModuleName
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setFrameworkModuleName(var"?1?"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setFrameworkModuleName(var"?1?"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setUmbrellaHeader(var\"?1?\"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setUmbrellaHeader(var\"?1?\"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Sets the umbrealla header name that the module.map describes. 
@@ -337,11 +337,11 @@ using CBinding: 𝐣𝐥
 	[BuildSystem.h:125](./include/clang-c/BuildSystem.h:125:1)
 	""" clang_ModuleMapDescriptor_setUmbrellaHeader
 	export clang_ModuleMapDescriptor_setUmbrellaHeader
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setUmbrellaHeader(var"?1?"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setUmbrellaHeader(var"?1?"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_writeToBuffer(var\"?1?\"::CXModuleMapDescriptor, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_writeToBuffer(var\"?1?\"::CXModuleMapDescriptor, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Write out the `CXModuleMapDescriptor` object to a char buffer.
@@ -361,7 +361,7 @@ using CBinding: 𝐣𝐥
 	[BuildSystem.h:138](./include/clang-c/BuildSystem.h:138:1)
 	""" clang_ModuleMapDescriptor_writeToBuffer
 	export clang_ModuleMapDescriptor_writeToBuffer
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_writeToBuffer(var"?1?"::CXModuleMapDescriptor, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_writeToBuffer(var"?1?"::CXModuleMapDescriptor, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
@@ -1760,7 +1760,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_loadDiagnostics(file::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, error::𝐣𝐥.Ptr{CXLoadDiag_Error}, errorString::𝐣𝐥.Ptr{CXString})::CXDiagnosticSet
+	𝐣𝐥.@cextern clang_loadDiagnostics(file::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, error::𝐣𝐥.Ptr{𝐣𝐥.@cenum CXLoadDiag_Error}, errorString::𝐣𝐥.Ptr{CXString})::CXDiagnosticSet
 	```
 	
 	 Deserialize a set of diagnostics from a Clang diagnostics bitcode file.
@@ -1780,7 +1780,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:848](./include/clang-c/Index.h:848:32)
 	""" clang_loadDiagnostics
 	export clang_loadDiagnostics
-	𝐣𝐥.@cextern clang_loadDiagnostics(file::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, error::𝐣𝐥.Ptr{CXLoadDiag_Error}, errorString::𝐣𝐥.Ptr{CXString})::CXDiagnosticSet
+	𝐣𝐥.@cextern clang_loadDiagnostics(file::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, error::𝐣𝐥.Ptr{𝐣𝐥.@cenum CXLoadDiag_Error}, errorString::𝐣𝐥.Ptr{CXString})::CXDiagnosticSet
 	
 	𝐣𝐥.@doc """
 	```
@@ -2023,7 +2023,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getDiagnosticSeverity(var\"?1?\"::CXDiagnostic)::CXDiagnosticSeverity
+	𝐣𝐥.@cextern clang_getDiagnosticSeverity(var\"?1?\"::CXDiagnostic)::𝐣𝐥.@cenum CXDiagnosticSeverity
 	```
 	
 	 Determine the severity of the given diagnostic.
@@ -2033,7 +2033,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:996](./include/clang-c/Index.h:996:1)
 	""" clang_getDiagnosticSeverity
 	export clang_getDiagnosticSeverity
-	𝐣𝐥.@cextern clang_getDiagnosticSeverity(var"?1?"::CXDiagnostic)::CXDiagnosticSeverity
+	𝐣𝐥.@cextern clang_getDiagnosticSeverity(var"?1?"::CXDiagnostic)::𝐣𝐥.@cenum CXDiagnosticSeverity
 	
 	𝐣𝐥.@doc """
 	```
@@ -2251,7 +2251,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_createTranslationUnitFromSourceFile(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, num_clang_command_line_args::𝐣𝐥.Cint, clang_command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile})::CXTranslationUnit
+	𝐣𝐥.@cextern clang_createTranslationUnitFromSourceFile(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, num_clang_command_line_args::𝐣𝐥.Cint, clang_command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile})::CXTranslationUnit
 	```
 	
 	 Return the CXTranslationUnit for a given source file and the provided command line arguments one would pass to the compiler.
@@ -2278,7 +2278,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:1175](./include/clang-c/Index.h:1175:34)
 	""" clang_createTranslationUnitFromSourceFile
 	export clang_createTranslationUnitFromSourceFile
-	𝐣𝐥.@cextern clang_createTranslationUnitFromSourceFile(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, num_clang_command_line_args::𝐣𝐥.Cint, clang_command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile})::CXTranslationUnit
+	𝐣𝐥.@cextern clang_createTranslationUnitFromSourceFile(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, num_clang_command_line_args::𝐣𝐥.Cint, clang_command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile})::CXTranslationUnit
 	
 	𝐣𝐥.@doc """
 	```
@@ -2296,7 +2296,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_createTranslationUnit2(CIdx::CXIndex, ast_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_createTranslationUnit2(CIdx::CXIndex, ast_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Create a translation unit from an AST file (`-emit-ast).`
@@ -2314,7 +2314,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:1201](./include/clang-c/Index.h:1201:33)
 	""" clang_createTranslationUnit2
 	export clang_createTranslationUnit2
-	𝐣𝐥.@cextern clang_createTranslationUnit2(CIdx::CXIndex, ast_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_createTranslationUnit2(CIdx::CXIndex, ast_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	 Used to indicate that no special translation-unit options are needed.
@@ -2507,7 +2507,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_parseTranslationUnit(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::CXTranslationUnit
+	𝐣𝐥.@cextern clang_parseTranslationUnit(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::CXTranslationUnit
 	```
 	
 	 Same as `clang_parseTranslationUnit2,` but returns the `CXTranslationUnit` instead of an error code.  In case of an error this routine returns a `NULL` `CXTranslationUnit,` without further detailed error codes.
@@ -2517,11 +2517,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:1368](./include/clang-c/Index.h:1368:1)
 	""" clang_parseTranslationUnit
 	export clang_parseTranslationUnit
-	𝐣𝐥.@cextern clang_parseTranslationUnit(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::CXTranslationUnit
+	𝐣𝐥.@cextern clang_parseTranslationUnit(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::CXTranslationUnit
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_parseTranslationUnit2(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_parseTranslationUnit2(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Parse the given source file and the translation unit corresponding to that file.
@@ -2550,11 +2550,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:1421](./include/clang-c/Index.h:1421:1)
 	""" clang_parseTranslationUnit2
 	export clang_parseTranslationUnit2
-	𝐣𝐥.@cextern clang_parseTranslationUnit2(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_parseTranslationUnit2(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_parseTranslationUnit2FullArgv(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_parseTranslationUnit2FullArgv(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Same as clang_parseTranslationUnit2 but requires a full command line for `command_line_args` including argv[0]. This is useful if the standard library paths are relative to the binary.
@@ -2564,7 +2564,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:1435](./include/clang-c/Index.h:1435:33)
 	""" clang_parseTranslationUnit2FullArgv
 	export clang_parseTranslationUnit2FullArgv
-	𝐣𝐥.@cextern clang_parseTranslationUnit2FullArgv(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_parseTranslationUnit2FullArgv(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	 Flags that control how translation units are saved.
@@ -2761,7 +2761,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_reparseTranslationUnit(TU::CXTranslationUnit, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_reparseTranslationUnit(TU::CXTranslationUnit, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	```
 	
 	 Reparse the source files that produced this translation unit.
@@ -2788,7 +2788,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:1607](./include/clang-c/Index.h:1607:20)
 	""" clang_reparseTranslationUnit
 	export clang_reparseTranslationUnit
-	𝐣𝐥.@cextern clang_reparseTranslationUnit(TU::CXTranslationUnit, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_reparseTranslationUnit(TU::CXTranslationUnit, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	
 	𝐣𝐥.@doc """
 	## Reference
@@ -2911,7 +2911,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getTUResourceUsageName(kind::CXTUResourceUsageKind)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
+	𝐣𝐥.@cextern clang_getTUResourceUsageName(kind::𝐣𝐥.@cenum CXTUResourceUsageKind)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
 	```
 	
 	 Returns the human-readable null-terminated C string that represents  the name of the memory category.  This string should never be freed.
@@ -2921,7 +2921,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:1643](./include/clang-c/Index.h:1643:13)
 	""" clang_getTUResourceUsageName
 	export clang_getTUResourceUsageName
-	𝐣𝐥.@cextern clang_getTUResourceUsageName(kind::CXTUResourceUsageKind)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
+	𝐣𝐥.@cextern clang_getTUResourceUsageName(kind::𝐣𝐥.@cenum CXTUResourceUsageKind)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
 	
 	𝐣𝐥.@doc """
 	## References
@@ -2932,7 +2932,7 @@ using CBinding: 𝐣𝐥
 	""" CXTUResourceUsageEntry
 	export CXTUResourceUsageEntry
 	𝐣𝐥.@ctypedef CXTUResourceUsageEntry 𝐣𝐥.@cstruct CXTUResourceUsageEntry {
-		kind::CXTUResourceUsageKind
+		kind::𝐣𝐥.@cenum CXTUResourceUsageKind
 		amount::𝐣𝐥.Culong
 	}
 	
@@ -5222,7 +5222,7 @@ using CBinding: 𝐣𝐥
 	""" CXCursor
 	export CXCursor
 	𝐣𝐥.@ctypedef CXCursor 𝐣𝐥.@cstruct {
-		kind::CXCursorKind
+		kind::𝐣𝐥.@cenum CXCursorKind
 		xdata::𝐣𝐥.Cint
 		data::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cvoid)}[3]
 	}
@@ -5303,7 +5303,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorKind(var\"?1?\"::CXCursor)::CXCursorKind
+	𝐣𝐥.@cextern clang_getCursorKind(var\"?1?\"::CXCursor)::𝐣𝐥.@cenum CXCursorKind
 	```
 	
 	 Retrieve the kind of the given cursor.
@@ -5313,11 +5313,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:2684](./include/clang-c/Index.h:2684:34)
 	""" clang_getCursorKind
 	export clang_getCursorKind
-	𝐣𝐥.@cextern clang_getCursorKind(var"?1?"::CXCursor)::CXCursorKind
+	𝐣𝐥.@cextern clang_getCursorKind(var"?1?"::CXCursor)::𝐣𝐥.@cenum CXCursorKind
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isDeclaration(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isDeclaration(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents a declaration.
@@ -5327,7 +5327,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:2689](./include/clang-c/Index.h:2689:25)
 	""" clang_isDeclaration
 	export clang_isDeclaration
-	𝐣𝐥.@cextern clang_isDeclaration(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isDeclaration(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
@@ -5353,7 +5353,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isReference(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isReference(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents a simple reference.
@@ -5367,11 +5367,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:2709](./include/clang-c/Index.h:2709:25)
 	""" clang_isReference
 	export clang_isReference
-	𝐣𝐥.@cextern clang_isReference(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isReference(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isExpression(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isExpression(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents an expression.
@@ -5381,11 +5381,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:2714](./include/clang-c/Index.h:2714:25)
 	""" clang_isExpression
 	export clang_isExpression
-	𝐣𝐥.@cextern clang_isExpression(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isExpression(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isStatement(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isStatement(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents a statement.
@@ -5395,11 +5395,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:2719](./include/clang-c/Index.h:2719:25)
 	""" clang_isStatement
 	export clang_isStatement
-	𝐣𝐥.@cextern clang_isStatement(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isStatement(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isAttribute(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isAttribute(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents an attribute.
@@ -5409,7 +5409,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:2724](./include/clang-c/Index.h:2724:25)
 	""" clang_isAttribute
 	export clang_isAttribute
-	𝐣𝐥.@cextern clang_isAttribute(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isAttribute(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
@@ -5427,7 +5427,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isInvalid(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isInvalid(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents an invalid cursor.
@@ -5437,11 +5437,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:2735](./include/clang-c/Index.h:2735:25)
 	""" clang_isInvalid
 	export clang_isInvalid
-	𝐣𝐥.@cextern clang_isInvalid(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isInvalid(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isTranslationUnit(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isTranslationUnit(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents a translation unit.
@@ -5451,11 +5451,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:2741](./include/clang-c/Index.h:2741:25)
 	""" clang_isTranslationUnit
 	export clang_isTranslationUnit
-	𝐣𝐥.@cextern clang_isTranslationUnit(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isTranslationUnit(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isPreprocessing(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isPreprocessing(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	* Determine whether the given cursor represents a preprocessing element, such as a preprocessor directive or macro instantiation.
@@ -5465,11 +5465,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:2747](./include/clang-c/Index.h:2747:25)
 	""" clang_isPreprocessing
 	export clang_isPreprocessing
-	𝐣𝐥.@cextern clang_isPreprocessing(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isPreprocessing(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isUnexposed(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isUnexposed(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	* Determine whether the given cursor represents a currently  unexposed piece of the AST (e.g., CXCursor_UnexposedStmt).
@@ -5479,7 +5479,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:2753](./include/clang-c/Index.h:2753:25)
 	""" clang_isUnexposed
 	export clang_isUnexposed
-	𝐣𝐥.@cextern clang_isUnexposed(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isUnexposed(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	 This is the linkage for static variables and static functions. 
@@ -5534,7 +5534,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorLinkage(cursor::CXCursor)::CXLinkageKind
+	𝐣𝐥.@cextern clang_getCursorLinkage(cursor::CXCursor)::𝐣𝐥.@cenum CXLinkageKind
 	```
 	
 	 Determine the linkage of the entity referred to by a given cursor.
@@ -5544,7 +5544,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:2779](./include/clang-c/Index.h:2779:35)
 	""" clang_getCursorLinkage
 	export clang_getCursorLinkage
-	𝐣𝐥.@cextern clang_getCursorLinkage(cursor::CXCursor)::CXLinkageKind
+	𝐣𝐥.@cextern clang_getCursorLinkage(cursor::CXCursor)::𝐣𝐥.@cenum CXLinkageKind
 	
 	𝐣𝐥.@doc """
 	 Symbol seen by the linker but resolves to a symbol inside this object. 
@@ -5589,7 +5589,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorVisibility(cursor::CXCursor)::CXVisibilityKind
+	𝐣𝐥.@cextern clang_getCursorVisibility(cursor::CXCursor)::𝐣𝐥.@cenum CXVisibilityKind
 	```
 	
 	 Describe the visibility of the entity referred to by a cursor.
@@ -5611,11 +5611,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:2805](./include/clang-c/Index.h:2805:38)
 	""" clang_getCursorVisibility
 	export clang_getCursorVisibility
-	𝐣𝐥.@cextern clang_getCursorVisibility(cursor::CXCursor)::CXVisibilityKind
+	𝐣𝐥.@cextern clang_getCursorVisibility(cursor::CXCursor)::𝐣𝐥.@cenum CXVisibilityKind
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorAvailability(cursor::CXCursor)::CXAvailabilityKind
+	𝐣𝐥.@cextern clang_getCursorAvailability(cursor::CXCursor)::𝐣𝐥.@cenum CXAvailabilityKind
 	```
 	
 	 Determine the availability of the entity that this cursor refers to, taking the current target platform into account.
@@ -5633,7 +5633,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:2816](./include/clang-c/Index.h:2816:1)
 	""" clang_getCursorAvailability
 	export clang_getCursorAvailability
-	𝐣𝐥.@cextern clang_getCursorAvailability(cursor::CXCursor)::CXAvailabilityKind
+	𝐣𝐥.@cextern clang_getCursorAvailability(cursor::CXCursor)::𝐣𝐥.@cenum CXAvailabilityKind
 	
 	𝐣𝐥.@doc """
 	 Describes the availability of a given entity on a particular platform, e.g., a particular class might only be available on Mac OS 10.7 or newer.
@@ -5739,7 +5739,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorLanguage(cursor::CXCursor)::CXLanguageKind
+	𝐣𝐥.@cextern clang_getCursorLanguage(cursor::CXCursor)::𝐣𝐥.@cenum CXLanguageKind
 	```
 	
 	 Determine the \"language\" of the entity referred to by a given cursor.
@@ -5749,7 +5749,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:2919](./include/clang-c/Index.h:2919:36)
 	""" clang_getCursorLanguage
 	export clang_getCursorLanguage
-	𝐣𝐥.@cextern clang_getCursorLanguage(cursor::CXCursor)::CXLanguageKind
+	𝐣𝐥.@cextern clang_getCursorLanguage(cursor::CXCursor)::𝐣𝐥.@cenum CXLanguageKind
 	
 	𝐣𝐥.@doc """
 	## Reference
@@ -5782,7 +5782,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorTLSKind(cursor::CXCursor)::CXTLSKind
+	𝐣𝐥.@cextern clang_getCursorTLSKind(cursor::CXCursor)::𝐣𝐥.@cenum CXTLSKind
 	```
 	
 	 Determine the \"thread-local storage (TLS) kind\" of the declaration referred to by a cursor.
@@ -5792,7 +5792,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:2935](./include/clang-c/Index.h:2935:31)
 	""" clang_getCursorTLSKind
 	export clang_getCursorTLSKind
-	𝐣𝐥.@cextern clang_getCursorTLSKind(cursor::CXCursor)::CXTLSKind
+	𝐣𝐥.@cextern clang_getCursorTLSKind(cursor::CXCursor)::𝐣𝐥.@cenum CXTLSKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -7380,7 +7380,7 @@ using CBinding: 𝐣𝐥
 	""" CXType
 	export CXType
 	𝐣𝐥.@ctypedef CXType 𝐣𝐥.@cstruct {
-		kind::CXTypeKind
+		kind::𝐣𝐥.@cenum CXTypeKind
 		data::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}[2]
 	}
 	
@@ -7643,7 +7643,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentKind(C::CXCursor, I::𝐣𝐥.Cuint)::CXTemplateArgumentKind
+	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentKind(C::CXCursor, I::𝐣𝐥.Cuint)::𝐣𝐥.@cenum CXTemplateArgumentKind
 	```
 	
 	 Retrieve the kind of the I'th template argument of the CXCursor C.
@@ -7663,7 +7663,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:3482](./include/clang-c/Index.h:3482:44)
 	""" clang_Cursor_getTemplateArgumentKind
 	export clang_Cursor_getTemplateArgumentKind
-	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentKind(C::CXCursor, I::𝐣𝐥.Cuint)::CXTemplateArgumentKind
+	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentKind(C::CXCursor, I::𝐣𝐥.Cuint)::𝐣𝐥.@cenum CXTemplateArgumentKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -7943,7 +7943,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getTypeKindSpelling(K::CXTypeKind)::CXString
+	𝐣𝐥.@cextern clang_getTypeKindSpelling(K::𝐣𝐥.@cenum CXTypeKind)::CXString
 	```
 	
 	 Retrieve the spelling of a given CXTypeKind.
@@ -7953,11 +7953,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:3636](./include/clang-c/Index.h:3636:25)
 	""" clang_getTypeKindSpelling
 	export clang_getTypeKindSpelling
-	𝐣𝐥.@cextern clang_getTypeKindSpelling(K::CXTypeKind)::CXString
+	𝐣𝐥.@cextern clang_getTypeKindSpelling(K::𝐣𝐥.@cenum CXTypeKind)::CXString
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getFunctionTypeCallingConv(T::CXType)::CXCallingConv
+	𝐣𝐥.@cextern clang_getFunctionTypeCallingConv(T::CXType)::𝐣𝐥.@cenum CXCallingConv
 	```
 	
 	 Retrieve the calling convention associated with a function type.
@@ -7971,7 +7971,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:3643](./include/clang-c/Index.h:3643:35)
 	""" clang_getFunctionTypeCallingConv
 	export clang_getFunctionTypeCallingConv
-	𝐣𝐥.@cextern clang_getFunctionTypeCallingConv(T::CXType)::CXCallingConv
+	𝐣𝐥.@cextern clang_getFunctionTypeCallingConv(T::CXType)::𝐣𝐥.@cenum CXCallingConv
 	
 	𝐣𝐥.@doc """
 	```
@@ -8354,7 +8354,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Type_getNullability(T::CXType)::CXTypeNullabilityKind
+	𝐣𝐥.@cextern clang_Type_getNullability(T::CXType)::𝐣𝐥.@cenum CXTypeNullabilityKind
 	```
 	
 	 Retrieve the nullability kind of a pointer type.
@@ -8364,7 +8364,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:3811](./include/clang-c/Index.h:3811:43)
 	""" clang_Type_getNullability
 	export clang_Type_getNullability
-	𝐣𝐥.@cextern clang_Type_getNullability(T::CXType)::CXTypeNullabilityKind
+	𝐣𝐥.@cextern clang_Type_getNullability(T::CXType)::𝐣𝐥.@cenum CXTypeNullabilityKind
 	
 	𝐣𝐥.@doc """
 	 The type is a dependent Type.
@@ -8610,7 +8610,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Type_getCXXRefQualifier(T::CXType)::CXRefQualifierKind
+	𝐣𝐥.@cextern clang_Type_getCXXRefQualifier(T::CXType)::𝐣𝐥.@cenum CXRefQualifierKind
 	```
 	
 	 Retrieve the ref-qualifier kind of a function or method.
@@ -8624,7 +8624,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:3949](./include/clang-c/Index.h:3949:40)
 	""" clang_Type_getCXXRefQualifier
 	export clang_Type_getCXXRefQualifier
-	𝐣𝐥.@cextern clang_Type_getCXXRefQualifier(T::CXType)::CXRefQualifierKind
+	𝐣𝐥.@cextern clang_Type_getCXXRefQualifier(T::CXType)::𝐣𝐥.@cenum CXRefQualifierKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -8691,7 +8691,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCXXAccessSpecifier(var\"?1?\"::CXCursor)::CX_CXXAccessSpecifier
+	𝐣𝐥.@cextern clang_getCXXAccessSpecifier(var\"?1?\"::CXCursor)::𝐣𝐥.@cenum CX_CXXAccessSpecifier
 	```
 	
 	 Returns the access control level for the referenced object.
@@ -8705,7 +8705,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:3981](./include/clang-c/Index.h:3981:43)
 	""" clang_getCXXAccessSpecifier
 	export clang_getCXXAccessSpecifier
-	𝐣𝐥.@cextern clang_getCXXAccessSpecifier(var"?1?"::CXCursor)::CX_CXXAccessSpecifier
+	𝐣𝐥.@cextern clang_getCXXAccessSpecifier(var"?1?"::CXCursor)::𝐣𝐥.@cenum CX_CXXAccessSpecifier
 	
 	𝐣𝐥.@doc """
 	## Reference
@@ -8768,7 +8768,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Cursor_getStorageClass(var\"?1?\"::CXCursor)::CX_StorageClass
+	𝐣𝐥.@cextern clang_Cursor_getStorageClass(var\"?1?\"::CXCursor)::𝐣𝐥.@cenum CX_StorageClass
 	```
 	
 	 Returns the storage class for a function or variable declaration.
@@ -8782,7 +8782,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:4004](./include/clang-c/Index.h:4004:37)
 	""" clang_Cursor_getStorageClass
 	export clang_Cursor_getStorageClass
-	𝐣𝐥.@cextern clang_Cursor_getStorageClass(var"?1?"::CXCursor)::CX_StorageClass
+	𝐣𝐥.@cextern clang_Cursor_getStorageClass(var"?1?"::CXCursor)::𝐣𝐥.@cenum CX_StorageClass
 	
 	𝐣𝐥.@doc """
 	```
@@ -8896,7 +8896,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:4100](./include/clang-c/Index.h:4100:35)
 	""" CXCursorVisitor
 	export CXCursorVisitor
-	𝐣𝐥.@ctypedef CXCursorVisitor 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{CXChildVisitResult, 𝐣𝐥.Tuple{CXCursor, CXCursor, CXClientData}, 𝐣𝐥.CDECL}}
+	𝐣𝐥.@ctypedef CXCursorVisitor 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cenum CXChildVisitResult), 𝐣𝐥.Tuple{CXCursor, CXCursor, CXClientData}, 𝐣𝐥.CDECL}}
 	
 	𝐣𝐥.@doc """
 	```
@@ -9250,7 +9250,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_PrintingPolicy_getProperty(Policy::CXPrintingPolicy, Property::CXPrintingPolicyProperty)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_PrintingPolicy_getProperty(Policy::CXPrintingPolicy, Property::(𝐣𝐥.@cenum CXPrintingPolicyProperty))::𝐣𝐥.Cuint
 	```
 	
 	 Get a property value for the given printing policy.
@@ -9260,11 +9260,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:4285](./include/clang-c/Index.h:4285:1)
 	""" clang_PrintingPolicy_getProperty
 	export clang_PrintingPolicy_getProperty
-	𝐣𝐥.@cextern clang_PrintingPolicy_getProperty(Policy::CXPrintingPolicy, Property::CXPrintingPolicyProperty)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_PrintingPolicy_getProperty(Policy::CXPrintingPolicy, Property::(𝐣𝐥.@cenum CXPrintingPolicyProperty))::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_PrintingPolicy_setProperty(Policy::CXPrintingPolicy, Property::CXPrintingPolicyProperty, Value::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
+	𝐣𝐥.@cextern clang_PrintingPolicy_setProperty(Policy::CXPrintingPolicy, Property::(𝐣𝐥.@cenum CXPrintingPolicyProperty), Value::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
 	```
 	
 	 Set a property value for the given printing policy.
@@ -9274,7 +9274,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:4291](./include/clang-c/Index.h:4291:21)
 	""" clang_PrintingPolicy_setProperty
 	export clang_PrintingPolicy_setProperty
-	𝐣𝐥.@cextern clang_PrintingPolicy_setProperty(Policy::CXPrintingPolicy, Property::CXPrintingPolicyProperty, Value::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
+	𝐣𝐥.@cextern clang_PrintingPolicy_setProperty(Policy::CXPrintingPolicy, Property::(𝐣𝐥.@cenum CXPrintingPolicyProperty), Value::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
 	
 	𝐣𝐥.@doc """
 	```
@@ -10202,7 +10202,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getTemplateCursorKind(C::CXCursor)::CXCursorKind
+	𝐣𝐥.@cextern clang_getTemplateCursorKind(C::CXCursor)::𝐣𝐥.@cenum CXCursorKind
 	```
 	
 	 Given a cursor that represents a template, determine the cursor kind of the specializations would be generated by instantiating the template.
@@ -10224,7 +10224,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:4753](./include/clang-c/Index.h:4753:34)
 	""" clang_getTemplateCursorKind
 	export clang_getTemplateCursorKind
-	𝐣𝐥.@cextern clang_getTemplateCursorKind(C::CXCursor)::CXCursorKind
+	𝐣𝐥.@cextern clang_getTemplateCursorKind(C::CXCursor)::𝐣𝐥.@cenum CXCursorKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -10539,7 +10539,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorKindSpelling(Kind::CXCursorKind)::CXString
+	𝐣𝐥.@cextern clang_getCursorKindSpelling(Kind::𝐣𝐥.@cenum CXCursorKind)::CXString
 	```
 	
 	 CINDEX_DEBUG Debugging facilities
@@ -10555,7 +10555,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:4997](./include/clang-c/Index.h:4997:25)
 	""" clang_getCursorKindSpelling
 	export clang_getCursorKindSpelling
-	𝐣𝐥.@cextern clang_getCursorKindSpelling(Kind::CXCursorKind)::CXString
+	𝐣𝐥.@cextern clang_getCursorKindSpelling(Kind::𝐣𝐥.@cenum CXCursorKind)::CXString
 	
 	𝐣𝐥.@doc """
 	```
@@ -10616,7 +10616,7 @@ using CBinding: 𝐣𝐥
 	""" CXCompletionResult
 	export CXCompletionResult
 	𝐣𝐥.@ctypedef CXCompletionResult 𝐣𝐥.@cstruct {
-		CursorKind::CXCursorKind
+		CursorKind::𝐣𝐥.@cenum CXCursorKind
 		CompletionString::CXCompletionString
 	}
 	
@@ -10847,7 +10847,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCompletionChunkKind(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::CXCompletionChunkKind
+	𝐣𝐥.@cextern clang_getCompletionChunkKind(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::𝐣𝐥.@cenum CXCompletionChunkKind
 	```
 	
 	 Determine the kind of a particular chunk within a completion string.
@@ -10866,7 +10866,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:5244](./include/clang-c/Index.h:5244:1)
 	""" clang_getCompletionChunkKind
 	export clang_getCompletionChunkKind
-	𝐣𝐥.@cextern clang_getCompletionChunkKind(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::CXCompletionChunkKind
+	𝐣𝐥.@cextern clang_getCompletionChunkKind(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::𝐣𝐥.@cenum CXCompletionChunkKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -10956,7 +10956,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCompletionAvailability(completion_string::CXCompletionString)::CXAvailabilityKind
+	𝐣𝐥.@cextern clang_getCompletionAvailability(completion_string::CXCompletionString)::𝐣𝐥.@cenum CXAvailabilityKind
 	```
 	
 	 Determine the availability of the entity that this code-completion string refers to.
@@ -10974,7 +10974,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:5306](./include/clang-c/Index.h:5306:1)
 	""" clang_getCompletionAvailability
 	export clang_getCompletionAvailability
-	𝐣𝐥.@cextern clang_getCompletionAvailability(completion_string::CXCompletionString)::CXAvailabilityKind
+	𝐣𝐥.@cextern clang_getCompletionAvailability(completion_string::CXCompletionString)::𝐣𝐥.@cenum CXAvailabilityKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -11023,7 +11023,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCompletionParent(completion_string::CXCompletionString, kind::𝐣𝐥.Ptr{CXCursorKind})::CXString
+	𝐣𝐥.@cextern clang_getCompletionParent(completion_string::CXCompletionString, kind::𝐣𝐥.Ptr{𝐣𝐥.@cenum CXCursorKind})::CXString
 	```
 	
 	 Retrieve the parent context of the given completion string.
@@ -11046,7 +11046,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:5352](./include/clang-c/Index.h:5352:1)
 	""" clang_getCompletionParent
 	export clang_getCompletionParent
-	𝐣𝐥.@cextern clang_getCompletionParent(completion_string::CXCompletionString, kind::𝐣𝐥.Ptr{CXCursorKind})::CXString
+	𝐣𝐥.@cextern clang_getCompletionParent(completion_string::CXCompletionString, kind::𝐣𝐥.Ptr{𝐣𝐥.@cenum CXCursorKind})::CXString
 	
 	𝐣𝐥.@doc """
 	```
@@ -11449,7 +11449,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_codeCompleteAt(TU::CXTranslationUnit, complete_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, complete_line::𝐣𝐥.Cuint, complete_column::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::𝐣𝐥.Ptr{CXCodeCompleteResults}
+	𝐣𝐥.@cextern clang_codeCompleteAt(TU::CXTranslationUnit, complete_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, complete_line::𝐣𝐥.Cuint, complete_column::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::𝐣𝐥.Ptr{CXCodeCompleteResults}
 	```
 	
 	 Perform code completion at a given location in a translation unit.
@@ -11479,7 +11479,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:5709](./include/clang-c/Index.h:5709:24)
 	""" clang_codeCompleteAt
 	export clang_codeCompleteAt
-	𝐣𝐥.@cextern clang_codeCompleteAt(TU::CXTranslationUnit, complete_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, complete_line::𝐣𝐥.Cuint, complete_column::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::𝐣𝐥.Ptr{CXCodeCompleteResults}
+	𝐣𝐥.@cextern clang_codeCompleteAt(TU::CXTranslationUnit, complete_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, complete_line::𝐣𝐥.Cuint, complete_column::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::𝐣𝐥.Ptr{CXCodeCompleteResults}
 	
 	𝐣𝐥.@doc """
 	```
@@ -11575,7 +11575,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_codeCompleteGetContainerKind(Results::𝐣𝐥.Ptr{CXCodeCompleteResults}, IsIncomplete::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXCursorKind
+	𝐣𝐥.@cextern clang_codeCompleteGetContainerKind(Results::𝐣𝐥.Ptr{CXCodeCompleteResults}, IsIncomplete::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXCursorKind
 	```
 	
 	 Returns the cursor kind for the container for the current code completion context. The container is only guaranteed to be set for contexts where a container exists (i.e. member accesses or Objective-C message sends); if there is not a container, this function will return CXCursor_InvalidCode.
@@ -11594,7 +11594,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:5784](./include/clang-c/Index.h:5784:19)
 	""" clang_codeCompleteGetContainerKind
 	export clang_codeCompleteGetContainerKind
-	𝐣𝐥.@cextern clang_codeCompleteGetContainerKind(Results::𝐣𝐥.Ptr{CXCodeCompleteResults}, IsIncomplete::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXCursorKind
+	𝐣𝐥.@cextern clang_codeCompleteGetContainerKind(Results::𝐣𝐥.Ptr{CXCodeCompleteResults}, IsIncomplete::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXCursorKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -12026,7 +12026,7 @@ using CBinding: 𝐣𝐥
 	export CXCursorAndRangeVisitor
 	𝐣𝐥.@ctypedef CXCursorAndRangeVisitor 𝐣𝐥.@cstruct CXCursorAndRangeVisitor {
 		context::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
-		visit::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{CXVisitorResult, 𝐣𝐥.Tuple{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, CXCursor, CXSourceRange}, 𝐣𝐥.CDECL}}
+		visit::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cenum CXVisitorResult), 𝐣𝐥.Tuple{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, CXCursor, CXSourceRange}, 𝐣𝐥.CDECL}}
 	}
 	
 	𝐣𝐥.@doc """
@@ -13085,7 +13085,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_indexSourceFile(var\"?1?\"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_indexSourceFile(var\"?1?\"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	```
 	
 	 Index the given source file and the translation unit corresponding to that file via callbacks implemented through #IndexerCallbacks.
@@ -13109,11 +13109,11 @@ using CBinding: 𝐣𝐥
 	[Index.h:6601](./include/clang-c/Index.h:6601:20)
 	""" clang_indexSourceFile
 	export clang_indexSourceFile
-	𝐣𝐥.@cextern clang_indexSourceFile(var"?1?"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_indexSourceFile(var"?1?"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_indexSourceFileFullArgv(var\"?1?\"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_indexSourceFileFullArgv(var\"?1?\"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	```
 	
 	 Same as clang_indexSourceFile but requires a full command line for `command_line_args` including argv[0]. This is useful if the standard library paths are relative to the binary.
@@ -13123,7 +13123,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:6619](./include/clang-c/Index.h:6619:20)
 	""" clang_indexSourceFileFullArgv
 	export clang_indexSourceFileFullArgv
-	𝐣𝐥.@cextern clang_indexSourceFileFullArgv(var"?1?"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_indexSourceFileFullArgv(var"?1?"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	
 	𝐣𝐥.@doc """
 	```
@@ -13197,7 +13197,7 @@ using CBinding: 𝐣𝐥
 	[Index.h:6681](./include/clang-c/Index.h:6681:32)
 	""" CXFieldVisitor
 	export CXFieldVisitor
-	𝐣𝐥.@ctypedef CXFieldVisitor 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{CXVisitorResult, 𝐣𝐥.Tuple{CXCursor, CXClientData}, 𝐣𝐥.CDECL}}
+	𝐣𝐥.@ctypedef CXFieldVisitor 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cenum CXVisitorResult), 𝐣𝐥.Tuple{CXCursor, CXClientData}, 𝐣𝐥.CDECL}}
 	
 	𝐣𝐥.@doc """
 	```
@@ -13348,7 +13348,7 @@ using CBinding: 𝐣𝐥
 	
 	 Paragraph argument is also a child of the block command.
 	
-	 For example:  0 word-like arguments and a paragraph argument.
+	 For example: nothing 0 word-like arguments and a paragraph argument.
 	
 	 AST nodes of special kinds that parser knows about (e. g., \\param command) have their own node kinds.
 	
@@ -13489,7 +13489,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Comment_getKind(Comment::CXComment)::CXCommentKind
+	𝐣𝐥.@cextern clang_Comment_getKind(Comment::CXComment)::𝐣𝐥.@cenum CXCommentKind
 	```
 	
 	## Parameters
@@ -13505,7 +13505,7 @@ using CBinding: 𝐣𝐥
 	[Documentation.h:213](./include/clang-c/Documentation.h:213:35)
 	""" clang_Comment_getKind
 	export clang_Comment_getKind
-	𝐣𝐥.@cextern clang_Comment_getKind(Comment::CXComment)::CXCommentKind
+	𝐣𝐥.@cextern clang_Comment_getKind(Comment::CXComment)::𝐣𝐥.@cenum CXCommentKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -13631,7 +13631,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_InlineCommandComment_getRenderKind(Comment::CXComment)::CXCommentInlineCommandRenderKind
+	𝐣𝐥.@cextern clang_InlineCommandComment_getRenderKind(Comment::CXComment)::𝐣𝐥.@cenum CXCommentInlineCommandRenderKind
 	```
 	
 	## Parameters
@@ -13647,7 +13647,7 @@ using CBinding: 𝐣𝐥
 	[Documentation.h:273](./include/clang-c/Documentation.h:273:1)
 	""" clang_InlineCommandComment_getRenderKind
 	export clang_InlineCommandComment_getRenderKind
-	𝐣𝐥.@cextern clang_InlineCommandComment_getRenderKind(Comment::CXComment)::CXCommentInlineCommandRenderKind
+	𝐣𝐥.@cextern clang_InlineCommandComment_getRenderKind(Comment::CXComment)::𝐣𝐥.@cenum CXCommentInlineCommandRenderKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -13967,7 +13967,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_ParamCommandComment_getDirection(Comment::CXComment)::CXCommentParamPassDirection
+	𝐣𝐥.@cextern clang_ParamCommandComment_getDirection(Comment::CXComment)::𝐣𝐥.@cenum CXCommentParamPassDirection
 	```
 	
 	## Parameters
@@ -13983,7 +13983,7 @@ using CBinding: 𝐣𝐥
 	[Documentation.h:414](./include/clang-c/Documentation.h:414:34)
 	""" clang_ParamCommandComment_getDirection
 	export clang_ParamCommandComment_getDirection
-	𝐣𝐥.@cextern clang_ParamCommandComment_getDirection(Comment::CXComment)::CXCommentParamPassDirection
+	𝐣𝐥.@cextern clang_ParamCommandComment_getDirection(Comment::CXComment)::𝐣𝐥.@cenum CXCommentParamPassDirection
 	
 	𝐣𝐥.@doc """
 	```
@@ -14220,4 +14220,32 @@ using CBinding: 𝐣𝐥
 	""" clang_FullComment_getAsXML
 	export clang_FullComment_getAsXML
 	𝐣𝐥.@cextern clang_FullComment_getAsXML(Comment::CXComment)::CXString
+	
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[Index.h:34](./include/clang-c/Index.h:34:9)
+	""" CINDEX_VERSION_MAJOR
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[Index.h:34](./include/clang-c/Index.h:34:9)
+	""" :(@CINDEX_VERSION_MAJOR)
+	export @CINDEX_VERSION_MAJOR, CINDEX_VERSION_MAJOR
+	macro CINDEX_VERSION_MAJOR() return quote 0 end end
+	const CINDEX_VERSION_MAJOR = (@CINDEX_VERSION_MAJOR)
+	
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[Index.h:35](./include/clang-c/Index.h:35:9)
+	""" :(@CINDEX_VERSION_MINOR)
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[Index.h:35](./include/clang-c/Index.h:35:9)
+	""" CINDEX_VERSION_MINOR
+	export @CINDEX_VERSION_MINOR, CINDEX_VERSION_MINOR
+	macro CINDEX_VERSION_MINOR() return quote 50 end end
+	const CINDEX_VERSION_MINOR = (@CINDEX_VERSION_MINOR)
 end
