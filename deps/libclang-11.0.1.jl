@@ -11,7 +11,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXErrorCode.h:41](./include/clang-c/CXErrorCode.h:41:3)
+	[CXErrorCode.h:40](./include/clang-c/CXErrorCode.h:40:3)
 	""" CXError_Failure
 	𝐣𝐥.@doc """
 	 Error codes returned by libclang routines.
@@ -22,35 +22,35 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXErrorCode.h:29](./include/clang-c/CXErrorCode.h:29:6)
+	[CXErrorCode.h:28](./include/clang-c/CXErrorCode.h:28:6)
 	""" CXErrorCode
 	𝐣𝐥.@doc """
 	 No error.
 	
 	## Reference
 	
-	[CXErrorCode.h:33](./include/clang-c/CXErrorCode.h:33:3)
+	[CXErrorCode.h:32](./include/clang-c/CXErrorCode.h:32:3)
 	""" CXError_Success
 	𝐣𝐥.@doc """
 	 libclang crashed while performing the requested operation.
 	
 	## Reference
 	
-	[CXErrorCode.h:46](./include/clang-c/CXErrorCode.h:46:3)
+	[CXErrorCode.h:45](./include/clang-c/CXErrorCode.h:45:3)
 	""" CXError_Crashed
 	𝐣𝐥.@doc """
 	 The function detected that the arguments violate the function contract.
 	
 	## Reference
 	
-	[CXErrorCode.h:52](./include/clang-c/CXErrorCode.h:52:3)
+	[CXErrorCode.h:51](./include/clang-c/CXErrorCode.h:51:3)
 	""" CXError_InvalidArguments
 	𝐣𝐥.@doc """
 	 An AST deserialization error has occurred.
 	
 	## Reference
 	
-	[CXErrorCode.h:57](./include/clang-c/CXErrorCode.h:57:3)
+	[CXErrorCode.h:56](./include/clang-c/CXErrorCode.h:56:3)
 	""" CXError_ASTReadError
 	export CXErrorCode, CXError_ASTReadError, CXError_Crashed, CXError_Failure, CXError_InvalidArguments, CXError_Success
 	𝐣𝐥.@cenum CXErrorCode {
@@ -70,7 +70,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXString.h:41](./include/clang-c/CXString.h:41:3)
+	[CXString.h:40](./include/clang-c/CXString.h:40:3)
 	""" CXString
 	export CXString
 	𝐣𝐥.@ctypedef CXString 𝐣𝐥.@cstruct {
@@ -81,7 +81,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[CXString.h:46](./include/clang-c/CXString.h:46:3)
+	[CXString.h:45](./include/clang-c/CXString.h:45:3)
 	""" CXStringSet
 	export CXStringSet
 	𝐣𝐥.@ctypedef CXStringSet 𝐣𝐥.@cstruct {
@@ -98,7 +98,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXString.h:51](./include/clang-c/CXString.h:51:28)
+	[CXString.h:50](./include/clang-c/CXString.h:50:28)
 	""" clang_getCString
 	export clang_getCString
 	𝐣𝐥.@cextern clang_getCString(string::CXString)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
@@ -112,7 +112,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXString.h:56](./include/clang-c/CXString.h:56:21)
+	[CXString.h:55](./include/clang-c/CXString.h:55:21)
 	""" clang_disposeString
 	export clang_disposeString
 	𝐣𝐥.@cextern clang_disposeString(string::CXString)::𝐣𝐥.Cvoid
@@ -126,7 +126,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXString.h:61](./include/clang-c/CXString.h:61:21)
+	[CXString.h:60](./include/clang-c/CXString.h:60:21)
 	""" clang_disposeStringSet
 	export clang_disposeStringSet
 	𝐣𝐥.@cextern clang_disposeStringSet(set::𝐣𝐥.Ptr{CXStringSet})::𝐣𝐥.Cvoid
@@ -140,7 +140,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:34](./include/clang-c/BuildSystem.h:34:35)
+	[BuildSystem.h:33](./include/clang-c/BuildSystem.h:33:35)
 	""" clang_getBuildSessionTimestamp
 	export clang_getBuildSessionTimestamp
 	𝐣𝐥.@cextern clang_getBuildSessionTimestamp()::𝐣𝐥.Culonglong
@@ -150,12 +150,12 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:40](./include/clang-c/BuildSystem.h:40:42)
+	[BuildSystem.h:39](./include/clang-c/BuildSystem.h:39:42)
 	""" CXVirtualFileOverlay
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[BuildSystem.h:40](./include/clang-c/BuildSystem.h:40:16)
+	[BuildSystem.h:39](./include/clang-c/BuildSystem.h:39:16)
 	""" CXVirtualFileOverlayImpl
 	export CXVirtualFileOverlay, CXVirtualFileOverlayImpl
 	𝐣𝐥.@ctypedef CXVirtualFileOverlay 𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXVirtualFileOverlayImpl}
@@ -173,14 +173,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:49](./include/clang-c/BuildSystem.h:49:1)
+	[BuildSystem.h:48](./include/clang-c/BuildSystem.h:48:1)
 	""" clang_VirtualFileOverlay_create
 	export clang_VirtualFileOverlay_create
 	𝐣𝐥.@cextern clang_VirtualFileOverlay_create(options::𝐣𝐥.Cuint)::CXVirtualFileOverlay
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_addFileMapping(var\"?1?\"::CXVirtualFileOverlay, virtualPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, realPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_addFileMapping(var\"?1?\"::CXVirtualFileOverlay, virtualPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, realPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Map an absolute virtual file path to an absolute real one. The virtual path must be canonicalized (not contain \".\"/\"..\"). 
@@ -191,14 +191,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:57](./include/clang-c/BuildSystem.h:57:1)
+	[BuildSystem.h:56](./include/clang-c/BuildSystem.h:56:1)
 	""" clang_VirtualFileOverlay_addFileMapping
 	export clang_VirtualFileOverlay_addFileMapping
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_addFileMapping(var"?1?"::CXVirtualFileOverlay, virtualPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, realPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_addFileMapping(var"?1?"::CXVirtualFileOverlay, virtualPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, realPath::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_setCaseSensitivity(var\"?1?\"::CXVirtualFileOverlay, caseSensitive::𝐣𝐥.Cint)::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_setCaseSensitivity(var\"?1?\"::CXVirtualFileOverlay, caseSensitive::𝐣𝐥.Cint)::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Set the case sensitivity for the `CXVirtualFileOverlay` object. The `CXVirtualFileOverlay` object is case-sensitive by default, this option can be used to override the default. 
@@ -209,14 +209,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:68](./include/clang-c/BuildSystem.h:68:1)
+	[BuildSystem.h:67](./include/clang-c/BuildSystem.h:67:1)
 	""" clang_VirtualFileOverlay_setCaseSensitivity
 	export clang_VirtualFileOverlay_setCaseSensitivity
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_setCaseSensitivity(var"?1?"::CXVirtualFileOverlay, caseSensitive::𝐣𝐥.Cint)::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_setCaseSensitivity(var"?1?"::CXVirtualFileOverlay, caseSensitive::𝐣𝐥.Cint)::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_writeToBuffer(var\"?1?\"::CXVirtualFileOverlay, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_writeToBuffer(var\"?1?\"::CXVirtualFileOverlay, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Write out the `CXVirtualFileOverlay` object to a char buffer.
@@ -233,10 +233,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:81](./include/clang-c/BuildSystem.h:81:1)
+	[BuildSystem.h:80](./include/clang-c/BuildSystem.h:80:1)
 	""" clang_VirtualFileOverlay_writeToBuffer
 	export clang_VirtualFileOverlay_writeToBuffer
-	𝐣𝐥.@cextern clang_VirtualFileOverlay_writeToBuffer(var"?1?"::CXVirtualFileOverlay, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXErrorCode
+	𝐣𝐥.@cextern clang_VirtualFileOverlay_writeToBuffer(var"?1?"::CXVirtualFileOverlay, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
@@ -251,7 +251,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:91](./include/clang-c/BuildSystem.h:91:21)
+	[BuildSystem.h:90](./include/clang-c/BuildSystem.h:90:21)
 	""" clang_free
 	export clang_free
 	𝐣𝐥.@cextern clang_free(buffer::𝐣𝐥.Ptr{𝐣𝐥.Cvoid})::𝐣𝐥.Cvoid
@@ -265,7 +265,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:96](./include/clang-c/BuildSystem.h:96:21)
+	[BuildSystem.h:95](./include/clang-c/BuildSystem.h:95:21)
 	""" clang_VirtualFileOverlay_dispose
 	export clang_VirtualFileOverlay_dispose
 	𝐣𝐥.@cextern clang_VirtualFileOverlay_dispose(var"?1?"::CXVirtualFileOverlay)::𝐣𝐥.Cvoid
@@ -275,12 +275,12 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:101](./include/clang-c/BuildSystem.h:101:43)
+	[BuildSystem.h:100](./include/clang-c/BuildSystem.h:100:43)
 	""" CXModuleMapDescriptor
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[BuildSystem.h:101](./include/clang-c/BuildSystem.h:101:16)
+	[BuildSystem.h:100](./include/clang-c/BuildSystem.h:100:16)
 	""" CXModuleMapDescriptorImpl
 	export CXModuleMapDescriptor, CXModuleMapDescriptorImpl
 	𝐣𝐥.@ctypedef CXModuleMapDescriptor 𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXModuleMapDescriptorImpl}
@@ -298,14 +298,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:110](./include/clang-c/BuildSystem.h:110:1)
+	[BuildSystem.h:109](./include/clang-c/BuildSystem.h:109:1)
 	""" clang_ModuleMapDescriptor_create
 	export clang_ModuleMapDescriptor_create
 	𝐣𝐥.@cextern clang_ModuleMapDescriptor_create(options::𝐣𝐥.Cuint)::CXModuleMapDescriptor
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setFrameworkModuleName(var\"?1?\"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setFrameworkModuleName(var\"?1?\"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Sets the framework module name that the module.map describes. 
@@ -316,17 +316,17 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:117](./include/clang-c/BuildSystem.h:117:1)
+	[BuildSystem.h:116](./include/clang-c/BuildSystem.h:116:1)
 	""" clang_ModuleMapDescriptor_setFrameworkModuleName
 	export clang_ModuleMapDescriptor_setFrameworkModuleName
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setFrameworkModuleName(var"?1?"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setFrameworkModuleName(var"?1?"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setUmbrellaHeader(var\"?1?\"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setUmbrellaHeader(var\"?1?\"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
-	 Sets the umbrealla header name that the module.map describes. 
+	 Sets the umbrella header name that the module.map describes. 
 	
 	## Returns
 	
@@ -334,14 +334,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:125](./include/clang-c/BuildSystem.h:125:1)
+	[BuildSystem.h:124](./include/clang-c/BuildSystem.h:124:1)
 	""" clang_ModuleMapDescriptor_setUmbrellaHeader
 	export clang_ModuleMapDescriptor_setUmbrellaHeader
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setUmbrellaHeader(var"?1?"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_setUmbrellaHeader(var"?1?"::CXModuleMapDescriptor, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_writeToBuffer(var\"?1?\"::CXModuleMapDescriptor, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_writeToBuffer(var\"?1?\"::CXModuleMapDescriptor, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Write out the `CXModuleMapDescriptor` object to a char buffer.
@@ -358,10 +358,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:138](./include/clang-c/BuildSystem.h:138:1)
+	[BuildSystem.h:137](./include/clang-c/BuildSystem.h:137:1)
 	""" clang_ModuleMapDescriptor_writeToBuffer
 	export clang_ModuleMapDescriptor_writeToBuffer
-	𝐣𝐥.@cextern clang_ModuleMapDescriptor_writeToBuffer(var"?1?"::CXModuleMapDescriptor, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXErrorCode
+	𝐣𝐥.@cextern clang_ModuleMapDescriptor_writeToBuffer(var"?1?"::CXModuleMapDescriptor, options::𝐣𝐥.Cuint, out_buffer_ptr::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cchar}}, out_buffer_size::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
@@ -372,7 +372,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[BuildSystem.h:145](./include/clang-c/BuildSystem.h:145:21)
+	[BuildSystem.h:144](./include/clang-c/BuildSystem.h:144:21)
 	""" clang_ModuleMapDescriptor_dispose
 	export clang_ModuleMapDescriptor_dispose
 	𝐣𝐥.@cextern clang_ModuleMapDescriptor_dispose(var"?1?"::CXModuleMapDescriptor)::𝐣𝐥.Cvoid
@@ -386,7 +386,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:38](./include/clang-c/CXCompilationDatabase.h:38:16)
+	[CXCompilationDatabase.h:37](./include/clang-c/CXCompilationDatabase.h:37:16)
 	""" CXCompilationDatabase
 	export CXCompilationDatabase
 	𝐣𝐥.@ctypedef CXCompilationDatabase 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -400,7 +400,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:49](./include/clang-c/CXCompilationDatabase.h:49:16)
+	[CXCompilationDatabase.h:48](./include/clang-c/CXCompilationDatabase.h:48:16)
 	""" CXCompileCommands
 	export CXCompileCommands
 	𝐣𝐥.@ctypedef CXCompileCommands 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -410,7 +410,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:54](./include/clang-c/CXCompilationDatabase.h:54:16)
+	[CXCompilationDatabase.h:53](./include/clang-c/CXCompilationDatabase.h:53:16)
 	""" CXCompileCommand
 	export CXCompileCommand
 	𝐣𝐥.@ctypedef CXCompileCommand 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -420,17 +420,17 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:70](./include/clang-c/CXCompilationDatabase.h:70:3)
+	[CXCompilationDatabase.h:69](./include/clang-c/CXCompilationDatabase.h:69:3)
 	""" CXCompilationDatabase_Error
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[CXCompilationDatabase.h:63](./include/clang-c/CXCompilationDatabase.h:63:3)
+	[CXCompilationDatabase.h:62](./include/clang-c/CXCompilationDatabase.h:62:3)
 	""" CXCompilationDatabase_NoError
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[CXCompilationDatabase.h:68](./include/clang-c/CXCompilationDatabase.h:68:3)
+	[CXCompilationDatabase.h:67](./include/clang-c/CXCompilationDatabase.h:67:3)
 	""" CXCompilationDatabase_CanNotLoadDatabase
 	export CXCompilationDatabase_CanNotLoadDatabase, CXCompilationDatabase_Error, CXCompilationDatabase_NoError
 	𝐣𝐥.@ctypedef CXCompilationDatabase_Error 𝐣𝐥.@cenum {
@@ -451,7 +451,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:80](./include/clang-c/CXCompilationDatabase.h:80:1)
+	[CXCompilationDatabase.h:79](./include/clang-c/CXCompilationDatabase.h:79:1)
 	""" clang_CompilationDatabase_fromDirectory
 	export clang_CompilationDatabase_fromDirectory
 	𝐣𝐥.@cextern clang_CompilationDatabase_fromDirectory(BuildDir::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, ErrorCode::𝐣𝐥.Ptr{CXCompilationDatabase_Error})::CXCompilationDatabase
@@ -465,7 +465,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:87](./include/clang-c/CXCompilationDatabase.h:87:1)
+	[CXCompilationDatabase.h:86](./include/clang-c/CXCompilationDatabase.h:86:1)
 	""" clang_CompilationDatabase_dispose
 	export clang_CompilationDatabase_dispose
 	𝐣𝐥.@cextern clang_CompilationDatabase_dispose(var"?1?"::CXCompilationDatabase)::𝐣𝐥.Cvoid
@@ -479,7 +479,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:94](./include/clang-c/CXCompilationDatabase.h:94:1)
+	[CXCompilationDatabase.h:93](./include/clang-c/CXCompilationDatabase.h:93:1)
 	""" clang_CompilationDatabase_getCompileCommands
 	export clang_CompilationDatabase_getCompileCommands
 	𝐣𝐥.@cextern clang_CompilationDatabase_getCompileCommands(var"?1?"::CXCompilationDatabase, CompleteFileName::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXCompileCommands
@@ -493,7 +493,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:101](./include/clang-c/CXCompilationDatabase.h:101:1)
+	[CXCompilationDatabase.h:100](./include/clang-c/CXCompilationDatabase.h:100:1)
 	""" clang_CompilationDatabase_getAllCompileCommands
 	export clang_CompilationDatabase_getAllCompileCommands
 	𝐣𝐥.@cextern clang_CompilationDatabase_getAllCompileCommands(var"?1?"::CXCompilationDatabase)::CXCompileCommands
@@ -507,7 +507,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:106](./include/clang-c/CXCompilationDatabase.h:106:21)
+	[CXCompilationDatabase.h:105](./include/clang-c/CXCompilationDatabase.h:105:21)
 	""" clang_CompileCommands_dispose
 	export clang_CompileCommands_dispose
 	𝐣𝐥.@cextern clang_CompileCommands_dispose(var"?1?"::CXCompileCommands)::𝐣𝐥.Cvoid
@@ -521,7 +521,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:112](./include/clang-c/CXCompilationDatabase.h:112:1)
+	[CXCompilationDatabase.h:111](./include/clang-c/CXCompilationDatabase.h:111:1)
 	""" clang_CompileCommands_getSize
 	export clang_CompileCommands_getSize
 	𝐣𝐥.@cextern clang_CompileCommands_getSize(var"?1?"::CXCompileCommands)::𝐣𝐥.Cuint
@@ -539,7 +539,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:120](./include/clang-c/CXCompilationDatabase.h:120:1)
+	[CXCompilationDatabase.h:119](./include/clang-c/CXCompilationDatabase.h:119:1)
 	""" clang_CompileCommands_getCommand
 	export clang_CompileCommands_getCommand
 	𝐣𝐥.@cextern clang_CompileCommands_getCommand(var"?1?"::CXCompileCommands, I::𝐣𝐥.Cuint)::CXCompileCommand
@@ -553,7 +553,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:126](./include/clang-c/CXCompilationDatabase.h:126:1)
+	[CXCompilationDatabase.h:125](./include/clang-c/CXCompilationDatabase.h:125:1)
 	""" clang_CompileCommand_getDirectory
 	export clang_CompileCommand_getDirectory
 	𝐣𝐥.@cextern clang_CompileCommand_getDirectory(var"?1?"::CXCompileCommand)::CXString
@@ -567,7 +567,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:132](./include/clang-c/CXCompilationDatabase.h:132:1)
+	[CXCompilationDatabase.h:131](./include/clang-c/CXCompilationDatabase.h:131:1)
 	""" clang_CompileCommand_getFilename
 	export clang_CompileCommand_getFilename
 	𝐣𝐥.@cextern clang_CompileCommand_getFilename(var"?1?"::CXCompileCommand)::CXString
@@ -581,7 +581,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:139](./include/clang-c/CXCompilationDatabase.h:139:1)
+	[CXCompilationDatabase.h:138](./include/clang-c/CXCompilationDatabase.h:138:1)
 	""" clang_CompileCommand_getNumArgs
 	export clang_CompileCommand_getNumArgs
 	𝐣𝐥.@cextern clang_CompileCommand_getNumArgs(var"?1?"::CXCompileCommand)::𝐣𝐥.Cuint
@@ -599,7 +599,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:148](./include/clang-c/CXCompilationDatabase.h:148:1)
+	[CXCompilationDatabase.h:147](./include/clang-c/CXCompilationDatabase.h:147:1)
 	""" clang_CompileCommand_getArg
 	export clang_CompileCommand_getArg
 	𝐣𝐥.@cextern clang_CompileCommand_getArg(var"?1?"::CXCompileCommand, I::𝐣𝐥.Cuint)::CXString
@@ -613,7 +613,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:154](./include/clang-c/CXCompilationDatabase.h:154:1)
+	[CXCompilationDatabase.h:153](./include/clang-c/CXCompilationDatabase.h:153:1)
 	""" clang_CompileCommand_getNumMappedSources
 	export clang_CompileCommand_getNumMappedSources
 	𝐣𝐥.@cextern clang_CompileCommand_getNumMappedSources(var"?1?"::CXCompileCommand)::𝐣𝐥.Cuint
@@ -627,7 +627,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:160](./include/clang-c/CXCompilationDatabase.h:160:1)
+	[CXCompilationDatabase.h:159](./include/clang-c/CXCompilationDatabase.h:159:1)
 	""" clang_CompileCommand_getMappedSourcePath
 	export clang_CompileCommand_getMappedSourcePath
 	𝐣𝐥.@cextern clang_CompileCommand_getMappedSourcePath(var"?1?"::CXCompileCommand, I::𝐣𝐥.Cuint)::CXString
@@ -641,7 +641,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[CXCompilationDatabase.h:166](./include/clang-c/CXCompilationDatabase.h:166:1)
+	[CXCompilationDatabase.h:165](./include/clang-c/CXCompilationDatabase.h:165:1)
 	""" clang_CompileCommand_getMappedSourceContent
 	export clang_CompileCommand_getMappedSourceContent
 	𝐣𝐥.@cextern clang_CompileCommand_getMappedSourceContent(var"?1?"::CXCompileCommand, I::𝐣𝐥.Cuint)::CXString
@@ -651,7 +651,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:81](./include/clang-c/Index.h:81:15)
+	[Index.h:75](./include/clang-c/Index.h:75:15)
 	""" CXIndex
 	export CXIndex
 	𝐣𝐥.@ctypedef CXIndex 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -659,14 +659,14 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:87](./include/clang-c/Index.h:87:16)
+	[Index.h:81](./include/clang-c/Index.h:81:16)
 	""" CXTargetInfoImpl
 	𝐣𝐥.@doc """
 	 An opaque type representing target information for a given translation unit.
 	
 	## Reference
 	
-	[Index.h:87](./include/clang-c/Index.h:87:34)
+	[Index.h:81](./include/clang-c/Index.h:81:34)
 	""" CXTargetInfo
 	export CXTargetInfo, CXTargetInfoImpl
 	𝐣𝐥.@ctypedef CXTargetInfo 𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXTargetInfoImpl}
@@ -676,12 +676,12 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:92](./include/clang-c/Index.h:92:39)
+	[Index.h:86](./include/clang-c/Index.h:86:39)
 	""" CXTranslationUnit
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:92](./include/clang-c/Index.h:92:16)
+	[Index.h:86](./include/clang-c/Index.h:86:16)
 	""" CXTranslationUnitImpl
 	export CXTranslationUnit, CXTranslationUnitImpl
 	𝐣𝐥.@ctypedef CXTranslationUnit 𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXTranslationUnitImpl}
@@ -691,7 +691,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:98](./include/clang-c/Index.h:98:15)
+	[Index.h:92](./include/clang-c/Index.h:92:15)
 	""" CXClientData
 	export CXClientData
 	𝐣𝐥.@ctypedef CXClientData 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -705,7 +705,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:107](./include/clang-c/Index.h:107:8)
+	[Index.h:101](./include/clang-c/Index.h:101:8)
 	""" CXUnsavedFile
 	export CXUnsavedFile
 	𝐣𝐥.@cstruct CXUnsavedFile {
@@ -719,35 +719,35 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:140](./include/clang-c/Index.h:140:3)
+	[Index.h:134](./include/clang-c/Index.h:134:3)
 	""" CXAvailability_Deprecated
 	𝐣𝐥.@doc """
 	 The entity is not available; any use of it will be an error.
 	
 	## Reference
 	
-	[Index.h:144](./include/clang-c/Index.h:144:3)
+	[Index.h:138](./include/clang-c/Index.h:138:3)
 	""" CXAvailability_NotAvailable
 	𝐣𝐥.@doc """
 	 Describes the availability of a particular entity, which indicates whether the use of this entity will result in a warning or error due to it being deprecated or unavailable.
 	
 	## Reference
 	
-	[Index.h:131](./include/clang-c/Index.h:131:6)
+	[Index.h:125](./include/clang-c/Index.h:125:6)
 	""" CXAvailabilityKind
 	𝐣𝐥.@doc """
 	 The entity is available, but not accessible; any use of it will be an error.
 	
 	## Reference
 	
-	[Index.h:149](./include/clang-c/Index.h:149:3)
+	[Index.h:143](./include/clang-c/Index.h:143:3)
 	""" CXAvailability_NotAccessible
 	𝐣𝐥.@doc """
 	 The entity is available.
 	
 	## Reference
 	
-	[Index.h:135](./include/clang-c/Index.h:135:3)
+	[Index.h:129](./include/clang-c/Index.h:129:3)
 	""" CXAvailability_Available
 	export CXAvailabilityKind, CXAvailability_Available, CXAvailability_Deprecated, CXAvailability_NotAccessible, CXAvailability_NotAvailable
 	𝐣𝐥.@cenum CXAvailabilityKind {
@@ -766,9 +766,9 @@ using CBinding: 𝐣𝐥
 	
 	## References
 	
-	[Index.h:155](./include/clang-c/Index.h:155:16)
+	[Index.h:149](./include/clang-c/Index.h:149:16)
 	
-	[Index.h:173](./include/clang-c/Index.h:173:3)
+	[Index.h:167](./include/clang-c/Index.h:167:3)
 	""" CXVersion
 	export CXVersion
 	𝐣𝐥.@ctypedef CXVersion 𝐣𝐥.@cstruct CXVersion {
@@ -778,68 +778,19 @@ using CBinding: 𝐣𝐥
 	}
 	
 	𝐣𝐥.@doc """
-	 The cursor has exception specification basic noexcept.
-	
-	## Reference
-	
-	[Index.h:204](./include/clang-c/Index.h:204:3)
-	""" CXCursor_ExceptionSpecificationKind_BasicNoexcept
-	𝐣𝐥.@doc """
-	 The cursor has exception specification throw(...).
-	
-	## Reference
-	
-	[Index.h:199](./include/clang-c/Index.h:199:3)
-	""" CXCursor_ExceptionSpecificationKind_MSAny
-	𝐣𝐥.@doc """
 	 The cursor has exception specification throw(T1, T2)
 	
 	## Reference
 	
-	[Index.h:194](./include/clang-c/Index.h:194:3)
+	[Index.h:188](./include/clang-c/Index.h:188:3)
 	""" CXCursor_ExceptionSpecificationKind_Dynamic
-	𝐣𝐥.@doc """
-	 The cursor has exception specification throw()
-	
-	## Reference
-	
-	[Index.h:189](./include/clang-c/Index.h:189:3)
-	""" CXCursor_ExceptionSpecificationKind_DynamicNone
-	𝐣𝐥.@doc """
-	 The cursor has exception specification computed noexcept.
-	
-	## Reference
-	
-	[Index.h:209](./include/clang-c/Index.h:209:3)
-	""" CXCursor_ExceptionSpecificationKind_ComputedNoexcept
-	𝐣𝐥.@doc """
-	 The cursor has no exception specification.
-	
-	## Reference
-	
-	[Index.h:184](./include/clang-c/Index.h:184:3)
-	""" CXCursor_ExceptionSpecificationKind_None
-	𝐣𝐥.@doc """
-	 The exception specification has not yet been evaluated.
-	
-	## Reference
-	
-	[Index.h:214](./include/clang-c/Index.h:214:3)
-	""" CXCursor_ExceptionSpecificationKind_Unevaluated
 	𝐣𝐥.@doc """
 	 The exception specification has not yet been instantiated.
 	
 	## Reference
 	
-	[Index.h:219](./include/clang-c/Index.h:219:3)
+	[Index.h:213](./include/clang-c/Index.h:213:3)
 	""" CXCursor_ExceptionSpecificationKind_Uninstantiated
-	𝐣𝐥.@doc """
-	 The exception specification has not been parsed yet.
-	
-	## Reference
-	
-	[Index.h:224](./include/clang-c/Index.h:224:3)
-	""" CXCursor_ExceptionSpecificationKind_Unparsed
 	𝐣𝐥.@doc """
 	 Describes the exception specification of a cursor.
 	
@@ -849,9 +800,65 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:180](./include/clang-c/Index.h:180:6)
+	[Index.h:174](./include/clang-c/Index.h:174:6)
 	""" CXCursor_ExceptionSpecificationKind
-	export CXCursor_ExceptionSpecificationKind, CXCursor_ExceptionSpecificationKind_BasicNoexcept, CXCursor_ExceptionSpecificationKind_ComputedNoexcept, CXCursor_ExceptionSpecificationKind_Dynamic, CXCursor_ExceptionSpecificationKind_DynamicNone, CXCursor_ExceptionSpecificationKind_MSAny, CXCursor_ExceptionSpecificationKind_None, CXCursor_ExceptionSpecificationKind_Unevaluated, CXCursor_ExceptionSpecificationKind_Uninstantiated, CXCursor_ExceptionSpecificationKind_Unparsed
+	𝐣𝐥.@doc """
+	 The cursor has a __declspec(nothrow) exception specification.
+	
+	## Reference
+	
+	[Index.h:223](./include/clang-c/Index.h:223:3)
+	""" CXCursor_ExceptionSpecificationKind_NoThrow
+	𝐣𝐥.@doc """
+	 The cursor has exception specification basic noexcept.
+	
+	## Reference
+	
+	[Index.h:198](./include/clang-c/Index.h:198:3)
+	""" CXCursor_ExceptionSpecificationKind_BasicNoexcept
+	𝐣𝐥.@doc """
+	 The cursor has no exception specification.
+	
+	## Reference
+	
+	[Index.h:178](./include/clang-c/Index.h:178:3)
+	""" CXCursor_ExceptionSpecificationKind_None
+	𝐣𝐥.@doc """
+	 The exception specification has not been parsed yet.
+	
+	## Reference
+	
+	[Index.h:218](./include/clang-c/Index.h:218:3)
+	""" CXCursor_ExceptionSpecificationKind_Unparsed
+	𝐣𝐥.@doc """
+	 The cursor has exception specification throw(...).
+	
+	## Reference
+	
+	[Index.h:193](./include/clang-c/Index.h:193:3)
+	""" CXCursor_ExceptionSpecificationKind_MSAny
+	𝐣𝐥.@doc """
+	 The exception specification has not yet been evaluated.
+	
+	## Reference
+	
+	[Index.h:208](./include/clang-c/Index.h:208:3)
+	""" CXCursor_ExceptionSpecificationKind_Unevaluated
+	𝐣𝐥.@doc """
+	 The cursor has exception specification throw()
+	
+	## Reference
+	
+	[Index.h:183](./include/clang-c/Index.h:183:3)
+	""" CXCursor_ExceptionSpecificationKind_DynamicNone
+	𝐣𝐥.@doc """
+	 The cursor has exception specification computed noexcept.
+	
+	## Reference
+	
+	[Index.h:203](./include/clang-c/Index.h:203:3)
+	""" CXCursor_ExceptionSpecificationKind_ComputedNoexcept
+	export CXCursor_ExceptionSpecificationKind, CXCursor_ExceptionSpecificationKind_BasicNoexcept, CXCursor_ExceptionSpecificationKind_ComputedNoexcept, CXCursor_ExceptionSpecificationKind_Dynamic, CXCursor_ExceptionSpecificationKind_DynamicNone, CXCursor_ExceptionSpecificationKind_MSAny, CXCursor_ExceptionSpecificationKind_NoThrow, CXCursor_ExceptionSpecificationKind_None, CXCursor_ExceptionSpecificationKind_Unevaluated, CXCursor_ExceptionSpecificationKind_Uninstantiated, CXCursor_ExceptionSpecificationKind_Unparsed
 	𝐣𝐥.@cenum CXCursor_ExceptionSpecificationKind {
 		CXCursor_ExceptionSpecificationKind_None = 𝐣𝐥.Cuint(0)
 		CXCursor_ExceptionSpecificationKind_DynamicNone = 𝐣𝐥.Cuint(1)
@@ -862,6 +869,7 @@ using CBinding: 𝐣𝐥
 		CXCursor_ExceptionSpecificationKind_Unevaluated = 𝐣𝐥.Cuint(6)
 		CXCursor_ExceptionSpecificationKind_Uninstantiated = 𝐣𝐥.Cuint(7)
 		CXCursor_ExceptionSpecificationKind_Unparsed = 𝐣𝐥.Cuint(8)
+		CXCursor_ExceptionSpecificationKind_NoThrow = 𝐣𝐥.Cuint(9)
 	}
 	
 	𝐣𝐥.@doc """
@@ -906,7 +914,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:267](./include/clang-c/Index.h:267:24)
+	[Index.h:266](./include/clang-c/Index.h:266:24)
 	""" clang_createIndex
 	export clang_createIndex
 	𝐣𝐥.@cextern clang_createIndex(excludeDeclarationsFromPCH::𝐣𝐥.Cint, displayDiagnostics::𝐣𝐥.Cint)::CXIndex
@@ -924,7 +932,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:276](./include/clang-c/Index.h:276:21)
+	[Index.h:275](./include/clang-c/Index.h:275:21)
 	""" clang_disposeIndex
 	export clang_disposeIndex
 	𝐣𝐥.@cextern clang_disposeIndex(index::CXIndex)::𝐣𝐥.Cvoid
@@ -932,7 +940,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:310](./include/clang-c/Index.h:310:3)
+	[Index.h:309](./include/clang-c/Index.h:309:3)
 	""" CXGlobalOptFlags
 	𝐣𝐥.@doc """
 	 Used to indicate that threads that libclang creates for editing purposes should use background priority.
@@ -943,7 +951,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:300](./include/clang-c/Index.h:300:3)
+	[Index.h:299](./include/clang-c/Index.h:299:3)
 	""" CXGlobalOpt_ThreadBackgroundPriorityForEditing
 	𝐣𝐥.@doc """
 	 Used to indicate that threads that libclang creates for indexing purposes should use background priority.
@@ -954,21 +962,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:291](./include/clang-c/Index.h:291:3)
+	[Index.h:290](./include/clang-c/Index.h:290:3)
 	""" CXGlobalOpt_ThreadBackgroundPriorityForIndexing
 	𝐣𝐥.@doc """
 	 Used to indicate that all threads that libclang creates should use background priority.
 	
 	## Reference
 	
-	[Index.h:306](./include/clang-c/Index.h:306:3)
+	[Index.h:305](./include/clang-c/Index.h:305:3)
 	""" CXGlobalOpt_ThreadBackgroundPriorityForAll
 	𝐣𝐥.@doc """
 	 Used to indicate that no special CXIndex options are needed.
 	
 	## Reference
 	
-	[Index.h:282](./include/clang-c/Index.h:282:3)
+	[Index.h:281](./include/clang-c/Index.h:281:3)
 	""" CXGlobalOpt_None
 	export CXGlobalOptFlags, CXGlobalOpt_None, CXGlobalOpt_ThreadBackgroundPriorityForAll, CXGlobalOpt_ThreadBackgroundPriorityForEditing, CXGlobalOpt_ThreadBackgroundPriorityForIndexing
 	𝐣𝐥.@ctypedef CXGlobalOptFlags 𝐣𝐥.@cenum {
@@ -1002,7 +1010,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:325](./include/clang-c/Index.h:325:21)
+	[Index.h:324](./include/clang-c/Index.h:324:21)
 	""" clang_CXIndex_setGlobalOptions
 	export clang_CXIndex_setGlobalOptions
 	𝐣𝐥.@cextern clang_CXIndex_setGlobalOptions(var"?1?"::CXIndex, options::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
@@ -1020,7 +1028,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:333](./include/clang-c/Index.h:333:25)
+	[Index.h:332](./include/clang-c/Index.h:332:25)
 	""" clang_CXIndex_getGlobalOptions
 	export clang_CXIndex_getGlobalOptions
 	𝐣𝐥.@cextern clang_CXIndex_getGlobalOptions(var"?1?"::CXIndex)::𝐣𝐥.Cuint
@@ -1038,7 +1046,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:343](./include/clang-c/Index.h:343:1)
+	[Index.h:342](./include/clang-c/Index.h:342:1)
 	""" clang_CXIndex_setInvocationEmissionPathOption
 	export clang_CXIndex_setInvocationEmissionPathOption
 	𝐣𝐥.@cextern clang_CXIndex_setInvocationEmissionPathOption(var"?1?"::CXIndex, Path::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cvoid
@@ -1048,7 +1056,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:354](./include/clang-c/Index.h:354:15)
+	[Index.h:353](./include/clang-c/Index.h:353:15)
 	""" CXFile
 	export CXFile
 	𝐣𝐥.@ctypedef CXFile 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -1062,7 +1070,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:359](./include/clang-c/Index.h:359:25)
+	[Index.h:358](./include/clang-c/Index.h:358:25)
 	""" clang_getFileName
 	export clang_getFileName
 	𝐣𝐥.@cextern clang_getFileName(SFile::CXFile)::CXString
@@ -1072,7 +1080,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:372](./include/clang-c/Index.h:372:3)
+	[Index.h:371](./include/clang-c/Index.h:371:3)
 	""" CXFileUniqueID
 	export CXFileUniqueID
 	𝐣𝐥.@ctypedef CXFileUniqueID 𝐣𝐥.@cstruct {
@@ -1097,7 +1105,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:382](./include/clang-c/Index.h:382:20)
+	[Index.h:381](./include/clang-c/Index.h:381:20)
 	""" clang_getFileUniqueID
 	export clang_getFileUniqueID
 	𝐣𝐥.@cextern clang_getFileUniqueID(file::CXFile, outID::𝐣𝐥.Ptr{CXFileUniqueID})::𝐣𝐥.Cint
@@ -1111,7 +1119,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:390](./include/clang-c/Index.h:390:1)
+	[Index.h:388](./include/clang-c/Index.h:388:25)
 	""" clang_isFileMultipleIncludeGuarded
 	export clang_isFileMultipleIncludeGuarded
 	𝐣𝐥.@cextern clang_isFileMultipleIncludeGuarded(tu::CXTranslationUnit, file::CXFile)::𝐣𝐥.Cuint
@@ -1134,7 +1142,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:402](./include/clang-c/Index.h:402:23)
+	[Index.h:401](./include/clang-c/Index.h:401:23)
 	""" clang_getFile
 	export clang_getFile
 	𝐣𝐥.@cextern clang_getFile(tu::CXTranslationUnit, file_name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXFile
@@ -1158,7 +1166,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:417](./include/clang-c/Index.h:417:28)
+	[Index.h:416](./include/clang-c/Index.h:416:28)
 	""" clang_getFileContents
 	export clang_getFileContents
 	𝐣𝐥.@cextern clang_getFileContents(tu::CXTranslationUnit, file::CXFile, size::𝐣𝐥.Ptr{size_t})::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
@@ -1172,7 +1180,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:424](./include/clang-c/Index.h:424:20)
+	[Index.h:423](./include/clang-c/Index.h:423:20)
 	""" clang_File_isEqual
 	export clang_File_isEqual
 	𝐣𝐥.@cextern clang_File_isEqual(file1::CXFile, file2::CXFile)::𝐣𝐥.Cint
@@ -1190,7 +1198,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:431](./include/clang-c/Index.h:431:25)
+	[Index.h:430](./include/clang-c/Index.h:430:25)
 	""" clang_File_tryGetRealPathName
 	export clang_File_tryGetRealPathName
 	𝐣𝐥.@cextern clang_File_tryGetRealPathName(file::CXFile)::CXString
@@ -1204,7 +1212,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:460](./include/clang-c/Index.h:460:3)
+	[Index.h:459](./include/clang-c/Index.h:459:3)
 	""" CXSourceLocation
 	export CXSourceLocation
 	𝐣𝐥.@ctypedef CXSourceLocation 𝐣𝐥.@cstruct {
@@ -1221,7 +1229,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:472](./include/clang-c/Index.h:472:3)
+	[Index.h:471](./include/clang-c/Index.h:471:3)
 	""" CXSourceRange
 	export CXSourceRange
 	𝐣𝐥.@ctypedef CXSourceRange 𝐣𝐥.@cstruct {
@@ -1239,7 +1247,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:477](./include/clang-c/Index.h:477:33)
+	[Index.h:476](./include/clang-c/Index.h:476:33)
 	""" clang_getNullLocation
 	export clang_getNullLocation
 	𝐣𝐥.@cextern clang_getNullLocation()::CXSourceLocation
@@ -1257,7 +1265,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:487](./include/clang-c/Index.h:487:25)
+	[Index.h:486](./include/clang-c/Index.h:486:25)
 	""" clang_equalLocations
 	export clang_equalLocations
 	𝐣𝐥.@cextern clang_equalLocations(loc1::CXSourceLocation, loc2::CXSourceLocation)::𝐣𝐥.Cuint
@@ -1271,7 +1279,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:494](./include/clang-c/Index.h:494:33)
+	[Index.h:493](./include/clang-c/Index.h:493:33)
 	""" clang_getLocation
 	export clang_getLocation
 	𝐣𝐥.@cextern clang_getLocation(tu::CXTranslationUnit, file::CXFile, line::𝐣𝐥.Cuint, column::𝐣𝐥.Cuint)::CXSourceLocation
@@ -1285,7 +1293,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:502](./include/clang-c/Index.h:502:33)
+	[Index.h:500](./include/clang-c/Index.h:500:33)
 	""" clang_getLocationForOffset
 	export clang_getLocationForOffset
 	𝐣𝐥.@cextern clang_getLocationForOffset(tu::CXTranslationUnit, file::CXFile, offset::𝐣𝐥.Cuint)::CXSourceLocation
@@ -1299,7 +1307,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:509](./include/clang-c/Index.h:509:20)
+	[Index.h:507](./include/clang-c/Index.h:507:20)
 	""" clang_Location_isInSystemHeader
 	export clang_Location_isInSystemHeader
 	𝐣𝐥.@cextern clang_Location_isInSystemHeader(location::CXSourceLocation)::𝐣𝐥.Cint
@@ -1313,7 +1321,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:515](./include/clang-c/Index.h:515:20)
+	[Index.h:513](./include/clang-c/Index.h:513:20)
 	""" clang_Location_isFromMainFile
 	export clang_Location_isFromMainFile
 	𝐣𝐥.@cextern clang_Location_isFromMainFile(location::CXSourceLocation)::𝐣𝐥.Cint
@@ -1327,7 +1335,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:520](./include/clang-c/Index.h:520:30)
+	[Index.h:518](./include/clang-c/Index.h:518:30)
 	""" clang_getNullRange
 	export clang_getNullRange
 	𝐣𝐥.@cextern clang_getNullRange()::CXSourceRange
@@ -1341,7 +1349,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:526](./include/clang-c/Index.h:526:30)
+	[Index.h:524](./include/clang-c/Index.h:524:30)
 	""" clang_getRange
 	export clang_getRange
 	𝐣𝐥.@cextern clang_getRange(var"begin"::CXSourceLocation, var"end"::CXSourceLocation)::CXSourceRange
@@ -1359,7 +1367,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:534](./include/clang-c/Index.h:534:25)
+	[Index.h:532](./include/clang-c/Index.h:532:25)
 	""" clang_equalRanges
 	export clang_equalRanges
 	𝐣𝐥.@cextern clang_equalRanges(range1::CXSourceRange, range2::CXSourceRange)::𝐣𝐥.Cuint
@@ -1373,7 +1381,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:540](./include/clang-c/Index.h:540:20)
+	[Index.h:538](./include/clang-c/Index.h:538:20)
 	""" clang_Range_isNull
 	export clang_Range_isNull
 	𝐣𝐥.@cextern clang_Range_isNull(range::CXSourceRange)::𝐣𝐥.Cint
@@ -1399,7 +1407,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:564](./include/clang-c/Index.h:564:21)
+	[Index.h:562](./include/clang-c/Index.h:562:21)
 	""" clang_getExpansionLocation
 	export clang_getExpansionLocation
 	𝐣𝐥.@cextern clang_getExpansionLocation(location::CXSourceLocation, file::𝐣𝐥.Ptr{CXFile}, line::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, column::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, offset::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cvoid
@@ -1441,7 +1449,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:610](./include/clang-c/Index.h:610:21)
+	[Index.h:607](./include/clang-c/Index.h:607:21)
 	""" clang_getPresumedLocation
 	export clang_getPresumedLocation
 	𝐣𝐥.@cextern clang_getPresumedLocation(location::CXSourceLocation, filename::𝐣𝐥.Ptr{CXString}, line::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, column::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cvoid
@@ -1459,7 +1467,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:623](./include/clang-c/Index.h:623:21)
+	[Index.h:619](./include/clang-c/Index.h:619:21)
 	""" clang_getInstantiationLocation
 	export clang_getInstantiationLocation
 	𝐣𝐥.@cextern clang_getInstantiationLocation(location::CXSourceLocation, file::𝐣𝐥.Ptr{CXFile}, line::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, column::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, offset::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cvoid
@@ -1485,7 +1493,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:651](./include/clang-c/Index.h:651:21)
+	[Index.h:646](./include/clang-c/Index.h:646:21)
 	""" clang_getSpellingLocation
 	export clang_getSpellingLocation
 	𝐣𝐥.@cextern clang_getSpellingLocation(location::CXSourceLocation, file::𝐣𝐥.Ptr{CXFile}, line::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, column::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, offset::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cvoid
@@ -1511,7 +1519,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:680](./include/clang-c/Index.h:680:21)
+	[Index.h:674](./include/clang-c/Index.h:674:21)
 	""" clang_getFileLocation
 	export clang_getFileLocation
 	𝐣𝐥.@cextern clang_getFileLocation(location::CXSourceLocation, file::𝐣𝐥.Ptr{CXFile}, line::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, column::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, offset::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cvoid
@@ -1525,7 +1533,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:690](./include/clang-c/Index.h:690:33)
+	[Index.h:682](./include/clang-c/Index.h:682:33)
 	""" clang_getRangeStart
 	export clang_getRangeStart
 	𝐣𝐥.@cextern clang_getRangeStart(range::CXSourceRange)::CXSourceLocation
@@ -1539,7 +1547,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:696](./include/clang-c/Index.h:696:33)
+	[Index.h:688](./include/clang-c/Index.h:688:33)
 	""" clang_getRangeEnd
 	export clang_getRangeEnd
 	𝐣𝐥.@cextern clang_getRangeEnd(range::CXSourceRange)::CXSourceLocation
@@ -1549,7 +1557,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:708](./include/clang-c/Index.h:708:3)
+	[Index.h:700](./include/clang-c/Index.h:700:3)
 	""" CXSourceRangeList
 	export CXSourceRangeList
 	𝐣𝐥.@ctypedef CXSourceRangeList 𝐣𝐥.@cstruct {
@@ -1570,7 +1578,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:716](./include/clang-c/Index.h:716:35)
+	[Index.h:708](./include/clang-c/Index.h:708:35)
 	""" clang_getSkippedRanges
 	export clang_getSkippedRanges
 	𝐣𝐥.@cextern clang_getSkippedRanges(tu::CXTranslationUnit, file::CXFile)::𝐣𝐥.Ptr{CXSourceRangeList}
@@ -1588,7 +1596,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:726](./include/clang-c/Index.h:726:35)
+	[Index.h:719](./include/clang-c/Index.h:719:1)
 	""" clang_getAllSkippedRanges
 	export clang_getAllSkippedRanges
 	𝐣𝐥.@cextern clang_getAllSkippedRanges(tu::CXTranslationUnit)::𝐣𝐥.Ptr{CXSourceRangeList}
@@ -1602,7 +1610,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:731](./include/clang-c/Index.h:731:21)
+	[Index.h:724](./include/clang-c/Index.h:724:21)
 	""" clang_disposeSourceRangeList
 	export clang_disposeSourceRangeList
 	𝐣𝐥.@cextern clang_disposeSourceRangeList(ranges::𝐣𝐥.Ptr{CXSourceRangeList})::𝐣𝐥.Cvoid
@@ -1612,42 +1620,42 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:746](./include/clang-c/Index.h:746:6)
+	[Index.h:739](./include/clang-c/Index.h:739:6)
 	""" CXDiagnosticSeverity
 	𝐣𝐥.@doc """
 	 This diagnostic is a note that should be attached to the previous (non-note) diagnostic.
 	
 	## Reference
 	
-	[Index.h:757](./include/clang-c/Index.h:757:3)
+	[Index.h:750](./include/clang-c/Index.h:750:3)
 	""" CXDiagnostic_Note
 	𝐣𝐥.@doc """
 	 This diagnostic indicates that the code is ill-formed.
 	
 	## Reference
 	
-	[Index.h:768](./include/clang-c/Index.h:768:3)
+	[Index.h:761](./include/clang-c/Index.h:761:3)
 	""" CXDiagnostic_Error
 	𝐣𝐥.@doc """
 	 A diagnostic that has been suppressed, e.g., by a command-line option.
 	
 	## Reference
 	
-	[Index.h:751](./include/clang-c/Index.h:751:3)
+	[Index.h:744](./include/clang-c/Index.h:744:3)
 	""" CXDiagnostic_Ignored
 	𝐣𝐥.@doc """
 	 This diagnostic indicates suspicious code that may not be wrong.
 	
 	## Reference
 	
-	[Index.h:763](./include/clang-c/Index.h:763:3)
+	[Index.h:756](./include/clang-c/Index.h:756:3)
 	""" CXDiagnostic_Warning
 	𝐣𝐥.@doc """
 	 This diagnostic indicates that the code is ill-formed such that future parser recovery is unlikely to produce useful results.
 	
 	## Reference
 	
-	[Index.h:775](./include/clang-c/Index.h:775:3)
+	[Index.h:768](./include/clang-c/Index.h:768:3)
 	""" CXDiagnostic_Fatal
 	export CXDiagnosticSeverity, CXDiagnostic_Error, CXDiagnostic_Fatal, CXDiagnostic_Ignored, CXDiagnostic_Note, CXDiagnostic_Warning
 	𝐣𝐥.@cenum CXDiagnosticSeverity {
@@ -1663,7 +1671,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:782](./include/clang-c/Index.h:782:15)
+	[Index.h:775](./include/clang-c/Index.h:775:15)
 	""" CXDiagnostic
 	export CXDiagnostic
 	𝐣𝐥.@ctypedef CXDiagnostic 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -1673,7 +1681,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:787](./include/clang-c/Index.h:787:15)
+	[Index.h:780](./include/clang-c/Index.h:780:15)
 	""" CXDiagnosticSet
 	export CXDiagnosticSet
 	𝐣𝐥.@ctypedef CXDiagnosticSet 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -1687,7 +1695,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:792](./include/clang-c/Index.h:792:25)
+	[Index.h:785](./include/clang-c/Index.h:785:25)
 	""" clang_getNumDiagnosticsInSet
 	export clang_getNumDiagnosticsInSet
 	𝐣𝐥.@cextern clang_getNumDiagnosticsInSet(Diags::CXDiagnosticSet)::𝐣𝐥.Cuint
@@ -1710,7 +1718,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:803](./include/clang-c/Index.h:803:29)
+	[Index.h:796](./include/clang-c/Index.h:796:29)
 	""" clang_getDiagnosticInSet
 	export clang_getDiagnosticInSet
 	𝐣𝐥.@cextern clang_getDiagnosticInSet(Diags::CXDiagnosticSet, Index::𝐣𝐥.Cuint)::CXDiagnostic
@@ -1720,35 +1728,35 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:814](./include/clang-c/Index.h:814:3)
+	[Index.h:807](./include/clang-c/Index.h:807:3)
 	""" CXLoadDiag_None
 	𝐣𝐥.@doc """
 	 Describes the kind of error that occurred (if any) in a call to `clang_loadDiagnostics.` 
 	
 	## Reference
 	
-	[Index.h:810](./include/clang-c/Index.h:810:6)
+	[Index.h:803](./include/clang-c/Index.h:803:6)
 	""" CXLoadDiag_Error
 	𝐣𝐥.@doc """
 	 Indicates that the serialized diagnostics file is invalid or corrupt.
 	
 	## Reference
 	
-	[Index.h:832](./include/clang-c/Index.h:832:3)
+	[Index.h:825](./include/clang-c/Index.h:825:3)
 	""" CXLoadDiag_InvalidFile
 	𝐣𝐥.@doc """
 	 Indicates that an unknown error occurred while attempting to deserialize diagnostics.
 	
 	## Reference
 	
-	[Index.h:820](./include/clang-c/Index.h:820:3)
+	[Index.h:813](./include/clang-c/Index.h:813:3)
 	""" CXLoadDiag_Unknown
 	𝐣𝐥.@doc """
 	 Indicates that the file containing the serialized diagnostics could not be opened.
 	
 	## Reference
 	
-	[Index.h:826](./include/clang-c/Index.h:826:3)
+	[Index.h:819](./include/clang-c/Index.h:819:3)
 	""" CXLoadDiag_CannotLoad
 	export CXLoadDiag_CannotLoad, CXLoadDiag_Error, CXLoadDiag_InvalidFile, CXLoadDiag_None, CXLoadDiag_Unknown
 	𝐣𝐥.@cenum CXLoadDiag_Error {
@@ -1760,7 +1768,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_loadDiagnostics(file::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, error::𝐣𝐥.Ptr{CXLoadDiag_Error}, errorString::𝐣𝐥.Ptr{CXString})::CXDiagnosticSet
+	𝐣𝐥.@cextern clang_loadDiagnostics(file::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, error::𝐣𝐥.Ptr{𝐣𝐥.@cenum CXLoadDiag_Error}, errorString::𝐣𝐥.Ptr{CXString})::CXDiagnosticSet
 	```
 	
 	 Deserialize a set of diagnostics from a Clang diagnostics bitcode file.
@@ -1777,10 +1785,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:848](./include/clang-c/Index.h:848:32)
+	[Index.h:841](./include/clang-c/Index.h:841:32)
 	""" clang_loadDiagnostics
 	export clang_loadDiagnostics
-	𝐣𝐥.@cextern clang_loadDiagnostics(file::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, error::𝐣𝐥.Ptr{CXLoadDiag_Error}, errorString::𝐣𝐥.Ptr{CXString})::CXDiagnosticSet
+	𝐣𝐥.@cextern clang_loadDiagnostics(file::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, error::𝐣𝐥.Ptr{𝐣𝐥.@cenum CXLoadDiag_Error}, errorString::𝐣𝐥.Ptr{CXString})::CXDiagnosticSet
 	
 	𝐣𝐥.@doc """
 	```
@@ -1791,7 +1799,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:855](./include/clang-c/Index.h:855:21)
+	[Index.h:847](./include/clang-c/Index.h:847:21)
 	""" clang_disposeDiagnosticSet
 	export clang_disposeDiagnosticSet
 	𝐣𝐥.@cextern clang_disposeDiagnosticSet(Diags::CXDiagnosticSet)::𝐣𝐥.Cvoid
@@ -1809,7 +1817,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:863](./include/clang-c/Index.h:863:32)
+	[Index.h:855](./include/clang-c/Index.h:855:32)
 	""" clang_getChildDiagnostics
 	export clang_getChildDiagnostics
 	𝐣𝐥.@cextern clang_getChildDiagnostics(D::CXDiagnostic)::CXDiagnosticSet
@@ -1823,7 +1831,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:869](./include/clang-c/Index.h:869:25)
+	[Index.h:861](./include/clang-c/Index.h:861:25)
 	""" clang_getNumDiagnostics
 	export clang_getNumDiagnostics
 	𝐣𝐥.@cextern clang_getNumDiagnostics(Unit::CXTranslationUnit)::𝐣𝐥.Cuint
@@ -1846,7 +1854,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:880](./include/clang-c/Index.h:880:29)
+	[Index.h:872](./include/clang-c/Index.h:872:29)
 	""" clang_getDiagnostic
 	export clang_getDiagnostic
 	𝐣𝐥.@cextern clang_getDiagnostic(Unit::CXTranslationUnit, Index::𝐣𝐥.Cuint)::CXDiagnostic
@@ -1864,7 +1872,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:890](./include/clang-c/Index.h:890:3)
+	[Index.h:882](./include/clang-c/Index.h:882:1)
 	""" clang_getDiagnosticSetFromTU
 	export clang_getDiagnosticSetFromTU
 	𝐣𝐥.@cextern clang_getDiagnosticSetFromTU(Unit::CXTranslationUnit)::CXDiagnosticSet
@@ -1878,7 +1886,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:895](./include/clang-c/Index.h:895:21)
+	[Index.h:887](./include/clang-c/Index.h:887:21)
 	""" clang_disposeDiagnostic
 	export clang_disposeDiagnostic
 	𝐣𝐥.@cextern clang_disposeDiagnostic(Diagnostic::CXDiagnostic)::𝐣𝐥.Cvoid
@@ -1892,7 +1900,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:903](./include/clang-c/Index.h:903:6)
+	[Index.h:895](./include/clang-c/Index.h:895:6)
 	""" CXDiagnosticDisplayOptions
 	𝐣𝐥.@doc """
 	 Display the source-location information where the diagnostic was located.
@@ -1909,7 +1917,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:917](./include/clang-c/Index.h:917:3)
+	[Index.h:909](./include/clang-c/Index.h:909:3)
 	""" CXDiagnostic_DisplaySourceLocation
 	𝐣𝐥.@doc """
 	 If displaying the source-location information of the diagnostic, also include the column number.
@@ -1920,7 +1928,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:925](./include/clang-c/Index.h:925:3)
+	[Index.h:917](./include/clang-c/Index.h:917:3)
 	""" CXDiagnostic_DisplayColumn
 	𝐣𝐥.@doc """
 	 Display the option name associated with this diagnostic, if any.
@@ -1931,7 +1939,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:944](./include/clang-c/Index.h:944:3)
+	[Index.h:936](./include/clang-c/Index.h:936:3)
 	""" CXDiagnostic_DisplayOption
 	𝐣𝐥.@doc """
 	 Display the category number associated with this diagnostic, if any.
@@ -1942,7 +1950,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:953](./include/clang-c/Index.h:953:3)
+	[Index.h:945](./include/clang-c/Index.h:945:3)
 	""" CXDiagnostic_DisplayCategoryId
 	𝐣𝐥.@doc """
 	 If displaying the source-location information of the diagnostic, also include information about source ranges in a machine-parsable format.
@@ -1953,7 +1961,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:935](./include/clang-c/Index.h:935:3)
+	[Index.h:927](./include/clang-c/Index.h:927:3)
 	""" CXDiagnostic_DisplaySourceRanges
 	𝐣𝐥.@doc """
 	 Display the category name associated with this diagnostic, if any.
@@ -1964,7 +1972,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:962](./include/clang-c/Index.h:962:3)
+	[Index.h:954](./include/clang-c/Index.h:954:3)
 	""" CXDiagnostic_DisplayCategoryName
 	export CXDiagnosticDisplayOptions, CXDiagnostic_DisplayCategoryId, CXDiagnostic_DisplayCategoryName, CXDiagnostic_DisplayColumn, CXDiagnostic_DisplayOption, CXDiagnostic_DisplaySourceLocation, CXDiagnostic_DisplaySourceRanges
 	𝐣𝐥.@cenum CXDiagnosticDisplayOptions {
@@ -1998,7 +2006,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:980](./include/clang-c/Index.h:980:25)
+	[Index.h:972](./include/clang-c/Index.h:972:25)
 	""" clang_formatDiagnostic
 	export clang_formatDiagnostic
 	𝐣𝐥.@cextern clang_formatDiagnostic(Diagnostic::CXDiagnostic, Options::𝐣𝐥.Cuint)::CXString
@@ -2016,24 +2024,24 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:990](./include/clang-c/Index.h:990:25)
+	[Index.h:982](./include/clang-c/Index.h:982:25)
 	""" clang_defaultDiagnosticDisplayOptions
 	export clang_defaultDiagnosticDisplayOptions
 	𝐣𝐥.@cextern clang_defaultDiagnosticDisplayOptions()::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getDiagnosticSeverity(var\"?1?\"::CXDiagnostic)::CXDiagnosticSeverity
+	𝐣𝐥.@cextern clang_getDiagnosticSeverity(var\"?1?\"::CXDiagnostic)::𝐣𝐥.@cenum CXDiagnosticSeverity
 	```
 	
 	 Determine the severity of the given diagnostic.
 	
 	## Reference
 	
-	[Index.h:996](./include/clang-c/Index.h:996:1)
+	[Index.h:988](./include/clang-c/Index.h:988:5)
 	""" clang_getDiagnosticSeverity
 	export clang_getDiagnosticSeverity
-	𝐣𝐥.@cextern clang_getDiagnosticSeverity(var"?1?"::CXDiagnostic)::CXDiagnosticSeverity
+	𝐣𝐥.@cextern clang_getDiagnosticSeverity(var"?1?"::CXDiagnostic)::𝐣𝐥.@cenum CXDiagnosticSeverity
 	
 	𝐣𝐥.@doc """
 	```
@@ -2048,7 +2056,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1004](./include/clang-c/Index.h:1004:33)
+	[Index.h:996](./include/clang-c/Index.h:996:33)
 	""" clang_getDiagnosticLocation
 	export clang_getDiagnosticLocation
 	𝐣𝐥.@cextern clang_getDiagnosticLocation(var"?1?"::CXDiagnostic)::CXSourceLocation
@@ -2062,7 +2070,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1009](./include/clang-c/Index.h:1009:25)
+	[Index.h:1001](./include/clang-c/Index.h:1001:25)
 	""" clang_getDiagnosticSpelling
 	export clang_getDiagnosticSpelling
 	𝐣𝐥.@cextern clang_getDiagnosticSpelling(var"?1?"::CXDiagnostic)::CXString
@@ -2085,7 +2093,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1023](./include/clang-c/Index.h:1023:25)
+	[Index.h:1015](./include/clang-c/Index.h:1015:25)
 	""" clang_getDiagnosticOption
 	export clang_getDiagnosticOption
 	𝐣𝐥.@cextern clang_getDiagnosticOption(Diag::CXDiagnostic, Disable::𝐣𝐥.Ptr{CXString})::CXString
@@ -2107,7 +2115,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1036](./include/clang-c/Index.h:1036:25)
+	[Index.h:1028](./include/clang-c/Index.h:1028:25)
 	""" clang_getDiagnosticCategory
 	export clang_getDiagnosticCategory
 	𝐣𝐥.@cextern clang_getDiagnosticCategory(var"?1?"::CXDiagnostic)::𝐣𝐥.Cuint
@@ -2129,7 +2137,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1049](./include/clang-c/Index.h:1049:10)
+	[Index.h:1041](./include/clang-c/Index.h:1041:1)
 	""" clang_getDiagnosticCategoryName
 	export clang_getDiagnosticCategoryName
 	𝐣𝐥.@cextern clang_getDiagnosticCategoryName(Category::𝐣𝐥.Cuint)::CXString
@@ -2147,7 +2155,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1056](./include/clang-c/Index.h:1056:25)
+	[Index.h:1048](./include/clang-c/Index.h:1048:25)
 	""" clang_getDiagnosticCategoryText
 	export clang_getDiagnosticCategoryText
 	𝐣𝐥.@cextern clang_getDiagnosticCategoryText(var"?1?"::CXDiagnostic)::CXString
@@ -2161,7 +2169,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1062](./include/clang-c/Index.h:1062:25)
+	[Index.h:1054](./include/clang-c/Index.h:1054:25)
 	""" clang_getDiagnosticNumRanges
 	export clang_getDiagnosticNumRanges
 	𝐣𝐥.@cextern clang_getDiagnosticNumRanges(var"?1?"::CXDiagnostic)::𝐣𝐥.Cuint
@@ -2188,7 +2196,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1077](./include/clang-c/Index.h:1077:30)
+	[Index.h:1069](./include/clang-c/Index.h:1069:30)
 	""" clang_getDiagnosticRange
 	export clang_getDiagnosticRange
 	𝐣𝐥.@cextern clang_getDiagnosticRange(Diagnostic::CXDiagnostic, Range::𝐣𝐥.Cuint)::CXSourceRange
@@ -2202,7 +2210,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1084](./include/clang-c/Index.h:1084:25)
+	[Index.h:1076](./include/clang-c/Index.h:1076:25)
 	""" clang_getDiagnosticNumFixIts
 	export clang_getDiagnosticNumFixIts
 	𝐣𝐥.@cextern clang_getDiagnosticNumFixIts(Diagnostic::CXDiagnostic)::𝐣𝐥.Cuint
@@ -2230,7 +2238,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1111](./include/clang-c/Index.h:1111:25)
+	[Index.h:1103](./include/clang-c/Index.h:1103:25)
 	""" clang_getDiagnosticFixIt
 	export clang_getDiagnosticFixIt
 	𝐣𝐥.@cextern clang_getDiagnosticFixIt(Diagnostic::CXDiagnostic, FixIt::𝐣𝐥.Cuint, ReplacementRange::𝐣𝐥.Ptr{CXSourceRange})::CXString
@@ -2244,14 +2252,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1133](./include/clang-c/Index.h:1133:1)
+	[Index.h:1124](./include/clang-c/Index.h:1124:1)
 	""" clang_getTranslationUnitSpelling
 	export clang_getTranslationUnitSpelling
 	𝐣𝐥.@cextern clang_getTranslationUnitSpelling(CTUnit::CXTranslationUnit)::CXString
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_createTranslationUnitFromSourceFile(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, num_clang_command_line_args::𝐣𝐥.Cint, clang_command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile})::CXTranslationUnit
+	𝐣𝐥.@cextern clang_createTranslationUnitFromSourceFile(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, num_clang_command_line_args::𝐣𝐥.Cint, clang_command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile})::CXTranslationUnit
 	```
 	
 	 Return the CXTranslationUnit for a given source file and the provided command line arguments one would pass to the compiler.
@@ -2275,10 +2283,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1175](./include/clang-c/Index.h:1175:34)
+	[Index.h:1166](./include/clang-c/Index.h:1166:34)
 	""" clang_createTranslationUnitFromSourceFile
 	export clang_createTranslationUnitFromSourceFile
-	𝐣𝐥.@cextern clang_createTranslationUnitFromSourceFile(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, num_clang_command_line_args::𝐣𝐥.Cint, clang_command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile})::CXTranslationUnit
+	𝐣𝐥.@cextern clang_createTranslationUnitFromSourceFile(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, num_clang_command_line_args::𝐣𝐥.Cint, clang_command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile})::CXTranslationUnit
 	
 	𝐣𝐥.@doc """
 	```
@@ -2289,14 +2297,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1189](./include/clang-c/Index.h:1189:34)
+	[Index.h:1178](./include/clang-c/Index.h:1178:1)
 	""" clang_createTranslationUnit
 	export clang_createTranslationUnit
 	𝐣𝐥.@cextern clang_createTranslationUnit(CIdx::CXIndex, ast_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXTranslationUnit
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_createTranslationUnit2(CIdx::CXIndex, ast_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_createTranslationUnit2(CIdx::CXIndex, ast_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Create a translation unit from an AST file (`-emit-ast).`
@@ -2311,17 +2319,17 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1201](./include/clang-c/Index.h:1201:33)
+	[Index.h:1189](./include/clang-c/Index.h:1189:1)
 	""" clang_createTranslationUnit2
 	export clang_createTranslationUnit2
-	𝐣𝐥.@cextern clang_createTranslationUnit2(CIdx::CXIndex, ast_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_createTranslationUnit2(CIdx::CXIndex, ast_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	 Used to indicate that no special translation-unit options are needed.
 	
 	## Reference
 	
-	[Index.h:1218](./include/clang-c/Index.h:1218:3)
+	[Index.h:1204](./include/clang-c/Index.h:1204:3)
 	""" CXTranslationUnit_None
 	𝐣𝐥.@doc """
 	 DEPRECATED: Enabled chained precompiled preambles in C++.
@@ -2332,14 +2340,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1286](./include/clang-c/Index.h:1286:3)
+	[Index.h:1272](./include/clang-c/Index.h:1272:3)
 	""" CXTranslationUnit_CXXChainedPCH
 	𝐣𝐥.@doc """
 	 Used to indicate that attributed types should be included in CXType.
 	
 	## Reference
 	
-	[Index.h:1339](./include/clang-c/Index.h:1339:3)
+	[Index.h:1325](./include/clang-c/Index.h:1325:3)
 	""" CXTranslationUnit_IncludeAttributedTypes
 	𝐣𝐥.@doc """
 	 Used to indicate that the parser should construct a \"detailed\" preprocessing record, including all macro definitions and instantiations.
@@ -2350,7 +2358,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1230](./include/clang-c/Index.h:1230:3)
+	[Index.h:1216](./include/clang-c/Index.h:1216:3)
 	""" CXTranslationUnit_DetailedPreprocessingRecord
 	𝐣𝐥.@doc """
 	 Flags that control the creation of translation units.
@@ -2361,21 +2369,28 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1213](./include/clang-c/Index.h:1213:6)
+	[Index.h:1199](./include/clang-c/Index.h:1199:6)
 	""" CXTranslationUnit_Flags
 	𝐣𝐥.@doc """
 	 Sets the preprocessor in a mode for parsing a single file only.
 	
 	## Reference
 	
-	[Index.h:1326](./include/clang-c/Index.h:1326:3)
+	[Index.h:1312](./include/clang-c/Index.h:1312:3)
 	""" CXTranslationUnit_SingleFileParse
+	𝐣𝐥.@doc """
+	 Tells the preprocessor not to skip excluded conditional blocks.
+	
+	## Reference
+	
+	[Index.h:1345](./include/clang-c/Index.h:1345:3)
+	""" CXTranslationUnit_RetainExcludedConditionalBlocks
 	𝐣𝐥.@doc """
 	 Used to indicate that brief documentation comments should be included into the set of code completions returned from this translation unit.
 	
 	## Reference
 	
-	[Index.h:1302](./include/clang-c/Index.h:1302:3)
+	[Index.h:1288](./include/clang-c/Index.h:1288:3)
 	""" CXTranslationUnit_IncludeBriefCommentsInCodeCompletion
 	𝐣𝐥.@doc """
 	 Used to indicate that the translation unit should cache some code-completion results with each reparse of the source file.
@@ -2386,7 +2401,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1269](./include/clang-c/Index.h:1269:3)
+	[Index.h:1255](./include/clang-c/Index.h:1255:3)
 	""" CXTranslationUnit_CacheCompletionResults
 	𝐣𝐥.@doc """
 	 Used to indicate that the translation unit will be serialized with `clang_saveTranslationUnit.`
@@ -2397,8 +2412,19 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1278](./include/clang-c/Index.h:1278:3)
+	[Index.h:1264](./include/clang-c/Index.h:1264:3)
 	""" CXTranslationUnit_ForSerialization
+	𝐣𝐥.@doc """
+	 Used to indicate that non-errors from included files should be ignored.
+	
+	## Details
+	
+	 If set, clang_getDiagnosticSetFromTU() will not report e.g. warnings from included files anymore. This speeds up clang_getDiagnosticSetFromTU() for the case where these warnings are not of interest, as for an IDE for example, which typically shows only the diagnostics in the main file.
+	
+	## Reference
+	
+	[Index.h:1340](./include/clang-c/Index.h:1340:3)
+	""" CXTranslationUnit_IgnoreNonErrorsFromIncludedFiles
 	𝐣𝐥.@doc """
 	 Used to indicate that the translation unit should be built with an implicit precompiled header for the preamble.
 	
@@ -2408,14 +2434,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1259](./include/clang-c/Index.h:1259:3)
+	[Index.h:1245](./include/clang-c/Index.h:1245:3)
 	""" CXTranslationUnit_PrecompiledPreamble
 	𝐣𝐥.@doc """
 	 Used to indicate that implicit attributes should be visited.
 	
 	## Reference
 	
-	[Index.h:1344](./include/clang-c/Index.h:1344:3)
+	[Index.h:1330](./include/clang-c/Index.h:1330:3)
 	""" CXTranslationUnit_VisitImplicitAttributes
 	𝐣𝐥.@doc """
 	 Used to indicate that function/method bodies should be skipped while parsing.
@@ -2426,7 +2452,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1295](./include/clang-c/Index.h:1295:3)
+	[Index.h:1281](./include/clang-c/Index.h:1281:3)
 	""" CXTranslationUnit_SkipFunctionBodies
 	𝐣𝐥.@doc """
 	 Used to indicate that the translation unit is incomplete.
@@ -2437,7 +2463,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1243](./include/clang-c/Index.h:1243:3)
+	[Index.h:1229](./include/clang-c/Index.h:1229:3)
 	""" CXTranslationUnit_Incomplete
 	𝐣𝐥.@doc """
 	 Do not stop processing when fatal errors are encountered.
@@ -2448,14 +2474,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1321](./include/clang-c/Index.h:1321:3)
+	[Index.h:1307](./include/clang-c/Index.h:1307:3)
 	""" CXTranslationUnit_KeepGoing
 	𝐣𝐥.@doc """
 	 Used to indicate that the precompiled preamble should be created on the first parse. Otherwise it will be created on the first reparse. This trades runtime on the first parse (serializing the preamble takes time) for reduced runtime on the second parse (can now reuse the preamble).
 	
 	## Reference
 	
-	[Index.h:1310](./include/clang-c/Index.h:1310:3)
+	[Index.h:1296](./include/clang-c/Index.h:1296:3)
 	""" CXTranslationUnit_CreatePreambleOnFirstParse
 	𝐣𝐥.@doc """
 	 Used in combination with CXTranslationUnit_SkipFunctionBodies to constrain the skipping of function bodies to the preamble.
@@ -2466,9 +2492,9 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1334](./include/clang-c/Index.h:1334:3)
+	[Index.h:1320](./include/clang-c/Index.h:1320:3)
 	""" CXTranslationUnit_LimitSkipFunctionBodiesToPreamble
-	export CXTranslationUnit_CXXChainedPCH, CXTranslationUnit_CacheCompletionResults, CXTranslationUnit_CreatePreambleOnFirstParse, CXTranslationUnit_DetailedPreprocessingRecord, CXTranslationUnit_Flags, CXTranslationUnit_ForSerialization, CXTranslationUnit_IncludeAttributedTypes, CXTranslationUnit_IncludeBriefCommentsInCodeCompletion, CXTranslationUnit_Incomplete, CXTranslationUnit_KeepGoing, CXTranslationUnit_LimitSkipFunctionBodiesToPreamble, CXTranslationUnit_None, CXTranslationUnit_PrecompiledPreamble, CXTranslationUnit_SingleFileParse, CXTranslationUnit_SkipFunctionBodies, CXTranslationUnit_VisitImplicitAttributes
+	export CXTranslationUnit_CXXChainedPCH, CXTranslationUnit_CacheCompletionResults, CXTranslationUnit_CreatePreambleOnFirstParse, CXTranslationUnit_DetailedPreprocessingRecord, CXTranslationUnit_Flags, CXTranslationUnit_ForSerialization, CXTranslationUnit_IgnoreNonErrorsFromIncludedFiles, CXTranslationUnit_IncludeAttributedTypes, CXTranslationUnit_IncludeBriefCommentsInCodeCompletion, CXTranslationUnit_Incomplete, CXTranslationUnit_KeepGoing, CXTranslationUnit_LimitSkipFunctionBodiesToPreamble, CXTranslationUnit_None, CXTranslationUnit_PrecompiledPreamble, CXTranslationUnit_RetainExcludedConditionalBlocks, CXTranslationUnit_SingleFileParse, CXTranslationUnit_SkipFunctionBodies, CXTranslationUnit_VisitImplicitAttributes
 	𝐣𝐥.@cenum CXTranslationUnit_Flags {
 		CXTranslationUnit_None = 𝐣𝐥.Cuint(0)
 		CXTranslationUnit_DetailedPreprocessingRecord = 𝐣𝐥.Cuint(1)
@@ -2485,6 +2511,8 @@ using CBinding: 𝐣𝐥
 		CXTranslationUnit_LimitSkipFunctionBodiesToPreamble = 𝐣𝐥.Cuint(2048)
 		CXTranslationUnit_IncludeAttributedTypes = 𝐣𝐥.Cuint(4096)
 		CXTranslationUnit_VisitImplicitAttributes = 𝐣𝐥.Cuint(8192)
+		CXTranslationUnit_IgnoreNonErrorsFromIncludedFiles = 𝐣𝐥.Cuint(16384)
+		CXTranslationUnit_RetainExcludedConditionalBlocks = 𝐣𝐥.Cuint(32768)
 	}
 	
 	𝐣𝐥.@doc """
@@ -2500,28 +2528,28 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1359](./include/clang-c/Index.h:1359:25)
+	[Index.h:1360](./include/clang-c/Index.h:1360:25)
 	""" clang_defaultEditingTranslationUnitOptions
 	export clang_defaultEditingTranslationUnitOptions
 	𝐣𝐥.@cextern clang_defaultEditingTranslationUnitOptions()::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_parseTranslationUnit(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::CXTranslationUnit
+	𝐣𝐥.@cextern clang_parseTranslationUnit(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::CXTranslationUnit
 	```
 	
 	 Same as `clang_parseTranslationUnit2,` but returns the `CXTranslationUnit` instead of an error code.  In case of an error this routine returns a `NULL` `CXTranslationUnit,` without further detailed error codes.
 	
 	## Reference
 	
-	[Index.h:1368](./include/clang-c/Index.h:1368:1)
+	[Index.h:1368](./include/clang-c/Index.h:1368:34)
 	""" clang_parseTranslationUnit
 	export clang_parseTranslationUnit
-	𝐣𝐥.@cextern clang_parseTranslationUnit(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::CXTranslationUnit
+	𝐣𝐥.@cextern clang_parseTranslationUnit(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::CXTranslationUnit
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_parseTranslationUnit2(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_parseTranslationUnit2(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Parse the given source file and the translation unit corresponding to that file.
@@ -2547,24 +2575,24 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1421](./include/clang-c/Index.h:1421:1)
+	[Index.h:1418](./include/clang-c/Index.h:1418:33)
 	""" clang_parseTranslationUnit2
 	export clang_parseTranslationUnit2
-	𝐣𝐥.@cextern clang_parseTranslationUnit2(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_parseTranslationUnit2(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_parseTranslationUnit2FullArgv(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_parseTranslationUnit2FullArgv(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	```
 	
 	 Same as clang_parseTranslationUnit2 but requires a full command line for `command_line_args` including argv[0]. This is useful if the standard library paths are relative to the binary.
 	
 	## Reference
 	
-	[Index.h:1435](./include/clang-c/Index.h:1435:33)
+	[Index.h:1429](./include/clang-c/Index.h:1429:33)
 	""" clang_parseTranslationUnit2FullArgv
 	export clang_parseTranslationUnit2FullArgv
-	𝐣𝐥.@cextern clang_parseTranslationUnit2FullArgv(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::CXErrorCode
+	𝐣𝐥.@cextern clang_parseTranslationUnit2FullArgv(CIdx::CXIndex, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit})::𝐣𝐥.@cenum CXErrorCode
 	
 	𝐣𝐥.@doc """
 	 Flags that control how translation units are saved.
@@ -2575,14 +2603,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1448](./include/clang-c/Index.h:1448:6)
+	[Index.h:1442](./include/clang-c/Index.h:1442:6)
 	""" CXSaveTranslationUnit_Flags
 	𝐣𝐥.@doc """
 	 Used to indicate that no special saving options are needed.
 	
 	## Reference
 	
-	[Index.h:1452](./include/clang-c/Index.h:1452:3)
+	[Index.h:1446](./include/clang-c/Index.h:1446:3)
 	""" CXSaveTranslationUnit_None
 	export CXSaveTranslationUnit_Flags, CXSaveTranslationUnit_None
 	𝐣𝐥.@cenum CXSaveTranslationUnit_Flags {
@@ -2602,7 +2630,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1464](./include/clang-c/Index.h:1464:25)
+	[Index.h:1458](./include/clang-c/Index.h:1458:25)
 	""" clang_defaultSaveOptions
 	export clang_defaultSaveOptions
 	𝐣𝐥.@cextern clang_defaultSaveOptions(TU::CXTranslationUnit)::𝐣𝐥.Cuint
@@ -2612,7 +2640,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1474](./include/clang-c/Index.h:1474:3)
+	[Index.h:1468](./include/clang-c/Index.h:1468:3)
 	""" CXSaveError_None
 	𝐣𝐥.@doc """
 	 Indicates that errors during translation prevented this attempt to save the translation unit.
@@ -2623,14 +2651,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1492](./include/clang-c/Index.h:1492:3)
+	[Index.h:1486](./include/clang-c/Index.h:1486:3)
 	""" CXSaveError_TranslationErrors
 	𝐣𝐥.@doc """
 	 Indicates that the translation unit to be saved was somehow invalid (e.g., NULL).
 	
 	## Reference
 	
-	[Index.h:1498](./include/clang-c/Index.h:1498:3)
+	[Index.h:1492](./include/clang-c/Index.h:1492:3)
 	""" CXSaveError_InvalidTU
 	𝐣𝐥.@doc """
 	 Indicates that an unknown error occurred while attempting to save the file.
@@ -2641,14 +2669,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1483](./include/clang-c/Index.h:1483:3)
+	[Index.h:1477](./include/clang-c/Index.h:1477:3)
 	""" CXSaveError_Unknown
 	𝐣𝐥.@doc """
 	 Describes the kind of error that occurred (if any) in a call to `clang_saveTranslationUnit().` 
 	
 	## Reference
 	
-	[Index.h:1470](./include/clang-c/Index.h:1470:6)
+	[Index.h:1464](./include/clang-c/Index.h:1464:6)
 	""" CXSaveError
 	export CXSaveError, CXSaveError_InvalidTU, CXSaveError_None, CXSaveError_TranslationErrors, CXSaveError_Unknown
 	𝐣𝐥.@cenum CXSaveError {
@@ -2681,7 +2709,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1524](./include/clang-c/Index.h:1524:20)
+	[Index.h:1518](./include/clang-c/Index.h:1518:20)
 	""" clang_saveTranslationUnit
 	export clang_saveTranslationUnit
 	𝐣𝐥.@cextern clang_saveTranslationUnit(TU::CXTranslationUnit, FileName::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
@@ -2699,7 +2727,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1535](./include/clang-c/Index.h:1535:25)
+	[Index.h:1529](./include/clang-c/Index.h:1529:25)
 	""" clang_suspendTranslationUnit
 	export clang_suspendTranslationUnit
 	𝐣𝐥.@cextern clang_suspendTranslationUnit(var"?1?"::CXTranslationUnit)::𝐣𝐥.Cuint
@@ -2713,7 +2741,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1540](./include/clang-c/Index.h:1540:21)
+	[Index.h:1534](./include/clang-c/Index.h:1534:21)
 	""" clang_disposeTranslationUnit
 	export clang_disposeTranslationUnit
 	𝐣𝐥.@cextern clang_disposeTranslationUnit(var"?1?"::CXTranslationUnit)::𝐣𝐥.Cvoid
@@ -2723,7 +2751,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1553](./include/clang-c/Index.h:1553:3)
+	[Index.h:1547](./include/clang-c/Index.h:1547:3)
 	""" CXReparse_None
 	𝐣𝐥.@doc """
 	 Flags that control the reparsing of translation units.
@@ -2734,7 +2762,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1549](./include/clang-c/Index.h:1549:6)
+	[Index.h:1543](./include/clang-c/Index.h:1543:6)
 	""" CXReparse_Flags
 	export CXReparse_Flags, CXReparse_None
 	𝐣𝐥.@cenum CXReparse_Flags {
@@ -2754,14 +2782,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1566](./include/clang-c/Index.h:1566:25)
+	[Index.h:1560](./include/clang-c/Index.h:1560:25)
 	""" clang_defaultReparseOptions
 	export clang_defaultReparseOptions
 	𝐣𝐥.@cextern clang_defaultReparseOptions(TU::CXTranslationUnit)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_reparseTranslationUnit(TU::CXTranslationUnit, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_reparseTranslationUnit(TU::CXTranslationUnit, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	```
 	
 	 Reparse the source files that produced this translation unit.
@@ -2785,107 +2813,107 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1607](./include/clang-c/Index.h:1607:20)
+	[Index.h:1602](./include/clang-c/Index.h:1602:1)
 	""" clang_reparseTranslationUnit
 	export clang_reparseTranslationUnit
-	𝐣𝐥.@cextern clang_reparseTranslationUnit(TU::CXTranslationUnit, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_reparseTranslationUnit(TU::CXTranslationUnit, num_unsaved_files::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1619](./include/clang-c/Index.h:1619:3)
+	[Index.h:1613](./include/clang-c/Index.h:1613:3)
 	""" CXTUResourceUsage_GlobalCompletionResults
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1623](./include/clang-c/Index.h:1623:3)
+	[Index.h:1617](./include/clang-c/Index.h:1617:3)
 	""" CXTUResourceUsage_SourceManager_Membuffer_MMap
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1630](./include/clang-c/Index.h:1630:3)
+	[Index.h:1624](./include/clang-c/Index.h:1624:3)
 	""" CXTUResourceUsage_MEMORY_IN_BYTES_BEGIN
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1616](./include/clang-c/Index.h:1616:3)
+	[Index.h:1610](./include/clang-c/Index.h:1610:3)
 	""" CXTUResourceUsage_AST
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1628](./include/clang-c/Index.h:1628:3)
+	[Index.h:1622](./include/clang-c/Index.h:1622:3)
 	""" CXTUResourceUsage_SourceManager_DataStructures
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1635](./include/clang-c/Index.h:1635:3)
+	[Index.h:1629](./include/clang-c/Index.h:1629:3)
 	""" CXTUResourceUsage_Last
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1627](./include/clang-c/Index.h:1627:3)
+	[Index.h:1621](./include/clang-c/Index.h:1621:3)
 	""" CXTUResourceUsage_PreprocessingRecord
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1622](./include/clang-c/Index.h:1622:3)
+	[Index.h:1616](./include/clang-c/Index.h:1616:3)
 	""" CXTUResourceUsage_SourceManager_Membuffer_Malloc
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1620](./include/clang-c/Index.h:1620:3)
+	[Index.h:1614](./include/clang-c/Index.h:1614:3)
 	""" CXTUResourceUsage_SourceManagerContentCache
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1617](./include/clang-c/Index.h:1617:3)
+	[Index.h:1611](./include/clang-c/Index.h:1611:3)
 	""" CXTUResourceUsage_Identifiers
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1621](./include/clang-c/Index.h:1621:3)
+	[Index.h:1615](./include/clang-c/Index.h:1615:3)
 	""" CXTUResourceUsage_AST_SideTables
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1625](./include/clang-c/Index.h:1625:3)
+	[Index.h:1619](./include/clang-c/Index.h:1619:3)
 	""" CXTUResourceUsage_ExternalASTSource_Membuffer_MMap
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1618](./include/clang-c/Index.h:1618:3)
+	[Index.h:1612](./include/clang-c/Index.h:1612:3)
 	""" CXTUResourceUsage_Selectors
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1626](./include/clang-c/Index.h:1626:3)
+	[Index.h:1620](./include/clang-c/Index.h:1620:3)
 	""" CXTUResourceUsage_Preprocessor
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1629](./include/clang-c/Index.h:1629:3)
+	[Index.h:1623](./include/clang-c/Index.h:1623:3)
 	""" CXTUResourceUsage_Preprocessor_HeaderSearch
 	𝐣𝐥.@doc """
 	 Categorizes how memory is being used by a translation unit.
 	
 	## Reference
 	
-	[Index.h:1615](./include/clang-c/Index.h:1615:6)
+	[Index.h:1609](./include/clang-c/Index.h:1609:6)
 	""" CXTUResourceUsageKind
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1631](./include/clang-c/Index.h:1631:3)
+	[Index.h:1625](./include/clang-c/Index.h:1625:3)
 	""" CXTUResourceUsage_MEMORY_IN_BYTES_END
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1634](./include/clang-c/Index.h:1634:3)
+	[Index.h:1628](./include/clang-c/Index.h:1628:3)
 	""" CXTUResourceUsage_First
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:1624](./include/clang-c/Index.h:1624:3)
+	[Index.h:1618](./include/clang-c/Index.h:1618:3)
 	""" CXTUResourceUsage_ExternalASTSource_Membuffer_Malloc
 	export CXTUResourceUsageKind, CXTUResourceUsage_AST, CXTUResourceUsage_AST_SideTables, CXTUResourceUsage_ExternalASTSource_Membuffer_MMap, CXTUResourceUsage_ExternalASTSource_Membuffer_Malloc, CXTUResourceUsage_First, CXTUResourceUsage_GlobalCompletionResults, CXTUResourceUsage_Identifiers, CXTUResourceUsage_Last, CXTUResourceUsage_MEMORY_IN_BYTES_BEGIN, CXTUResourceUsage_MEMORY_IN_BYTES_END, CXTUResourceUsage_PreprocessingRecord, CXTUResourceUsage_Preprocessor, CXTUResourceUsage_Preprocessor_HeaderSearch, CXTUResourceUsage_Selectors, CXTUResourceUsage_SourceManagerContentCache, CXTUResourceUsage_SourceManager_DataStructures, CXTUResourceUsage_SourceManager_Membuffer_MMap, CXTUResourceUsage_SourceManager_Membuffer_Malloc
 	𝐣𝐥.@cenum CXTUResourceUsageKind {
@@ -2911,28 +2939,28 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getTUResourceUsageName(kind::CXTUResourceUsageKind)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
+	𝐣𝐥.@cextern clang_getTUResourceUsageName(kind::𝐣𝐥.@cenum CXTUResourceUsageKind)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
 	```
 	
 	 Returns the human-readable null-terminated C string that represents  the name of the memory category.  This string should never be freed.
 	
 	## Reference
 	
-	[Index.h:1643](./include/clang-c/Index.h:1643:13)
+	[Index.h:1637](./include/clang-c/Index.h:1637:13)
 	""" clang_getTUResourceUsageName
 	export clang_getTUResourceUsageName
-	𝐣𝐥.@cextern clang_getTUResourceUsageName(kind::CXTUResourceUsageKind)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
+	𝐣𝐥.@cextern clang_getTUResourceUsageName(kind::𝐣𝐥.@cenum CXTUResourceUsageKind)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
 	
 	𝐣𝐥.@doc """
 	## References
 	
-	[Index.h:1645](./include/clang-c/Index.h:1645:16)
+	[Index.h:1639](./include/clang-c/Index.h:1639:16)
 	
-	[Index.h:1651](./include/clang-c/Index.h:1651:3)
+	[Index.h:1645](./include/clang-c/Index.h:1645:3)
 	""" CXTUResourceUsageEntry
 	export CXTUResourceUsageEntry
 	𝐣𝐥.@ctypedef CXTUResourceUsageEntry 𝐣𝐥.@cstruct CXTUResourceUsageEntry {
-		kind::CXTUResourceUsageKind
+		kind::𝐣𝐥.@cenum CXTUResourceUsageKind
 		amount::𝐣𝐥.Culong
 	}
 	
@@ -2945,9 +2973,9 @@ using CBinding: 𝐣𝐥
 	
 	## References
 	
-	[Index.h:1656](./include/clang-c/Index.h:1656:16)
+	[Index.h:1650](./include/clang-c/Index.h:1650:16)
 	
-	[Index.h:1667](./include/clang-c/Index.h:1667:3)
+	[Index.h:1661](./include/clang-c/Index.h:1661:3)
 	""" CXTUResourceUsage
 	export CXTUResourceUsage
 	𝐣𝐥.@ctypedef CXTUResourceUsage 𝐣𝐥.@cstruct CXTUResourceUsage {
@@ -2965,7 +2993,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1673](./include/clang-c/Index.h:1673:34)
+	[Index.h:1668](./include/clang-c/Index.h:1668:1)
 	""" clang_getCXTUResourceUsage
 	export clang_getCXTUResourceUsage
 	𝐣𝐥.@cextern clang_getCXTUResourceUsage(TU::CXTranslationUnit)::CXTUResourceUsage
@@ -2977,7 +3005,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1675](./include/clang-c/Index.h:1675:21)
+	[Index.h:1670](./include/clang-c/Index.h:1670:21)
 	""" clang_disposeCXTUResourceUsage
 	export clang_disposeCXTUResourceUsage
 	𝐣𝐥.@cextern clang_disposeCXTUResourceUsage(usage::CXTUResourceUsage)::𝐣𝐥.Cvoid
@@ -2995,7 +3023,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1683](./include/clang-c/Index.h:1683:1)
+	[Index.h:1678](./include/clang-c/Index.h:1678:1)
 	""" clang_getTranslationUnitTargetInfo
 	export clang_getTranslationUnitTargetInfo
 	𝐣𝐥.@cextern clang_getTranslationUnitTargetInfo(CTUnit::CXTranslationUnit)::CXTargetInfo
@@ -3009,7 +3037,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1689](./include/clang-c/Index.h:1689:1)
+	[Index.h:1683](./include/clang-c/Index.h:1683:21)
 	""" clang_TargetInfo_dispose
 	export clang_TargetInfo_dispose
 	𝐣𝐥.@cextern clang_TargetInfo_dispose(Info::CXTargetInfo)::𝐣𝐥.Cvoid
@@ -3027,7 +3055,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1697](./include/clang-c/Index.h:1697:1)
+	[Index.h:1690](./include/clang-c/Index.h:1690:25)
 	""" clang_TargetInfo_getTriple
 	export clang_TargetInfo_getTriple
 	𝐣𝐥.@cextern clang_TargetInfo_getTriple(Info::CXTargetInfo)::CXString
@@ -3045,7 +3073,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1705](./include/clang-c/Index.h:1705:1)
+	[Index.h:1697](./include/clang-c/Index.h:1697:20)
 	""" clang_TargetInfo_getPointerWidth
 	export clang_TargetInfo_getPointerWidth
 	𝐣𝐥.@cextern clang_TargetInfo_getPointerWidth(Info::CXTargetInfo)::𝐣𝐥.Cint
@@ -3055,147 +3083,154 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2559](./include/clang-c/Index.h:2559:3)
+	[Index.h:2596](./include/clang-c/Index.h:2596:3)
 	""" CXCursor_PackedAttr
 	𝐣𝐥.@doc """
 	 OpenMP target teams distribute parallel for simd directive.
 	
 	## Reference
 	
-	[Index.h:2528](./include/clang-c/Index.h:2528:3)
+	[Index.h:2533](./include/clang-c/Index.h:2533:3)
 	""" CXCursor_OMPTargetTeamsDistributeParallelForSimdDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2553](./include/clang-c/Index.h:2553:3)
+	[Index.h:2590](./include/clang-c/Index.h:2590:3)
 	""" CXCursor_IBOutletAttr
 	𝐣𝐥.@doc """
 	 An access specifier. 
 	
 	## Reference
 	
-	[Index.h:1812](./include/clang-c/Index.h:1812:3)
+	[Index.h:1804](./include/clang-c/Index.h:1804:3)
 	""" CXCursor_ObjCProtocolRef
 	𝐣𝐥.@doc """
 	 OpenMP atomic directive.
 	
 	## Reference
 	
-	[Index.h:2412](./include/clang-c/Index.h:2412:3)
+	[Index.h:2417](./include/clang-c/Index.h:2417:3)
 	""" CXCursor_OMPAtomicDirective
 	𝐣𝐥.@doc """
 	 An access specifier. 
 	
 	## Reference
 	
-	[Index.h:1807](./include/clang-c/Index.h:1807:3)
+	[Index.h:1799](./include/clang-c/Index.h:1799:3)
 	""" CXCursor_LastDecl
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2598](./include/clang-c/Index.h:2598:3)
+	[Index.h:2639](./include/clang-c/Index.h:2639:3)
 	""" CXCursor_LastPreprocessing
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2572](./include/clang-c/Index.h:2572:3)
+	[Index.h:2609](./include/clang-c/Index.h:2609:3)
 	""" CXCursor_NSReturnsNotRetained
 	𝐣𝐥.@doc """
 	 OpenMP taskgroup directive.
 	
 	## Reference
 	
-	[Index.h:2432](./include/clang-c/Index.h:2432:3)
+	[Index.h:2437](./include/clang-c/Index.h:2437:3)
 	""" CXCursor_OMPTaskgroupDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2578](./include/clang-c/Index.h:2578:3)
+	[Index.h:2615](./include/clang-c/Index.h:2615:3)
 	""" CXCursor_ObjCIndependentClass
 	𝐣𝐥.@doc """
 	 A module import declaration.
 	
 	## Reference
 	
-	[Index.h:2605](./include/clang-c/Index.h:2605:3)
+	[Index.h:2646](./include/clang-c/Index.h:2646:3)
 	""" CXCursor_TypeAliasTemplateDecl
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2588](./include/clang-c/Index.h:2588:3)
+	[Index.h:2625](./include/clang-c/Index.h:2625:3)
 	""" CXCursor_FlagEnum
 	𝐣𝐥.@doc """
 	 A C++ template template parameter. 
 	
 	## Reference
 	
-	[Index.h:1784](./include/clang-c/Index.h:1784:3)
+	[Index.h:1776](./include/clang-c/Index.h:1776:3)
 	""" CXCursor_TemplateTemplateParameter
 	𝐣𝐥.@doc """
 	 Describes the kind of entity that a cursor refers to.
 	
 	## Reference
 	
-	[Index.h:1714](./include/clang-c/Index.h:1714:6)
+	[Index.h:1706](./include/clang-c/Index.h:1706:6)
 	""" CXCursorKind
 	𝐣𝐥.@doc """
 	 A typedef. 
 	
 	## Reference
 	
-	[Index.h:1766](./include/clang-c/Index.h:1766:3)
+	[Index.h:1758](./include/clang-c/Index.h:1758:3)
 	""" CXCursor_TypedefDecl
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2587](./include/clang-c/Index.h:2587:3)
+	[Index.h:2624](./include/clang-c/Index.h:2624:3)
 	""" CXCursor_ObjCBoxable
 	𝐣𝐥.@doc """
 	 C++'s const_cast<> expression.
 	
 	## Reference
 	
-	[Index.h:2051](./include/clang-c/Index.h:2051:3)
+	[Index.h:2043](./include/clang-c/Index.h:2043:3)
 	""" CXCursor_CXXConstCastExpr
+	𝐣𝐥.@doc """
+	 C++2a std::bit_cast expression.
+	
+	## Reference
+	
+	[Index.h:2541](./include/clang-c/Index.h:2541:3)
+	""" CXCursor_BuiltinBitCastExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2583](./include/clang-c/Index.h:2583:3)
+	[Index.h:2620](./include/clang-c/Index.h:2620:3)
 	""" CXCursor_ObjCSubclassingRestricted
 	𝐣𝐥.@doc """
 	 OpenMP parallel directive.
 	
 	## Reference
 	
-	[Index.h:2344](./include/clang-c/Index.h:2344:3)
+	[Index.h:2349](./include/clang-c/Index.h:2349:3)
 	""" CXCursor_OMPParallelDirective
 	𝐣𝐥.@doc """
 	 OpenMP flush directive.
 	
 	## Reference
 	
-	[Index.h:2400](./include/clang-c/Index.h:2400:3)
+	[Index.h:2405](./include/clang-c/Index.h:2405:3)
 	""" CXCursor_OMPFlushDirective
 	𝐣𝐥.@doc """
 	 A floating point number literal.
 	
 	## Reference
 	
-	[Index.h:1958](./include/clang-c/Index.h:1958:3)
+	[Index.h:1950](./include/clang-c/Index.h:1950:3)
 	""" CXCursor_FloatingLiteral
 	𝐣𝐥.@doc """
 	 A parenthesized expression, e.g. \"(1)\".
@@ -3206,154 +3241,154 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1976](./include/clang-c/Index.h:1976:3)
+	[Index.h:1968](./include/clang-c/Index.h:1968:3)
 	""" CXCursor_ParenExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2596](./include/clang-c/Index.h:2596:3)
+	[Index.h:2637](./include/clang-c/Index.h:2637:3)
 	""" CXCursor_InclusionDirective
 	𝐣𝐥.@doc """
 	 A reference to a namespace or namespace alias.
 	
 	## Reference
 	
-	[Index.h:1839](./include/clang-c/Index.h:1839:3)
+	[Index.h:1831](./include/clang-c/Index.h:1831:3)
 	""" CXCursor_NamespaceRef
 	𝐣𝐥.@doc """
 	 OpenMP teams distribute simd directive.
 	
 	## Reference
 	
-	[Index.h:2504](./include/clang-c/Index.h:2504:3)
+	[Index.h:2509](./include/clang-c/Index.h:2509:3)
 	""" CXCursor_OMPTeamsDistributeSimdDirective
 	𝐣𝐥.@doc """
 	 An access specifier. 
 	
 	## Reference
 	
-	[Index.h:1813](./include/clang-c/Index.h:1813:3)
+	[Index.h:1805](./include/clang-c/Index.h:1805:3)
 	""" CXCursor_ObjCClassRef
 	𝐣𝐥.@doc """
 	 A reference to a variable that occurs in some non-expression context, e.g., a C++ lambda capture list.
 	
 	## Reference
 	
-	[Index.h:1914](./include/clang-c/Index.h:1914:3)
+	[Index.h:1906](./include/clang-c/Index.h:1906:3)
 	""" CXCursor_LastInvalid
 	𝐣𝐥.@doc """
 	 OpenMP for directive.
 	
 	## Reference
 	
-	[Index.h:2352](./include/clang-c/Index.h:2352:3)
+	[Index.h:2357](./include/clang-c/Index.h:2357:3)
 	""" CXCursor_OMPForDirective
 	𝐣𝐥.@doc """
 	 A builtin binary operation expression such as \"x + y\" or \"x <= y\".
 	
 	## Reference
 	
-	[Index.h:1990](./include/clang-c/Index.h:1990:3)
+	[Index.h:1982](./include/clang-c/Index.h:1982:3)
 	""" CXCursor_BinaryOperator
 	𝐣𝐥.@doc """
 	 OpenMP taskyield directive.
 	
 	## Reference
 	
-	[Index.h:2388](./include/clang-c/Index.h:2388:3)
+	[Index.h:2393](./include/clang-c/Index.h:2393:3)
 	""" CXCursor_OMPTaskyieldDirective
 	𝐣𝐥.@doc """
 	 A character literal.
 	
 	## Reference
 	
-	[Index.h:1970](./include/clang-c/Index.h:1970:3)
+	[Index.h:1962](./include/clang-c/Index.h:1962:3)
 	""" CXCursor_CharacterLiteral
 	𝐣𝐥.@doc """
 	 A reference to a variable that occurs in some non-expression context, e.g., a C++ lambda capture list.
 	
 	## Reference
 	
-	[Index.h:1904](./include/clang-c/Index.h:1904:3)
+	[Index.h:1896](./include/clang-c/Index.h:1896:3)
 	""" CXCursor_VariableRef
 	𝐣𝐥.@doc """
 	 OpenMP barrier directive.
 	
 	## Reference
 	
-	[Index.h:2392](./include/clang-c/Index.h:2392:3)
+	[Index.h:2397](./include/clang-c/Index.h:2397:3)
 	""" CXCursor_OMPBarrierDirective
 	𝐣𝐥.@doc """
 	 An expression that refers to some value declaration, such as a function, variable, or enumerator.
 	
 	## Reference
 	
-	[Index.h:1934](./include/clang-c/Index.h:1934:3)
+	[Index.h:1926](./include/clang-c/Index.h:1926:3)
 	""" CXCursor_DeclRefExpr
 	𝐣𝐥.@doc """
 	 C++'s try statement.
 	
 	## Reference
 	
-	[Index.h:2309](./include/clang-c/Index.h:2309:3)
+	[Index.h:2314](./include/clang-c/Index.h:2314:3)
 	""" CXCursor_CXXTryStmt
 	𝐣𝐥.@doc """
 	 A new expression for memory allocation and constructor calls, e.g: \"new CXXNewExpr(foo)\".
 	
 	## Reference
 	
-	[Index.h:2089](./include/clang-c/Index.h:2089:3)
+	[Index.h:2085](./include/clang-c/Index.h:2085:3)
 	""" CXCursor_CXXNewExpr
 	𝐣𝐥.@doc """
 	 An integer literal.
 	
 	## Reference
 	
-	[Index.h:1954](./include/clang-c/Index.h:1954:3)
+	[Index.h:1946](./include/clang-c/Index.h:1946:3)
 	""" CXCursor_IntegerLiteral
 	𝐣𝐥.@doc """
 	 A reference to a variable that occurs in some non-expression context, e.g., a C++ lambda capture list.
 	
 	## Reference
 	
-	[Index.h:1911](./include/clang-c/Index.h:1911:3)
+	[Index.h:1903](./include/clang-c/Index.h:1903:3)
 	""" CXCursor_NoDeclFound
 	𝐣𝐥.@doc """
 	 An Objective-C @selector expression.
 	
 	## Reference
 	
-	[Index.h:2110](./include/clang-c/Index.h:2110:3)
+	[Index.h:2106](./include/clang-c/Index.h:2106:3)
 	""" CXCursor_ObjCSelectorExpr
 	𝐣𝐥.@doc """
 	 This is the GNU Statement Expression extension: ({int X=4; X;})
 	
 	## Reference
 	
-	[Index.h:2021](./include/clang-c/Index.h:2021:3)
+	[Index.h:2013](./include/clang-c/Index.h:2013:3)
 	""" CXCursor_StmtExpr
 	𝐣𝐥.@doc """
 	 An Objective-C @protocol expression.
 	
 	## Reference
 	
-	[Index.h:2114](./include/clang-c/Index.h:2114:3)
+	[Index.h:2110](./include/clang-c/Index.h:2110:3)
 	""" CXCursor_ObjCProtocolExpr
 	𝐣𝐥.@doc """
-	 Fixed point literal
+	 OpenMP 5.0 [2.1.6 Iterators]
 	
 	## Reference
 	
-	[Index.h:2190](./include/clang-c/Index.h:2190:3)
+	[Index.h:2195](./include/clang-c/Index.h:2195:3)
 	""" CXCursor_FirstStmt
 	𝐣𝐥.@doc """
 	 C++'s dynamic_cast<> expression.
 	
 	## Reference
 	
-	[Index.h:2043](./include/clang-c/Index.h:2043:3)
+	[Index.h:2035](./include/clang-c/Index.h:2035:3)
 	""" CXCursor_CXXDynamicCastExpr
 	𝐣𝐥.@doc """
 	 [C++ 15] C++ Throw Expression.
@@ -3364,106 +3399,113 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2084](./include/clang-c/Index.h:2084:3)
+	[Index.h:2080](./include/clang-c/Index.h:2080:3)
 	""" CXCursor_CXXThrowExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2589](./include/clang-c/Index.h:2589:3)
+	[Index.h:2630](./include/clang-c/Index.h:2630:3)
 	""" CXCursor_LastAttr
 	𝐣𝐥.@doc """
 	 An Objective-C instance method. 
 	
 	## Reference
 	
-	[Index.h:1758](./include/clang-c/Index.h:1758:3)
+	[Index.h:1750](./include/clang-c/Index.h:1750:3)
 	""" CXCursor_ObjCInstanceMethodDecl
 	𝐣𝐥.@doc """
 	 A default statement.
 	
 	## Reference
 	
-	[Index.h:2228](./include/clang-c/Index.h:2228:3)
+	[Index.h:2233](./include/clang-c/Index.h:2233:3)
 	""" CXCursor_DefaultStmt
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2586](./include/clang-c/Index.h:2586:3)
+	[Index.h:2623](./include/clang-c/Index.h:2623:3)
 	""" CXCursor_ObjCRuntimeVisible
 	𝐣𝐥.@doc """
 	 A C++ conversion function. 
 	
 	## Reference
 	
-	[Index.h:1778](./include/clang-c/Index.h:1778:3)
+	[Index.h:1770](./include/clang-c/Index.h:1770:3)
 	""" CXCursor_ConversionFunction
 	𝐣𝐥.@doc """
 	 A variable. 
 	
 	## Reference
 	
-	[Index.h:1744](./include/clang-c/Index.h:1744:3)
+	[Index.h:1736](./include/clang-c/Index.h:1736:3)
 	""" CXCursor_VarDecl
 	𝐣𝐥.@doc """
 	 [C++ 2.13.5] C++ Boolean Literal.
 	
 	## Reference
 	
-	[Index.h:2069](./include/clang-c/Index.h:2069:3)
+	[Index.h:2065](./include/clang-c/Index.h:2065:3)
 	""" CXCursor_CXXBoolLiteralExpr
 	𝐣𝐥.@doc """
 	 A continue statement.
 	
 	## Reference
 	
-	[Index.h:2260](./include/clang-c/Index.h:2260:3)
+	[Index.h:2265](./include/clang-c/Index.h:2265:3)
 	""" CXCursor_ContinueStmt
 	𝐣𝐥.@doc """
 	 OpenMP parallel sections directive.
 	
 	## Reference
 	
-	[Index.h:2372](./include/clang-c/Index.h:2372:3)
+	[Index.h:2377](./include/clang-c/Index.h:2377:3)
 	""" CXCursor_OMPParallelSectionsDirective
 	𝐣𝐥.@doc """
 	 Objective-C's @synchronized statement.
 	
 	## Reference
 	
-	[Index.h:2293](./include/clang-c/Index.h:2293:3)
+	[Index.h:2298](./include/clang-c/Index.h:2298:3)
 	""" CXCursor_ObjCAtSynchronizedStmt
 	𝐣𝐥.@doc """
 	 An Objective-C @interface. 
 	
 	## Reference
 	
-	[Index.h:1748](./include/clang-c/Index.h:1748:3)
+	[Index.h:1740](./include/clang-c/Index.h:1740:3)
 	""" CXCursor_ObjCInterfaceDecl
 	𝐣𝐥.@doc """
 	 A C++ using declaration. 
 	
 	## Reference
 	
-	[Index.h:1796](./include/clang-c/Index.h:1796:3)
+	[Index.h:1788](./include/clang-c/Index.h:1788:3)
 	""" CXCursor_UsingDeclaration
 	𝐣𝐥.@doc """
 	 A C++ class template. 
 	
 	## Reference
 	
-	[Index.h:1788](./include/clang-c/Index.h:1788:3)
+	[Index.h:1780](./include/clang-c/Index.h:1780:3)
 	""" CXCursor_ClassTemplate
 	𝐣𝐥.@doc """
 	 Objective-C's @catch statement.
 	
 	## Reference
 	
-	[Index.h:2281](./include/clang-c/Index.h:2281:3)
+	[Index.h:2286](./include/clang-c/Index.h:2286:3)
 	""" CXCursor_ObjCAtCatchStmt
+	𝐣𝐥.@doc """
+	 OpenMP 5.0 [2.1.4, Array Shaping].
+	
+	## Reference
+	
+	[Index.h:2185](./include/clang-c/Index.h:2185:3)
+	""" CXCursor_OMPArrayShapingExpr
 	𝐣𝐥.@doc """
 	 Represents an explicit C++ type conversion that uses \"functional\" notion (C++ [expr.type.conv]).
 	
@@ -3477,63 +3519,70 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2061](./include/clang-c/Index.h:2061:3)
+	[Index.h:2053](./include/clang-c/Index.h:2053:3)
 	""" CXCursor_CXXFunctionalCastExpr
 	𝐣𝐥.@doc """
 	 C++'s catch statement.
 	
 	## Reference
 	
-	[Index.h:2305](./include/clang-c/Index.h:2305:3)
+	[Index.h:2310](./include/clang-c/Index.h:2310:3)
 	""" CXCursor_CXXCatchStmt
 	𝐣𝐥.@doc """
 	 OpenMP target parallel directive.
 	
 	## Reference
 	
-	[Index.h:2468](./include/clang-c/Index.h:2468:3)
+	[Index.h:2473](./include/clang-c/Index.h:2473:3)
 	""" CXCursor_OMPTargetParallelDirective
 	𝐣𝐥.@doc """
 	 An enumerator constant. 
 	
 	## Reference
 	
-	[Index.h:1740](./include/clang-c/Index.h:1740:3)
+	[Index.h:1732](./include/clang-c/Index.h:1732:3)
 	""" CXCursor_EnumConstantDecl
 	𝐣𝐥.@doc """
 	 A C++ function template. 
 	
 	## Reference
 	
-	[Index.h:1786](./include/clang-c/Index.h:1786:3)
+	[Index.h:1778](./include/clang-c/Index.h:1778:3)
 	""" CXCursor_FunctionTemplate
 	𝐣𝐥.@doc """
 	 Windows Structured Exception Handling's except statement.
 	
 	## Reference
 	
-	[Index.h:2321](./include/clang-c/Index.h:2321:3)
+	[Index.h:2326](./include/clang-c/Index.h:2326:3)
 	""" CXCursor_SEHExceptStmt
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2562](./include/clang-c/Index.h:2562:3)
+	[Index.h:2599](./include/clang-c/Index.h:2599:3)
 	""" CXCursor_NoDuplicateAttr
+	𝐣𝐥.@doc """
+	 An attribute whose specific kind is not exposed via this interface.
+	
+	## Reference
+	
+	[Index.h:2627](./include/clang-c/Index.h:2627:3)
+	""" CXCursor_WarnUnusedAttr
 	𝐣𝐥.@doc """
 	 An Objective-C string literal i.e. \"foo\".
 	
 	## Reference
 	
-	[Index.h:2102](./include/clang-c/Index.h:2102:3)
+	[Index.h:2098](./include/clang-c/Index.h:2098:3)
 	""" CXCursor_ObjCStringLiteral
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2552](./include/clang-c/Index.h:2552:3)
+	[Index.h:2589](./include/clang-c/Index.h:2589:3)
 	""" CXCursor_IBActionAttr
 	𝐣𝐥.@doc """
 	 A labelled statement in a function.
@@ -3549,89 +3598,89 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2213](./include/clang-c/Index.h:2213:3)
+	[Index.h:2218](./include/clang-c/Index.h:2218:3)
 	""" CXCursor_LabelStmt
 	𝐣𝐥.@doc """
 	 A for statement.
 	
 	## Reference
 	
-	[Index.h:2248](./include/clang-c/Index.h:2248:3)
+	[Index.h:2253](./include/clang-c/Index.h:2253:3)
 	""" CXCursor_ForStmt
 	𝐣𝐥.@doc """
 	 Represents the \"this\" expression in C++
 	
 	## Reference
 	
-	[Index.h:2077](./include/clang-c/Index.h:2077:3)
+	[Index.h:2073](./include/clang-c/Index.h:2073:3)
 	""" CXCursor_CXXThisExpr
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2164](./include/clang-c/Index.h:2164:3)
+	[Index.h:2160](./include/clang-c/Index.h:2160:3)
 	""" CXCursor_LambdaExpr
 	𝐣𝐥.@doc """
 	 A string literal.
 	
 	## Reference
 	
-	[Index.h:1966](./include/clang-c/Index.h:1966:3)
+	[Index.h:1958](./include/clang-c/Index.h:1958:3)
 	""" CXCursor_StringLiteral
 	𝐣𝐥.@doc """
 	 OpenMP target parallel for simd directive.
 	
 	## Reference
 	
-	[Index.h:2492](./include/clang-c/Index.h:2492:3)
+	[Index.h:2497](./include/clang-c/Index.h:2497:3)
 	""" CXCursor_OMPTargetParallelForSimdDirective
 	𝐣𝐥.@doc """
 	 A goto statement.
 	
 	## Reference
 	
-	[Index.h:2252](./include/clang-c/Index.h:2252:3)
+	[Index.h:2257](./include/clang-c/Index.h:2257:3)
 	""" CXCursor_GotoStmt
 	𝐣𝐥.@doc """
 	 A return statement.
 	
 	## Reference
 	
-	[Index.h:2268](./include/clang-c/Index.h:2268:3)
+	[Index.h:2273](./include/clang-c/Index.h:2273:3)
 	""" CXCursor_ReturnStmt
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2595](./include/clang-c/Index.h:2595:3)
+	[Index.h:2636](./include/clang-c/Index.h:2636:3)
 	""" CXCursor_MacroInstantiation
 	𝐣𝐥.@doc """
 	 Represents an nothing(...) check.
 	
 	## Reference
 	
-	[Index.h:2180](./include/clang-c/Index.h:2180:3)
+	[Index.h:2176](./include/clang-c/Index.h:2176:3)
 	""" CXCursor_ObjCAvailabilityCheckExpr
 	𝐣𝐥.@doc """
 	 OpenMP target teams directive.
 	
 	## Reference
 	
-	[Index.h:2516](./include/clang-c/Index.h:2516:3)
+	[Index.h:2521](./include/clang-c/Index.h:2521:3)
 	""" CXCursor_OMPTargetTeamsDirective
 	𝐣𝐥.@doc """
 	 An access specifier. 
 	
 	## Reference
 	
-	[Index.h:1810](./include/clang-c/Index.h:1810:3)
+	[Index.h:1802](./include/clang-c/Index.h:1802:3)
 	""" CXCursor_FirstRef
 	𝐣𝐥.@doc """
 	 An expression that represents a block literal. 
 	
 	## Reference
 	
-	[Index.h:1950](./include/clang-c/Index.h:1950:3)
+	[Index.h:1942](./include/clang-c/Index.h:1942:3)
 	""" CXCursor_BlockExpr
 	𝐣𝐥.@doc """
 	 An explicit cast in C (C99 6.5.4) or a C-style cast in C++ (C++ [expr.cast]), which uses the syntax (Type)expr.
@@ -3642,35 +3691,42 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2005](./include/clang-c/Index.h:2005:3)
+	[Index.h:1997](./include/clang-c/Index.h:1997:3)
 	""" CXCursor_CStyleCastExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2579](./include/clang-c/Index.h:2579:3)
+	[Index.h:2616](./include/clang-c/Index.h:2616:3)
 	""" CXCursor_ObjCPreciseLifetime
 	𝐣𝐥.@doc """
 	 A module import declaration.
 	
 	## Reference
 	
-	[Index.h:2604](./include/clang-c/Index.h:2604:3)
+	[Index.h:2645](./include/clang-c/Index.h:2645:3)
 	""" CXCursor_ModuleImportDecl
+	𝐣𝐥.@doc """
+	 OpenMP parallel master taskloop directive.
+	
+	## Reference
+	
+	[Index.h:2549](./include/clang-c/Index.h:2549:3)
+	""" CXCursor_OMPParallelMasterTaskLoopDirective
 	𝐣𝐥.@doc """
 	 A code completion overload candidate.
 	
 	## Reference
 	
-	[Index.h:2620](./include/clang-c/Index.h:2620:3)
+	[Index.h:2661](./include/clang-c/Index.h:2661:3)
 	""" CXCursor_OverloadCandidate
 	𝐣𝐥.@doc """
 	 A C++ using directive. 
 	
 	## Reference
 	
-	[Index.h:1794](./include/clang-c/Index.h:1794:3)
+	[Index.h:1786](./include/clang-c/Index.h:1786:3)
 	""" CXCursor_UsingDirective
 	𝐣𝐥.@doc """
 	 A reference to a type declaration.
@@ -3688,147 +3744,161 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1829](./include/clang-c/Index.h:1829:3)
+	[Index.h:1821](./include/clang-c/Index.h:1821:3)
 	""" CXCursor_TypeRef
 	𝐣𝐥.@doc """
 	 Adaptor class for mixing declarations with statements and expressions.
 	
 	## Reference
 	
-	[Index.h:2340](./include/clang-c/Index.h:2340:3)
+	[Index.h:2345](./include/clang-c/Index.h:2345:3)
 	""" CXCursor_DeclStmt
 	𝐣𝐥.@doc """
 	 Represents the \"self\" expression in an Objective-C method.
 	
 	## Reference
 	
-	[Index.h:2172](./include/clang-c/Index.h:2172:3)
+	[Index.h:2168](./include/clang-c/Index.h:2168:3)
 	""" CXCursor_ObjCSelfExpr
 	𝐣𝐥.@doc """
 	 An Objective-C @implementation for a category. 
 	
 	## Reference
 	
-	[Index.h:1764](./include/clang-c/Index.h:1764:3)
+	[Index.h:1756](./include/clang-c/Index.h:1756:3)
 	""" CXCursor_ObjCCategoryImplDecl
 	𝐣𝐥.@doc """
 	 OpenMP target exit data directive.
 	
 	## Reference
 	
-	[Index.h:2464](./include/clang-c/Index.h:2464:3)
+	[Index.h:2469](./include/clang-c/Index.h:2469:3)
 	""" CXCursor_OMPTargetExitDataDirective
 	𝐣𝐥.@doc """
 	 A GCC inline assembly statement extension.
 	
 	## Reference
 	
-	[Index.h:2273](./include/clang-c/Index.h:2273:3)
+	[Index.h:2278](./include/clang-c/Index.h:2278:3)
 	""" CXCursor_AsmStmt
 	𝐣𝐥.@doc """
 	 An expression that sends a message to an Objective-C   object or class. 
 	
 	## Reference
 	
-	[Index.h:1947](./include/clang-c/Index.h:1947:3)
+	[Index.h:1939](./include/clang-c/Index.h:1939:3)
 	""" CXCursor_ObjCMessageExpr
 	𝐣𝐥.@doc """
 	 An indirect goto statement.
 	
 	## Reference
 	
-	[Index.h:2256](./include/clang-c/Index.h:2256:3)
+	[Index.h:2261](./include/clang-c/Index.h:2261:3)
 	""" CXCursor_IndirectGotoStmt
 	𝐣𝐥.@doc """
 	 OpenMP single directive.
 	
 	## Reference
 	
-	[Index.h:2364](./include/clang-c/Index.h:2364:3)
+	[Index.h:2369](./include/clang-c/Index.h:2369:3)
 	""" CXCursor_OMPSingleDirective
+	𝐣𝐥.@doc """
+	 OpenCL's addrspace_cast<> expression.
+	
+	## Reference
+	
+	[Index.h:2057](./include/clang-c/Index.h:2057:3)
+	""" CXCursor_CXXAddrspaceCastExpr
 	𝐣𝐥.@doc """
 	 OpenMP parallel for directive.
 	
 	## Reference
 	
-	[Index.h:2368](./include/clang-c/Index.h:2368:3)
+	[Index.h:2373](./include/clang-c/Index.h:2373:3)
 	""" CXCursor_OMPParallelForDirective
 	𝐣𝐥.@doc """
 	 Objective-C's @finally statement.
 	
 	## Reference
 	
-	[Index.h:2285](./include/clang-c/Index.h:2285:3)
+	[Index.h:2290](./include/clang-c/Index.h:2290:3)
 	""" CXCursor_ObjCAtFinallyStmt
 	𝐣𝐥.@doc """
 	 OpenMP ordered directive.
 	
 	## Reference
 	
-	[Index.h:2408](./include/clang-c/Index.h:2408:3)
+	[Index.h:2413](./include/clang-c/Index.h:2413:3)
 	""" CXCursor_OMPOrderedDirective
+	𝐣𝐥.@doc """
+	 OpenMP master taskloop simd directive.
+	
+	## Reference
+	
+	[Index.h:2553](./include/clang-c/Index.h:2553:3)
+	""" CXCursor_OMPMasterTaskLoopSimdDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2561](./include/clang-c/Index.h:2561:3)
+	[Index.h:2598](./include/clang-c/Index.h:2598:3)
 	""" CXCursor_ConstAttr
 	𝐣𝐥.@doc """
 	 C++'s for (* : *) statement.
 	
 	## Reference
 	
-	[Index.h:2313](./include/clang-c/Index.h:2313:3)
+	[Index.h:2318](./include/clang-c/Index.h:2318:3)
 	""" CXCursor_CXXForRangeStmt
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2570](./include/clang-c/Index.h:2570:3)
+	[Index.h:2607](./include/clang-c/Index.h:2607:3)
 	""" CXCursor_DLLImport
 	𝐣𝐥.@doc """
 	 A linkage specification, e.g. 'extern \"C\"'. 
 	
 	## Reference
 	
-	[Index.h:1772](./include/clang-c/Index.h:1772:3)
+	[Index.h:1764](./include/clang-c/Index.h:1764:3)
 	""" CXCursor_LinkageSpec
 	𝐣𝐥.@doc """
 	 OpenMP distribute simd directive.
 	
 	## Reference
 	
-	[Index.h:2488](./include/clang-c/Index.h:2488:3)
+	[Index.h:2493](./include/clang-c/Index.h:2493:3)
 	""" CXCursor_OMPDistributeSimdDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2565](./include/clang-c/Index.h:2565:3)
+	[Index.h:2602](./include/clang-c/Index.h:2602:3)
 	""" CXCursor_CUDAGlobalAttr
 	𝐣𝐥.@doc """
 	 A C++ typeid expression (C++ [expr.typeid]).
 	
 	## Reference
 	
-	[Index.h:2065](./include/clang-c/Index.h:2065:3)
+	[Index.h:2061](./include/clang-c/Index.h:2061:3)
 	""" CXCursor_CXXTypeidExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2567](./include/clang-c/Index.h:2567:3)
+	[Index.h:2604](./include/clang-c/Index.h:2604:3)
 	""" CXCursor_CUDASharedAttr
 	𝐣𝐥.@doc """
 	 A unary expression. (noexcept, sizeof, or other traits)
 	
 	## Reference
 	
-	[Index.h:2098](./include/clang-c/Index.h:2098:3)
+	[Index.h:2094](./include/clang-c/Index.h:2094:3)
 	""" CXCursor_UnaryExpr
 	𝐣𝐥.@doc """
 	 Cursor that represents the translation unit itself.
@@ -3839,91 +3909,105 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2545](./include/clang-c/Index.h:2545:3)
+	[Index.h:2582](./include/clang-c/Index.h:2582:3)
 	""" CXCursor_FirstAttr
 	𝐣𝐥.@doc """
 	 Represents a C11 generic selection.
 	
 	## Reference
 	
-	[Index.h:2025](./include/clang-c/Index.h:2025:3)
+	[Index.h:2017](./include/clang-c/Index.h:2017:3)
 	""" CXCursor_GenericSelectionExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2584](./include/clang-c/Index.h:2584:3)
+	[Index.h:2621](./include/clang-c/Index.h:2621:3)
 	""" CXCursor_ObjCExplicitProtocolImpl
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2555](./include/clang-c/Index.h:2555:3)
+	[Index.h:2592](./include/clang-c/Index.h:2592:3)
 	""" CXCursor_CXXFinalAttr
+	𝐣𝐥.@doc """
+	 An attribute whose specific kind is not exposed via this interface.
+	
+	## Reference
+	
+	[Index.h:2629](./include/clang-c/Index.h:2629:3)
+	""" CXCursor_AlignedAttr
 	𝐣𝐥.@doc """
 	 An Objective-C @synthesize definition. 
 	
 	## Reference
 	
-	[Index.h:1800](./include/clang-c/Index.h:1800:3)
+	[Index.h:1792](./include/clang-c/Index.h:1792:3)
 	""" CXCursor_ObjCSynthesizeDecl
 	𝐣𝐥.@doc """
 	 OpenMP distribute directive.
 	
 	## Reference
 	
-	[Index.h:2456](./include/clang-c/Index.h:2456:3)
+	[Index.h:2461](./include/clang-c/Index.h:2461:3)
 	""" CXCursor_OMPDistributeDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2585](./include/clang-c/Index.h:2585:3)
+	[Index.h:2622](./include/clang-c/Index.h:2622:3)
 	""" CXCursor_ObjCDesignatedInitializer
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2568](./include/clang-c/Index.h:2568:3)
+	[Index.h:2605](./include/clang-c/Index.h:2605:3)
 	""" CXCursor_VisibilityAttr
 	𝐣𝐥.@doc """
 	 An enumeration. 
 	
 	## Reference
 	
-	[Index.h:1733](./include/clang-c/Index.h:1733:3)
+	[Index.h:1725](./include/clang-c/Index.h:1725:3)
 	""" CXCursor_EnumDecl
 	𝐣𝐥.@doc """
 	 The GNU address of label extension, representing &&label.
 	
 	## Reference
 	
-	[Index.h:2017](./include/clang-c/Index.h:2017:3)
+	[Index.h:2009](./include/clang-c/Index.h:2009:3)
 	""" CXCursor_AddrLabelExpr
+	𝐣𝐥.@doc """
+	 OpenMP parallel master directive.
+	
+	## Reference
+	
+	[Index.h:2561](./include/clang-c/Index.h:2561:3)
+	""" CXCursor_OMPParallelMasterDirective
 	𝐣𝐥.@doc """
 	 An expression that refers to a member of a struct, union, class, Objective-C class, etc.
 	
 	## Reference
 	
-	[Index.h:1940](./include/clang-c/Index.h:1940:3)
+	[Index.h:1932](./include/clang-c/Index.h:1932:3)
 	""" CXCursor_MemberRefExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2557](./include/clang-c/Index.h:2557:3)
+	[Index.h:2594](./include/clang-c/Index.h:2594:3)
 	""" CXCursor_AnnotateAttr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2569](./include/clang-c/Index.h:2569:3)
+	[Index.h:2606](./include/clang-c/Index.h:2606:3)
 	""" CXCursor_DLLExport
 	𝐣𝐥.@doc """
 	 A declaration whose specific kind is not exposed via this interface.
@@ -3934,35 +4018,35 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1725](./include/clang-c/Index.h:1725:3)
+	[Index.h:1717](./include/clang-c/Index.h:1717:3)
 	""" CXCursor_UnexposedDecl
 	𝐣𝐥.@doc """
 	 [C99 6.5.2.1] Array Subscripting.
 	
 	## Reference
 	
-	[Index.h:1985](./include/clang-c/Index.h:1985:3)
+	[Index.h:1977](./include/clang-c/Index.h:1977:3)
 	""" CXCursor_ArraySubscriptExpr
 	𝐣𝐥.@doc """
 	 Objective-C's collection statement.
 	
 	## Reference
 	
-	[Index.h:2301](./include/clang-c/Index.h:2301:3)
+	[Index.h:2306](./include/clang-c/Index.h:2306:3)
 	""" CXCursor_ObjCForCollectionStmt
 	𝐣𝐥.@doc """
 	 OpenMP target simd directive.
 	
 	## Reference
 	
-	[Index.h:2496](./include/clang-c/Index.h:2496:3)
+	[Index.h:2501](./include/clang-c/Index.h:2501:3)
 	""" CXCursor_OMPTargetSimdDirective
 	𝐣𝐥.@doc """
 	 An access specifier. 
 	
 	## Reference
 	
-	[Index.h:1804](./include/clang-c/Index.h:1804:3)
+	[Index.h:1796](./include/clang-c/Index.h:1796:3)
 	""" CXCursor_CXXAccessSpecifier
 	𝐣𝐥.@doc """
 	 A statement whose specific kind is not exposed via this interface.
@@ -3973,49 +4057,49 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2200](./include/clang-c/Index.h:2200:3)
+	[Index.h:2205](./include/clang-c/Index.h:2205:3)
 	""" CXCursor_UnexposedStmt
 	𝐣𝐥.@doc """
 	 An Objective-C class method. 
 	
 	## Reference
 	
-	[Index.h:1760](./include/clang-c/Index.h:1760:3)
+	[Index.h:1752](./include/clang-c/Index.h:1752:3)
 	""" CXCursor_ObjCClassMethodDecl
 	𝐣𝐥.@doc """
 	 Compound assignment such as \"+=\".
 	
 	## Reference
 	
-	[Index.h:1994](./include/clang-c/Index.h:1994:3)
+	[Index.h:1986](./include/clang-c/Index.h:1986:3)
 	""" CXCursor_CompoundAssignOperator
 	𝐣𝐥.@doc """
 	 This represents the unary-expression's (except sizeof and alignof).
 	
 	## Reference
 	
-	[Index.h:1981](./include/clang-c/Index.h:1981:3)
+	[Index.h:1973](./include/clang-c/Index.h:1973:3)
 	""" CXCursor_UnaryOperator
 	𝐣𝐥.@doc """
 	 OpenMP target data directive.
 	
 	## Reference
 	
-	[Index.h:2444](./include/clang-c/Index.h:2444:3)
+	[Index.h:2449](./include/clang-c/Index.h:2449:3)
 	""" CXCursor_OMPTargetDataDirective
 	𝐣𝐥.@doc """
 	 OpenMP teams distribute parallel for directive.
 	
 	## Reference
 	
-	[Index.h:2512](./include/clang-c/Index.h:2512:3)
+	[Index.h:2517](./include/clang-c/Index.h:2517:3)
 	""" CXCursor_OMPTeamsDistributeParallelForDirective
 	𝐣𝐥.@doc """
 	 Describes an C or C++ initializer list.
 	
 	## Reference
 	
-	[Index.h:2013](./include/clang-c/Index.h:2013:3)
+	[Index.h:2005](./include/clang-c/Index.h:2005:3)
 	""" CXCursor_InitListExpr
 	𝐣𝐥.@doc """
 	 An Objective-C \"bridged\" cast expression, which casts between Objective-C pointers and C pointers, transferring ownership in the process.
@@ -4028,147 +4112,147 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2123](./include/clang-c/Index.h:2123:3)
+	[Index.h:2119](./include/clang-c/Index.h:2119:3)
 	""" CXCursor_ObjCBridgedCastExpr
 	𝐣𝐥.@doc """
 	 An Objective-C instance variable. 
 	
 	## Reference
 	
-	[Index.h:1756](./include/clang-c/Index.h:1756:3)
+	[Index.h:1748](./include/clang-c/Index.h:1748:3)
 	""" CXCursor_ObjCIvarDecl
 	𝐣𝐥.@doc """
 	 Windows Structured Exception Handling's try statement.
 	
 	## Reference
 	
-	[Index.h:2317](./include/clang-c/Index.h:2317:3)
+	[Index.h:2322](./include/clang-c/Index.h:2322:3)
 	""" CXCursor_SEHTryStmt
 	𝐣𝐥.@doc """
 	 An Objective-C @implementation. 
 	
 	## Reference
 	
-	[Index.h:1762](./include/clang-c/Index.h:1762:3)
+	[Index.h:1754](./include/clang-c/Index.h:1754:3)
 	""" CXCursor_ObjCImplementationDecl
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2582](./include/clang-c/Index.h:2582:3)
+	[Index.h:2619](./include/clang-c/Index.h:2619:3)
 	""" CXCursor_ObjCRootClass
 	𝐣𝐥.@doc """
 	 A break statement.
 	
 	## Reference
 	
-	[Index.h:2264](./include/clang-c/Index.h:2264:3)
+	[Index.h:2269](./include/clang-c/Index.h:2269:3)
 	""" CXCursor_BreakStmt
 	𝐣𝐥.@doc """
 	 OpenMP SIMD directive.
 	
 	## Reference
 	
-	[Index.h:2348](./include/clang-c/Index.h:2348:3)
+	[Index.h:2353](./include/clang-c/Index.h:2353:3)
 	""" CXCursor_OMPSimdDirective
 	𝐣𝐥.@doc """
 	 OpenMP taskloop simd directive.
 	
 	## Reference
 	
-	[Index.h:2452](./include/clang-c/Index.h:2452:3)
+	[Index.h:2457](./include/clang-c/Index.h:2457:3)
 	""" CXCursor_OMPTaskLoopSimdDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2556](./include/clang-c/Index.h:2556:3)
+	[Index.h:2593](./include/clang-c/Index.h:2593:3)
 	""" CXCursor_CXXOverrideAttr
 	𝐣𝐥.@doc """
 	 An expression that calls a function. 
 	
 	## Reference
 	
-	[Index.h:1943](./include/clang-c/Index.h:1943:3)
+	[Index.h:1935](./include/clang-c/Index.h:1935:3)
 	""" CXCursor_CallExpr
 	𝐣𝐥.@doc """
 	 An access specifier. 
 	
 	## Reference
 	
-	[Index.h:1806](./include/clang-c/Index.h:1806:3)
+	[Index.h:1798](./include/clang-c/Index.h:1798:3)
 	""" CXCursor_FirstDecl
 	𝐣𝐥.@doc """
 	 A C++ template type parameter. 
 	
 	## Reference
 	
-	[Index.h:1780](./include/clang-c/Index.h:1780:3)
+	[Index.h:1772](./include/clang-c/Index.h:1772:3)
 	""" CXCursor_TemplateTypeParameter
 	𝐣𝐥.@doc """
 	 A reference to a variable that occurs in some non-expression context, e.g., a C++ lambda capture list.
 	
 	## Reference
 	
-	[Index.h:1917](./include/clang-c/Index.h:1917:3)
+	[Index.h:1909](./include/clang-c/Index.h:1909:3)
 	""" CXCursor_FirstExpr
 	𝐣𝐥.@doc """
 	 OpenMP sections directive.
 	
 	## Reference
 	
-	[Index.h:2356](./include/clang-c/Index.h:2356:3)
+	[Index.h:2361](./include/clang-c/Index.h:2361:3)
 	""" CXCursor_OMPSectionsDirective
 	𝐣𝐥.@doc """
 	 A C++ namespace alias declaration. 
 	
 	## Reference
 	
-	[Index.h:1792](./include/clang-c/Index.h:1792:3)
+	[Index.h:1784](./include/clang-c/Index.h:1784:3)
 	""" CXCursor_NamespaceAlias
 	𝐣𝐥.@doc """
 	 A reference to a variable that occurs in some non-expression context, e.g., a C++ lambda capture list.
 	
 	## Reference
 	
-	[Index.h:1906](./include/clang-c/Index.h:1906:3)
+	[Index.h:1898](./include/clang-c/Index.h:1898:3)
 	""" CXCursor_LastRef
 	𝐣𝐥.@doc """
 	 OpenMP for SIMD directive.
 	
 	## Reference
 	
-	[Index.h:2416](./include/clang-c/Index.h:2416:3)
+	[Index.h:2421](./include/clang-c/Index.h:2421:3)
 	""" CXCursor_OMPForSimdDirective
 	𝐣𝐥.@doc """
 	 A C++ destructor. 
 	
 	## Reference
 	
-	[Index.h:1776](./include/clang-c/Index.h:1776:3)
+	[Index.h:1768](./include/clang-c/Index.h:1768:3)
 	""" CXCursor_Destructor
 	𝐣𝐥.@doc """
 	 A reference to a variable that occurs in some non-expression context, e.g., a C++ lambda capture list.
 	
 	## Reference
 	
-	[Index.h:1913](./include/clang-c/Index.h:1913:3)
+	[Index.h:1905](./include/clang-c/Index.h:1905:3)
 	""" CXCursor_InvalidCode
 	𝐣𝐥.@doc """
 	 OpenMP critical directive.
 	
 	## Reference
 	
-	[Index.h:2384](./include/clang-c/Index.h:2384:3)
+	[Index.h:2389](./include/clang-c/Index.h:2389:3)
 	""" CXCursor_OMPCriticalDirective
 	𝐣𝐥.@doc """
 	 OpenMP target teams distribute directive.
 	
 	## Reference
 	
-	[Index.h:2520](./include/clang-c/Index.h:2520:3)
+	[Index.h:2525](./include/clang-c/Index.h:2525:3)
 	""" CXCursor_OMPTargetTeamsDistributeDirective
 	𝐣𝐥.@doc """
 	 Cursor that represents the translation unit itself.
@@ -4179,49 +4263,49 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2542](./include/clang-c/Index.h:2542:3)
+	[Index.h:2579](./include/clang-c/Index.h:2579:3)
 	""" CXCursor_TranslationUnit
 	𝐣𝐥.@doc """
 	 C++'s reinterpret_cast<> expression.
 	
 	## Reference
 	
-	[Index.h:2047](./include/clang-c/Index.h:2047:3)
+	[Index.h:2039](./include/clang-c/Index.h:2039:3)
 	""" CXCursor_CXXReinterpretCastExpr
 	𝐣𝐥.@doc """
 	 A function or method parameter. 
 	
 	## Reference
 	
-	[Index.h:1746](./include/clang-c/Index.h:1746:3)
+	[Index.h:1738](./include/clang-c/Index.h:1738:3)
 	""" CXCursor_ParmDecl
 	𝐣𝐥.@doc """
 	 Windows Structured Exception Handling's leave statement.
 	
 	## Reference
 	
-	[Index.h:2404](./include/clang-c/Index.h:2404:3)
+	[Index.h:2409](./include/clang-c/Index.h:2409:3)
 	""" CXCursor_SEHLeaveStmt
 	𝐣𝐥.@doc """
 	 OpenMP cancellation point directive.
 	
 	## Reference
 	
-	[Index.h:2436](./include/clang-c/Index.h:2436:3)
+	[Index.h:2441](./include/clang-c/Index.h:2441:3)
 	""" CXCursor_OMPCancellationPointDirective
 	𝐣𝐥.@doc """
 	 A case statement.
 	
 	## Reference
 	
-	[Index.h:2224](./include/clang-c/Index.h:2224:3)
+	[Index.h:2229](./include/clang-c/Index.h:2229:3)
 	""" CXCursor_CaseStmt
 	𝐣𝐥.@doc """
 	 OpenMP teams directive.
 	
 	## Reference
 	
-	[Index.h:2428](./include/clang-c/Index.h:2428:3)
+	[Index.h:2433](./include/clang-c/Index.h:2433:3)
 	""" CXCursor_OMPTeamsDirective
 	𝐣𝐥.@doc """
 	 Implements the GNU __null extension, which is a name for a null pointer constant that has integral type (e.g., int or long) and is the same size and alignment as a pointer.
@@ -4232,161 +4316,189 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2035](./include/clang-c/Index.h:2035:3)
+	[Index.h:2027](./include/clang-c/Index.h:2027:3)
 	""" CXCursor_GNUNullExpr
+	𝐣𝐥.@doc """
+	 An attribute whose specific kind is not exposed via this interface.
+	
+	## Reference
+	
+	[Index.h:2626](./include/clang-c/Index.h:2626:3)
+	""" CXCursor_ConvergentAttr
 	𝐣𝐥.@doc """
 	 OpenMP teams distribute directive.
 	
 	## Reference
 	
-	[Index.h:2500](./include/clang-c/Index.h:2500:3)
+	[Index.h:2505](./include/clang-c/Index.h:2505:3)
 	""" CXCursor_OMPTeamsDistributeDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2558](./include/clang-c/Index.h:2558:3)
+	[Index.h:2628](./include/clang-c/Index.h:2628:3)
+	""" CXCursor_WarnUnusedResultAttr
+	𝐣𝐥.@doc """
+	 OpenMP scan directive.
+	
+	## Reference
+	
+	[Index.h:2569](./include/clang-c/Index.h:2569:3)
+	""" CXCursor_OMPScanDirective
+	𝐣𝐥.@doc """
+	 An attribute whose specific kind is not exposed via this interface.
+	
+	## Reference
+	
+	[Index.h:2595](./include/clang-c/Index.h:2595:3)
 	""" CXCursor_AsmLabelAttr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2592](./include/clang-c/Index.h:2592:3)
+	[Index.h:2633](./include/clang-c/Index.h:2633:3)
 	""" CXCursor_PreprocessingDirective
 	𝐣𝐥.@doc """
 	 An imaginary number literal.
 	
 	## Reference
 	
-	[Index.h:1962](./include/clang-c/Index.h:1962:3)
+	[Index.h:1954](./include/clang-c/Index.h:1954:3)
 	""" CXCursor_ImaginaryLiteral
 	𝐣𝐥.@doc """
 	 OpenMP target update directive.
 	
 	## Reference
 	
-	[Index.h:2476](./include/clang-c/Index.h:2476:3)
+	[Index.h:2481](./include/clang-c/Index.h:2481:3)
 	""" CXCursor_OMPTargetUpdateDirective
 	𝐣𝐥.@doc """
 	 A field (in C) or non-static data member (in C++) in a struct, union, or C++ class.
 	
 	## Reference
 	
-	[Index.h:1738](./include/clang-c/Index.h:1738:3)
+	[Index.h:1730](./include/clang-c/Index.h:1730:3)
 	""" CXCursor_FieldDecl
 	𝐣𝐥.@doc """
 	 A function. 
 	
 	## Reference
 	
-	[Index.h:1742](./include/clang-c/Index.h:1742:3)
+	[Index.h:1734](./include/clang-c/Index.h:1734:3)
 	""" CXCursor_FunctionDecl
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2575](./include/clang-c/Index.h:2575:3)
+	[Index.h:2612](./include/clang-c/Index.h:2612:3)
 	""" CXCursor_NSConsumed
 	𝐣𝐥.@doc """
 	 OpenMP taskwait directive.
 	
 	## Reference
 	
-	[Index.h:2396](./include/clang-c/Index.h:2396:3)
+	[Index.h:2401](./include/clang-c/Index.h:2401:3)
 	""" CXCursor_OMPTaskwaitDirective
 	𝐣𝐥.@doc """
 	 A delete expression for memory deallocation and destructor calls, e.g. \"delete[] pArray\".
 	
 	## Reference
 	
-	[Index.h:2094](./include/clang-c/Index.h:2094:3)
+	[Index.h:2090](./include/clang-c/Index.h:2090:3)
 	""" CXCursor_CXXDeleteExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2580](./include/clang-c/Index.h:2580:3)
+	[Index.h:2617](./include/clang-c/Index.h:2617:3)
 	""" CXCursor_ObjCReturnsInnerPointer
 	𝐣𝐥.@doc """
 	 A C++ constructor. 
 	
 	## Reference
 	
-	[Index.h:1774](./include/clang-c/Index.h:1774:3)
+	[Index.h:1766](./include/clang-c/Index.h:1766:3)
 	""" CXCursor_Constructor
 	𝐣𝐥.@doc """
 	 [C++0x 2.14.7] C++ Pointer Literal.
 	
 	## Reference
 	
-	[Index.h:2073](./include/clang-c/Index.h:2073:3)
+	[Index.h:2069](./include/clang-c/Index.h:2069:3)
 	""" CXCursor_CXXNullPtrLiteralExpr
 	𝐣𝐥.@doc """
-	 Fixed point literal
+	 OpenMP 5.0 [2.1.6 Iterators]
 	
 	## Reference
 	
-	[Index.h:2187](./include/clang-c/Index.h:2187:3)
+	[Index.h:2192](./include/clang-c/Index.h:2192:3)
 	""" CXCursor_LastExpr
-	𝐣𝐥.@doc """
-	 A switch statement.
-	
-	## Reference
-	
-	[Index.h:2236](./include/clang-c/Index.h:2236:3)
-	""" CXCursor_SwitchStmt
 	𝐣𝐥.@doc """
 	 An if statement
 	
 	## Reference
 	
-	[Index.h:2232](./include/clang-c/Index.h:2232:3)
+	[Index.h:2237](./include/clang-c/Index.h:2237:3)
 	""" CXCursor_IfStmt
+	𝐣𝐥.@doc """
+	 A switch statement.
+	
+	## Reference
+	
+	[Index.h:2241](./include/clang-c/Index.h:2241:3)
+	""" CXCursor_SwitchStmt
+	𝐣𝐥.@doc """
+	 OpenMP 5.0 [2.1.6 Iterators]
+	
+	## Reference
+	
+	[Index.h:2190](./include/clang-c/Index.h:2190:3)
+	""" CXCursor_OMPIteratorExpr
 	𝐣𝐥.@doc """
 	 OpenMP target teams distribute simd directive.
 	
 	## Reference
 	
-	[Index.h:2532](./include/clang-c/Index.h:2532:3)
+	[Index.h:2537](./include/clang-c/Index.h:2537:3)
 	""" CXCursor_OMPTargetTeamsDistributeSimdDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2554](./include/clang-c/Index.h:2554:3)
+	[Index.h:2591](./include/clang-c/Index.h:2591:3)
 	""" CXCursor_IBOutletCollectionAttr
 	𝐣𝐥.@doc """
 	 An access specifier. 
 	
 	## Reference
 	
-	[Index.h:1811](./include/clang-c/Index.h:1811:3)
+	[Index.h:1803](./include/clang-c/Index.h:1803:3)
 	""" CXCursor_ObjCSuperClassRef
 	𝐣𝐥.@doc """
 	 A do statement.
 	
 	## Reference
 	
-	[Index.h:2244](./include/clang-c/Index.h:2244:3)
+	[Index.h:2249](./include/clang-c/Index.h:2249:3)
 	""" CXCursor_DoStmt
 	𝐣𝐥.@doc """
 	 OpenMP parallel for SIMD directive.
 	
 	## Reference
 	
-	[Index.h:2420](./include/clang-c/Index.h:2420:3)
+	[Index.h:2425](./include/clang-c/Index.h:2425:3)
 	""" CXCursor_OMPParallelForSimdDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2550](./include/clang-c/Index.h:2550:3)
+	[Index.h:2587](./include/clang-c/Index.h:2587:3)
 	""" CXCursor_UnexposedAttr
 	𝐣𝐥.@doc """
 	 Represents an expression that computes the length of a parameter pack.
@@ -4402,119 +4514,119 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2150](./include/clang-c/Index.h:2150:3)
+	[Index.h:2146](./include/clang-c/Index.h:2146:3)
 	""" CXCursor_SizeOfPackExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2581](./include/clang-c/Index.h:2581:3)
+	[Index.h:2618](./include/clang-c/Index.h:2618:3)
 	""" CXCursor_ObjCRequiresSuper
 	𝐣𝐥.@doc """
 	 OpenMP target teams distribute parallel for directive.
 	
 	## Reference
 	
-	[Index.h:2524](./include/clang-c/Index.h:2524:3)
+	[Index.h:2529](./include/clang-c/Index.h:2529:3)
 	""" CXCursor_OMPTargetTeamsDistributeParallelForDirective
 	𝐣𝐥.@doc """
-	 OpenMP 4.0 [2.4, Array Section].
+	 OpenMP 5.0 [2.1.5, Array Section].
 	
 	## Reference
 	
-	[Index.h:2176](./include/clang-c/Index.h:2176:3)
+	[Index.h:2172](./include/clang-c/Index.h:2172:3)
 	""" CXCursor_OMPArraySectionExpr
 	𝐣𝐥.@doc """
 	 A GCC inline assembly statement extension.
 	
 	## Reference
 	
-	[Index.h:2272](./include/clang-c/Index.h:2272:3)
+	[Index.h:2277](./include/clang-c/Index.h:2277:3)
 	""" CXCursor_GCCAsmStmt
 	𝐣𝐥.@doc """
 	 A MS inline assembly statement extension.
 	
 	## Reference
 	
-	[Index.h:2329](./include/clang-c/Index.h:2329:3)
+	[Index.h:2334](./include/clang-c/Index.h:2334:3)
 	""" CXCursor_MSAsmStmt
 	𝐣𝐥.@doc """
 	 An Objective-C @property declaration. 
 	
 	## Reference
 	
-	[Index.h:1754](./include/clang-c/Index.h:1754:3)
+	[Index.h:1746](./include/clang-c/Index.h:1746:3)
 	""" CXCursor_ObjCPropertyDecl
 	𝐣𝐥.@doc """
 	 A reference to a member of a struct, union, or class that occurs in some non-expression context, e.g., a designated initializer.
 	
 	## Reference
 	
-	[Index.h:1844](./include/clang-c/Index.h:1844:3)
+	[Index.h:1836](./include/clang-c/Index.h:1836:3)
 	""" CXCursor_MemberRef
 	𝐣𝐥.@doc """
 	 A C++ class template partial specialization. 
 	
 	## Reference
 	
-	[Index.h:1790](./include/clang-c/Index.h:1790:3)
+	[Index.h:1782](./include/clang-c/Index.h:1782:3)
 	""" CXCursor_ClassTemplatePartialSpecialization
 	𝐣𝐥.@doc """
 	 OpenMP target enter data directive.
 	
 	## Reference
 	
-	[Index.h:2460](./include/clang-c/Index.h:2460:3)
+	[Index.h:2465](./include/clang-c/Index.h:2465:3)
 	""" CXCursor_OMPTargetEnterDataDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2566](./include/clang-c/Index.h:2566:3)
+	[Index.h:2603](./include/clang-c/Index.h:2603:3)
 	""" CXCursor_CUDAHostAttr
 	𝐣𝐥.@doc """
-	 OpenMP target teams distribute simd directive.
+	 OpenMP scan directive.
 	
 	## Reference
 	
-	[Index.h:2534](./include/clang-c/Index.h:2534:3)
+	[Index.h:2571](./include/clang-c/Index.h:2571:3)
 	""" CXCursor_LastStmt
 	𝐣𝐥.@doc """
 	 A C++ namespace. 
 	
 	## Reference
 	
-	[Index.h:1770](./include/clang-c/Index.h:1770:3)
+	[Index.h:1762](./include/clang-c/Index.h:1762:3)
 	""" CXCursor_Namespace
 	𝐣𝐥.@doc """
 	 [C99 6.5.2.5]
 	
 	## Reference
 	
-	[Index.h:2009](./include/clang-c/Index.h:2009:3)
+	[Index.h:2001](./include/clang-c/Index.h:2001:3)
 	""" CXCursor_CompoundLiteralExpr
 	𝐣𝐥.@doc """
 	 An Objective-C @interface for a category. 
 	
 	## Reference
 	
-	[Index.h:1750](./include/clang-c/Index.h:1750:3)
+	[Index.h:1742](./include/clang-c/Index.h:1742:3)
 	""" CXCursor_ObjCCategoryDecl
 	𝐣𝐥.@doc """
 	 OpenMP teams distribute parallel for simd directive.
 	
 	## Reference
 	
-	[Index.h:2508](./include/clang-c/Index.h:2508:3)
+	[Index.h:2513](./include/clang-c/Index.h:2513:3)
 	""" CXCursor_OMPTeamsDistributeParallelForSimdDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2594](./include/clang-c/Index.h:2594:3)
+	[Index.h:2635](./include/clang-c/Index.h:2635:3)
 	""" CXCursor_MacroExpansion
 	𝐣𝐥.@doc """
 	 The null statement \";\": C99 6.8.3p3.
@@ -4525,8 +4637,15 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2335](./include/clang-c/Index.h:2335:3)
+	[Index.h:2340](./include/clang-c/Index.h:2340:3)
 	""" CXCursor_NullStmt
+	𝐣𝐥.@doc """
+	 OpenMP master taskloop directive.
+	
+	## Reference
+	
+	[Index.h:2545](./include/clang-c/Index.h:2545:3)
+	""" CXCursor_OMPMasterTaskLoopDirective
 	𝐣𝐥.@doc """
 	 A reference to a type declaration.
 	
@@ -4543,84 +4662,84 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1830](./include/clang-c/Index.h:1830:3)
+	[Index.h:1822](./include/clang-c/Index.h:1822:3)
 	""" CXCursor_CXXBaseSpecifier
 	𝐣𝐥.@doc """
 	 Objective-C's autorelease pool statement.
 	
 	## Reference
 	
-	[Index.h:2297](./include/clang-c/Index.h:2297:3)
+	[Index.h:2302](./include/clang-c/Index.h:2302:3)
 	""" CXCursor_ObjCAutoreleasePoolStmt
 	𝐣𝐥.@doc """
 	 a friend declaration.
 	
 	## Reference
 	
-	[Index.h:2614](./include/clang-c/Index.h:2614:3)
+	[Index.h:2655](./include/clang-c/Index.h:2655:3)
 	""" CXCursor_FirstExtraDecl
 	𝐣𝐥.@doc """
 	 A reference to a class template, function template, template template parameter, or class template partial specialization.
 	
 	## Reference
 	
-	[Index.h:1835](./include/clang-c/Index.h:1835:3)
+	[Index.h:1827](./include/clang-c/Index.h:1827:3)
 	""" CXCursor_TemplateRef
 	𝐣𝐥.@doc """
 	 Objective-C's @throw statement.
 	
 	## Reference
 	
-	[Index.h:2289](./include/clang-c/Index.h:2289:3)
+	[Index.h:2294](./include/clang-c/Index.h:2294:3)
 	""" CXCursor_ObjCAtThrowStmt
 	𝐣𝐥.@doc """
 	 OpenMP target directive.
 	
 	## Reference
 	
-	[Index.h:2424](./include/clang-c/Index.h:2424:3)
+	[Index.h:2429](./include/clang-c/Index.h:2429:3)
 	""" CXCursor_OMPTargetDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2593](./include/clang-c/Index.h:2593:3)
+	[Index.h:2634](./include/clang-c/Index.h:2634:3)
 	""" CXCursor_MacroDefinition
 	𝐣𝐥.@doc """
 	 a friend declaration.
 	
 	## Reference
 	
-	[Index.h:2613](./include/clang-c/Index.h:2613:3)
+	[Index.h:2654](./include/clang-c/Index.h:2654:3)
 	""" CXCursor_FriendDecl
 	𝐣𝐥.@doc """
 	 Fixed point literal
 	
 	## Reference
 	
-	[Index.h:2185](./include/clang-c/Index.h:2185:3)
+	[Index.h:2181](./include/clang-c/Index.h:2181:3)
 	""" CXCursor_FixedPointLiteral
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2577](./include/clang-c/Index.h:2577:3)
+	[Index.h:2614](./include/clang-c/Index.h:2614:3)
 	""" CXCursor_ObjCNSObject
 	𝐣𝐥.@doc """
 	 An Objective-C @dynamic definition. 
 	
 	## Reference
 	
-	[Index.h:1802](./include/clang-c/Index.h:1802:3)
+	[Index.h:1794](./include/clang-c/Index.h:1794:3)
 	""" CXCursor_ObjCDynamicDecl
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2563](./include/clang-c/Index.h:2563:3)
+	[Index.h:2600](./include/clang-c/Index.h:2600:3)
 	""" CXCursor_CUDAConstantAttr
 	𝐣𝐥.@doc """
 	 Represents a C++0x pack expansion that produces a sequence of expressions.
@@ -4638,14 +4757,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2138](./include/clang-c/Index.h:2138:3)
+	[Index.h:2134](./include/clang-c/Index.h:2134:3)
 	""" CXCursor_PackExpansionExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2576](./include/clang-c/Index.h:2576:3)
+	[Index.h:2613](./include/clang-c/Index.h:2613:3)
 	""" CXCursor_ObjCException
 	𝐣𝐥.@doc """
 	 An expression whose specific kind is not exposed via this interface.
@@ -4656,28 +4775,28 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1928](./include/clang-c/Index.h:1928:3)
+	[Index.h:1920](./include/clang-c/Index.h:1920:3)
 	""" CXCursor_UnexposedExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2560](./include/clang-c/Index.h:2560:3)
+	[Index.h:2597](./include/clang-c/Index.h:2597:3)
 	""" CXCursor_PureAttr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2573](./include/clang-c/Index.h:2573:3)
+	[Index.h:2610](./include/clang-c/Index.h:2610:3)
 	""" CXCursor_NSReturnsAutoreleased
 	𝐣𝐥.@doc """
 	 Windows Structured Exception Handling's finally statement.
 	
 	## Reference
 	
-	[Index.h:2325](./include/clang-c/Index.h:2325:3)
+	[Index.h:2330](./include/clang-c/Index.h:2330:3)
 	""" CXCursor_SEHFinallyStmt
 	𝐣𝐥.@doc """
 	 A reference to a labeled statement.
@@ -4697,98 +4816,105 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1860](./include/clang-c/Index.h:1860:3)
+	[Index.h:1852](./include/clang-c/Index.h:1852:3)
 	""" CXCursor_LabelRef
 	𝐣𝐥.@doc """
 	 An Objective-C @encode expression.
 	
 	## Reference
 	
-	[Index.h:2106](./include/clang-c/Index.h:2106:3)
+	[Index.h:2102](./include/clang-c/Index.h:2102:3)
 	""" CXCursor_ObjCEncodeExpr
 	𝐣𝐥.@doc """
 	 OpenMP taskloop directive.
 	
 	## Reference
 	
-	[Index.h:2448](./include/clang-c/Index.h:2448:3)
+	[Index.h:2453](./include/clang-c/Index.h:2453:3)
 	""" CXCursor_OMPTaskLoopDirective
 	𝐣𝐥.@doc """
 	 A C++ class method. 
 	
 	## Reference
 	
-	[Index.h:1768](./include/clang-c/Index.h:1768:3)
+	[Index.h:1760](./include/clang-c/Index.h:1760:3)
 	""" CXCursor_CXXMethod
 	𝐣𝐥.@doc """
 	 OpenMP master directive.
 	
 	## Reference
 	
-	[Index.h:2380](./include/clang-c/Index.h:2380:3)
+	[Index.h:2385](./include/clang-c/Index.h:2385:3)
 	""" CXCursor_OMPMasterDirective
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2574](./include/clang-c/Index.h:2574:3)
+	[Index.h:2611](./include/clang-c/Index.h:2611:3)
 	""" CXCursor_NSConsumesSelf
 	𝐣𝐥.@doc """
 	 A C++ class. 
 	
 	## Reference
 	
-	[Index.h:1731](./include/clang-c/Index.h:1731:3)
+	[Index.h:1723](./include/clang-c/Index.h:1723:3)
 	""" CXCursor_ClassDecl
 	𝐣𝐥.@doc """
 	 OpenMP distribute parallel for simd directive.
 	
 	## Reference
 	
-	[Index.h:2484](./include/clang-c/Index.h:2484:3)
+	[Index.h:2489](./include/clang-c/Index.h:2489:3)
 	""" CXCursor_OMPDistributeParallelForSimdDirective
 	𝐣𝐥.@doc """
 	 The ?: ternary operator.
 	
 	## Reference
 	
-	[Index.h:1998](./include/clang-c/Index.h:1998:3)
+	[Index.h:1990](./include/clang-c/Index.h:1990:3)
 	""" CXCursor_ConditionalOperator
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2564](./include/clang-c/Index.h:2564:3)
+	[Index.h:2601](./include/clang-c/Index.h:2601:3)
 	""" CXCursor_CUDADeviceAttr
 	𝐣𝐥.@doc """
 	 OpenMP cancel directive.
 	
 	## Reference
 	
-	[Index.h:2440](./include/clang-c/Index.h:2440:3)
+	[Index.h:2445](./include/clang-c/Index.h:2445:3)
 	""" CXCursor_OMPCancelDirective
 	𝐣𝐥.@doc """
 	 OpenMP distribute parallel for directive.
 	
 	## Reference
 	
-	[Index.h:2480](./include/clang-c/Index.h:2480:3)
+	[Index.h:2485](./include/clang-c/Index.h:2485:3)
 	""" CXCursor_OMPDistributeParallelForDirective
 	𝐣𝐥.@doc """
 	 A reference to a variable that occurs in some non-expression context, e.g., a C++ lambda capture list.
 	
 	## Reference
 	
-	[Index.h:1910](./include/clang-c/Index.h:1910:3)
+	[Index.h:1902](./include/clang-c/Index.h:1902:3)
 	""" CXCursor_InvalidFile
+	𝐣𝐥.@doc """
+	 OpenMP parallel master taskloop simd directive.
+	
+	## Reference
+	
+	[Index.h:2557](./include/clang-c/Index.h:2557:3)
+	""" CXCursor_OMPParallelMasterTaskLoopSimdDirective
 	𝐣𝐥.@doc """
 	 A C or C++ struct. 
 	
 	## Reference
 	
-	[Index.h:1727](./include/clang-c/Index.h:1727:3)
+	[Index.h:1719](./include/clang-c/Index.h:1719:3)
 	""" CXCursor_StructDecl
 	𝐣𝐥.@doc """
 	 A reference to a set of overloaded functions or function templates that has not yet been resolved to a specific function or function template.
@@ -4821,112 +4947,119 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:1898](./include/clang-c/Index.h:1898:3)
+	[Index.h:1890](./include/clang-c/Index.h:1890:3)
 	""" CXCursor_OverloadedDeclRef
 	𝐣𝐥.@doc """
 	 An Objective-C @protocol declaration. 
 	
 	## Reference
 	
-	[Index.h:1752](./include/clang-c/Index.h:1752:3)
+	[Index.h:1744](./include/clang-c/Index.h:1744:3)
 	""" CXCursor_ObjCProtocolDecl
 	𝐣𝐥.@doc """
 	 OpenMP target parallel for directive.
 	
 	## Reference
 	
-	[Index.h:2472](./include/clang-c/Index.h:2472:3)
+	[Index.h:2477](./include/clang-c/Index.h:2477:3)
 	""" CXCursor_OMPTargetParallelForDirective
 	𝐣𝐥.@doc """
 	 OpenMP section directive.
 	
 	## Reference
 	
-	[Index.h:2360](./include/clang-c/Index.h:2360:3)
+	[Index.h:2365](./include/clang-c/Index.h:2365:3)
 	""" CXCursor_OMPSectionDirective
 	𝐣𝐥.@doc """
 	 A static_assert or _Static_assert node
 	
 	## Reference
 	
-	[Index.h:2609](./include/clang-c/Index.h:2609:3)
+	[Index.h:2650](./include/clang-c/Index.h:2650:3)
 	""" CXCursor_StaticAssert
 	𝐣𝐥.@doc """
 	 A reference to a variable that occurs in some non-expression context, e.g., a C++ lambda capture list.
 	
 	## Reference
 	
-	[Index.h:1909](./include/clang-c/Index.h:1909:3)
+	[Index.h:1901](./include/clang-c/Index.h:1901:3)
 	""" CXCursor_FirstInvalid
+	𝐣𝐥.@doc """
+	 OpenMP depobj directive.
+	
+	## Reference
+	
+	[Index.h:2565](./include/clang-c/Index.h:2565:3)
+	""" CXCursor_OMPDepobjDirective
 	𝐣𝐥.@doc """
 	 C++'s static_cast<> expression.
 	
 	## Reference
 	
-	[Index.h:2039](./include/clang-c/Index.h:2039:3)
+	[Index.h:2031](./include/clang-c/Index.h:2031:3)
 	""" CXCursor_CXXStaticCastExpr
 	𝐣𝐥.@doc """
 	 Objective-c Boolean Literal.
 	
 	## Reference
 	
-	[Index.h:2168](./include/clang-c/Index.h:2168:3)
+	[Index.h:2164](./include/clang-c/Index.h:2164:3)
 	""" CXCursor_ObjCBoolLiteralExpr
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2571](./include/clang-c/Index.h:2571:3)
+	[Index.h:2608](./include/clang-c/Index.h:2608:3)
 	""" CXCursor_NSReturnsRetained
 	𝐣𝐥.@doc """
 	 An attribute whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:2597](./include/clang-c/Index.h:2597:3)
+	[Index.h:2638](./include/clang-c/Index.h:2638:3)
 	""" CXCursor_FirstPreprocessing
 	𝐣𝐥.@doc """
 	 A while statement.
 	
 	## Reference
 	
-	[Index.h:2240](./include/clang-c/Index.h:2240:3)
+	[Index.h:2245](./include/clang-c/Index.h:2245:3)
 	""" CXCursor_WhileStmt
 	𝐣𝐥.@doc """
 	 a friend declaration.
 	
 	## Reference
 	
-	[Index.h:2615](./include/clang-c/Index.h:2615:3)
+	[Index.h:2656](./include/clang-c/Index.h:2656:3)
 	""" CXCursor_LastExtraDecl
 	𝐣𝐥.@doc """
 	 A C++ non-type template parameter. 
 	
 	## Reference
 	
-	[Index.h:1782](./include/clang-c/Index.h:1782:3)
+	[Index.h:1774](./include/clang-c/Index.h:1774:3)
 	""" CXCursor_NonTypeTemplateParameter
 	𝐣𝐥.@doc """
 	 Objective-C's overall @try-@catch-@finally statement.
 	
 	## Reference
 	
-	[Index.h:2277](./include/clang-c/Index.h:2277:3)
+	[Index.h:2282](./include/clang-c/Index.h:2282:3)
 	""" CXCursor_ObjCAtTryStmt
 	𝐣𝐥.@doc """
 	 A C or C++ union. 
 	
 	## Reference
 	
-	[Index.h:1729](./include/clang-c/Index.h:1729:3)
+	[Index.h:1721](./include/clang-c/Index.h:1721:3)
 	""" CXCursor_UnionDecl
 	𝐣𝐥.@doc """
 	 A C++ alias declaration 
 	
 	## Reference
 	
-	[Index.h:1798](./include/clang-c/Index.h:1798:3)
+	[Index.h:1790](./include/clang-c/Index.h:1790:3)
 	""" CXCursor_TypeAliasDecl
 	𝐣𝐥.@doc """
 	 A group of statements like { stmt stmt }.
@@ -4937,23 +5070,23 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2220](./include/clang-c/Index.h:2220:3)
+	[Index.h:2225](./include/clang-c/Index.h:2225:3)
 	""" CXCursor_CompoundStmt
 	𝐣𝐥.@doc """
 	 OpenMP task directive.
 	
 	## Reference
 	
-	[Index.h:2376](./include/clang-c/Index.h:2376:3)
+	[Index.h:2381](./include/clang-c/Index.h:2381:3)
 	""" CXCursor_OMPTaskDirective
 	𝐣𝐥.@doc """
 	 A reference to a variable that occurs in some non-expression context, e.g., a C++ lambda capture list.
 	
 	## Reference
 	
-	[Index.h:1912](./include/clang-c/Index.h:1912:3)
+	[Index.h:1904](./include/clang-c/Index.h:1904:3)
 	""" CXCursor_NotImplemented
-	export CXCursorKind, CXCursor_AddrLabelExpr, CXCursor_AnnotateAttr, CXCursor_ArraySubscriptExpr, CXCursor_AsmLabelAttr, CXCursor_AsmStmt, CXCursor_BinaryOperator, CXCursor_BlockExpr, CXCursor_BreakStmt, CXCursor_CStyleCastExpr, CXCursor_CUDAConstantAttr, CXCursor_CUDADeviceAttr, CXCursor_CUDAGlobalAttr, CXCursor_CUDAHostAttr, CXCursor_CUDASharedAttr, CXCursor_CXXAccessSpecifier, CXCursor_CXXBaseSpecifier, CXCursor_CXXBoolLiteralExpr, CXCursor_CXXCatchStmt, CXCursor_CXXConstCastExpr, CXCursor_CXXDeleteExpr, CXCursor_CXXDynamicCastExpr, CXCursor_CXXFinalAttr, CXCursor_CXXForRangeStmt, CXCursor_CXXFunctionalCastExpr, CXCursor_CXXMethod, CXCursor_CXXNewExpr, CXCursor_CXXNullPtrLiteralExpr, CXCursor_CXXOverrideAttr, CXCursor_CXXReinterpretCastExpr, CXCursor_CXXStaticCastExpr, CXCursor_CXXThisExpr, CXCursor_CXXThrowExpr, CXCursor_CXXTryStmt, CXCursor_CXXTypeidExpr, CXCursor_CallExpr, CXCursor_CaseStmt, CXCursor_CharacterLiteral, CXCursor_ClassDecl, CXCursor_ClassTemplate, CXCursor_ClassTemplatePartialSpecialization, CXCursor_CompoundAssignOperator, CXCursor_CompoundLiteralExpr, CXCursor_CompoundStmt, CXCursor_ConditionalOperator, CXCursor_ConstAttr, CXCursor_Constructor, CXCursor_ContinueStmt, CXCursor_ConversionFunction, CXCursor_DLLExport, CXCursor_DLLImport, CXCursor_DeclRefExpr, CXCursor_DeclStmt, CXCursor_DefaultStmt, CXCursor_Destructor, CXCursor_DoStmt, CXCursor_EnumConstantDecl, CXCursor_EnumDecl, CXCursor_FieldDecl, CXCursor_FirstAttr, CXCursor_FirstDecl, CXCursor_FirstExpr, CXCursor_FirstExtraDecl, CXCursor_FirstInvalid, CXCursor_FirstPreprocessing, CXCursor_FirstRef, CXCursor_FirstStmt, CXCursor_FixedPointLiteral, CXCursor_FlagEnum, CXCursor_FloatingLiteral, CXCursor_ForStmt, CXCursor_FriendDecl, CXCursor_FunctionDecl, CXCursor_FunctionTemplate, CXCursor_GCCAsmStmt, CXCursor_GNUNullExpr, CXCursor_GenericSelectionExpr, CXCursor_GotoStmt, CXCursor_IBActionAttr, CXCursor_IBOutletAttr, CXCursor_IBOutletCollectionAttr, CXCursor_IfStmt, CXCursor_ImaginaryLiteral, CXCursor_InclusionDirective, CXCursor_IndirectGotoStmt, CXCursor_InitListExpr, CXCursor_IntegerLiteral, CXCursor_InvalidCode, CXCursor_InvalidFile, CXCursor_LabelRef, CXCursor_LabelStmt, CXCursor_LambdaExpr, CXCursor_LastAttr, CXCursor_LastDecl, CXCursor_LastExpr, CXCursor_LastExtraDecl, CXCursor_LastInvalid, CXCursor_LastPreprocessing, CXCursor_LastRef, CXCursor_LastStmt, CXCursor_LinkageSpec, CXCursor_MSAsmStmt, CXCursor_MacroDefinition, CXCursor_MacroExpansion, CXCursor_MacroInstantiation, CXCursor_MemberRef, CXCursor_MemberRefExpr, CXCursor_ModuleImportDecl, CXCursor_NSConsumed, CXCursor_NSConsumesSelf, CXCursor_NSReturnsAutoreleased, CXCursor_NSReturnsNotRetained, CXCursor_NSReturnsRetained, CXCursor_Namespace, CXCursor_NamespaceAlias, CXCursor_NamespaceRef, CXCursor_NoDeclFound, CXCursor_NoDuplicateAttr, CXCursor_NonTypeTemplateParameter, CXCursor_NotImplemented, CXCursor_NullStmt, CXCursor_OMPArraySectionExpr, CXCursor_OMPAtomicDirective, CXCursor_OMPBarrierDirective, CXCursor_OMPCancelDirective, CXCursor_OMPCancellationPointDirective, CXCursor_OMPCriticalDirective, CXCursor_OMPDistributeDirective, CXCursor_OMPDistributeParallelForDirective, CXCursor_OMPDistributeParallelForSimdDirective, CXCursor_OMPDistributeSimdDirective, CXCursor_OMPFlushDirective, CXCursor_OMPForDirective, CXCursor_OMPForSimdDirective, CXCursor_OMPMasterDirective, CXCursor_OMPOrderedDirective, CXCursor_OMPParallelDirective, CXCursor_OMPParallelForDirective, CXCursor_OMPParallelForSimdDirective, CXCursor_OMPParallelSectionsDirective, CXCursor_OMPSectionDirective, CXCursor_OMPSectionsDirective, CXCursor_OMPSimdDirective, CXCursor_OMPSingleDirective, CXCursor_OMPTargetDataDirective, CXCursor_OMPTargetDirective, CXCursor_OMPTargetEnterDataDirective, CXCursor_OMPTargetExitDataDirective, CXCursor_OMPTargetParallelDirective, CXCursor_OMPTargetParallelForDirective, CXCursor_OMPTargetParallelForSimdDirective, CXCursor_OMPTargetSimdDirective, CXCursor_OMPTargetTeamsDirective, CXCursor_OMPTargetTeamsDistributeDirective, CXCursor_OMPTargetTeamsDistributeParallelForDirective, CXCursor_OMPTargetTeamsDistributeParallelForSimdDirective, CXCursor_OMPTargetTeamsDistributeSimdDirective, CXCursor_OMPTargetUpdateDirective, CXCursor_OMPTaskDirective, CXCursor_OMPTaskLoopDirective, CXCursor_OMPTaskLoopSimdDirective, CXCursor_OMPTaskgroupDirective, CXCursor_OMPTaskwaitDirective, CXCursor_OMPTaskyieldDirective, CXCursor_OMPTeamsDirective, CXCursor_OMPTeamsDistributeDirective, CXCursor_OMPTeamsDistributeParallelForDirective, CXCursor_OMPTeamsDistributeParallelForSimdDirective, CXCursor_OMPTeamsDistributeSimdDirective, CXCursor_ObjCAtCatchStmt, CXCursor_ObjCAtFinallyStmt, CXCursor_ObjCAtSynchronizedStmt, CXCursor_ObjCAtThrowStmt, CXCursor_ObjCAtTryStmt, CXCursor_ObjCAutoreleasePoolStmt, CXCursor_ObjCAvailabilityCheckExpr, CXCursor_ObjCBoolLiteralExpr, CXCursor_ObjCBoxable, CXCursor_ObjCBridgedCastExpr, CXCursor_ObjCCategoryDecl, CXCursor_ObjCCategoryImplDecl, CXCursor_ObjCClassMethodDecl, CXCursor_ObjCClassRef, CXCursor_ObjCDesignatedInitializer, CXCursor_ObjCDynamicDecl, CXCursor_ObjCEncodeExpr, CXCursor_ObjCException, CXCursor_ObjCExplicitProtocolImpl, CXCursor_ObjCForCollectionStmt, CXCursor_ObjCImplementationDecl, CXCursor_ObjCIndependentClass, CXCursor_ObjCInstanceMethodDecl, CXCursor_ObjCInterfaceDecl, CXCursor_ObjCIvarDecl, CXCursor_ObjCMessageExpr, CXCursor_ObjCNSObject, CXCursor_ObjCPreciseLifetime, CXCursor_ObjCPropertyDecl, CXCursor_ObjCProtocolDecl, CXCursor_ObjCProtocolExpr, CXCursor_ObjCProtocolRef, CXCursor_ObjCRequiresSuper, CXCursor_ObjCReturnsInnerPointer, CXCursor_ObjCRootClass, CXCursor_ObjCRuntimeVisible, CXCursor_ObjCSelectorExpr, CXCursor_ObjCSelfExpr, CXCursor_ObjCStringLiteral, CXCursor_ObjCSubclassingRestricted, CXCursor_ObjCSuperClassRef, CXCursor_ObjCSynthesizeDecl, CXCursor_OverloadCandidate, CXCursor_OverloadedDeclRef, CXCursor_PackExpansionExpr, CXCursor_PackedAttr, CXCursor_ParenExpr, CXCursor_ParmDecl, CXCursor_PreprocessingDirective, CXCursor_PureAttr, CXCursor_ReturnStmt, CXCursor_SEHExceptStmt, CXCursor_SEHFinallyStmt, CXCursor_SEHLeaveStmt, CXCursor_SEHTryStmt, CXCursor_SizeOfPackExpr, CXCursor_StaticAssert, CXCursor_StmtExpr, CXCursor_StringLiteral, CXCursor_StructDecl, CXCursor_SwitchStmt, CXCursor_TemplateRef, CXCursor_TemplateTemplateParameter, CXCursor_TemplateTypeParameter, CXCursor_TranslationUnit, CXCursor_TypeAliasDecl, CXCursor_TypeAliasTemplateDecl, CXCursor_TypeRef, CXCursor_TypedefDecl, CXCursor_UnaryExpr, CXCursor_UnaryOperator, CXCursor_UnexposedAttr, CXCursor_UnexposedDecl, CXCursor_UnexposedExpr, CXCursor_UnexposedStmt, CXCursor_UnionDecl, CXCursor_UsingDeclaration, CXCursor_UsingDirective, CXCursor_VarDecl, CXCursor_VariableRef, CXCursor_VisibilityAttr, CXCursor_WhileStmt
+	export CXCursorKind, CXCursor_AddrLabelExpr, CXCursor_AlignedAttr, CXCursor_AnnotateAttr, CXCursor_ArraySubscriptExpr, CXCursor_AsmLabelAttr, CXCursor_AsmStmt, CXCursor_BinaryOperator, CXCursor_BlockExpr, CXCursor_BreakStmt, CXCursor_BuiltinBitCastExpr, CXCursor_CStyleCastExpr, CXCursor_CUDAConstantAttr, CXCursor_CUDADeviceAttr, CXCursor_CUDAGlobalAttr, CXCursor_CUDAHostAttr, CXCursor_CUDASharedAttr, CXCursor_CXXAccessSpecifier, CXCursor_CXXAddrspaceCastExpr, CXCursor_CXXBaseSpecifier, CXCursor_CXXBoolLiteralExpr, CXCursor_CXXCatchStmt, CXCursor_CXXConstCastExpr, CXCursor_CXXDeleteExpr, CXCursor_CXXDynamicCastExpr, CXCursor_CXXFinalAttr, CXCursor_CXXForRangeStmt, CXCursor_CXXFunctionalCastExpr, CXCursor_CXXMethod, CXCursor_CXXNewExpr, CXCursor_CXXNullPtrLiteralExpr, CXCursor_CXXOverrideAttr, CXCursor_CXXReinterpretCastExpr, CXCursor_CXXStaticCastExpr, CXCursor_CXXThisExpr, CXCursor_CXXThrowExpr, CXCursor_CXXTryStmt, CXCursor_CXXTypeidExpr, CXCursor_CallExpr, CXCursor_CaseStmt, CXCursor_CharacterLiteral, CXCursor_ClassDecl, CXCursor_ClassTemplate, CXCursor_ClassTemplatePartialSpecialization, CXCursor_CompoundAssignOperator, CXCursor_CompoundLiteralExpr, CXCursor_CompoundStmt, CXCursor_ConditionalOperator, CXCursor_ConstAttr, CXCursor_Constructor, CXCursor_ContinueStmt, CXCursor_ConvergentAttr, CXCursor_ConversionFunction, CXCursor_DLLExport, CXCursor_DLLImport, CXCursor_DeclRefExpr, CXCursor_DeclStmt, CXCursor_DefaultStmt, CXCursor_Destructor, CXCursor_DoStmt, CXCursor_EnumConstantDecl, CXCursor_EnumDecl, CXCursor_FieldDecl, CXCursor_FirstAttr, CXCursor_FirstDecl, CXCursor_FirstExpr, CXCursor_FirstExtraDecl, CXCursor_FirstInvalid, CXCursor_FirstPreprocessing, CXCursor_FirstRef, CXCursor_FirstStmt, CXCursor_FixedPointLiteral, CXCursor_FlagEnum, CXCursor_FloatingLiteral, CXCursor_ForStmt, CXCursor_FriendDecl, CXCursor_FunctionDecl, CXCursor_FunctionTemplate, CXCursor_GCCAsmStmt, CXCursor_GNUNullExpr, CXCursor_GenericSelectionExpr, CXCursor_GotoStmt, CXCursor_IBActionAttr, CXCursor_IBOutletAttr, CXCursor_IBOutletCollectionAttr, CXCursor_IfStmt, CXCursor_ImaginaryLiteral, CXCursor_InclusionDirective, CXCursor_IndirectGotoStmt, CXCursor_InitListExpr, CXCursor_IntegerLiteral, CXCursor_InvalidCode, CXCursor_InvalidFile, CXCursor_LabelRef, CXCursor_LabelStmt, CXCursor_LambdaExpr, CXCursor_LastAttr, CXCursor_LastDecl, CXCursor_LastExpr, CXCursor_LastExtraDecl, CXCursor_LastInvalid, CXCursor_LastPreprocessing, CXCursor_LastRef, CXCursor_LastStmt, CXCursor_LinkageSpec, CXCursor_MSAsmStmt, CXCursor_MacroDefinition, CXCursor_MacroExpansion, CXCursor_MacroInstantiation, CXCursor_MemberRef, CXCursor_MemberRefExpr, CXCursor_ModuleImportDecl, CXCursor_NSConsumed, CXCursor_NSConsumesSelf, CXCursor_NSReturnsAutoreleased, CXCursor_NSReturnsNotRetained, CXCursor_NSReturnsRetained, CXCursor_Namespace, CXCursor_NamespaceAlias, CXCursor_NamespaceRef, CXCursor_NoDeclFound, CXCursor_NoDuplicateAttr, CXCursor_NonTypeTemplateParameter, CXCursor_NotImplemented, CXCursor_NullStmt, CXCursor_OMPArraySectionExpr, CXCursor_OMPArrayShapingExpr, CXCursor_OMPAtomicDirective, CXCursor_OMPBarrierDirective, CXCursor_OMPCancelDirective, CXCursor_OMPCancellationPointDirective, CXCursor_OMPCriticalDirective, CXCursor_OMPDepobjDirective, CXCursor_OMPDistributeDirective, CXCursor_OMPDistributeParallelForDirective, CXCursor_OMPDistributeParallelForSimdDirective, CXCursor_OMPDistributeSimdDirective, CXCursor_OMPFlushDirective, CXCursor_OMPForDirective, CXCursor_OMPForSimdDirective, CXCursor_OMPIteratorExpr, CXCursor_OMPMasterDirective, CXCursor_OMPMasterTaskLoopDirective, CXCursor_OMPMasterTaskLoopSimdDirective, CXCursor_OMPOrderedDirective, CXCursor_OMPParallelDirective, CXCursor_OMPParallelForDirective, CXCursor_OMPParallelForSimdDirective, CXCursor_OMPParallelMasterDirective, CXCursor_OMPParallelMasterTaskLoopDirective, CXCursor_OMPParallelMasterTaskLoopSimdDirective, CXCursor_OMPParallelSectionsDirective, CXCursor_OMPScanDirective, CXCursor_OMPSectionDirective, CXCursor_OMPSectionsDirective, CXCursor_OMPSimdDirective, CXCursor_OMPSingleDirective, CXCursor_OMPTargetDataDirective, CXCursor_OMPTargetDirective, CXCursor_OMPTargetEnterDataDirective, CXCursor_OMPTargetExitDataDirective, CXCursor_OMPTargetParallelDirective, CXCursor_OMPTargetParallelForDirective, CXCursor_OMPTargetParallelForSimdDirective, CXCursor_OMPTargetSimdDirective, CXCursor_OMPTargetTeamsDirective, CXCursor_OMPTargetTeamsDistributeDirective, CXCursor_OMPTargetTeamsDistributeParallelForDirective, CXCursor_OMPTargetTeamsDistributeParallelForSimdDirective, CXCursor_OMPTargetTeamsDistributeSimdDirective, CXCursor_OMPTargetUpdateDirective, CXCursor_OMPTaskDirective, CXCursor_OMPTaskLoopDirective, CXCursor_OMPTaskLoopSimdDirective, CXCursor_OMPTaskgroupDirective, CXCursor_OMPTaskwaitDirective, CXCursor_OMPTaskyieldDirective, CXCursor_OMPTeamsDirective, CXCursor_OMPTeamsDistributeDirective, CXCursor_OMPTeamsDistributeParallelForDirective, CXCursor_OMPTeamsDistributeParallelForSimdDirective, CXCursor_OMPTeamsDistributeSimdDirective, CXCursor_ObjCAtCatchStmt, CXCursor_ObjCAtFinallyStmt, CXCursor_ObjCAtSynchronizedStmt, CXCursor_ObjCAtThrowStmt, CXCursor_ObjCAtTryStmt, CXCursor_ObjCAutoreleasePoolStmt, CXCursor_ObjCAvailabilityCheckExpr, CXCursor_ObjCBoolLiteralExpr, CXCursor_ObjCBoxable, CXCursor_ObjCBridgedCastExpr, CXCursor_ObjCCategoryDecl, CXCursor_ObjCCategoryImplDecl, CXCursor_ObjCClassMethodDecl, CXCursor_ObjCClassRef, CXCursor_ObjCDesignatedInitializer, CXCursor_ObjCDynamicDecl, CXCursor_ObjCEncodeExpr, CXCursor_ObjCException, CXCursor_ObjCExplicitProtocolImpl, CXCursor_ObjCForCollectionStmt, CXCursor_ObjCImplementationDecl, CXCursor_ObjCIndependentClass, CXCursor_ObjCInstanceMethodDecl, CXCursor_ObjCInterfaceDecl, CXCursor_ObjCIvarDecl, CXCursor_ObjCMessageExpr, CXCursor_ObjCNSObject, CXCursor_ObjCPreciseLifetime, CXCursor_ObjCPropertyDecl, CXCursor_ObjCProtocolDecl, CXCursor_ObjCProtocolExpr, CXCursor_ObjCProtocolRef, CXCursor_ObjCRequiresSuper, CXCursor_ObjCReturnsInnerPointer, CXCursor_ObjCRootClass, CXCursor_ObjCRuntimeVisible, CXCursor_ObjCSelectorExpr, CXCursor_ObjCSelfExpr, CXCursor_ObjCStringLiteral, CXCursor_ObjCSubclassingRestricted, CXCursor_ObjCSuperClassRef, CXCursor_ObjCSynthesizeDecl, CXCursor_OverloadCandidate, CXCursor_OverloadedDeclRef, CXCursor_PackExpansionExpr, CXCursor_PackedAttr, CXCursor_ParenExpr, CXCursor_ParmDecl, CXCursor_PreprocessingDirective, CXCursor_PureAttr, CXCursor_ReturnStmt, CXCursor_SEHExceptStmt, CXCursor_SEHFinallyStmt, CXCursor_SEHLeaveStmt, CXCursor_SEHTryStmt, CXCursor_SizeOfPackExpr, CXCursor_StaticAssert, CXCursor_StmtExpr, CXCursor_StringLiteral, CXCursor_StructDecl, CXCursor_SwitchStmt, CXCursor_TemplateRef, CXCursor_TemplateTemplateParameter, CXCursor_TemplateTypeParameter, CXCursor_TranslationUnit, CXCursor_TypeAliasDecl, CXCursor_TypeAliasTemplateDecl, CXCursor_TypeRef, CXCursor_TypedefDecl, CXCursor_UnaryExpr, CXCursor_UnaryOperator, CXCursor_UnexposedAttr, CXCursor_UnexposedDecl, CXCursor_UnexposedExpr, CXCursor_UnexposedStmt, CXCursor_UnionDecl, CXCursor_UsingDeclaration, CXCursor_UsingDirective, CXCursor_VarDecl, CXCursor_VariableRef, CXCursor_VisibilityAttr, CXCursor_WarnUnusedAttr, CXCursor_WarnUnusedResultAttr, CXCursor_WhileStmt
 	𝐣𝐥.@cenum CXCursorKind {
 		CXCursor_UnexposedDecl = 𝐣𝐥.Cuint(1)
 		CXCursor_StructDecl = 𝐣𝐥.Cuint(2)
@@ -5045,28 +5178,31 @@ using CBinding: 𝐣𝐥
 		CXCursor_CXXReinterpretCastExpr = 𝐣𝐥.Cuint(126)
 		CXCursor_CXXConstCastExpr = 𝐣𝐥.Cuint(127)
 		CXCursor_CXXFunctionalCastExpr = 𝐣𝐥.Cuint(128)
-		CXCursor_CXXTypeidExpr = 𝐣𝐥.Cuint(129)
-		CXCursor_CXXBoolLiteralExpr = 𝐣𝐥.Cuint(130)
-		CXCursor_CXXNullPtrLiteralExpr = 𝐣𝐥.Cuint(131)
-		CXCursor_CXXThisExpr = 𝐣𝐥.Cuint(132)
-		CXCursor_CXXThrowExpr = 𝐣𝐥.Cuint(133)
-		CXCursor_CXXNewExpr = 𝐣𝐥.Cuint(134)
-		CXCursor_CXXDeleteExpr = 𝐣𝐥.Cuint(135)
-		CXCursor_UnaryExpr = 𝐣𝐥.Cuint(136)
-		CXCursor_ObjCStringLiteral = 𝐣𝐥.Cuint(137)
-		CXCursor_ObjCEncodeExpr = 𝐣𝐥.Cuint(138)
-		CXCursor_ObjCSelectorExpr = 𝐣𝐥.Cuint(139)
-		CXCursor_ObjCProtocolExpr = 𝐣𝐥.Cuint(140)
-		CXCursor_ObjCBridgedCastExpr = 𝐣𝐥.Cuint(141)
-		CXCursor_PackExpansionExpr = 𝐣𝐥.Cuint(142)
-		CXCursor_SizeOfPackExpr = 𝐣𝐥.Cuint(143)
-		CXCursor_LambdaExpr = 𝐣𝐥.Cuint(144)
-		CXCursor_ObjCBoolLiteralExpr = 𝐣𝐥.Cuint(145)
-		CXCursor_ObjCSelfExpr = 𝐣𝐥.Cuint(146)
-		CXCursor_OMPArraySectionExpr = 𝐣𝐥.Cuint(147)
-		CXCursor_ObjCAvailabilityCheckExpr = 𝐣𝐥.Cuint(148)
-		CXCursor_FixedPointLiteral = 𝐣𝐥.Cuint(149)
-		CXCursor_LastExpr = 𝐣𝐥.Cuint(149)
+		CXCursor_CXXAddrspaceCastExpr = 𝐣𝐥.Cuint(129)
+		CXCursor_CXXTypeidExpr = 𝐣𝐥.Cuint(130)
+		CXCursor_CXXBoolLiteralExpr = 𝐣𝐥.Cuint(131)
+		CXCursor_CXXNullPtrLiteralExpr = 𝐣𝐥.Cuint(132)
+		CXCursor_CXXThisExpr = 𝐣𝐥.Cuint(133)
+		CXCursor_CXXThrowExpr = 𝐣𝐥.Cuint(134)
+		CXCursor_CXXNewExpr = 𝐣𝐥.Cuint(135)
+		CXCursor_CXXDeleteExpr = 𝐣𝐥.Cuint(136)
+		CXCursor_UnaryExpr = 𝐣𝐥.Cuint(137)
+		CXCursor_ObjCStringLiteral = 𝐣𝐥.Cuint(138)
+		CXCursor_ObjCEncodeExpr = 𝐣𝐥.Cuint(139)
+		CXCursor_ObjCSelectorExpr = 𝐣𝐥.Cuint(140)
+		CXCursor_ObjCProtocolExpr = 𝐣𝐥.Cuint(141)
+		CXCursor_ObjCBridgedCastExpr = 𝐣𝐥.Cuint(142)
+		CXCursor_PackExpansionExpr = 𝐣𝐥.Cuint(143)
+		CXCursor_SizeOfPackExpr = 𝐣𝐥.Cuint(144)
+		CXCursor_LambdaExpr = 𝐣𝐥.Cuint(145)
+		CXCursor_ObjCBoolLiteralExpr = 𝐣𝐥.Cuint(146)
+		CXCursor_ObjCSelfExpr = 𝐣𝐥.Cuint(147)
+		CXCursor_OMPArraySectionExpr = 𝐣𝐥.Cuint(148)
+		CXCursor_ObjCAvailabilityCheckExpr = 𝐣𝐥.Cuint(149)
+		CXCursor_FixedPointLiteral = 𝐣𝐥.Cuint(150)
+		CXCursor_OMPArrayShapingExpr = 𝐣𝐥.Cuint(151)
+		CXCursor_OMPIteratorExpr = 𝐣𝐥.Cuint(152)
+		CXCursor_LastExpr = 𝐣𝐥.Cuint(152)
 		CXCursor_FirstStmt = 𝐣𝐥.Cuint(200)
 		CXCursor_UnexposedStmt = 𝐣𝐥.Cuint(200)
 		CXCursor_LabelStmt = 𝐣𝐥.Cuint(201)
@@ -5149,7 +5285,15 @@ using CBinding: 𝐣𝐥
 		CXCursor_OMPTargetTeamsDistributeParallelForDirective = 𝐣𝐥.Cuint(277)
 		CXCursor_OMPTargetTeamsDistributeParallelForSimdDirective = 𝐣𝐥.Cuint(278)
 		CXCursor_OMPTargetTeamsDistributeSimdDirective = 𝐣𝐥.Cuint(279)
-		CXCursor_LastStmt = 𝐣𝐥.Cuint(279)
+		CXCursor_BuiltinBitCastExpr = 𝐣𝐥.Cuint(280)
+		CXCursor_OMPMasterTaskLoopDirective = 𝐣𝐥.Cuint(281)
+		CXCursor_OMPParallelMasterTaskLoopDirective = 𝐣𝐥.Cuint(282)
+		CXCursor_OMPMasterTaskLoopSimdDirective = 𝐣𝐥.Cuint(283)
+		CXCursor_OMPParallelMasterTaskLoopSimdDirective = 𝐣𝐥.Cuint(284)
+		CXCursor_OMPParallelMasterDirective = 𝐣𝐥.Cuint(285)
+		CXCursor_OMPDepobjDirective = 𝐣𝐥.Cuint(286)
+		CXCursor_OMPScanDirective = 𝐣𝐥.Cuint(287)
+		CXCursor_LastStmt = 𝐣𝐥.Cuint(287)
 		CXCursor_TranslationUnit = 𝐣𝐥.Cuint(300)
 		CXCursor_FirstAttr = 𝐣𝐥.Cuint(400)
 		CXCursor_UnexposedAttr = 𝐣𝐥.Cuint(400)
@@ -5190,7 +5334,11 @@ using CBinding: 𝐣𝐥
 		CXCursor_ObjCRuntimeVisible = 𝐣𝐥.Cuint(435)
 		CXCursor_ObjCBoxable = 𝐣𝐥.Cuint(436)
 		CXCursor_FlagEnum = 𝐣𝐥.Cuint(437)
-		CXCursor_LastAttr = 𝐣𝐥.Cuint(437)
+		CXCursor_ConvergentAttr = 𝐣𝐥.Cuint(438)
+		CXCursor_WarnUnusedAttr = 𝐣𝐥.Cuint(439)
+		CXCursor_WarnUnusedResultAttr = 𝐣𝐥.Cuint(440)
+		CXCursor_AlignedAttr = 𝐣𝐥.Cuint(441)
+		CXCursor_LastAttr = 𝐣𝐥.Cuint(441)
 		CXCursor_PreprocessingDirective = 𝐣𝐥.Cuint(500)
 		CXCursor_MacroDefinition = 𝐣𝐥.Cuint(501)
 		CXCursor_MacroExpansion = 𝐣𝐥.Cuint(502)
@@ -5218,11 +5366,11 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2645](./include/clang-c/Index.h:2645:3)
+	[Index.h:2686](./include/clang-c/Index.h:2686:3)
 	""" CXCursor
 	export CXCursor
 	𝐣𝐥.@ctypedef CXCursor 𝐣𝐥.@cstruct {
-		kind::CXCursorKind
+		kind::𝐣𝐥.@cenum CXCursorKind
 		xdata::𝐣𝐥.Cint
 		data::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cvoid)}[3]
 	}
@@ -5236,7 +5384,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2656](./include/clang-c/Index.h:2656:25)
+	[Index.h:2697](./include/clang-c/Index.h:2697:25)
 	""" clang_getNullCursor
 	export clang_getNullCursor
 	𝐣𝐥.@cextern clang_getNullCursor()::CXCursor
@@ -5254,7 +5402,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2664](./include/clang-c/Index.h:2664:25)
+	[Index.h:2705](./include/clang-c/Index.h:2705:25)
 	""" clang_getTranslationUnitCursor
 	export clang_getTranslationUnitCursor
 	𝐣𝐥.@cextern clang_getTranslationUnitCursor(var"?1?"::CXTranslationUnit)::CXCursor
@@ -5268,7 +5416,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2669](./include/clang-c/Index.h:2669:25)
+	[Index.h:2710](./include/clang-c/Index.h:2710:25)
 	""" clang_equalCursors
 	export clang_equalCursors
 	𝐣𝐥.@cextern clang_equalCursors(var"?1?"::CXCursor, var"?2?"::CXCursor)::𝐣𝐥.Cuint
@@ -5282,7 +5430,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2674](./include/clang-c/Index.h:2674:20)
+	[Index.h:2715](./include/clang-c/Index.h:2715:20)
 	""" clang_Cursor_isNull
 	export clang_Cursor_isNull
 	𝐣𝐥.@cextern clang_Cursor_isNull(cursor::CXCursor)::𝐣𝐥.Cint
@@ -5296,38 +5444,38 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2679](./include/clang-c/Index.h:2679:25)
+	[Index.h:2720](./include/clang-c/Index.h:2720:25)
 	""" clang_hashCursor
 	export clang_hashCursor
 	𝐣𝐥.@cextern clang_hashCursor(var"?1?"::CXCursor)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorKind(var\"?1?\"::CXCursor)::CXCursorKind
+	𝐣𝐥.@cextern clang_getCursorKind(var\"?1?\"::CXCursor)::𝐣𝐥.@cenum CXCursorKind
 	```
 	
 	 Retrieve the kind of the given cursor.
 	
 	## Reference
 	
-	[Index.h:2684](./include/clang-c/Index.h:2684:34)
+	[Index.h:2725](./include/clang-c/Index.h:2725:34)
 	""" clang_getCursorKind
 	export clang_getCursorKind
-	𝐣𝐥.@cextern clang_getCursorKind(var"?1?"::CXCursor)::CXCursorKind
+	𝐣𝐥.@cextern clang_getCursorKind(var"?1?"::CXCursor)::𝐣𝐥.@cenum CXCursorKind
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isDeclaration(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isDeclaration(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents a declaration.
 	
 	## Reference
 	
-	[Index.h:2689](./include/clang-c/Index.h:2689:25)
+	[Index.h:2730](./include/clang-c/Index.h:2730:25)
 	""" clang_isDeclaration
 	export clang_isDeclaration
-	𝐣𝐥.@cextern clang_isDeclaration(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isDeclaration(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
@@ -5346,14 +5494,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2699](./include/clang-c/Index.h:2699:25)
+	[Index.h:2740](./include/clang-c/Index.h:2740:25)
 	""" clang_isInvalidDeclaration
 	export clang_isInvalidDeclaration
 	𝐣𝐥.@cextern clang_isInvalidDeclaration(var"?1?"::CXCursor)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isReference(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isReference(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents a simple reference.
@@ -5364,52 +5512,52 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2709](./include/clang-c/Index.h:2709:25)
+	[Index.h:2750](./include/clang-c/Index.h:2750:25)
 	""" clang_isReference
 	export clang_isReference
-	𝐣𝐥.@cextern clang_isReference(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isReference(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isExpression(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isExpression(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents an expression.
 	
 	## Reference
 	
-	[Index.h:2714](./include/clang-c/Index.h:2714:25)
+	[Index.h:2755](./include/clang-c/Index.h:2755:25)
 	""" clang_isExpression
 	export clang_isExpression
-	𝐣𝐥.@cextern clang_isExpression(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isExpression(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isStatement(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isStatement(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents a statement.
 	
 	## Reference
 	
-	[Index.h:2719](./include/clang-c/Index.h:2719:25)
+	[Index.h:2760](./include/clang-c/Index.h:2760:25)
 	""" clang_isStatement
 	export clang_isStatement
-	𝐣𝐥.@cextern clang_isStatement(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isStatement(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isAttribute(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isAttribute(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents an attribute.
 	
 	## Reference
 	
-	[Index.h:2724](./include/clang-c/Index.h:2724:25)
+	[Index.h:2765](./include/clang-c/Index.h:2765:25)
 	""" clang_isAttribute
 	export clang_isAttribute
-	𝐣𝐥.@cextern clang_isAttribute(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isAttribute(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
@@ -5420,108 +5568,108 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2729](./include/clang-c/Index.h:2729:25)
+	[Index.h:2770](./include/clang-c/Index.h:2770:25)
 	""" clang_Cursor_hasAttrs
 	export clang_Cursor_hasAttrs
 	𝐣𝐥.@cextern clang_Cursor_hasAttrs(C::CXCursor)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isInvalid(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isInvalid(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents an invalid cursor.
 	
 	## Reference
 	
-	[Index.h:2735](./include/clang-c/Index.h:2735:25)
+	[Index.h:2776](./include/clang-c/Index.h:2776:25)
 	""" clang_isInvalid
 	export clang_isInvalid
-	𝐣𝐥.@cextern clang_isInvalid(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isInvalid(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isTranslationUnit(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isTranslationUnit(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	 Determine whether the given cursor kind represents a translation unit.
 	
 	## Reference
 	
-	[Index.h:2741](./include/clang-c/Index.h:2741:25)
+	[Index.h:2782](./include/clang-c/Index.h:2782:25)
 	""" clang_isTranslationUnit
 	export clang_isTranslationUnit
-	𝐣𝐥.@cextern clang_isTranslationUnit(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isTranslationUnit(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isPreprocessing(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isPreprocessing(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	* Determine whether the given cursor represents a preprocessing element, such as a preprocessor directive or macro instantiation.
 	
 	## Reference
 	
-	[Index.h:2747](./include/clang-c/Index.h:2747:25)
+	[Index.h:2788](./include/clang-c/Index.h:2788:25)
 	""" clang_isPreprocessing
 	export clang_isPreprocessing
-	𝐣𝐥.@cextern clang_isPreprocessing(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isPreprocessing(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_isUnexposed(var\"?1?\"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isUnexposed(var\"?1?\"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	```
 	
 	* Determine whether the given cursor represents a currently  unexposed piece of the AST (e.g., CXCursor_UnexposedStmt).
 	
 	## Reference
 	
-	[Index.h:2753](./include/clang-c/Index.h:2753:25)
+	[Index.h:2794](./include/clang-c/Index.h:2794:25)
 	""" clang_isUnexposed
 	export clang_isUnexposed
-	𝐣𝐥.@cextern clang_isUnexposed(var"?1?"::CXCursorKind)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_isUnexposed(var"?1?"::𝐣𝐥.@cenum CXCursorKind)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	 This is the linkage for static variables and static functions. 
 	
 	## Reference
 	
-	[Index.h:2768](./include/clang-c/Index.h:2768:3)
+	[Index.h:2809](./include/clang-c/Index.h:2809:3)
 	""" CXLinkage_Internal
 	𝐣𝐥.@doc """
 	 This is the linkage for entities with external linkage that live in C++ anonymous namespaces.
 	
 	## Reference
 	
-	[Index.h:2771](./include/clang-c/Index.h:2771:3)
+	[Index.h:2812](./include/clang-c/Index.h:2812:3)
 	""" CXLinkage_UniqueExternal
 	𝐣𝐥.@doc """
 	 This is the linkage for entities with true, external linkage. 
 	
 	## Reference
 	
-	[Index.h:2773](./include/clang-c/Index.h:2773:3)
+	[Index.h:2814](./include/clang-c/Index.h:2814:3)
 	""" CXLinkage_External
 	𝐣𝐥.@doc """
 	 This value indicates that no linkage information is available for a provided CXCursor. 
 	
 	## Reference
 	
-	[Index.h:2761](./include/clang-c/Index.h:2761:3)
+	[Index.h:2802](./include/clang-c/Index.h:2802:3)
 	""" CXLinkage_Invalid
 	𝐣𝐥.@doc """
 	 This is the linkage for variables, parameters, and so on that  have automatic storage.  This covers normal (non-extern) local variables.
 	
 	## Reference
 	
-	[Index.h:2766](./include/clang-c/Index.h:2766:3)
+	[Index.h:2807](./include/clang-c/Index.h:2807:3)
 	""" CXLinkage_NoLinkage
 	𝐣𝐥.@doc """
 	 Describe the linkage of the entity referred to by a cursor.
 	
 	## Reference
 	
-	[Index.h:2758](./include/clang-c/Index.h:2758:6)
+	[Index.h:2799](./include/clang-c/Index.h:2799:6)
 	""" CXLinkageKind
 	export CXLinkageKind, CXLinkage_External, CXLinkage_Internal, CXLinkage_Invalid, CXLinkage_NoLinkage, CXLinkage_UniqueExternal
 	𝐣𝐥.@cenum CXLinkageKind {
@@ -5534,50 +5682,50 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorLinkage(cursor::CXCursor)::CXLinkageKind
+	𝐣𝐥.@cextern clang_getCursorLinkage(cursor::CXCursor)::𝐣𝐥.@cenum CXLinkageKind
 	```
 	
 	 Determine the linkage of the entity referred to by a given cursor.
 	
 	## Reference
 	
-	[Index.h:2779](./include/clang-c/Index.h:2779:35)
+	[Index.h:2820](./include/clang-c/Index.h:2820:35)
 	""" clang_getCursorLinkage
 	export clang_getCursorLinkage
-	𝐣𝐥.@cextern clang_getCursorLinkage(cursor::CXCursor)::CXLinkageKind
+	𝐣𝐥.@cextern clang_getCursorLinkage(cursor::CXCursor)::𝐣𝐥.@cenum CXLinkageKind
 	
 	𝐣𝐥.@doc """
 	 Symbol seen by the linker but resolves to a symbol inside this object. 
 	
 	## Reference
 	
-	[Index.h:2789](./include/clang-c/Index.h:2789:3)
+	[Index.h:2830](./include/clang-c/Index.h:2830:3)
 	""" CXVisibility_Protected
 	𝐣𝐥.@doc """
 	 This value indicates that no visibility information is available for a provided CXCursor. 
 	
 	## Reference
 	
-	[Index.h:2784](./include/clang-c/Index.h:2784:3)
+	[Index.h:2825](./include/clang-c/Index.h:2825:3)
 	""" CXVisibility_Invalid
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2781](./include/clang-c/Index.h:2781:6)
+	[Index.h:2822](./include/clang-c/Index.h:2822:6)
 	""" CXVisibilityKind
 	𝐣𝐥.@doc """
 	 Symbol not seen by the linker. 
 	
 	## Reference
 	
-	[Index.h:2787](./include/clang-c/Index.h:2787:3)
+	[Index.h:2828](./include/clang-c/Index.h:2828:3)
 	""" CXVisibility_Hidden
 	𝐣𝐥.@doc """
 	 Symbol seen by the linker and acts like a normal symbol. 
 	
 	## Reference
 	
-	[Index.h:2791](./include/clang-c/Index.h:2791:3)
+	[Index.h:2832](./include/clang-c/Index.h:2832:3)
 	""" CXVisibility_Default
 	export CXVisibilityKind, CXVisibility_Default, CXVisibility_Hidden, CXVisibility_Invalid, CXVisibility_Protected
 	𝐣𝐥.@cenum CXVisibilityKind {
@@ -5589,7 +5737,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorVisibility(cursor::CXCursor)::CXVisibilityKind
+	𝐣𝐥.@cextern clang_getCursorVisibility(cursor::CXCursor)::𝐣𝐥.@cenum CXVisibilityKind
 	```
 	
 	 Describe the visibility of the entity referred to by a cursor.
@@ -5608,14 +5756,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2805](./include/clang-c/Index.h:2805:38)
+	[Index.h:2846](./include/clang-c/Index.h:2846:38)
 	""" clang_getCursorVisibility
 	export clang_getCursorVisibility
-	𝐣𝐥.@cextern clang_getCursorVisibility(cursor::CXCursor)::CXVisibilityKind
+	𝐣𝐥.@cextern clang_getCursorVisibility(cursor::CXCursor)::𝐣𝐥.@cenum CXVisibilityKind
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorAvailability(cursor::CXCursor)::CXAvailabilityKind
+	𝐣𝐥.@cextern clang_getCursorAvailability(cursor::CXCursor)::𝐣𝐥.@cenum CXAvailabilityKind
 	```
 	
 	 Determine the availability of the entity that this cursor refers to, taking the current target platform into account.
@@ -5630,10 +5778,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2816](./include/clang-c/Index.h:2816:1)
+	[Index.h:2857](./include/clang-c/Index.h:2857:1)
 	""" clang_getCursorAvailability
 	export clang_getCursorAvailability
-	𝐣𝐥.@cextern clang_getCursorAvailability(cursor::CXCursor)::CXAvailabilityKind
+	𝐣𝐥.@cextern clang_getCursorAvailability(cursor::CXCursor)::𝐣𝐥.@cenum CXAvailabilityKind
 	
 	𝐣𝐥.@doc """
 	 Describes the availability of a given entity on a particular platform, e.g., a particular class might only be available on Mac OS 10.7 or newer.
@@ -5644,9 +5792,9 @@ using CBinding: 𝐣𝐥
 	
 	## References
 	
-	[Index.h:2822](./include/clang-c/Index.h:2822:16)
+	[Index.h:2863](./include/clang-c/Index.h:2863:16)
 	
-	[Index.h:2853](./include/clang-c/Index.h:2853:3)
+	[Index.h:2894](./include/clang-c/Index.h:2894:3)
 	""" CXPlatformAvailability
 	export CXPlatformAvailability
 	𝐣𝐥.@ctypedef CXPlatformAvailability 𝐣𝐥.@cstruct CXPlatformAvailability {
@@ -5683,7 +5831,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2892](./include/clang-c/Index.h:2892:1)
+	[Index.h:2932](./include/clang-c/Index.h:2932:20)
 	""" clang_getCursorPlatformAvailability
 	export clang_getCursorPlatformAvailability
 	𝐣𝐥.@cextern clang_getCursorPlatformAvailability(cursor::CXCursor, always_deprecated::𝐣𝐥.Ptr{𝐣𝐥.Cint}, deprecated_message::𝐣𝐥.Ptr{CXString}, always_unavailable::𝐣𝐥.Ptr{𝐣𝐥.Cint}, unavailable_message::𝐣𝐥.Ptr{CXString}, availability::𝐣𝐥.Ptr{CXPlatformAvailability}, availability_size::𝐣𝐥.Cint)::𝐣𝐥.Cint
@@ -5697,7 +5845,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2904](./include/clang-c/Index.h:2904:1)
+	[Index.h:2941](./include/clang-c/Index.h:2941:1)
 	""" clang_disposeCXPlatformAvailability
 	export clang_disposeCXPlatformAvailability
 	𝐣𝐥.@cextern clang_disposeCXPlatformAvailability(availability::𝐣𝐥.Ptr{CXPlatformAvailability})::𝐣𝐥.Cvoid
@@ -5707,27 +5855,27 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2909](./include/clang-c/Index.h:2909:6)
+	[Index.h:2946](./include/clang-c/Index.h:2946:6)
 	""" CXLanguageKind
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2913](./include/clang-c/Index.h:2913:3)
+	[Index.h:2950](./include/clang-c/Index.h:2950:3)
 	""" CXLanguage_CPlusPlus
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2912](./include/clang-c/Index.h:2912:3)
+	[Index.h:2949](./include/clang-c/Index.h:2949:3)
 	""" CXLanguage_ObjC
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2910](./include/clang-c/Index.h:2910:3)
+	[Index.h:2947](./include/clang-c/Index.h:2947:3)
 	""" CXLanguage_Invalid
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2911](./include/clang-c/Index.h:2911:3)
+	[Index.h:2948](./include/clang-c/Index.h:2948:3)
 	""" CXLanguage_C
 	export CXLanguageKind, CXLanguage_C, CXLanguage_CPlusPlus, CXLanguage_Invalid, CXLanguage_ObjC
 	𝐣𝐥.@cenum CXLanguageKind {
@@ -5739,39 +5887,39 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorLanguage(cursor::CXCursor)::CXLanguageKind
+	𝐣𝐥.@cextern clang_getCursorLanguage(cursor::CXCursor)::𝐣𝐥.@cenum CXLanguageKind
 	```
 	
 	 Determine the \"language\" of the entity referred to by a given cursor.
 	
 	## Reference
 	
-	[Index.h:2919](./include/clang-c/Index.h:2919:36)
+	[Index.h:2956](./include/clang-c/Index.h:2956:36)
 	""" clang_getCursorLanguage
 	export clang_getCursorLanguage
-	𝐣𝐥.@cextern clang_getCursorLanguage(cursor::CXCursor)::CXLanguageKind
+	𝐣𝐥.@cextern clang_getCursorLanguage(cursor::CXCursor)::𝐣𝐥.@cenum CXLanguageKind
 	
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2927](./include/clang-c/Index.h:2927:3)
+	[Index.h:2962](./include/clang-c/Index.h:2962:34)
 	""" CXTLS_Dynamic
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2928](./include/clang-c/Index.h:2928:3)
+	[Index.h:2962](./include/clang-c/Index.h:2962:49)
 	""" CXTLS_Static
 	𝐣𝐥.@doc """
 	 Describe the \"thread-local storage (TLS) kind\" of the declaration referred to by a cursor.
 	
 	## Reference
 	
-	[Index.h:2925](./include/clang-c/Index.h:2925:6)
+	[Index.h:2962](./include/clang-c/Index.h:2962:6)
 	""" CXTLSKind
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2926](./include/clang-c/Index.h:2926:3)
+	[Index.h:2962](./include/clang-c/Index.h:2962:18)
 	""" CXTLS_None
 	export CXTLSKind, CXTLS_Dynamic, CXTLS_None, CXTLS_Static
 	𝐣𝐥.@cenum CXTLSKind {
@@ -5782,17 +5930,17 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorTLSKind(cursor::CXCursor)::CXTLSKind
+	𝐣𝐥.@cextern clang_getCursorTLSKind(cursor::CXCursor)::𝐣𝐥.@cenum CXTLSKind
 	```
 	
 	 Determine the \"thread-local storage (TLS) kind\" of the declaration referred to by a cursor.
 	
 	## Reference
 	
-	[Index.h:2935](./include/clang-c/Index.h:2935:31)
+	[Index.h:2968](./include/clang-c/Index.h:2968:31)
 	""" clang_getCursorTLSKind
 	export clang_getCursorTLSKind
-	𝐣𝐥.@cextern clang_getCursorTLSKind(cursor::CXCursor)::CXTLSKind
+	𝐣𝐥.@cextern clang_getCursorTLSKind(cursor::CXCursor)::𝐣𝐥.@cenum CXTLSKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -5803,7 +5951,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2940](./include/clang-c/Index.h:2940:34)
+	[Index.h:2973](./include/clang-c/Index.h:2973:34)
 	""" clang_Cursor_getTranslationUnit
 	export clang_Cursor_getTranslationUnit
 	𝐣𝐥.@cextern clang_Cursor_getTranslationUnit(var"?1?"::CXCursor)::CXTranslationUnit
@@ -5811,14 +5959,14 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:2945](./include/clang-c/Index.h:2945:16)
+	[Index.h:2978](./include/clang-c/Index.h:2978:16)
 	""" CXCursorSetImpl
 	𝐣𝐥.@doc """
 	 A fast container representing a set of CXCursors.
 	
 	## Reference
 	
-	[Index.h:2945](./include/clang-c/Index.h:2945:33)
+	[Index.h:2978](./include/clang-c/Index.h:2978:33)
 	""" CXCursorSet
 	export CXCursorSet, CXCursorSetImpl
 	𝐣𝐥.@ctypedef CXCursorSet 𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXCursorSetImpl}
@@ -5832,7 +5980,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2950](./include/clang-c/Index.h:2950:28)
+	[Index.h:2983](./include/clang-c/Index.h:2983:28)
 	""" clang_createCXCursorSet
 	export clang_createCXCursorSet
 	𝐣𝐥.@cextern clang_createCXCursorSet()::CXCursorSet
@@ -5846,7 +5994,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2955](./include/clang-c/Index.h:2955:21)
+	[Index.h:2988](./include/clang-c/Index.h:2988:21)
 	""" clang_disposeCXCursorSet
 	export clang_disposeCXCursorSet
 	𝐣𝐥.@cextern clang_disposeCXCursorSet(cset::CXCursorSet)::𝐣𝐥.Cvoid
@@ -5864,7 +6012,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2962](./include/clang-c/Index.h:2962:25)
+	[Index.h:2995](./include/clang-c/Index.h:2995:25)
 	""" clang_CXCursorSet_contains
 	export clang_CXCursorSet_contains
 	𝐣𝐥.@cextern clang_CXCursorSet_contains(cset::CXCursorSet, cursor::CXCursor)::𝐣𝐥.Cuint
@@ -5882,7 +6030,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:2970](./include/clang-c/Index.h:2970:25)
+	[Index.h:3003](./include/clang-c/Index.h:3003:25)
 	""" clang_CXCursorSet_insert
 	export clang_CXCursorSet_insert
 	𝐣𝐥.@cextern clang_CXCursorSet_insert(cset::CXCursorSet, cursor::CXCursor)::𝐣𝐥.Cuint
@@ -5914,7 +6062,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3006](./include/clang-c/Index.h:3006:25)
+	[Index.h:3039](./include/clang-c/Index.h:3039:25)
 	""" clang_getCursorSemanticParent
 	export clang_getCursorSemanticParent
 	𝐣𝐥.@cextern clang_getCursorSemanticParent(cursor::CXCursor)::CXCursor
@@ -5946,7 +6094,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3042](./include/clang-c/Index.h:3042:25)
+	[Index.h:3075](./include/clang-c/Index.h:3075:25)
 	""" clang_getCursorLexicalParent
 	export clang_getCursorLexicalParent
 	𝐣𝐥.@cextern clang_getCursorLexicalParent(cursor::CXCursor)::CXCursor
@@ -5974,7 +6122,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3087](./include/clang-c/Index.h:3087:21)
+	[Index.h:3120](./include/clang-c/Index.h:3120:21)
 	""" clang_getOverriddenCursors
 	export clang_getOverriddenCursors
 	𝐣𝐥.@cextern clang_getOverriddenCursors(cursor::CXCursor, overridden::𝐣𝐥.Ptr{𝐣𝐥.Ptr{CXCursor}}, num_overridden::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cvoid
@@ -5988,7 +6136,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3095](./include/clang-c/Index.h:3095:21)
+	[Index.h:3128](./include/clang-c/Index.h:3128:21)
 	""" clang_disposeOverriddenCursors
 	export clang_disposeOverriddenCursors
 	𝐣𝐥.@cextern clang_disposeOverriddenCursors(overridden::𝐣𝐥.Ptr{CXCursor})::𝐣𝐥.Cvoid
@@ -6002,7 +6150,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3101](./include/clang-c/Index.h:3101:23)
+	[Index.h:3134](./include/clang-c/Index.h:3134:23)
 	""" clang_getIncludedFile
 	export clang_getIncludedFile
 	𝐣𝐥.@cextern clang_getIncludedFile(cursor::CXCursor)::CXFile
@@ -6024,7 +6172,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3133](./include/clang-c/Index.h:3133:25)
+	[Index.h:3166](./include/clang-c/Index.h:3166:25)
 	""" clang_getCursor
 	export clang_getCursor
 	𝐣𝐥.@cextern clang_getCursor(var"?1?"::CXTranslationUnit, var"?2?"::CXSourceLocation)::CXCursor
@@ -6042,7 +6190,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3145](./include/clang-c/Index.h:3145:33)
+	[Index.h:3178](./include/clang-c/Index.h:3178:33)
 	""" clang_getCursorLocation
 	export clang_getCursorLocation
 	𝐣𝐥.@cextern clang_getCursorLocation(var"?1?"::CXCursor)::CXSourceLocation
@@ -6060,7 +6208,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3158](./include/clang-c/Index.h:3158:30)
+	[Index.h:3191](./include/clang-c/Index.h:3191:30)
 	""" clang_getCursorExtent
 	export clang_getCursorExtent
 	𝐣𝐥.@cextern clang_getCursorExtent(var"?1?"::CXCursor)::CXSourceRange
@@ -6070,28 +6218,28 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3244](./include/clang-c/Index.h:3244:3)
+	[Index.h:3278](./include/clang-c/Index.h:3278:3)
 	""" CXType_Auto
 	𝐣𝐥.@doc """
 	 Describes the kind of type
 	
 	## Reference
 	
-	[Index.h:3173](./include/clang-c/Index.h:3173:6)
+	[Index.h:3206](./include/clang-c/Index.h:3206:6)
 	""" CXTypeKind
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3221](./include/clang-c/Index.h:3221:3)
+	[Index.h:3254](./include/clang-c/Index.h:3254:3)
 	""" CXType_UAccum
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3229](./include/clang-c/Index.h:3229:3)
+	[Index.h:3263](./include/clang-c/Index.h:3263:3)
 	""" CXType_LValueReference
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6102,14 +6250,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3305](./include/clang-c/Index.h:3305:3)
+	[Index.h:3339](./include/clang-c/Index.h:3339:3)
 	""" CXType_OCLIntelSubgroupAVCSicPayload
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3224](./include/clang-c/Index.h:3224:3)
+	[Index.h:3258](./include/clang-c/Index.h:3258:3)
 	""" CXType_LastBuiltin
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6120,21 +6268,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3257](./include/clang-c/Index.h:3257:3)
+	[Index.h:3291](./include/clang-c/Index.h:3291:3)
 	""" CXType_OCLImage1dRO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3232](./include/clang-c/Index.h:3232:3)
+	[Index.h:3266](./include/clang-c/Index.h:3266:3)
 	""" CXType_Enum
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3210](./include/clang-c/Index.h:3210:3)
+	[Index.h:3243](./include/clang-c/Index.h:3243:3)
 	""" CXType_Dependent
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6145,21 +6293,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3285](./include/clang-c/Index.h:3285:3)
+	[Index.h:3319](./include/clang-c/Index.h:3319:3)
 	""" CXType_OCLImage2dArrayRW
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3213](./include/clang-c/Index.h:3213:3)
+	[Index.h:3246](./include/clang-c/Index.h:3246:3)
 	""" CXType_ObjCSel
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3228](./include/clang-c/Index.h:3228:3)
+	[Index.h:3262](./include/clang-c/Index.h:3262:3)
 	""" CXType_BlockPointer
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6170,7 +6318,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3298](./include/clang-c/Index.h:3298:3)
+	[Index.h:3332](./include/clang-c/Index.h:3332:3)
 	""" CXType_ObjCObject
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6181,21 +6329,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3264](./include/clang-c/Index.h:3264:3)
+	[Index.h:3298](./include/clang-c/Index.h:3298:3)
 	""" CXType_OCLImage2dMSAARO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3194](./include/clang-c/Index.h:3194:3)
+	[Index.h:3227](./include/clang-c/Index.h:3227:3)
 	""" CXType_ULong
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3206](./include/clang-c/Index.h:3206:3)
+	[Index.h:3239](./include/clang-c/Index.h:3239:3)
 	""" CXType_Double
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6206,7 +6354,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3307](./include/clang-c/Index.h:3307:3)
+	[Index.h:3341](./include/clang-c/Index.h:3341:3)
 	""" CXType_OCLIntelSubgroupAVCImeResult
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6217,14 +6365,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3303](./include/clang-c/Index.h:3303:3)
+	[Index.h:3337](./include/clang-c/Index.h:3337:3)
 	""" CXType_OCLIntelSubgroupAVCImePayload
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3205](./include/clang-c/Index.h:3205:3)
+	[Index.h:3238](./include/clang-c/Index.h:3238:3)
 	""" CXType_Float
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6235,7 +6383,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3314](./include/clang-c/Index.h:3314:3)
+	[Index.h:3348](./include/clang-c/Index.h:3348:3)
 	""" CXType_OCLIntelSubgroupAVCImeDualRefStreamin
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6246,14 +6394,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3276](./include/clang-c/Index.h:3276:3)
+	[Index.h:3310](./include/clang-c/Index.h:3310:3)
 	""" CXType_OCLImage2dMSAAWO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3192](./include/clang-c/Index.h:3192:3)
+	[Index.h:3225](./include/clang-c/Index.h:3225:3)
 	""" CXType_UShort
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6264,14 +6412,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3291](./include/clang-c/Index.h:3291:3)
+	[Index.h:3325](./include/clang-c/Index.h:3325:3)
 	""" CXType_OCLImage2dArrayMSAADepthRW
 	𝐣𝐥.@doc """
 	 Represents an invalid type (e.g., where no type is available).
 	
 	## Reference
 	
-	[Index.h:3177](./include/clang-c/Index.h:3177:3)
+	[Index.h:3210](./include/clang-c/Index.h:3210:3)
 	""" CXType_Invalid
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6282,7 +6430,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3294](./include/clang-c/Index.h:3294:3)
+	[Index.h:3328](./include/clang-c/Index.h:3328:3)
 	""" CXType_OCLEvent
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6293,21 +6441,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3272](./include/clang-c/Index.h:3272:3)
+	[Index.h:3306](./include/clang-c/Index.h:3306:3)
 	""" CXType_OCLImage2dWO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3198](./include/clang-c/Index.h:3198:3)
+	[Index.h:3231](./include/clang-c/Index.h:3231:3)
 	""" CXType_SChar
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3231](./include/clang-c/Index.h:3231:3)
+	[Index.h:3265](./include/clang-c/Index.h:3265:3)
 	""" CXType_Record
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6318,7 +6466,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3269](./include/clang-c/Index.h:3269:3)
+	[Index.h:3303](./include/clang-c/Index.h:3303:3)
 	""" CXType_OCLImage1dWO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6329,14 +6477,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3302](./include/clang-c/Index.h:3302:3)
+	[Index.h:3336](./include/clang-c/Index.h:3336:3)
 	""" CXType_OCLIntelSubgroupAVCMcePayload
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3202](./include/clang-c/Index.h:3202:3)
+	[Index.h:3235](./include/clang-c/Index.h:3235:3)
 	""" CXType_Long
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6347,7 +6495,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3275](./include/clang-c/Index.h:3275:3)
+	[Index.h:3309](./include/clang-c/Index.h:3309:3)
 	""" CXType_OCLImage2dArrayDepthWO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6358,21 +6506,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3274](./include/clang-c/Index.h:3274:3)
+	[Index.h:3308](./include/clang-c/Index.h:3308:3)
 	""" CXType_OCLImage2dDepthWO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3187](./include/clang-c/Index.h:3187:3)
+	[Index.h:3220](./include/clang-c/Index.h:3220:3)
 	""" CXType_Bool
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3218](./include/clang-c/Index.h:3218:3)
+	[Index.h:3251](./include/clang-c/Index.h:3251:3)
 	""" CXType_Accum
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6383,7 +6531,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3270](./include/clang-c/Index.h:3270:3)
+	[Index.h:3304](./include/clang-c/Index.h:3304:3)
 	""" CXType_OCLImage1dArrayWO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6394,21 +6542,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3283](./include/clang-c/Index.h:3283:3)
+	[Index.h:3317](./include/clang-c/Index.h:3317:3)
 	""" CXType_OCLImage1dBufferRW
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3240](./include/clang-c/Index.h:3240:3)
+	[Index.h:3274](./include/clang-c/Index.h:3274:3)
 	""" CXType_IncompleteArray
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3190](./include/clang-c/Index.h:3190:3)
+	[Index.h:3223](./include/clang-c/Index.h:3223:3)
 	""" CXType_Char16
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6419,7 +6567,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3265](./include/clang-c/Index.h:3265:3)
+	[Index.h:3299](./include/clang-c/Index.h:3299:3)
 	""" CXType_OCLImage2dArrayMSAARO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6430,7 +6578,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3278](./include/clang-c/Index.h:3278:3)
+	[Index.h:3312](./include/clang-c/Index.h:3312:3)
 	""" CXType_OCLImage2dMSAADepthWO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6441,21 +6589,32 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3260](./include/clang-c/Index.h:3260:3)
+	[Index.h:3294](./include/clang-c/Index.h:3294:3)
 	""" CXType_OCLImage2dRO
+	𝐣𝐥.@doc """
+	 Represents a type that was referred to using an elaborated type keyword.
+	
+	## Details
+	
+	 E.g., struct S, or via a qualified name, e.g., N::M::type, or both.
+	
+	## Reference
+	
+	[Index.h:3351](./include/clang-c/Index.h:3351:3)
+	""" CXType_Atomic
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3234](./include/clang-c/Index.h:3234:3)
+	[Index.h:3268](./include/clang-c/Index.h:3268:3)
 	""" CXType_ObjCInterface
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3219](./include/clang-c/Index.h:3219:3)
+	[Index.h:3252](./include/clang-c/Index.h:3252:3)
 	""" CXType_LongAccum
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6466,14 +6625,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3292](./include/clang-c/Index.h:3292:3)
+	[Index.h:3326](./include/clang-c/Index.h:3326:3)
 	""" CXType_OCLImage3dRW
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3241](./include/clang-c/Index.h:3241:3)
+	[Index.h:3275](./include/clang-c/Index.h:3275:3)
 	""" CXType_VariableArray
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6484,21 +6643,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3311](./include/clang-c/Index.h:3311:3)
+	[Index.h:3345](./include/clang-c/Index.h:3345:3)
 	""" CXType_OCLIntelSubgroupAVCImeResultDualRefStreamout
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3230](./include/clang-c/Index.h:3230:3)
+	[Index.h:3264](./include/clang-c/Index.h:3264:3)
 	""" CXType_RValueReference
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3233](./include/clang-c/Index.h:3233:3)
+	[Index.h:3267](./include/clang-c/Index.h:3267:3)
 	""" CXType_Typedef
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6509,7 +6668,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3280](./include/clang-c/Index.h:3280:3)
+	[Index.h:3314](./include/clang-c/Index.h:3314:3)
 	""" CXType_OCLImage3dWO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6520,7 +6679,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3271](./include/clang-c/Index.h:3271:3)
+	[Index.h:3305](./include/clang-c/Index.h:3305:3)
 	""" CXType_OCLImage1dBufferWO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6531,28 +6690,35 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3306](./include/clang-c/Index.h:3306:3)
+	[Index.h:3340](./include/clang-c/Index.h:3340:3)
 	""" CXType_OCLIntelSubgroupAVCMceResult
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3183](./include/clang-c/Index.h:3183:3)
+	[Index.h:3256](./include/clang-c/Index.h:3256:3)
+	""" CXType_BFloat16
+	𝐣𝐥.@doc """
+	 A type whose specific kind is not exposed via this interface.
+	
+	## Reference
+	
+	[Index.h:3216](./include/clang-c/Index.h:3216:3)
 	""" CXType_Unexposed
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3193](./include/clang-c/Index.h:3193:3)
+	[Index.h:3226](./include/clang-c/Index.h:3226:3)
 	""" CXType_UInt
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3222](./include/clang-c/Index.h:3222:3)
+	[Index.h:3255](./include/clang-c/Index.h:3255:3)
 	""" CXType_ULongAccum
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6563,42 +6729,42 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3308](./include/clang-c/Index.h:3308:3)
+	[Index.h:3342](./include/clang-c/Index.h:3342:3)
 	""" CXType_OCLIntelSubgroupAVCRefResult
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3189](./include/clang-c/Index.h:3189:3)
+	[Index.h:3222](./include/clang-c/Index.h:3222:3)
 	""" CXType_UChar
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3197](./include/clang-c/Index.h:3197:3)
+	[Index.h:3230](./include/clang-c/Index.h:3230:3)
 	""" CXType_Char_S
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3188](./include/clang-c/Index.h:3188:3)
+	[Index.h:3221](./include/clang-c/Index.h:3221:3)
 	""" CXType_Char_U
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3215](./include/clang-c/Index.h:3215:3)
+	[Index.h:3248](./include/clang-c/Index.h:3248:3)
 	""" CXType_Half
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3207](./include/clang-c/Index.h:3207:3)
+	[Index.h:3240](./include/clang-c/Index.h:3240:3)
 	""" CXType_LongDouble
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6609,7 +6775,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3258](./include/clang-c/Index.h:3258:3)
+	[Index.h:3292](./include/clang-c/Index.h:3292:3)
 	""" CXType_OCLImage1dArrayRO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6620,7 +6786,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3281](./include/clang-c/Index.h:3281:3)
+	[Index.h:3315](./include/clang-c/Index.h:3315:3)
 	""" CXType_OCLImage1dRW
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6631,28 +6797,28 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3289](./include/clang-c/Index.h:3289:3)
+	[Index.h:3323](./include/clang-c/Index.h:3323:3)
 	""" CXType_OCLImage2dArrayMSAARW
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3204](./include/clang-c/Index.h:3204:3)
+	[Index.h:3237](./include/clang-c/Index.h:3237:3)
 	""" CXType_Int128
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3196](./include/clang-c/Index.h:3196:3)
+	[Index.h:3229](./include/clang-c/Index.h:3229:3)
 	""" CXType_UInt128
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3214](./include/clang-c/Index.h:3214:3)
+	[Index.h:3247](./include/clang-c/Index.h:3247:3)
 	""" CXType_Float128
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6663,14 +6829,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3259](./include/clang-c/Index.h:3259:3)
+	[Index.h:3293](./include/clang-c/Index.h:3293:3)
 	""" CXType_OCLImage1dBufferRO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3191](./include/clang-c/Index.h:3191:3)
+	[Index.h:3224](./include/clang-c/Index.h:3224:3)
 	""" CXType_Char32
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6681,14 +6847,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3284](./include/clang-c/Index.h:3284:3)
+	[Index.h:3318](./include/clang-c/Index.h:3318:3)
 	""" CXType_OCLImage2dRW
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3235](./include/clang-c/Index.h:3235:3)
+	[Index.h:3269](./include/clang-c/Index.h:3269:3)
 	""" CXType_ObjCObjectPointer
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6699,7 +6865,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3266](./include/clang-c/Index.h:3266:3)
+	[Index.h:3300](./include/clang-c/Index.h:3300:3)
 	""" CXType_OCLImage2dMSAADepthRO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6710,14 +6876,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3290](./include/clang-c/Index.h:3290:3)
+	[Index.h:3324](./include/clang-c/Index.h:3324:3)
 	""" CXType_OCLImage2dMSAADepthRW
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3227](./include/clang-c/Index.h:3227:3)
+	[Index.h:3261](./include/clang-c/Index.h:3261:3)
 	""" CXType_Pointer
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6728,7 +6894,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3261](./include/clang-c/Index.h:3261:3)
+	[Index.h:3295](./include/clang-c/Index.h:3295:3)
 	""" CXType_OCLImage2dArrayRO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6739,7 +6905,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3282](./include/clang-c/Index.h:3282:3)
+	[Index.h:3316](./include/clang-c/Index.h:3316:3)
 	""" CXType_OCLImage1dArrayRW
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6750,21 +6916,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3286](./include/clang-c/Index.h:3286:3)
+	[Index.h:3320](./include/clang-c/Index.h:3320:3)
 	""" CXType_OCLImage2dDepthRW
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3236](./include/clang-c/Index.h:3236:3)
+	[Index.h:3270](./include/clang-c/Index.h:3270:3)
 	""" CXType_FunctionNoProto
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3195](./include/clang-c/Index.h:3195:3)
+	[Index.h:3228](./include/clang-c/Index.h:3228:3)
 	""" CXType_ULongLong
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6775,14 +6941,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3254](./include/clang-c/Index.h:3254:3)
+	[Index.h:3288](./include/clang-c/Index.h:3288:3)
 	""" CXType_Pipe
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3200](./include/clang-c/Index.h:3200:3)
+	[Index.h:3233](./include/clang-c/Index.h:3233:3)
 	""" CXType_Short
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6793,14 +6959,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3312](./include/clang-c/Index.h:3312:3)
+	[Index.h:3346](./include/clang-c/Index.h:3346:3)
 	""" CXType_OCLIntelSubgroupAVCImeSingleRefStreamin
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3186](./include/clang-c/Index.h:3186:3)
+	[Index.h:3219](./include/clang-c/Index.h:3219:3)
 	""" CXType_Void
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6811,35 +6977,35 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3251](./include/clang-c/Index.h:3251:3)
+	[Index.h:3285](./include/clang-c/Index.h:3285:3)
 	""" CXType_Elaborated
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3211](./include/clang-c/Index.h:3211:3)
+	[Index.h:3244](./include/clang-c/Index.h:3244:3)
 	""" CXType_ObjCId
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3226](./include/clang-c/Index.h:3226:3)
+	[Index.h:3260](./include/clang-c/Index.h:3260:3)
 	""" CXType_Complex
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3217](./include/clang-c/Index.h:3217:3)
+	[Index.h:3250](./include/clang-c/Index.h:3250:3)
 	""" CXType_ShortAccum
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3242](./include/clang-c/Index.h:3242:3)
+	[Index.h:3276](./include/clang-c/Index.h:3276:3)
 	""" CXType_DependentSizedArray
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6850,21 +7016,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3277](./include/clang-c/Index.h:3277:3)
+	[Index.h:3311](./include/clang-c/Index.h:3311:3)
 	""" CXType_OCLImage2dArrayMSAAWO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3238](./include/clang-c/Index.h:3238:3)
+	[Index.h:3272](./include/clang-c/Index.h:3272:3)
 	""" CXType_ConstantArray
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3209](./include/clang-c/Index.h:3209:3)
+	[Index.h:3242](./include/clang-c/Index.h:3242:3)
 	""" CXType_Overload
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6875,7 +7041,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3279](./include/clang-c/Index.h:3279:3)
+	[Index.h:3313](./include/clang-c/Index.h:3313:3)
 	""" CXType_OCLImage2dArrayMSAADepthWO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6886,7 +7052,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3295](./include/clang-c/Index.h:3295:3)
+	[Index.h:3329](./include/clang-c/Index.h:3329:3)
 	""" CXType_OCLQueue
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6897,7 +7063,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3267](./include/clang-c/Index.h:3267:3)
+	[Index.h:3301](./include/clang-c/Index.h:3301:3)
 	""" CXType_OCLImage2dArrayMSAADepthRO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6908,14 +7074,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3288](./include/clang-c/Index.h:3288:3)
+	[Index.h:3322](./include/clang-c/Index.h:3322:3)
 	""" CXType_OCLImage2dMSAARW
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3237](./include/clang-c/Index.h:3237:3)
+	[Index.h:3271](./include/clang-c/Index.h:3271:3)
 	""" CXType_FunctionProto
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6926,7 +7092,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3296](./include/clang-c/Index.h:3296:3)
+	[Index.h:3330](./include/clang-c/Index.h:3330:3)
 	""" CXType_OCLReserveID
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6937,7 +7103,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3268](./include/clang-c/Index.h:3268:3)
+	[Index.h:3302](./include/clang-c/Index.h:3302:3)
 	""" CXType_OCLImage3dRO
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6948,21 +7114,32 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3293](./include/clang-c/Index.h:3293:3)
+	[Index.h:3350](./include/clang-c/Index.h:3350:3)
+	""" CXType_ExtVector
+	𝐣𝐥.@doc """
+	 Represents a type that was referred to using an elaborated type keyword.
+	
+	## Details
+	
+	 E.g., struct S, or via a qualified name, e.g., N::M::type, or both.
+	
+	## Reference
+	
+	[Index.h:3327](./include/clang-c/Index.h:3327:3)
 	""" CXType_OCLSampler
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3220](./include/clang-c/Index.h:3220:3)
+	[Index.h:3253](./include/clang-c/Index.h:3253:3)
 	""" CXType_UShortAccum
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3216](./include/clang-c/Index.h:3216:3)
+	[Index.h:3249](./include/clang-c/Index.h:3249:3)
 	""" CXType_Float16
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6973,14 +7150,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3287](./include/clang-c/Index.h:3287:3)
+	[Index.h:3321](./include/clang-c/Index.h:3321:3)
 	""" CXType_OCLImage2dArrayDepthRW
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3203](./include/clang-c/Index.h:3203:3)
+	[Index.h:3236](./include/clang-c/Index.h:3236:3)
 	""" CXType_LongLong
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -6991,21 +7168,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3263](./include/clang-c/Index.h:3263:3)
+	[Index.h:3297](./include/clang-c/Index.h:3297:3)
 	""" CXType_OCLImage2dArrayDepthRO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3243](./include/clang-c/Index.h:3243:3)
+	[Index.h:3277](./include/clang-c/Index.h:3277:3)
 	""" CXType_MemberPointer
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3223](./include/clang-c/Index.h:3223:3)
+	[Index.h:3257](./include/clang-c/Index.h:3257:3)
 	""" CXType_FirstBuiltin
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -7016,28 +7193,28 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3273](./include/clang-c/Index.h:3273:3)
+	[Index.h:3307](./include/clang-c/Index.h:3307:3)
 	""" CXType_OCLImage2dArrayWO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3208](./include/clang-c/Index.h:3208:3)
+	[Index.h:3241](./include/clang-c/Index.h:3241:3)
 	""" CXType_NullPtr
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3201](./include/clang-c/Index.h:3201:3)
+	[Index.h:3234](./include/clang-c/Index.h:3234:3)
 	""" CXType_Int
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3212](./include/clang-c/Index.h:3212:3)
+	[Index.h:3245](./include/clang-c/Index.h:3245:3)
 	""" CXType_ObjCClass
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -7048,21 +7225,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3262](./include/clang-c/Index.h:3262:3)
+	[Index.h:3296](./include/clang-c/Index.h:3296:3)
 	""" CXType_OCLImage2dDepthRO
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3199](./include/clang-c/Index.h:3199:3)
+	[Index.h:3232](./include/clang-c/Index.h:3232:3)
 	""" CXType_WChar
 	𝐣𝐥.@doc """
 	 A type whose specific kind is not exposed via this interface.
 	
 	## Reference
 	
-	[Index.h:3239](./include/clang-c/Index.h:3239:3)
+	[Index.h:3273](./include/clang-c/Index.h:3273:3)
 	""" CXType_Vector
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -7073,7 +7250,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3299](./include/clang-c/Index.h:3299:3)
+	[Index.h:3333](./include/clang-c/Index.h:3333:3)
 	""" CXType_ObjCTypeParam
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -7084,7 +7261,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3309](./include/clang-c/Index.h:3309:3)
+	[Index.h:3343](./include/clang-c/Index.h:3343:3)
 	""" CXType_OCLIntelSubgroupAVCSicResult
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -7095,7 +7272,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3310](./include/clang-c/Index.h:3310:3)
+	[Index.h:3344](./include/clang-c/Index.h:3344:3)
 	""" CXType_OCLIntelSubgroupAVCImeResultSingleRefStreamout
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -7106,7 +7283,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3304](./include/clang-c/Index.h:3304:3)
+	[Index.h:3338](./include/clang-c/Index.h:3338:3)
 	""" CXType_OCLIntelSubgroupAVCRefPayload
 	𝐣𝐥.@doc """
 	 Represents a type that was referred to using an elaborated type keyword.
@@ -7117,9 +7294,9 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3300](./include/clang-c/Index.h:3300:3)
+	[Index.h:3334](./include/clang-c/Index.h:3334:3)
 	""" CXType_Attributed
-	export CXTypeKind, CXType_Accum, CXType_Attributed, CXType_Auto, CXType_BlockPointer, CXType_Bool, CXType_Char16, CXType_Char32, CXType_Char_S, CXType_Char_U, CXType_Complex, CXType_ConstantArray, CXType_Dependent, CXType_DependentSizedArray, CXType_Double, CXType_Elaborated, CXType_Enum, CXType_FirstBuiltin, CXType_Float, CXType_Float128, CXType_Float16, CXType_FunctionNoProto, CXType_FunctionProto, CXType_Half, CXType_IncompleteArray, CXType_Int, CXType_Int128, CXType_Invalid, CXType_LValueReference, CXType_LastBuiltin, CXType_Long, CXType_LongAccum, CXType_LongDouble, CXType_LongLong, CXType_MemberPointer, CXType_NullPtr, CXType_OCLEvent, CXType_OCLImage1dArrayRO, CXType_OCLImage1dArrayRW, CXType_OCLImage1dArrayWO, CXType_OCLImage1dBufferRO, CXType_OCLImage1dBufferRW, CXType_OCLImage1dBufferWO, CXType_OCLImage1dRO, CXType_OCLImage1dRW, CXType_OCLImage1dWO, CXType_OCLImage2dArrayDepthRO, CXType_OCLImage2dArrayDepthRW, CXType_OCLImage2dArrayDepthWO, CXType_OCLImage2dArrayMSAADepthRO, CXType_OCLImage2dArrayMSAADepthRW, CXType_OCLImage2dArrayMSAADepthWO, CXType_OCLImage2dArrayMSAARO, CXType_OCLImage2dArrayMSAARW, CXType_OCLImage2dArrayMSAAWO, CXType_OCLImage2dArrayRO, CXType_OCLImage2dArrayRW, CXType_OCLImage2dArrayWO, CXType_OCLImage2dDepthRO, CXType_OCLImage2dDepthRW, CXType_OCLImage2dDepthWO, CXType_OCLImage2dMSAADepthRO, CXType_OCLImage2dMSAADepthRW, CXType_OCLImage2dMSAADepthWO, CXType_OCLImage2dMSAARO, CXType_OCLImage2dMSAARW, CXType_OCLImage2dMSAAWO, CXType_OCLImage2dRO, CXType_OCLImage2dRW, CXType_OCLImage2dWO, CXType_OCLImage3dRO, CXType_OCLImage3dRW, CXType_OCLImage3dWO, CXType_OCLIntelSubgroupAVCImeDualRefStreamin, CXType_OCLIntelSubgroupAVCImePayload, CXType_OCLIntelSubgroupAVCImeResult, CXType_OCLIntelSubgroupAVCImeResultDualRefStreamout, CXType_OCLIntelSubgroupAVCImeResultSingleRefStreamout, CXType_OCLIntelSubgroupAVCImeSingleRefStreamin, CXType_OCLIntelSubgroupAVCMcePayload, CXType_OCLIntelSubgroupAVCMceResult, CXType_OCLIntelSubgroupAVCRefPayload, CXType_OCLIntelSubgroupAVCRefResult, CXType_OCLIntelSubgroupAVCSicPayload, CXType_OCLIntelSubgroupAVCSicResult, CXType_OCLQueue, CXType_OCLReserveID, CXType_OCLSampler, CXType_ObjCClass, CXType_ObjCId, CXType_ObjCInterface, CXType_ObjCObject, CXType_ObjCObjectPointer, CXType_ObjCSel, CXType_ObjCTypeParam, CXType_Overload, CXType_Pipe, CXType_Pointer, CXType_RValueReference, CXType_Record, CXType_SChar, CXType_Short, CXType_ShortAccum, CXType_Typedef, CXType_UAccum, CXType_UChar, CXType_UInt, CXType_UInt128, CXType_ULong, CXType_ULongAccum, CXType_ULongLong, CXType_UShort, CXType_UShortAccum, CXType_Unexposed, CXType_VariableArray, CXType_Vector, CXType_Void, CXType_WChar
+	export CXTypeKind, CXType_Accum, CXType_Atomic, CXType_Attributed, CXType_Auto, CXType_BFloat16, CXType_BlockPointer, CXType_Bool, CXType_Char16, CXType_Char32, CXType_Char_S, CXType_Char_U, CXType_Complex, CXType_ConstantArray, CXType_Dependent, CXType_DependentSizedArray, CXType_Double, CXType_Elaborated, CXType_Enum, CXType_ExtVector, CXType_FirstBuiltin, CXType_Float, CXType_Float128, CXType_Float16, CXType_FunctionNoProto, CXType_FunctionProto, CXType_Half, CXType_IncompleteArray, CXType_Int, CXType_Int128, CXType_Invalid, CXType_LValueReference, CXType_LastBuiltin, CXType_Long, CXType_LongAccum, CXType_LongDouble, CXType_LongLong, CXType_MemberPointer, CXType_NullPtr, CXType_OCLEvent, CXType_OCLImage1dArrayRO, CXType_OCLImage1dArrayRW, CXType_OCLImage1dArrayWO, CXType_OCLImage1dBufferRO, CXType_OCLImage1dBufferRW, CXType_OCLImage1dBufferWO, CXType_OCLImage1dRO, CXType_OCLImage1dRW, CXType_OCLImage1dWO, CXType_OCLImage2dArrayDepthRO, CXType_OCLImage2dArrayDepthRW, CXType_OCLImage2dArrayDepthWO, CXType_OCLImage2dArrayMSAADepthRO, CXType_OCLImage2dArrayMSAADepthRW, CXType_OCLImage2dArrayMSAADepthWO, CXType_OCLImage2dArrayMSAARO, CXType_OCLImage2dArrayMSAARW, CXType_OCLImage2dArrayMSAAWO, CXType_OCLImage2dArrayRO, CXType_OCLImage2dArrayRW, CXType_OCLImage2dArrayWO, CXType_OCLImage2dDepthRO, CXType_OCLImage2dDepthRW, CXType_OCLImage2dDepthWO, CXType_OCLImage2dMSAADepthRO, CXType_OCLImage2dMSAADepthRW, CXType_OCLImage2dMSAADepthWO, CXType_OCLImage2dMSAARO, CXType_OCLImage2dMSAARW, CXType_OCLImage2dMSAAWO, CXType_OCLImage2dRO, CXType_OCLImage2dRW, CXType_OCLImage2dWO, CXType_OCLImage3dRO, CXType_OCLImage3dRW, CXType_OCLImage3dWO, CXType_OCLIntelSubgroupAVCImeDualRefStreamin, CXType_OCLIntelSubgroupAVCImePayload, CXType_OCLIntelSubgroupAVCImeResult, CXType_OCLIntelSubgroupAVCImeResultDualRefStreamout, CXType_OCLIntelSubgroupAVCImeResultSingleRefStreamout, CXType_OCLIntelSubgroupAVCImeSingleRefStreamin, CXType_OCLIntelSubgroupAVCMcePayload, CXType_OCLIntelSubgroupAVCMceResult, CXType_OCLIntelSubgroupAVCRefPayload, CXType_OCLIntelSubgroupAVCRefResult, CXType_OCLIntelSubgroupAVCSicPayload, CXType_OCLIntelSubgroupAVCSicResult, CXType_OCLQueue, CXType_OCLReserveID, CXType_OCLSampler, CXType_ObjCClass, CXType_ObjCId, CXType_ObjCInterface, CXType_ObjCObject, CXType_ObjCObjectPointer, CXType_ObjCSel, CXType_ObjCTypeParam, CXType_Overload, CXType_Pipe, CXType_Pointer, CXType_RValueReference, CXType_Record, CXType_SChar, CXType_Short, CXType_ShortAccum, CXType_Typedef, CXType_UAccum, CXType_UChar, CXType_UInt, CXType_UInt128, CXType_ULong, CXType_ULongAccum, CXType_ULongLong, CXType_UShort, CXType_UShortAccum, CXType_Unexposed, CXType_VariableArray, CXType_Vector, CXType_Void, CXType_WChar
 	𝐣𝐥.@cenum CXTypeKind {
 		CXType_Invalid = 𝐣𝐥.Cuint(0)
 		CXType_Unexposed = 𝐣𝐥.Cuint(1)
@@ -7160,8 +7337,9 @@ using CBinding: 𝐣𝐥
 		CXType_UShortAccum = 𝐣𝐥.Cuint(36)
 		CXType_UAccum = 𝐣𝐥.Cuint(37)
 		CXType_ULongAccum = 𝐣𝐥.Cuint(38)
+		CXType_BFloat16 = 𝐣𝐥.Cuint(39)
 		CXType_FirstBuiltin = 𝐣𝐥.Cuint(2)
-		CXType_LastBuiltin = 𝐣𝐥.Cuint(38)
+		CXType_LastBuiltin = 𝐣𝐥.Cuint(39)
 		CXType_Complex = 𝐣𝐥.Cuint(100)
 		CXType_Pointer = 𝐣𝐥.Cuint(101)
 		CXType_BlockPointer = 𝐣𝐥.Cuint(102)
@@ -7238,114 +7416,116 @@ using CBinding: 𝐣𝐥
 		CXType_OCLIntelSubgroupAVCImeResultDualRefStreamout = 𝐣𝐥.Cuint(173)
 		CXType_OCLIntelSubgroupAVCImeSingleRefStreamin = 𝐣𝐥.Cuint(174)
 		CXType_OCLIntelSubgroupAVCImeDualRefStreamin = 𝐣𝐥.Cuint(175)
+		CXType_ExtVector = 𝐣𝐥.Cuint(176)
+		CXType_Atomic = 𝐣𝐥.Cuint(177)
 	}
 	
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3331](./include/clang-c/Index.h:3331:3)
+	[Index.h:3368](./include/clang-c/Index.h:3368:3)
 	""" CXCallingConv_Win64
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3324](./include/clang-c/Index.h:3324:3)
+	[Index.h:3361](./include/clang-c/Index.h:3361:3)
 	""" CXCallingConv_X86FastCall
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3336](./include/clang-c/Index.h:3336:3)
+	[Index.h:3373](./include/clang-c/Index.h:3373:3)
 	""" CXCallingConv_Swift
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3321](./include/clang-c/Index.h:3321:3)
+	[Index.h:3358](./include/clang-c/Index.h:3358:3)
 	""" CXCallingConv_Default
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3327](./include/clang-c/Index.h:3327:3)
+	[Index.h:3364](./include/clang-c/Index.h:3364:3)
 	""" CXCallingConv_AAPCS
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3335](./include/clang-c/Index.h:3335:3)
+	[Index.h:3372](./include/clang-c/Index.h:3372:3)
 	""" CXCallingConv_X86VectorCall
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3334](./include/clang-c/Index.h:3334:3)
+	[Index.h:3371](./include/clang-c/Index.h:3371:3)
 	""" CXCallingConv_X86_64SysV
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3338](./include/clang-c/Index.h:3338:3)
+	[Index.h:3375](./include/clang-c/Index.h:3375:3)
 	""" CXCallingConv_PreserveAll
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3329](./include/clang-c/Index.h:3329:3)
+	[Index.h:3366](./include/clang-c/Index.h:3366:3)
 	""" CXCallingConv_X86RegCall
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3330](./include/clang-c/Index.h:3330:3)
+	[Index.h:3367](./include/clang-c/Index.h:3367:3)
 	""" CXCallingConv_IntelOclBicc
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3341](./include/clang-c/Index.h:3341:3)
+	[Index.h:3378](./include/clang-c/Index.h:3378:3)
 	""" CXCallingConv_Invalid
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3325](./include/clang-c/Index.h:3325:3)
+	[Index.h:3362](./include/clang-c/Index.h:3362:3)
 	""" CXCallingConv_X86ThisCall
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3322](./include/clang-c/Index.h:3322:3)
+	[Index.h:3359](./include/clang-c/Index.h:3359:3)
 	""" CXCallingConv_C
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3326](./include/clang-c/Index.h:3326:3)
+	[Index.h:3363](./include/clang-c/Index.h:3363:3)
 	""" CXCallingConv_X86Pascal
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3328](./include/clang-c/Index.h:3328:3)
+	[Index.h:3365](./include/clang-c/Index.h:3365:3)
 	""" CXCallingConv_AAPCS_VFP
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3333](./include/clang-c/Index.h:3333:3)
+	[Index.h:3370](./include/clang-c/Index.h:3370:3)
 	""" CXCallingConv_X86_64Win64
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3339](./include/clang-c/Index.h:3339:3)
+	[Index.h:3376](./include/clang-c/Index.h:3376:3)
 	""" CXCallingConv_AArch64VectorCall
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3323](./include/clang-c/Index.h:3323:3)
+	[Index.h:3360](./include/clang-c/Index.h:3360:3)
 	""" CXCallingConv_X86StdCall
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3337](./include/clang-c/Index.h:3337:3)
+	[Index.h:3374](./include/clang-c/Index.h:3374:3)
 	""" CXCallingConv_PreserveMost
 	𝐣𝐥.@doc """
 	 Describes the calling convention of a function type
 	
 	## Reference
 	
-	[Index.h:3320](./include/clang-c/Index.h:3320:6)
+	[Index.h:3357](./include/clang-c/Index.h:3357:6)
 	""" CXCallingConv
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3342](./include/clang-c/Index.h:3342:3)
+	[Index.h:3379](./include/clang-c/Index.h:3379:3)
 	""" CXCallingConv_Unexposed
 	export CXCallingConv, CXCallingConv_AAPCS, CXCallingConv_AAPCS_VFP, CXCallingConv_AArch64VectorCall, CXCallingConv_C, CXCallingConv_Default, CXCallingConv_IntelOclBicc, CXCallingConv_Invalid, CXCallingConv_PreserveAll, CXCallingConv_PreserveMost, CXCallingConv_Swift, CXCallingConv_Unexposed, CXCallingConv_Win64, CXCallingConv_X86FastCall, CXCallingConv_X86Pascal, CXCallingConv_X86RegCall, CXCallingConv_X86StdCall, CXCallingConv_X86ThisCall, CXCallingConv_X86VectorCall, CXCallingConv_X86_64SysV, CXCallingConv_X86_64Win64
 	𝐣𝐥.@cenum CXCallingConv {
@@ -7376,11 +7556,11 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3352](./include/clang-c/Index.h:3352:3)
+	[Index.h:3389](./include/clang-c/Index.h:3389:3)
 	""" CXType
 	export CXType
 	𝐣𝐥.@ctypedef CXType 𝐣𝐥.@cstruct {
-		kind::CXTypeKind
+		kind::𝐣𝐥.@cenum CXTypeKind
 		data::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}[2]
 	}
 	
@@ -7393,7 +7573,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3357](./include/clang-c/Index.h:3357:23)
+	[Index.h:3394](./include/clang-c/Index.h:3394:23)
 	""" clang_getCursorType
 	export clang_getCursorType
 	𝐣𝐥.@cextern clang_getCursorType(C::CXCursor)::CXType
@@ -7411,7 +7591,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3365](./include/clang-c/Index.h:3365:25)
+	[Index.h:3402](./include/clang-c/Index.h:3402:25)
 	""" clang_getTypeSpelling
 	export clang_getTypeSpelling
 	𝐣𝐥.@cextern clang_getTypeSpelling(CT::CXType)::CXString
@@ -7429,7 +7609,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3373](./include/clang-c/Index.h:3373:23)
+	[Index.h:3410](./include/clang-c/Index.h:3410:23)
 	""" clang_getTypedefDeclUnderlyingType
 	export clang_getTypedefDeclUnderlyingType
 	𝐣𝐥.@cextern clang_getTypedefDeclUnderlyingType(C::CXCursor)::CXType
@@ -7447,7 +7627,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3381](./include/clang-c/Index.h:3381:23)
+	[Index.h:3418](./include/clang-c/Index.h:3418:23)
 	""" clang_getEnumDeclIntegerType
 	export clang_getEnumDeclIntegerType
 	𝐣𝐥.@cextern clang_getEnumDeclIntegerType(C::CXCursor)::CXType
@@ -7465,7 +7645,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3391](./include/clang-c/Index.h:3391:26)
+	[Index.h:3428](./include/clang-c/Index.h:3428:26)
 	""" clang_getEnumConstantDeclValue
 	export clang_getEnumConstantDeclValue
 	𝐣𝐥.@cextern clang_getEnumConstantDeclValue(C::CXCursor)::𝐣𝐥.Clonglong
@@ -7483,7 +7663,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3401](./include/clang-c/Index.h:3401:35)
+	[Index.h:3439](./include/clang-c/Index.h:3439:1)
 	""" clang_getEnumConstantDeclUnsignedValue
 	export clang_getEnumConstantDeclUnsignedValue
 	𝐣𝐥.@cextern clang_getEnumConstantDeclUnsignedValue(C::CXCursor)::𝐣𝐥.Culonglong
@@ -7501,7 +7681,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3408](./include/clang-c/Index.h:3408:20)
+	[Index.h:3446](./include/clang-c/Index.h:3446:20)
 	""" clang_getFieldDeclBitWidth
 	export clang_getFieldDeclBitWidth
 	𝐣𝐥.@cextern clang_getFieldDeclBitWidth(C::CXCursor)::𝐣𝐥.Cint
@@ -7519,7 +7699,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3417](./include/clang-c/Index.h:3417:20)
+	[Index.h:3455](./include/clang-c/Index.h:3455:20)
 	""" clang_Cursor_getNumArguments
 	export clang_Cursor_getNumArguments
 	𝐣𝐥.@cextern clang_Cursor_getNumArguments(C::CXCursor)::𝐣𝐥.Cint
@@ -7537,7 +7717,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3426](./include/clang-c/Index.h:3426:25)
+	[Index.h:3464](./include/clang-c/Index.h:3464:25)
 	""" clang_Cursor_getArgument
 	export clang_Cursor_getArgument
 	𝐣𝐥.@cextern clang_Cursor_getArgument(C::CXCursor, i::𝐣𝐥.Cuint)::CXCursor
@@ -7545,22 +7725,22 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3436](./include/clang-c/Index.h:3436:3)
+	[Index.h:3474](./include/clang-c/Index.h:3474:3)
 	""" CXTemplateArgumentKind_Type
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3437](./include/clang-c/Index.h:3437:3)
+	[Index.h:3475](./include/clang-c/Index.h:3475:3)
 	""" CXTemplateArgumentKind_Declaration
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3443](./include/clang-c/Index.h:3443:3)
+	[Index.h:3481](./include/clang-c/Index.h:3481:3)
 	""" CXTemplateArgumentKind_Pack
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3442](./include/clang-c/Index.h:3442:3)
+	[Index.h:3480](./include/clang-c/Index.h:3480:3)
 	""" CXTemplateArgumentKind_Expression
 	𝐣𝐥.@doc """
 	 Describes the kind of a template argument.
@@ -7571,37 +7751,37 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3434](./include/clang-c/Index.h:3434:6)
+	[Index.h:3472](./include/clang-c/Index.h:3472:6)
 	""" CXTemplateArgumentKind
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3440](./include/clang-c/Index.h:3440:3)
+	[Index.h:3478](./include/clang-c/Index.h:3478:3)
 	""" CXTemplateArgumentKind_Template
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3435](./include/clang-c/Index.h:3435:3)
+	[Index.h:3473](./include/clang-c/Index.h:3473:3)
 	""" CXTemplateArgumentKind_Null
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3441](./include/clang-c/Index.h:3441:3)
+	[Index.h:3479](./include/clang-c/Index.h:3479:3)
 	""" CXTemplateArgumentKind_TemplateExpansion
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3445](./include/clang-c/Index.h:3445:3)
+	[Index.h:3483](./include/clang-c/Index.h:3483:3)
 	""" CXTemplateArgumentKind_Invalid
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3438](./include/clang-c/Index.h:3438:3)
+	[Index.h:3476](./include/clang-c/Index.h:3476:3)
 	""" CXTemplateArgumentKind_NullPtr
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3439](./include/clang-c/Index.h:3439:3)
+	[Index.h:3477](./include/clang-c/Index.h:3477:3)
 	""" CXTemplateArgumentKind_Integral
 	export CXTemplateArgumentKind, CXTemplateArgumentKind_Declaration, CXTemplateArgumentKind_Expression, CXTemplateArgumentKind_Integral, CXTemplateArgumentKind_Invalid, CXTemplateArgumentKind_Null, CXTemplateArgumentKind_NullPtr, CXTemplateArgumentKind_Pack, CXTemplateArgumentKind_Template, CXTemplateArgumentKind_TemplateExpansion, CXTemplateArgumentKind_Type
 	𝐣𝐥.@cenum CXTemplateArgumentKind {
@@ -7636,14 +7816,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3464](./include/clang-c/Index.h:3464:20)
+	[Index.h:3502](./include/clang-c/Index.h:3502:20)
 	""" clang_Cursor_getNumTemplateArguments
 	export clang_Cursor_getNumTemplateArguments
 	𝐣𝐥.@cextern clang_Cursor_getNumTemplateArguments(C::CXCursor)::𝐣𝐥.Cint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentKind(C::CXCursor, I::𝐣𝐥.Cuint)::CXTemplateArgumentKind
+	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentKind(C::CXCursor, I::𝐣𝐥.Cuint)::𝐣𝐥.@cenum CXTemplateArgumentKind
 	```
 	
 	 Retrieve the kind of the I'th template argument of the CXCursor C.
@@ -7660,10 +7840,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3482](./include/clang-c/Index.h:3482:44)
+	[Index.h:3521](./include/clang-c/Index.h:3521:1)
 	""" clang_Cursor_getTemplateArgumentKind
 	export clang_Cursor_getTemplateArgumentKind
-	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentKind(C::CXCursor, I::𝐣𝐥.Cuint)::CXTemplateArgumentKind
+	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentKind(C::CXCursor, I::𝐣𝐥.Cuint)::𝐣𝐥.@cenum CXTemplateArgumentKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -7684,7 +7864,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3503](./include/clang-c/Index.h:3503:23)
+	[Index.h:3541](./include/clang-c/Index.h:3541:23)
 	""" clang_Cursor_getTemplateArgumentType
 	export clang_Cursor_getTemplateArgumentType
 	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentType(C::CXCursor, I::𝐣𝐥.Cuint)::CXType
@@ -7708,7 +7888,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3523](./include/clang-c/Index.h:3523:26)
+	[Index.h:3561](./include/clang-c/Index.h:3561:26)
 	""" clang_Cursor_getTemplateArgumentValue
 	export clang_Cursor_getTemplateArgumentValue
 	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentValue(C::CXCursor, I::𝐣𝐥.Cuint)::𝐣𝐥.Clonglong
@@ -7732,7 +7912,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3543](./include/clang-c/Index.h:3543:35)
+	[Index.h:3582](./include/clang-c/Index.h:3582:1)
 	""" clang_Cursor_getTemplateArgumentUnsignedValue
 	export clang_Cursor_getTemplateArgumentUnsignedValue
 	𝐣𝐥.@cextern clang_Cursor_getTemplateArgumentUnsignedValue(C::CXCursor, I::𝐣𝐥.Cuint)::𝐣𝐥.Culonglong
@@ -7750,7 +7930,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3552](./include/clang-c/Index.h:3552:25)
+	[Index.h:3590](./include/clang-c/Index.h:3590:25)
 	""" clang_equalTypes
 	export clang_equalTypes
 	𝐣𝐥.@cextern clang_equalTypes(A::CXType, B::CXType)::𝐣𝐥.Cuint
@@ -7768,7 +7948,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3562](./include/clang-c/Index.h:3562:23)
+	[Index.h:3600](./include/clang-c/Index.h:3600:23)
 	""" clang_getCanonicalType
 	export clang_getCanonicalType
 	𝐣𝐥.@cextern clang_getCanonicalType(T::CXType)::CXType
@@ -7782,7 +7962,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3569](./include/clang-c/Index.h:3569:25)
+	[Index.h:3607](./include/clang-c/Index.h:3607:25)
 	""" clang_isConstQualifiedType
 	export clang_isConstQualifiedType
 	𝐣𝐥.@cextern clang_isConstQualifiedType(T::CXType)::𝐣𝐥.Cuint
@@ -7796,7 +7976,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3575](./include/clang-c/Index.h:3575:25)
+	[Index.h:3613](./include/clang-c/Index.h:3613:25)
 	""" clang_Cursor_isMacroFunctionLike
 	export clang_Cursor_isMacroFunctionLike
 	𝐣𝐥.@cextern clang_Cursor_isMacroFunctionLike(C::CXCursor)::𝐣𝐥.Cuint
@@ -7810,7 +7990,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3581](./include/clang-c/Index.h:3581:25)
+	[Index.h:3619](./include/clang-c/Index.h:3619:25)
 	""" clang_Cursor_isMacroBuiltin
 	export clang_Cursor_isMacroBuiltin
 	𝐣𝐥.@cextern clang_Cursor_isMacroBuiltin(C::CXCursor)::𝐣𝐥.Cuint
@@ -7824,7 +8004,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3587](./include/clang-c/Index.h:3587:25)
+	[Index.h:3625](./include/clang-c/Index.h:3625:25)
 	""" clang_Cursor_isFunctionInlined
 	export clang_Cursor_isFunctionInlined
 	𝐣𝐥.@cextern clang_Cursor_isFunctionInlined(C::CXCursor)::𝐣𝐥.Cuint
@@ -7838,7 +8018,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3594](./include/clang-c/Index.h:3594:25)
+	[Index.h:3632](./include/clang-c/Index.h:3632:25)
 	""" clang_isVolatileQualifiedType
 	export clang_isVolatileQualifiedType
 	𝐣𝐥.@cextern clang_isVolatileQualifiedType(T::CXType)::𝐣𝐥.Cuint
@@ -7852,7 +8032,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3601](./include/clang-c/Index.h:3601:25)
+	[Index.h:3639](./include/clang-c/Index.h:3639:25)
 	""" clang_isRestrictQualifiedType
 	export clang_isRestrictQualifiedType
 	𝐣𝐥.@cextern clang_isRestrictQualifiedType(T::CXType)::𝐣𝐥.Cuint
@@ -7866,7 +8046,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3606](./include/clang-c/Index.h:3606:25)
+	[Index.h:3644](./include/clang-c/Index.h:3644:25)
 	""" clang_getAddressSpace
 	export clang_getAddressSpace
 	𝐣𝐥.@cextern clang_getAddressSpace(T::CXType)::𝐣𝐥.Cuint
@@ -7880,7 +8060,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3611](./include/clang-c/Index.h:3611:25)
+	[Index.h:3649](./include/clang-c/Index.h:3649:25)
 	""" clang_getTypedefName
 	export clang_getTypedefName
 	𝐣𝐥.@cextern clang_getTypedefName(CT::CXType)::CXString
@@ -7894,7 +8074,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3616](./include/clang-c/Index.h:3616:23)
+	[Index.h:3654](./include/clang-c/Index.h:3654:23)
 	""" clang_getPointeeType
 	export clang_getPointeeType
 	𝐣𝐥.@cextern clang_getPointeeType(T::CXType)::CXType
@@ -7908,7 +8088,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3621](./include/clang-c/Index.h:3621:25)
+	[Index.h:3659](./include/clang-c/Index.h:3659:25)
 	""" clang_getTypeDeclaration
 	export clang_getTypeDeclaration
 	𝐣𝐥.@cextern clang_getTypeDeclaration(T::CXType)::CXCursor
@@ -7922,7 +8102,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3626](./include/clang-c/Index.h:3626:25)
+	[Index.h:3664](./include/clang-c/Index.h:3664:25)
 	""" clang_getDeclObjCTypeEncoding
 	export clang_getDeclObjCTypeEncoding
 	𝐣𝐥.@cextern clang_getDeclObjCTypeEncoding(C::CXCursor)::CXString
@@ -7936,28 +8116,28 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3631](./include/clang-c/Index.h:3631:25)
+	[Index.h:3669](./include/clang-c/Index.h:3669:25)
 	""" clang_Type_getObjCEncoding
 	export clang_Type_getObjCEncoding
 	𝐣𝐥.@cextern clang_Type_getObjCEncoding(var"type"::CXType)::CXString
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getTypeKindSpelling(K::CXTypeKind)::CXString
+	𝐣𝐥.@cextern clang_getTypeKindSpelling(K::𝐣𝐥.@cenum CXTypeKind)::CXString
 	```
 	
 	 Retrieve the spelling of a given CXTypeKind.
 	
 	## Reference
 	
-	[Index.h:3636](./include/clang-c/Index.h:3636:25)
+	[Index.h:3674](./include/clang-c/Index.h:3674:25)
 	""" clang_getTypeKindSpelling
 	export clang_getTypeKindSpelling
-	𝐣𝐥.@cextern clang_getTypeKindSpelling(K::CXTypeKind)::CXString
+	𝐣𝐥.@cextern clang_getTypeKindSpelling(K::𝐣𝐥.@cenum CXTypeKind)::CXString
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getFunctionTypeCallingConv(T::CXType)::CXCallingConv
+	𝐣𝐥.@cextern clang_getFunctionTypeCallingConv(T::CXType)::𝐣𝐥.@cenum CXCallingConv
 	```
 	
 	 Retrieve the calling convention associated with a function type.
@@ -7968,10 +8148,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3643](./include/clang-c/Index.h:3643:35)
+	[Index.h:3681](./include/clang-c/Index.h:3681:35)
 	""" clang_getFunctionTypeCallingConv
 	export clang_getFunctionTypeCallingConv
-	𝐣𝐥.@cextern clang_getFunctionTypeCallingConv(T::CXType)::CXCallingConv
+	𝐣𝐥.@cextern clang_getFunctionTypeCallingConv(T::CXType)::𝐣𝐥.@cenum CXCallingConv
 	
 	𝐣𝐥.@doc """
 	```
@@ -7986,7 +8166,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3650](./include/clang-c/Index.h:3650:23)
+	[Index.h:3688](./include/clang-c/Index.h:3688:23)
 	""" clang_getResultType
 	export clang_getResultType
 	𝐣𝐥.@cextern clang_getResultType(T::CXType)::CXType
@@ -8004,7 +8184,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3658](./include/clang-c/Index.h:3658:20)
+	[Index.h:3696](./include/clang-c/Index.h:3696:20)
 	""" clang_getExceptionSpecificationType
 	export clang_getExceptionSpecificationType
 	𝐣𝐥.@cextern clang_getExceptionSpecificationType(T::CXType)::𝐣𝐥.Cint
@@ -8022,7 +8202,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3666](./include/clang-c/Index.h:3666:20)
+	[Index.h:3704](./include/clang-c/Index.h:3704:20)
 	""" clang_getNumArgTypes
 	export clang_getNumArgTypes
 	𝐣𝐥.@cextern clang_getNumArgTypes(T::CXType)::𝐣𝐥.Cint
@@ -8040,7 +8220,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3674](./include/clang-c/Index.h:3674:23)
+	[Index.h:3712](./include/clang-c/Index.h:3712:23)
 	""" clang_getArgType
 	export clang_getArgType
 	𝐣𝐥.@cextern clang_getArgType(T::CXType, i::𝐣𝐥.Cuint)::CXType
@@ -8058,7 +8238,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3681](./include/clang-c/Index.h:3681:23)
+	[Index.h:3719](./include/clang-c/Index.h:3719:23)
 	""" clang_Type_getObjCObjectBaseType
 	export clang_Type_getObjCObjectBaseType
 	𝐣𝐥.@cextern clang_Type_getObjCObjectBaseType(T::CXType)::CXType
@@ -8076,7 +8256,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3688](./include/clang-c/Index.h:3688:25)
+	[Index.h:3726](./include/clang-c/Index.h:3726:25)
 	""" clang_Type_getNumObjCProtocolRefs
 	export clang_Type_getNumObjCProtocolRefs
 	𝐣𝐥.@cextern clang_Type_getNumObjCProtocolRefs(T::CXType)::𝐣𝐥.Cuint
@@ -8094,7 +8274,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3696](./include/clang-c/Index.h:3696:25)
+	[Index.h:3734](./include/clang-c/Index.h:3734:25)
 	""" clang_Type_getObjCProtocolDecl
 	export clang_Type_getObjCProtocolDecl
 	𝐣𝐥.@cextern clang_Type_getObjCProtocolDecl(T::CXType, i::𝐣𝐥.Cuint)::CXCursor
@@ -8104,7 +8284,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@cextern clang_Type_getNumObjCTypeArgs(T::CXType)::𝐣𝐥.Cuint
 	```
 	
-	 Retreive the number of type arguments associated with an ObjC object.
+	 Retrieve the number of type arguments associated with an ObjC object.
 	
 	## Details
 	
@@ -8112,7 +8292,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3703](./include/clang-c/Index.h:3703:25)
+	[Index.h:3741](./include/clang-c/Index.h:3741:25)
 	""" clang_Type_getNumObjCTypeArgs
 	export clang_Type_getNumObjCTypeArgs
 	𝐣𝐥.@cextern clang_Type_getNumObjCTypeArgs(T::CXType)::𝐣𝐥.Cuint
@@ -8130,7 +8310,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3711](./include/clang-c/Index.h:3711:23)
+	[Index.h:3749](./include/clang-c/Index.h:3749:23)
 	""" clang_Type_getObjCTypeArg
 	export clang_Type_getObjCTypeArg
 	𝐣𝐥.@cextern clang_Type_getObjCTypeArg(T::CXType, i::𝐣𝐥.Cuint)::CXType
@@ -8144,7 +8324,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3716](./include/clang-c/Index.h:3716:25)
+	[Index.h:3754](./include/clang-c/Index.h:3754:25)
 	""" clang_isFunctionTypeVariadic
 	export clang_isFunctionTypeVariadic
 	𝐣𝐥.@cextern clang_isFunctionTypeVariadic(T::CXType)::𝐣𝐥.Cuint
@@ -8162,7 +8342,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3723](./include/clang-c/Index.h:3723:23)
+	[Index.h:3761](./include/clang-c/Index.h:3761:23)
 	""" clang_getCursorResultType
 	export clang_getCursorResultType
 	𝐣𝐥.@cextern clang_getCursorResultType(C::CXCursor)::CXType
@@ -8180,7 +8360,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3731](./include/clang-c/Index.h:3731:20)
+	[Index.h:3770](./include/clang-c/Index.h:3770:20)
 	""" clang_getCursorExceptionSpecificationType
 	export clang_getCursorExceptionSpecificationType
 	𝐣𝐥.@cextern clang_getCursorExceptionSpecificationType(C::CXCursor)::𝐣𝐥.Cint
@@ -8194,7 +8374,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3737](./include/clang-c/Index.h:3737:25)
+	[Index.h:3776](./include/clang-c/Index.h:3776:25)
 	""" clang_isPODType
 	export clang_isPODType
 	𝐣𝐥.@cextern clang_isPODType(T::CXType)::𝐣𝐥.Cuint
@@ -8212,7 +8392,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3745](./include/clang-c/Index.h:3745:23)
+	[Index.h:3784](./include/clang-c/Index.h:3784:23)
 	""" clang_getElementType
 	export clang_getElementType
 	𝐣𝐥.@cextern clang_getElementType(T::CXType)::CXType
@@ -8230,7 +8410,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3753](./include/clang-c/Index.h:3753:26)
+	[Index.h:3792](./include/clang-c/Index.h:3792:26)
 	""" clang_getNumElements
 	export clang_getNumElements
 	𝐣𝐥.@cextern clang_getNumElements(T::CXType)::𝐣𝐥.Clonglong
@@ -8248,7 +8428,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3760](./include/clang-c/Index.h:3760:23)
+	[Index.h:3799](./include/clang-c/Index.h:3799:23)
 	""" clang_getArrayElementType
 	export clang_getArrayElementType
 	𝐣𝐥.@cextern clang_getArrayElementType(T::CXType)::CXType
@@ -8266,7 +8446,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3767](./include/clang-c/Index.h:3767:26)
+	[Index.h:3806](./include/clang-c/Index.h:3806:26)
 	""" clang_getArraySize
 	export clang_getArraySize
 	𝐣𝐥.@cextern clang_getArraySize(T::CXType)::𝐣𝐥.Clonglong
@@ -8284,7 +8464,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3774](./include/clang-c/Index.h:3774:23)
+	[Index.h:3813](./include/clang-c/Index.h:3813:23)
 	""" clang_Type_getNamedType
 	export clang_Type_getNamedType
 	𝐣𝐥.@cextern clang_Type_getNamedType(T::CXType)::CXType
@@ -8306,7 +8486,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3784](./include/clang-c/Index.h:3784:25)
+	[Index.h:3823](./include/clang-c/Index.h:3823:25)
 	""" clang_Type_isTransparentTagTypedef
 	export clang_Type_isTransparentTagTypedef
 	𝐣𝐥.@cextern clang_Type_isTransparentTagTypedef(T::CXType)::𝐣𝐥.Cuint
@@ -8314,35 +8494,35 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3786](./include/clang-c/Index.h:3786:6)
+	[Index.h:3825](./include/clang-c/Index.h:3825:6)
 	""" CXTypeNullabilityKind
 	𝐣𝐥.@doc """
 	 Values of this type can never be null.
 	
 	## Reference
 	
-	[Index.h:3790](./include/clang-c/Index.h:3790:3)
+	[Index.h:3829](./include/clang-c/Index.h:3829:3)
 	""" CXTypeNullability_NonNull
 	𝐣𝐥.@doc """
 	 Nullability is not applicable to this type.
 	
 	## Reference
 	
-	[Index.h:3805](./include/clang-c/Index.h:3805:3)
+	[Index.h:3844](./include/clang-c/Index.h:3844:3)
 	""" CXTypeNullability_Invalid
 	𝐣𝐥.@doc """
 	 Whether values of this type can be null is (explicitly) unspecified. This captures a (fairly rare) case where we can't conclude anything about the nullability of the type even though it has been considered.
 	
 	## Reference
 	
-	[Index.h:3801](./include/clang-c/Index.h:3801:3)
+	[Index.h:3840](./include/clang-c/Index.h:3840:3)
 	""" CXTypeNullability_Unspecified
 	𝐣𝐥.@doc """
 	 Values of this type can be null.
 	
 	## Reference
 	
-	[Index.h:3794](./include/clang-c/Index.h:3794:3)
+	[Index.h:3833](./include/clang-c/Index.h:3833:3)
 	""" CXTypeNullability_Nullable
 	export CXTypeNullabilityKind, CXTypeNullability_Invalid, CXTypeNullability_NonNull, CXTypeNullability_Nullable, CXTypeNullability_Unspecified
 	𝐣𝐥.@cenum CXTypeNullabilityKind {
@@ -8354,24 +8534,24 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Type_getNullability(T::CXType)::CXTypeNullabilityKind
+	𝐣𝐥.@cextern clang_Type_getNullability(T::CXType)::𝐣𝐥.@cenum CXTypeNullabilityKind
 	```
 	
 	 Retrieve the nullability kind of a pointer type.
 	
 	## Reference
 	
-	[Index.h:3811](./include/clang-c/Index.h:3811:43)
+	[Index.h:3850](./include/clang-c/Index.h:3850:43)
 	""" clang_Type_getNullability
 	export clang_Type_getNullability
-	𝐣𝐥.@cextern clang_Type_getNullability(T::CXType)::CXTypeNullabilityKind
+	𝐣𝐥.@cextern clang_Type_getNullability(T::CXType)::𝐣𝐥.@cenum CXTypeNullabilityKind
 	
 	𝐣𝐥.@doc """
 	 The type is a dependent Type.
 	
 	## Reference
 	
-	[Index.h:3833](./include/clang-c/Index.h:3833:3)
+	[Index.h:3872](./include/clang-c/Index.h:3872:3)
 	""" CXTypeLayoutError_Dependent
 	𝐣𝐥.@doc """
 	 List the possible error codes for `clang_Type_getSizeOf,`   `clang_Type_getAlignOf,` `clang_Type_getOffsetOf` and   `clang_Cursor_getOffsetOf.`
@@ -8382,43 +8562,51 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3821](./include/clang-c/Index.h:3821:6)
+	[Index.h:3860](./include/clang-c/Index.h:3860:6)
 	""" CXTypeLayoutError
 	𝐣𝐥.@doc """
 	 The Field name is not valid for this record.
 	
 	## Reference
 	
-	[Index.h:3841](./include/clang-c/Index.h:3841:3)
+	[Index.h:3880](./include/clang-c/Index.h:3880:3)
 	""" CXTypeLayoutError_InvalidFieldName
+	𝐣𝐥.@doc """
+	 The type is undeduced.
+	
+	## Reference
+	
+	[Index.h:3884](./include/clang-c/Index.h:3884:3)
+	""" CXTypeLayoutError_Undeduced
 	𝐣𝐥.@doc """
 	 The type is not a constant size type.
 	
 	## Reference
 	
-	[Index.h:3837](./include/clang-c/Index.h:3837:3)
+	[Index.h:3876](./include/clang-c/Index.h:3876:3)
 	""" CXTypeLayoutError_NotConstantSize
 	𝐣𝐥.@doc """
 	 Type is of kind CXType_Invalid.
 	
 	## Reference
 	
-	[Index.h:3825](./include/clang-c/Index.h:3825:3)
+	[Index.h:3864](./include/clang-c/Index.h:3864:3)
 	""" CXTypeLayoutError_Invalid
 	𝐣𝐥.@doc """
 	 The type is an incomplete Type.
 	
 	## Reference
 	
-	[Index.h:3829](./include/clang-c/Index.h:3829:3)
+	[Index.h:3868](./include/clang-c/Index.h:3868:3)
 	""" CXTypeLayoutError_Incomplete
-	export CXTypeLayoutError, CXTypeLayoutError_Dependent, CXTypeLayoutError_Incomplete, CXTypeLayoutError_Invalid, CXTypeLayoutError_InvalidFieldName, CXTypeLayoutError_NotConstantSize
+	export CXTypeLayoutError, CXTypeLayoutError_Dependent, CXTypeLayoutError_Incomplete, CXTypeLayoutError_Invalid, CXTypeLayoutError_InvalidFieldName, CXTypeLayoutError_NotConstantSize, CXTypeLayoutError_Undeduced
 	𝐣𝐥.@cenum CXTypeLayoutError {
 		CXTypeLayoutError_Invalid = 𝐣𝐥.Cint(-1)
 		CXTypeLayoutError_Incomplete = 𝐣𝐥.Cint(-2)
 		CXTypeLayoutError_Dependent = 𝐣𝐥.Cint(-3)
 		CXTypeLayoutError_NotConstantSize = 𝐣𝐥.Cint(-4)
 		CXTypeLayoutError_InvalidFieldName = 𝐣𝐥.Cint(-5)
+		CXTypeLayoutError_Undeduced = 𝐣𝐥.Cint(-6)
 	}
 	
 	𝐣𝐥.@doc """
@@ -8434,7 +8622,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3856](./include/clang-c/Index.h:3856:26)
+	[Index.h:3899](./include/clang-c/Index.h:3899:26)
 	""" clang_Type_getAlignOf
 	export clang_Type_getAlignOf
 	𝐣𝐥.@cextern clang_Type_getAlignOf(T::CXType)::𝐣𝐥.Clonglong
@@ -8452,7 +8640,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3863](./include/clang-c/Index.h:3863:23)
+	[Index.h:3906](./include/clang-c/Index.h:3906:23)
 	""" clang_Type_getClassType
 	export clang_Type_getClassType
 	𝐣𝐥.@cextern clang_Type_getClassType(T::CXType)::CXType
@@ -8470,7 +8658,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3874](./include/clang-c/Index.h:3874:26)
+	[Index.h:3917](./include/clang-c/Index.h:3917:26)
 	""" clang_Type_getSizeOf
 	export clang_Type_getSizeOf
 	𝐣𝐥.@cextern clang_Type_getSizeOf(T::CXType)::𝐣𝐥.Clonglong
@@ -8488,7 +8676,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3889](./include/clang-c/Index.h:3889:26)
+	[Index.h:3932](./include/clang-c/Index.h:3932:26)
 	""" clang_Type_getOffsetOf
 	export clang_Type_getOffsetOf
 	𝐣𝐥.@cextern clang_Type_getOffsetOf(T::CXType, S::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Clonglong
@@ -8506,10 +8694,28 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3896](./include/clang-c/Index.h:3896:23)
+	[Index.h:3939](./include/clang-c/Index.h:3939:23)
 	""" clang_Type_getModifiedType
 	export clang_Type_getModifiedType
 	𝐣𝐥.@cextern clang_Type_getModifiedType(T::CXType)::CXType
+	
+	𝐣𝐥.@doc """
+	```
+	𝐣𝐥.@cextern clang_Type_getValueType(CT::CXType)::CXType
+	```
+	
+	 Gets the type contained by this atomic type.
+	
+	## Details
+	
+	 If a non-atomic type is passed in, an invalid type is returned.
+	
+	## Reference
+	
+	[Index.h:3946](./include/clang-c/Index.h:3946:23)
+	""" clang_Type_getValueType
+	export clang_Type_getValueType
+	𝐣𝐥.@cextern clang_Type_getValueType(CT::CXType)::CXType
 	
 	𝐣𝐥.@doc """
 	```
@@ -8524,7 +8730,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3911](./include/clang-c/Index.h:3911:26)
+	[Index.h:3961](./include/clang-c/Index.h:3961:26)
 	""" clang_Cursor_getOffsetOfField
 	export clang_Cursor_getOffsetOfField
 	𝐣𝐥.@cextern clang_Cursor_getOffsetOfField(C::CXCursor)::𝐣𝐥.Clonglong
@@ -8534,40 +8740,68 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@cextern clang_Cursor_isAnonymous(C::CXCursor)::𝐣𝐥.Cuint
 	```
 	
+	 Determine whether the given cursor represents an anonymous tag or namespace
+	
+	## Reference
+	
+	[Index.h:3967](./include/clang-c/Index.h:3967:25)
+	""" clang_Cursor_isAnonymous
+	export clang_Cursor_isAnonymous
+	𝐣𝐥.@cextern clang_Cursor_isAnonymous(C::CXCursor)::𝐣𝐥.Cuint
+	
+	𝐣𝐥.@doc """
+	```
+	𝐣𝐥.@cextern clang_Cursor_isAnonymousRecordDecl(C::CXCursor)::𝐣𝐥.Cuint
+	```
+	
 	 Determine whether the given cursor represents an anonymous record declaration.
 	
 	## Reference
 	
-	[Index.h:3917](./include/clang-c/Index.h:3917:25)
-	""" clang_Cursor_isAnonymous
-	export clang_Cursor_isAnonymous
-	𝐣𝐥.@cextern clang_Cursor_isAnonymous(C::CXCursor)::𝐣𝐥.Cuint
+	[Index.h:3973](./include/clang-c/Index.h:3973:25)
+	""" clang_Cursor_isAnonymousRecordDecl
+	export clang_Cursor_isAnonymousRecordDecl
+	𝐣𝐥.@cextern clang_Cursor_isAnonymousRecordDecl(C::CXCursor)::𝐣𝐥.Cuint
+	
+	𝐣𝐥.@doc """
+	```
+	𝐣𝐥.@cextern clang_Cursor_isInlineNamespace(C::CXCursor)::𝐣𝐥.Cuint
+	```
+	
+	 Determine whether the given cursor represents an inline namespace declaration.
+	
+	## Reference
+	
+	[Index.h:3979](./include/clang-c/Index.h:3979:25)
+	""" clang_Cursor_isInlineNamespace
+	export clang_Cursor_isInlineNamespace
+	𝐣𝐥.@cextern clang_Cursor_isInlineNamespace(C::CXCursor)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	 An rvalue ref-qualifier was provided (`&&).` 
 	
 	## Reference
 	
-	[Index.h:3925](./include/clang-c/Index.h:3925:3)
+	[Index.h:3987](./include/clang-c/Index.h:3987:3)
 	""" CXRefQualifier_RValue
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3919](./include/clang-c/Index.h:3919:6)
+	[Index.h:3981](./include/clang-c/Index.h:3981:6)
 	""" CXRefQualifierKind
 	𝐣𝐥.@doc """
 	 An lvalue ref-qualifier was provided (`&).` 
 	
 	## Reference
 	
-	[Index.h:3923](./include/clang-c/Index.h:3923:3)
+	[Index.h:3985](./include/clang-c/Index.h:3985:3)
 	""" CXRefQualifier_LValue
 	𝐣𝐥.@doc """
 	 No ref-qualifier was provided. 
 	
 	## Reference
 	
-	[Index.h:3921](./include/clang-c/Index.h:3921:3)
+	[Index.h:3983](./include/clang-c/Index.h:3983:3)
 	""" CXRefQualifier_None
 	export CXRefQualifierKind, CXRefQualifier_LValue, CXRefQualifier_None, CXRefQualifier_RValue
 	𝐣𝐥.@cenum CXRefQualifierKind {
@@ -8585,7 +8819,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3932](./include/clang-c/Index.h:3932:20)
+	[Index.h:3994](./include/clang-c/Index.h:3994:20)
 	""" clang_Type_getNumTemplateArguments
 	export clang_Type_getNumTemplateArguments
 	𝐣𝐥.@cextern clang_Type_getNumTemplateArguments(T::CXType)::𝐣𝐥.Cint
@@ -8603,14 +8837,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3941](./include/clang-c/Index.h:3941:23)
+	[Index.h:4003](./include/clang-c/Index.h:4003:23)
 	""" clang_Type_getTemplateArgumentAsType
 	export clang_Type_getTemplateArgumentAsType
 	𝐣𝐥.@cextern clang_Type_getTemplateArgumentAsType(T::CXType, i::𝐣𝐥.Cuint)::CXType
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Type_getCXXRefQualifier(T::CXType)::CXRefQualifierKind
+	𝐣𝐥.@cextern clang_Type_getCXXRefQualifier(T::CXType)::𝐣𝐥.@cenum CXRefQualifierKind
 	```
 	
 	 Retrieve the ref-qualifier kind of a function or method.
@@ -8621,10 +8855,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3949](./include/clang-c/Index.h:3949:40)
+	[Index.h:4012](./include/clang-c/Index.h:4012:40)
 	""" clang_Type_getCXXRefQualifier
 	export clang_Type_getCXXRefQualifier
-	𝐣𝐥.@cextern clang_Type_getCXXRefQualifier(T::CXType)::CXRefQualifierKind
+	𝐣𝐥.@cextern clang_Type_getCXXRefQualifier(T::CXType)::𝐣𝐥.@cenum CXRefQualifierKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -8635,7 +8869,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3955](./include/clang-c/Index.h:3955:25)
+	[Index.h:4018](./include/clang-c/Index.h:4018:25)
 	""" clang_Cursor_isBitField
 	export clang_Cursor_isBitField
 	𝐣𝐥.@cextern clang_Cursor_isBitField(C::CXCursor)::𝐣𝐥.Cuint
@@ -8649,7 +8883,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3961](./include/clang-c/Index.h:3961:25)
+	[Index.h:4024](./include/clang-c/Index.h:4024:25)
 	""" clang_isVirtualBase
 	export clang_isVirtualBase
 	𝐣𝐥.@cextern clang_isVirtualBase(var"?1?"::CXCursor)::𝐣𝐥.Cuint
@@ -8657,29 +8891,29 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3969](./include/clang-c/Index.h:3969:3)
+	[Index.h:4032](./include/clang-c/Index.h:4032:3)
 	""" CX_CXXPublic
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3971](./include/clang-c/Index.h:3971:3)
+	[Index.h:4034](./include/clang-c/Index.h:4034:3)
 	""" CX_CXXPrivate
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3968](./include/clang-c/Index.h:3968:3)
+	[Index.h:4031](./include/clang-c/Index.h:4031:3)
 	""" CX_CXXInvalidAccessSpecifier
 	𝐣𝐥.@doc """
 	 Represents the C++ access control level to a base class for a cursor with kind CX_CXXBaseSpecifier.
 	
 	## Reference
 	
-	[Index.h:3967](./include/clang-c/Index.h:3967:6)
+	[Index.h:4030](./include/clang-c/Index.h:4030:6)
 	""" CX_CXXAccessSpecifier
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3970](./include/clang-c/Index.h:3970:3)
+	[Index.h:4033](./include/clang-c/Index.h:4033:3)
 	""" CX_CXXProtected
 	export CX_CXXAccessSpecifier, CX_CXXInvalidAccessSpecifier, CX_CXXPrivate, CX_CXXProtected, CX_CXXPublic
 	𝐣𝐥.@cenum CX_CXXAccessSpecifier {
@@ -8691,7 +8925,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCXXAccessSpecifier(var\"?1?\"::CXCursor)::CX_CXXAccessSpecifier
+	𝐣𝐥.@cextern clang_getCXXAccessSpecifier(var\"?1?\"::CXCursor)::𝐣𝐥.@cenum CX_CXXAccessSpecifier
 	```
 	
 	 Returns the access control level for the referenced object.
@@ -8702,57 +8936,57 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:3981](./include/clang-c/Index.h:3981:43)
+	[Index.h:4044](./include/clang-c/Index.h:4044:43)
 	""" clang_getCXXAccessSpecifier
 	export clang_getCXXAccessSpecifier
-	𝐣𝐥.@cextern clang_getCXXAccessSpecifier(var"?1?"::CXCursor)::CX_CXXAccessSpecifier
+	𝐣𝐥.@cextern clang_getCXXAccessSpecifier(var"?1?"::CXCursor)::𝐣𝐥.@cenum CX_CXXAccessSpecifier
 	
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3993](./include/clang-c/Index.h:3993:3)
+	[Index.h:4056](./include/clang-c/Index.h:4056:3)
 	""" CX_SC_OpenCLWorkGroupLocal
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3990](./include/clang-c/Index.h:3990:3)
+	[Index.h:4053](./include/clang-c/Index.h:4053:3)
 	""" CX_SC_Extern
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3992](./include/clang-c/Index.h:3992:3)
+	[Index.h:4055](./include/clang-c/Index.h:4055:3)
 	""" CX_SC_PrivateExtern
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3989](./include/clang-c/Index.h:3989:3)
+	[Index.h:4052](./include/clang-c/Index.h:4052:3)
 	""" CX_SC_None
 	𝐣𝐥.@doc """
 	 Represents the storage classes as declared in the source. CX_SC_Invalid was added for the case that the passed cursor in not a declaration.
 	
 	## Reference
 	
-	[Index.h:3987](./include/clang-c/Index.h:3987:6)
+	[Index.h:4050](./include/clang-c/Index.h:4050:6)
 	""" CX_StorageClass
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3995](./include/clang-c/Index.h:3995:3)
+	[Index.h:4058](./include/clang-c/Index.h:4058:3)
 	""" CX_SC_Register
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3994](./include/clang-c/Index.h:3994:3)
+	[Index.h:4057](./include/clang-c/Index.h:4057:3)
 	""" CX_SC_Auto
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3988](./include/clang-c/Index.h:3988:3)
+	[Index.h:4051](./include/clang-c/Index.h:4051:3)
 	""" CX_SC_Invalid
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:3991](./include/clang-c/Index.h:3991:3)
+	[Index.h:4054](./include/clang-c/Index.h:4054:3)
 	""" CX_SC_Static
 	export CX_SC_Auto, CX_SC_Extern, CX_SC_Invalid, CX_SC_None, CX_SC_OpenCLWorkGroupLocal, CX_SC_PrivateExtern, CX_SC_Register, CX_SC_Static, CX_StorageClass
 	𝐣𝐥.@cenum CX_StorageClass {
@@ -8768,7 +9002,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Cursor_getStorageClass(var\"?1?\"::CXCursor)::CX_StorageClass
+	𝐣𝐥.@cextern clang_Cursor_getStorageClass(var\"?1?\"::CXCursor)::𝐣𝐥.@cenum CX_StorageClass
 	```
 	
 	 Returns the storage class for a function or variable declaration.
@@ -8779,10 +9013,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4004](./include/clang-c/Index.h:4004:37)
+	[Index.h:4067](./include/clang-c/Index.h:4067:37)
 	""" clang_Cursor_getStorageClass
 	export clang_Cursor_getStorageClass
-	𝐣𝐥.@cextern clang_Cursor_getStorageClass(var"?1?"::CXCursor)::CX_StorageClass
+	𝐣𝐥.@cextern clang_Cursor_getStorageClass(var"?1?"::CXCursor)::𝐣𝐥.@cenum CX_StorageClass
 	
 	𝐣𝐥.@doc """
 	```
@@ -8801,7 +9035,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4015](./include/clang-c/Index.h:4015:25)
+	[Index.h:4078](./include/clang-c/Index.h:4078:25)
 	""" clang_getNumOverloadedDecls
 	export clang_getNumOverloadedDecls
 	𝐣𝐥.@cextern clang_getNumOverloadedDecls(cursor::CXCursor)::𝐣𝐥.Cuint
@@ -8824,7 +9058,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4031](./include/clang-c/Index.h:4031:25)
+	[Index.h:4094](./include/clang-c/Index.h:4094:25)
 	""" clang_getOverloadedDecl
 	export clang_getOverloadedDecl
 	𝐣𝐥.@cextern clang_getOverloadedDecl(cursor::CXCursor, index::𝐣𝐥.Cuint)::CXCursor
@@ -8838,7 +9072,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4049](./include/clang-c/Index.h:4049:23)
+	[Index.h:4112](./include/clang-c/Index.h:4112:23)
 	""" clang_getIBOutletCollectionType
 	export clang_getIBOutletCollectionType
 	𝐣𝐥.@cextern clang_getIBOutletCollectionType(var"?1?"::CXCursor)::CXType
@@ -8848,21 +9082,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4085](./include/clang-c/Index.h:4085:3)
+	[Index.h:4148](./include/clang-c/Index.h:4148:3)
 	""" CXChildVisit_Recurse
 	𝐣𝐥.@doc """
 	 Terminates the cursor traversal.
 	
 	## Reference
 	
-	[Index.h:4075](./include/clang-c/Index.h:4075:3)
+	[Index.h:4138](./include/clang-c/Index.h:4138:3)
 	""" CXChildVisit_Break
 	𝐣𝐥.@doc """
 	 Continues the cursor traversal with the next sibling of the cursor just visited, without visiting its children.
 	
 	## Reference
 	
-	[Index.h:4080](./include/clang-c/Index.h:4080:3)
+	[Index.h:4143](./include/clang-c/Index.h:4143:3)
 	""" CXChildVisit_Continue
 	𝐣𝐥.@doc """
 	 Describes how the traversal of the children of a particular cursor should proceed after visiting a particular child cursor.
@@ -8873,7 +9107,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4071](./include/clang-c/Index.h:4071:6)
+	[Index.h:4134](./include/clang-c/Index.h:4134:6)
 	""" CXChildVisitResult
 	export CXChildVisitResult, CXChildVisit_Break, CXChildVisit_Continue, CXChildVisit_Recurse
 	𝐣𝐥.@cenum CXChildVisitResult {
@@ -8893,10 +9127,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4100](./include/clang-c/Index.h:4100:35)
+	[Index.h:4163](./include/clang-c/Index.h:4163:35)
 	""" CXCursorVisitor
 	export CXCursorVisitor
-	𝐣𝐥.@ctypedef CXCursorVisitor 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{CXChildVisitResult, 𝐣𝐥.Tuple{CXCursor, CXCursor, CXClientData}, 𝐣𝐥.CDECL}}
+	𝐣𝐥.@ctypedef CXCursorVisitor 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cenum CXChildVisitResult), 𝐣𝐥.Tuple{CXCursor, CXCursor, CXClientData}, 𝐣𝐥.CDECL}}
 	
 	𝐣𝐥.@doc """
 	```
@@ -8921,7 +9155,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4126](./include/clang-c/Index.h:4126:25)
+	[Index.h:4189](./include/clang-c/Index.h:4189:25)
 	""" clang_visitChildren
 	export clang_visitChildren
 	𝐣𝐥.@cextern clang_visitChildren(parent::CXCursor, visitor::CXCursorVisitor, client_data::CXClientData)::𝐣𝐥.Cuint
@@ -8939,7 +9173,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4177](./include/clang-c/Index.h:4177:25)
+	[Index.h:4240](./include/clang-c/Index.h:4240:25)
 	""" clang_getCursorUSR
 	export clang_getCursorUSR
 	𝐣𝐥.@cextern clang_getCursorUSR(var"?1?"::CXCursor)::CXString
@@ -8953,7 +9187,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4182](./include/clang-c/Index.h:4182:25)
+	[Index.h:4245](./include/clang-c/Index.h:4245:25)
 	""" clang_constructUSR_ObjCClass
 	export clang_constructUSR_ObjCClass
 	𝐣𝐥.@cextern clang_constructUSR_ObjCClass(class_name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXString
@@ -8967,7 +9201,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4188](./include/clang-c/Index.h:4188:3)
+	[Index.h:4250](./include/clang-c/Index.h:4250:25)
 	""" clang_constructUSR_ObjCCategory
 	export clang_constructUSR_ObjCCategory
 	𝐣𝐥.@cextern clang_constructUSR_ObjCCategory(class_name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, category_name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXString
@@ -8981,7 +9215,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4195](./include/clang-c/Index.h:4195:3)
+	[Index.h:4257](./include/clang-c/Index.h:4257:1)
 	""" clang_constructUSR_ObjCProtocol
 	export clang_constructUSR_ObjCProtocol
 	𝐣𝐥.@cextern clang_constructUSR_ObjCProtocol(protocol_name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXString
@@ -8995,7 +9229,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4201](./include/clang-c/Index.h:4201:25)
+	[Index.h:4263](./include/clang-c/Index.h:4263:25)
 	""" clang_constructUSR_ObjCIvar
 	export clang_constructUSR_ObjCIvar
 	𝐣𝐥.@cextern clang_constructUSR_ObjCIvar(name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, classUSR::CXString)::CXString
@@ -9009,7 +9243,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4208](./include/clang-c/Index.h:4208:25)
+	[Index.h:4270](./include/clang-c/Index.h:4270:25)
 	""" clang_constructUSR_ObjCMethod
 	export clang_constructUSR_ObjCMethod
 	𝐣𝐥.@cextern clang_constructUSR_ObjCMethod(name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, isInstanceMethod::𝐣𝐥.Cuint, classUSR::CXString)::CXString
@@ -9023,7 +9257,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4216](./include/clang-c/Index.h:4216:25)
+	[Index.h:4278](./include/clang-c/Index.h:4278:25)
 	""" clang_constructUSR_ObjCProperty
 	export clang_constructUSR_ObjCProperty
 	𝐣𝐥.@cextern clang_constructUSR_ObjCProperty(property::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, classUSR::CXString)::CXString
@@ -9037,7 +9271,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4222](./include/clang-c/Index.h:4222:25)
+	[Index.h:4284](./include/clang-c/Index.h:4284:25)
 	""" clang_getCursorSpelling
 	export clang_getCursorSpelling
 	𝐣𝐥.@cextern clang_getCursorSpelling(var"?1?"::CXCursor)::CXString
@@ -9056,7 +9290,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4235](./include/clang-c/Index.h:4235:30)
+	[Index.h:4297](./include/clang-c/Index.h:4297:30)
 	""" clang_Cursor_getSpellingNameRange
 	export clang_Cursor_getSpellingNameRange
 	𝐣𝐥.@cextern clang_Cursor_getSpellingNameRange(var"?1?"::CXCursor, pieceIndex::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::CXSourceRange
@@ -9066,7 +9300,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4243](./include/clang-c/Index.h:4243:15)
+	[Index.h:4304](./include/clang-c/Index.h:4304:15)
 	""" CXPrintingPolicy
 	export CXPrintingPolicy
 	𝐣𝐥.@ctypedef CXPrintingPolicy 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -9074,137 +9308,137 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4258](./include/clang-c/Index.h:4258:3)
+	[Index.h:4319](./include/clang-c/Index.h:4319:3)
 	""" CXPrintingPolicy_ConstantArraySizeAsWritten
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4260](./include/clang-c/Index.h:4260:3)
+	[Index.h:4321](./include/clang-c/Index.h:4321:3)
 	""" CXPrintingPolicy_SuppressStrongLifetime
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4261](./include/clang-c/Index.h:4261:3)
+	[Index.h:4322](./include/clang-c/Index.h:4322:3)
 	""" CXPrintingPolicy_SuppressLifetimeQualifiers
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4252](./include/clang-c/Index.h:4252:3)
+	[Index.h:4313](./include/clang-c/Index.h:4313:3)
 	""" CXPrintingPolicy_SuppressSpecifiers
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4265](./include/clang-c/Index.h:4265:3)
+	[Index.h:4326](./include/clang-c/Index.h:4326:3)
 	""" CXPrintingPolicy_Alignof
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4251](./include/clang-c/Index.h:4251:3)
+	[Index.h:4312](./include/clang-c/Index.h:4312:3)
 	""" CXPrintingPolicy_Indentation
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4269](./include/clang-c/Index.h:4269:3)
+	[Index.h:4330](./include/clang-c/Index.h:4330:3)
 	""" CXPrintingPolicy_PolishForDeclaration
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4256](./include/clang-c/Index.h:4256:3)
+	[Index.h:4317](./include/clang-c/Index.h:4317:3)
 	""" CXPrintingPolicy_SuppressUnwrittenScope
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4264](./include/clang-c/Index.h:4264:3)
+	[Index.h:4325](./include/clang-c/Index.h:4325:3)
 	""" CXPrintingPolicy_Restrict
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4276](./include/clang-c/Index.h:4276:3)
+	[Index.h:4337](./include/clang-c/Index.h:4337:3)
 	""" CXPrintingPolicy_FullyQualifiedName
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4253](./include/clang-c/Index.h:4253:3)
+	[Index.h:4314](./include/clang-c/Index.h:4314:3)
 	""" CXPrintingPolicy_SuppressTagKeyword
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4274](./include/clang-c/Index.h:4274:3)
+	[Index.h:4335](./include/clang-c/Index.h:4335:3)
 	""" CXPrintingPolicy_ConstantsAsWritten
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4275](./include/clang-c/Index.h:4275:3)
+	[Index.h:4336](./include/clang-c/Index.h:4336:3)
 	""" CXPrintingPolicy_SuppressImplicitBase
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4278](./include/clang-c/Index.h:4278:3)
+	[Index.h:4339](./include/clang-c/Index.h:4339:3)
 	""" CXPrintingPolicy_LastProperty
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4257](./include/clang-c/Index.h:4257:3)
+	[Index.h:4318](./include/clang-c/Index.h:4318:3)
 	""" CXPrintingPolicy_SuppressInitializers
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4270](./include/clang-c/Index.h:4270:3)
+	[Index.h:4331](./include/clang-c/Index.h:4331:3)
 	""" CXPrintingPolicy_Half
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4272](./include/clang-c/Index.h:4272:3)
+	[Index.h:4333](./include/clang-c/Index.h:4333:3)
 	""" CXPrintingPolicy_IncludeNewlines
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4271](./include/clang-c/Index.h:4271:3)
+	[Index.h:4332](./include/clang-c/Index.h:4332:3)
 	""" CXPrintingPolicy_MSWChar
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4263](./include/clang-c/Index.h:4263:3)
+	[Index.h:4324](./include/clang-c/Index.h:4324:3)
 	""" CXPrintingPolicy_Bool
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4273](./include/clang-c/Index.h:4273:3)
+	[Index.h:4334](./include/clang-c/Index.h:4334:3)
 	""" CXPrintingPolicy_MSVCFormatting
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4254](./include/clang-c/Index.h:4254:3)
+	[Index.h:4315](./include/clang-c/Index.h:4315:3)
 	""" CXPrintingPolicy_IncludeTagDefinition
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4255](./include/clang-c/Index.h:4255:3)
+	[Index.h:4316](./include/clang-c/Index.h:4316:3)
 	""" CXPrintingPolicy_SuppressScope
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4262](./include/clang-c/Index.h:4262:3)
+	[Index.h:4323](./include/clang-c/Index.h:4323:3)
 	""" CXPrintingPolicy_SuppressTemplateArgsInCXXConstructors
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4266](./include/clang-c/Index.h:4266:3)
+	[Index.h:4327](./include/clang-c/Index.h:4327:3)
 	""" CXPrintingPolicy_UnderscoreAlignof
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4267](./include/clang-c/Index.h:4267:3)
+	[Index.h:4328](./include/clang-c/Index.h:4328:3)
 	""" CXPrintingPolicy_UseVoidForZeroParams
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4268](./include/clang-c/Index.h:4268:3)
+	[Index.h:4329](./include/clang-c/Index.h:4329:3)
 	""" CXPrintingPolicy_TerseOutput
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4259](./include/clang-c/Index.h:4259:3)
+	[Index.h:4320](./include/clang-c/Index.h:4320:3)
 	""" CXPrintingPolicy_AnonymousTagLocations
 	𝐣𝐥.@doc """
 	 Properties for the printing policy.
@@ -9215,7 +9449,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4250](./include/clang-c/Index.h:4250:6)
+	[Index.h:4311](./include/clang-c/Index.h:4311:6)
 	""" CXPrintingPolicyProperty
 	export CXPrintingPolicyProperty, CXPrintingPolicy_Alignof, CXPrintingPolicy_AnonymousTagLocations, CXPrintingPolicy_Bool, CXPrintingPolicy_ConstantArraySizeAsWritten, CXPrintingPolicy_ConstantsAsWritten, CXPrintingPolicy_FullyQualifiedName, CXPrintingPolicy_Half, CXPrintingPolicy_IncludeNewlines, CXPrintingPolicy_IncludeTagDefinition, CXPrintingPolicy_Indentation, CXPrintingPolicy_LastProperty, CXPrintingPolicy_MSVCFormatting, CXPrintingPolicy_MSWChar, CXPrintingPolicy_PolishForDeclaration, CXPrintingPolicy_Restrict, CXPrintingPolicy_SuppressImplicitBase, CXPrintingPolicy_SuppressInitializers, CXPrintingPolicy_SuppressLifetimeQualifiers, CXPrintingPolicy_SuppressScope, CXPrintingPolicy_SuppressSpecifiers, CXPrintingPolicy_SuppressStrongLifetime, CXPrintingPolicy_SuppressTagKeyword, CXPrintingPolicy_SuppressTemplateArgsInCXXConstructors, CXPrintingPolicy_SuppressUnwrittenScope, CXPrintingPolicy_TerseOutput, CXPrintingPolicy_UnderscoreAlignof, CXPrintingPolicy_UseVoidForZeroParams
 	𝐣𝐥.@cenum CXPrintingPolicyProperty {
@@ -9250,31 +9484,31 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_PrintingPolicy_getProperty(Policy::CXPrintingPolicy, Property::CXPrintingPolicyProperty)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_PrintingPolicy_getProperty(Policy::CXPrintingPolicy, Property::(𝐣𝐥.@cenum CXPrintingPolicyProperty))::𝐣𝐥.Cuint
 	```
 	
 	 Get a property value for the given printing policy.
 	
 	## Reference
 	
-	[Index.h:4285](./include/clang-c/Index.h:4285:1)
+	[Index.h:4346](./include/clang-c/Index.h:4346:1)
 	""" clang_PrintingPolicy_getProperty
 	export clang_PrintingPolicy_getProperty
-	𝐣𝐥.@cextern clang_PrintingPolicy_getProperty(Policy::CXPrintingPolicy, Property::CXPrintingPolicyProperty)::𝐣𝐥.Cuint
+	𝐣𝐥.@cextern clang_PrintingPolicy_getProperty(Policy::CXPrintingPolicy, Property::(𝐣𝐥.@cenum CXPrintingPolicyProperty))::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_PrintingPolicy_setProperty(Policy::CXPrintingPolicy, Property::CXPrintingPolicyProperty, Value::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
+	𝐣𝐥.@cextern clang_PrintingPolicy_setProperty(Policy::CXPrintingPolicy, Property::(𝐣𝐥.@cenum CXPrintingPolicyProperty), Value::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
 	```
 	
 	 Set a property value for the given printing policy.
 	
 	## Reference
 	
-	[Index.h:4291](./include/clang-c/Index.h:4291:21)
+	[Index.h:4353](./include/clang-c/Index.h:4353:1)
 	""" clang_PrintingPolicy_setProperty
 	export clang_PrintingPolicy_setProperty
-	𝐣𝐥.@cextern clang_PrintingPolicy_setProperty(Policy::CXPrintingPolicy, Property::CXPrintingPolicyProperty, Value::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
+	𝐣𝐥.@cextern clang_PrintingPolicy_setProperty(Policy::CXPrintingPolicy, Property::(𝐣𝐥.@cenum CXPrintingPolicyProperty), Value::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
 	
 	𝐣𝐥.@doc """
 	```
@@ -9289,7 +9523,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4301](./include/clang-c/Index.h:4301:33)
+	[Index.h:4363](./include/clang-c/Index.h:4363:33)
 	""" clang_getCursorPrintingPolicy
 	export clang_getCursorPrintingPolicy
 	𝐣𝐥.@cextern clang_getCursorPrintingPolicy(var"?1?"::CXCursor)::CXPrintingPolicy
@@ -9303,7 +9537,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4306](./include/clang-c/Index.h:4306:21)
+	[Index.h:4368](./include/clang-c/Index.h:4368:21)
 	""" clang_PrintingPolicy_dispose
 	export clang_PrintingPolicy_dispose
 	𝐣𝐥.@cextern clang_PrintingPolicy_dispose(Policy::CXPrintingPolicy)::𝐣𝐥.Cvoid
@@ -9326,7 +9560,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4319](./include/clang-c/Index.h:4319:25)
+	[Index.h:4381](./include/clang-c/Index.h:4381:25)
 	""" clang_getCursorPrettyPrinted
 	export clang_getCursorPrettyPrinted
 	𝐣𝐥.@cextern clang_getCursorPrettyPrinted(Cursor::CXCursor, Policy::CXPrintingPolicy)::CXString
@@ -9344,7 +9578,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4329](./include/clang-c/Index.h:4329:25)
+	[Index.h:4391](./include/clang-c/Index.h:4391:25)
 	""" clang_getCursorDisplayName
 	export clang_getCursorDisplayName
 	𝐣𝐥.@cextern clang_getCursorDisplayName(var"?1?"::CXCursor)::CXString
@@ -9362,7 +9596,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4341](./include/clang-c/Index.h:4341:25)
+	[Index.h:4403](./include/clang-c/Index.h:4403:25)
 	""" clang_getCursorReferenced
 	export clang_getCursorReferenced
 	𝐣𝐥.@cextern clang_getCursorReferenced(var"?1?"::CXCursor)::CXCursor
@@ -9391,7 +9625,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4371](./include/clang-c/Index.h:4371:25)
+	[Index.h:4433](./include/clang-c/Index.h:4433:25)
 	""" clang_getCursorDefinition
 	export clang_getCursorDefinition
 	𝐣𝐥.@cextern clang_getCursorDefinition(var"?1?"::CXCursor)::CXCursor
@@ -9405,7 +9639,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4377](./include/clang-c/Index.h:4377:25)
+	[Index.h:4439](./include/clang-c/Index.h:4439:25)
 	""" clang_isCursorDefinition
 	export clang_isCursorDefinition
 	𝐣𝐥.@cextern clang_isCursorDefinition(var"?1?"::CXCursor)::𝐣𝐥.Cuint
@@ -9437,7 +9671,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4403](./include/clang-c/Index.h:4403:25)
+	[Index.h:4465](./include/clang-c/Index.h:4465:25)
 	""" clang_getCanonicalCursor
 	export clang_getCanonicalCursor
 	𝐣𝐥.@cextern clang_getCanonicalCursor(var"?1?"::CXCursor)::CXCursor
@@ -9459,7 +9693,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4416](./include/clang-c/Index.h:4416:20)
+	[Index.h:4478](./include/clang-c/Index.h:4478:20)
 	""" clang_Cursor_getObjCSelectorIndex
 	export clang_Cursor_getObjCSelectorIndex
 	𝐣𝐥.@cextern clang_Cursor_getObjCSelectorIndex(var"?1?"::CXCursor)::𝐣𝐥.Cint
@@ -9479,7 +9713,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4429](./include/clang-c/Index.h:4429:20)
+	[Index.h:4491](./include/clang-c/Index.h:4491:20)
 	""" clang_Cursor_isDynamicCall
 	export clang_Cursor_isDynamicCall
 	𝐣𝐥.@cextern clang_Cursor_isDynamicCall(C::CXCursor)::𝐣𝐥.Cint
@@ -9493,7 +9727,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4435](./include/clang-c/Index.h:4435:23)
+	[Index.h:4497](./include/clang-c/Index.h:4497:23)
 	""" clang_Cursor_getReceiverType
 	export clang_Cursor_getReceiverType
 	𝐣𝐥.@cextern clang_Cursor_getReceiverType(C::CXCursor)::CXType
@@ -9501,79 +9735,79 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4444](./include/clang-c/Index.h:4444:3)
+	[Index.h:4506](./include/clang-c/Index.h:4506:3)
 	""" CXObjCPropertyAttr_assign
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4445](./include/clang-c/Index.h:4445:3)
+	[Index.h:4507](./include/clang-c/Index.h:4507:3)
 	""" CXObjCPropertyAttr_readwrite
 	𝐣𝐥.@doc """
 	 Property attributes for a `CXCursor_ObjCPropertyDecl.` 
 	
 	## Reference
 	
-	[Index.h:4455](./include/clang-c/Index.h:4455:3)
+	[Index.h:4517](./include/clang-c/Index.h:4517:3)
 	""" CXObjCPropertyAttrKind
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4442](./include/clang-c/Index.h:4442:3)
+	[Index.h:4504](./include/clang-c/Index.h:4504:3)
 	""" CXObjCPropertyAttr_readonly
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4448](./include/clang-c/Index.h:4448:3)
+	[Index.h:4510](./include/clang-c/Index.h:4510:3)
 	""" CXObjCPropertyAttr_nonatomic
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4450](./include/clang-c/Index.h:4450:3)
+	[Index.h:4512](./include/clang-c/Index.h:4512:3)
 	""" CXObjCPropertyAttr_atomic
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4441](./include/clang-c/Index.h:4441:3)
+	[Index.h:4503](./include/clang-c/Index.h:4503:3)
 	""" CXObjCPropertyAttr_noattr
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4443](./include/clang-c/Index.h:4443:3)
+	[Index.h:4505](./include/clang-c/Index.h:4505:3)
 	""" CXObjCPropertyAttr_getter
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4447](./include/clang-c/Index.h:4447:3)
+	[Index.h:4509](./include/clang-c/Index.h:4509:3)
 	""" CXObjCPropertyAttr_copy
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4452](./include/clang-c/Index.h:4452:3)
+	[Index.h:4514](./include/clang-c/Index.h:4514:3)
 	""" CXObjCPropertyAttr_strong
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4451](./include/clang-c/Index.h:4451:3)
+	[Index.h:4513](./include/clang-c/Index.h:4513:3)
 	""" CXObjCPropertyAttr_weak
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4449](./include/clang-c/Index.h:4449:3)
+	[Index.h:4511](./include/clang-c/Index.h:4511:3)
 	""" CXObjCPropertyAttr_setter
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4453](./include/clang-c/Index.h:4453:3)
+	[Index.h:4515](./include/clang-c/Index.h:4515:3)
 	""" CXObjCPropertyAttr_unsafe_unretained
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4446](./include/clang-c/Index.h:4446:3)
+	[Index.h:4508](./include/clang-c/Index.h:4508:3)
 	""" CXObjCPropertyAttr_retain
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4454](./include/clang-c/Index.h:4454:3)
+	[Index.h:4516](./include/clang-c/Index.h:4516:3)
 	""" CXObjCPropertyAttr_class
 	export CXObjCPropertyAttrKind, CXObjCPropertyAttr_assign, CXObjCPropertyAttr_atomic, CXObjCPropertyAttr_class, CXObjCPropertyAttr_copy, CXObjCPropertyAttr_getter, CXObjCPropertyAttr_noattr, CXObjCPropertyAttr_nonatomic, CXObjCPropertyAttr_readonly, CXObjCPropertyAttr_readwrite, CXObjCPropertyAttr_retain, CXObjCPropertyAttr_setter, CXObjCPropertyAttr_strong, CXObjCPropertyAttr_unsafe_unretained, CXObjCPropertyAttr_weak
 	𝐣𝐥.@ctypedef CXObjCPropertyAttrKind 𝐣𝐥.@cenum {
@@ -9606,7 +9840,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4464](./include/clang-c/Index.h:4464:25)
+	[Index.h:4527](./include/clang-c/Index.h:4527:1)
 	""" clang_Cursor_getObjCPropertyAttributes
 	export clang_Cursor_getObjCPropertyAttributes
 	𝐣𝐥.@cextern clang_Cursor_getObjCPropertyAttributes(C::CXCursor, reserved::𝐣𝐥.Cuint)::𝐣𝐥.Cuint
@@ -9620,7 +9854,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4471](./include/clang-c/Index.h:4471:25)
+	[Index.h:4533](./include/clang-c/Index.h:4533:25)
 	""" clang_Cursor_getObjCPropertyGetterName
 	export clang_Cursor_getObjCPropertyGetterName
 	𝐣𝐥.@cextern clang_Cursor_getObjCPropertyGetterName(C::CXCursor)::CXString
@@ -9634,7 +9868,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4477](./include/clang-c/Index.h:4477:25)
+	[Index.h:4539](./include/clang-c/Index.h:4539:25)
 	""" clang_Cursor_getObjCPropertySetterName
 	export clang_Cursor_getObjCPropertySetterName
 	𝐣𝐥.@cextern clang_Cursor_getObjCPropertySetterName(C::CXCursor)::CXString
@@ -9642,44 +9876,44 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4490](./include/clang-c/Index.h:4490:3)
+	[Index.h:4552](./include/clang-c/Index.h:4552:3)
 	""" CXObjCDeclQualifier_Oneway
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4485](./include/clang-c/Index.h:4485:3)
+	[Index.h:4547](./include/clang-c/Index.h:4547:3)
 	""" CXObjCDeclQualifier_In
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4484](./include/clang-c/Index.h:4484:3)
+	[Index.h:4546](./include/clang-c/Index.h:4546:3)
 	""" CXObjCDeclQualifier_None
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4486](./include/clang-c/Index.h:4486:3)
+	[Index.h:4548](./include/clang-c/Index.h:4548:3)
 	""" CXObjCDeclQualifier_Inout
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4487](./include/clang-c/Index.h:4487:3)
+	[Index.h:4549](./include/clang-c/Index.h:4549:3)
 	""" CXObjCDeclQualifier_Out
 	𝐣𝐥.@doc """
 	 'Qualifiers' written next to the return and parameter types in Objective-C method declarations.
 	
 	## Reference
 	
-	[Index.h:4491](./include/clang-c/Index.h:4491:3)
+	[Index.h:4553](./include/clang-c/Index.h:4553:3)
 	""" CXObjCDeclQualifierKind
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4488](./include/clang-c/Index.h:4488:3)
+	[Index.h:4550](./include/clang-c/Index.h:4550:3)
 	""" CXObjCDeclQualifier_Bycopy
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4489](./include/clang-c/Index.h:4489:3)
+	[Index.h:4551](./include/clang-c/Index.h:4551:3)
 	""" CXObjCDeclQualifier_Byref
 	export CXObjCDeclQualifierKind, CXObjCDeclQualifier_Bycopy, CXObjCDeclQualifier_Byref, CXObjCDeclQualifier_In, CXObjCDeclQualifier_Inout, CXObjCDeclQualifier_None, CXObjCDeclQualifier_Oneway, CXObjCDeclQualifier_Out
 	𝐣𝐥.@ctypedef CXObjCDeclQualifierKind 𝐣𝐥.@cenum {
@@ -9701,7 +9935,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4499](./include/clang-c/Index.h:4499:25)
+	[Index.h:4561](./include/clang-c/Index.h:4561:25)
 	""" clang_Cursor_getObjCDeclQualifiers
 	export clang_Cursor_getObjCDeclQualifiers
 	𝐣𝐥.@cextern clang_Cursor_getObjCDeclQualifiers(C::CXCursor)::𝐣𝐥.Cuint
@@ -9715,7 +9949,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4506](./include/clang-c/Index.h:4506:25)
+	[Index.h:4568](./include/clang-c/Index.h:4568:25)
 	""" clang_Cursor_isObjCOptional
 	export clang_Cursor_isObjCOptional
 	𝐣𝐥.@cextern clang_Cursor_isObjCOptional(C::CXCursor)::𝐣𝐥.Cuint
@@ -9729,7 +9963,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4511](./include/clang-c/Index.h:4511:25)
+	[Index.h:4573](./include/clang-c/Index.h:4573:25)
 	""" clang_Cursor_isVariadic
 	export clang_Cursor_isVariadic
 	𝐣𝐥.@cextern clang_Cursor_isVariadic(C::CXCursor)::𝐣𝐥.Cuint
@@ -9749,7 +9983,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4526](./include/clang-c/Index.h:4526:25)
+	[Index.h:4588](./include/clang-c/Index.h:4588:25)
 	""" clang_Cursor_isExternalSymbol
 	export clang_Cursor_isExternalSymbol
 	𝐣𝐥.@cextern clang_Cursor_isExternalSymbol(C::CXCursor, language::𝐣𝐥.Ptr{CXString}, definedIn::𝐣𝐥.Ptr{CXString}, isGenerated::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cuint
@@ -9763,7 +9997,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4535](./include/clang-c/Index.h:4535:30)
+	[Index.h:4598](./include/clang-c/Index.h:4598:30)
 	""" clang_Cursor_getCommentRange
 	export clang_Cursor_getCommentRange
 	𝐣𝐥.@cextern clang_Cursor_getCommentRange(C::CXCursor)::CXSourceRange
@@ -9777,7 +10011,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4541](./include/clang-c/Index.h:4541:25)
+	[Index.h:4604](./include/clang-c/Index.h:4604:25)
 	""" clang_Cursor_getRawCommentText
 	export clang_Cursor_getRawCommentText
 	𝐣𝐥.@cextern clang_Cursor_getRawCommentText(C::CXCursor)::CXString
@@ -9797,7 +10031,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4548](./include/clang-c/Index.h:4548:25)
+	[Index.h:4611](./include/clang-c/Index.h:4611:25)
 	""" clang_Cursor_getBriefCommentText
 	export clang_Cursor_getBriefCommentText
 	𝐣𝐥.@cextern clang_Cursor_getBriefCommentText(C::CXCursor)::CXString
@@ -9811,7 +10045,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4562](./include/clang-c/Index.h:4562:25)
+	[Index.h:4625](./include/clang-c/Index.h:4625:25)
 	""" clang_Cursor_getMangling
 	export clang_Cursor_getMangling
 	𝐣𝐥.@cextern clang_Cursor_getMangling(var"?1?"::CXCursor)::CXString
@@ -9825,7 +10059,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4568](./include/clang-c/Index.h:4568:29)
+	[Index.h:4631](./include/clang-c/Index.h:4631:29)
 	""" clang_Cursor_getCXXManglings
 	export clang_Cursor_getCXXManglings
 	𝐣𝐥.@cextern clang_Cursor_getCXXManglings(var"?1?"::CXCursor)::𝐣𝐥.Ptr{CXStringSet}
@@ -9839,7 +10073,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4574](./include/clang-c/Index.h:4574:29)
+	[Index.h:4637](./include/clang-c/Index.h:4637:29)
 	""" clang_Cursor_getObjCManglings
 	export clang_Cursor_getObjCManglings
 	𝐣𝐥.@cextern clang_Cursor_getObjCManglings(var"?1?"::CXCursor)::𝐣𝐥.Ptr{CXStringSet}
@@ -9855,7 +10089,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4588](./include/clang-c/Index.h:4588:15)
+	[Index.h:4651](./include/clang-c/Index.h:4651:15)
 	""" CXModule
 	export CXModule
 	𝐣𝐥.@ctypedef CXModule 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -9869,7 +10103,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4593](./include/clang-c/Index.h:4593:25)
+	[Index.h:4656](./include/clang-c/Index.h:4656:25)
 	""" clang_Cursor_getModule
 	export clang_Cursor_getModule
 	𝐣𝐥.@cextern clang_Cursor_getModule(C::CXCursor)::CXModule
@@ -9883,7 +10117,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4599](./include/clang-c/Index.h:4599:25)
+	[Index.h:4662](./include/clang-c/Index.h:4662:25)
 	""" clang_getModuleForFile
 	export clang_getModuleForFile
 	𝐣𝐥.@cextern clang_getModuleForFile(var"?1?"::CXTranslationUnit, var"?2?"::CXFile)::CXModule
@@ -9903,7 +10137,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4606](./include/clang-c/Index.h:4606:23)
+	[Index.h:4669](./include/clang-c/Index.h:4669:23)
 	""" clang_Module_getASTFile
 	export clang_Module_getASTFile
 	𝐣𝐥.@cextern clang_Module_getASTFile(Module::CXModule)::CXFile
@@ -9923,7 +10157,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4614](./include/clang-c/Index.h:4614:25)
+	[Index.h:4677](./include/clang-c/Index.h:4677:25)
 	""" clang_Module_getParent
 	export clang_Module_getParent
 	𝐣𝐥.@cextern clang_Module_getParent(Module::CXModule)::CXModule
@@ -9943,7 +10177,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4622](./include/clang-c/Index.h:4622:25)
+	[Index.h:4685](./include/clang-c/Index.h:4685:25)
 	""" clang_Module_getName
 	export clang_Module_getName
 	𝐣𝐥.@cextern clang_Module_getName(Module::CXModule)::CXString
@@ -9963,7 +10197,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4629](./include/clang-c/Index.h:4629:25)
+	[Index.h:4692](./include/clang-c/Index.h:4692:25)
 	""" clang_Module_getFullName
 	export clang_Module_getFullName
 	𝐣𝐥.@cextern clang_Module_getFullName(Module::CXModule)::CXString
@@ -9983,7 +10217,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4636](./include/clang-c/Index.h:4636:20)
+	[Index.h:4699](./include/clang-c/Index.h:4699:20)
 	""" clang_Module_isSystem
 	export clang_Module_isSystem
 	𝐣𝐥.@cextern clang_Module_isSystem(Module::CXModule)::𝐣𝐥.Cint
@@ -10003,7 +10237,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4643](./include/clang-c/Index.h:4643:25)
+	[Index.h:4706](./include/clang-c/Index.h:4706:25)
 	""" clang_Module_getNumTopLevelHeaders
 	export clang_Module_getNumTopLevelHeaders
 	𝐣𝐥.@cextern clang_Module_getNumTopLevelHeaders(var"?1?"::CXTranslationUnit, Module::CXModule)::𝐣𝐥.Cuint
@@ -10027,7 +10261,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4654](./include/clang-c/Index.h:4654:8)
+	[Index.h:4717](./include/clang-c/Index.h:4717:8)
 	""" clang_Module_getTopLevelHeader
 	export clang_Module_getTopLevelHeader
 	𝐣𝐥.@cextern clang_Module_getTopLevelHeader(var"?1?"::CXTranslationUnit, Module::CXModule, Index::𝐣𝐥.Cuint)::CXFile
@@ -10041,7 +10275,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4673](./include/clang-c/Index.h:4673:25)
+	[Index.h:4737](./include/clang-c/Index.h:4737:1)
 	""" clang_CXXConstructor_isConvertingConstructor
 	export clang_CXXConstructor_isConvertingConstructor
 	𝐣𝐥.@cextern clang_CXXConstructor_isConvertingConstructor(C::CXCursor)::𝐣𝐥.Cuint
@@ -10055,7 +10289,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4678](./include/clang-c/Index.h:4678:25)
+	[Index.h:4742](./include/clang-c/Index.h:4742:25)
 	""" clang_CXXConstructor_isCopyConstructor
 	export clang_CXXConstructor_isCopyConstructor
 	𝐣𝐥.@cextern clang_CXXConstructor_isCopyConstructor(C::CXCursor)::𝐣𝐥.Cuint
@@ -10069,7 +10303,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4683](./include/clang-c/Index.h:4683:25)
+	[Index.h:4747](./include/clang-c/Index.h:4747:25)
 	""" clang_CXXConstructor_isDefaultConstructor
 	export clang_CXXConstructor_isDefaultConstructor
 	𝐣𝐥.@cextern clang_CXXConstructor_isDefaultConstructor(C::CXCursor)::𝐣𝐥.Cuint
@@ -10083,7 +10317,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4688](./include/clang-c/Index.h:4688:25)
+	[Index.h:4752](./include/clang-c/Index.h:4752:25)
 	""" clang_CXXConstructor_isMoveConstructor
 	export clang_CXXConstructor_isMoveConstructor
 	𝐣𝐥.@cextern clang_CXXConstructor_isMoveConstructor(C::CXCursor)::𝐣𝐥.Cuint
@@ -10097,7 +10331,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4693](./include/clang-c/Index.h:4693:25)
+	[Index.h:4757](./include/clang-c/Index.h:4757:25)
 	""" clang_CXXField_isMutable
 	export clang_CXXField_isMutable
 	𝐣𝐥.@cextern clang_CXXField_isMutable(C::CXCursor)::𝐣𝐥.Cuint
@@ -10111,7 +10345,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4698](./include/clang-c/Index.h:4698:25)
+	[Index.h:4762](./include/clang-c/Index.h:4762:25)
 	""" clang_CXXMethod_isDefaulted
 	export clang_CXXMethod_isDefaulted
 	𝐣𝐥.@cextern clang_CXXMethod_isDefaulted(C::CXCursor)::𝐣𝐥.Cuint
@@ -10125,7 +10359,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4704](./include/clang-c/Index.h:4704:25)
+	[Index.h:4768](./include/clang-c/Index.h:4768:25)
 	""" clang_CXXMethod_isPureVirtual
 	export clang_CXXMethod_isPureVirtual
 	𝐣𝐥.@cextern clang_CXXMethod_isPureVirtual(C::CXCursor)::𝐣𝐥.Cuint
@@ -10139,7 +10373,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4710](./include/clang-c/Index.h:4710:25)
+	[Index.h:4774](./include/clang-c/Index.h:4774:25)
 	""" clang_CXXMethod_isStatic
 	export clang_CXXMethod_isStatic
 	𝐣𝐥.@cextern clang_CXXMethod_isStatic(C::CXCursor)::𝐣𝐥.Cuint
@@ -10153,7 +10387,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4717](./include/clang-c/Index.h:4717:25)
+	[Index.h:4781](./include/clang-c/Index.h:4781:25)
 	""" clang_CXXMethod_isVirtual
 	export clang_CXXMethod_isVirtual
 	𝐣𝐥.@cextern clang_CXXMethod_isVirtual(C::CXCursor)::𝐣𝐥.Cuint
@@ -10167,7 +10401,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4723](./include/clang-c/Index.h:4723:25)
+	[Index.h:4787](./include/clang-c/Index.h:4787:25)
 	""" clang_CXXRecord_isAbstract
 	export clang_CXXRecord_isAbstract
 	𝐣𝐥.@cextern clang_CXXRecord_isAbstract(C::CXCursor)::𝐣𝐥.Cuint
@@ -10181,7 +10415,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4728](./include/clang-c/Index.h:4728:25)
+	[Index.h:4792](./include/clang-c/Index.h:4792:25)
 	""" clang_EnumDecl_isScoped
 	export clang_EnumDecl_isScoped
 	𝐣𝐥.@cextern clang_EnumDecl_isScoped(C::CXCursor)::𝐣𝐥.Cuint
@@ -10195,14 +10429,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4734](./include/clang-c/Index.h:4734:25)
+	[Index.h:4798](./include/clang-c/Index.h:4798:25)
 	""" clang_CXXMethod_isConst
 	export clang_CXXMethod_isConst
 	𝐣𝐥.@cextern clang_CXXMethod_isConst(C::CXCursor)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getTemplateCursorKind(C::CXCursor)::CXCursorKind
+	𝐣𝐥.@cextern clang_getTemplateCursorKind(C::CXCursor)::𝐣𝐥.@cenum CXCursorKind
 	```
 	
 	 Given a cursor that represents a template, determine the cursor kind of the specializations would be generated by instantiating the template.
@@ -10221,10 +10455,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4753](./include/clang-c/Index.h:4753:34)
+	[Index.h:4817](./include/clang-c/Index.h:4817:34)
 	""" clang_getTemplateCursorKind
 	export clang_getTemplateCursorKind
-	𝐣𝐥.@cextern clang_getTemplateCursorKind(C::CXCursor)::CXCursorKind
+	𝐣𝐥.@cextern clang_getTemplateCursorKind(C::CXCursor)::𝐣𝐥.@cenum CXCursorKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -10249,7 +10483,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4783](./include/clang-c/Index.h:4783:25)
+	[Index.h:4847](./include/clang-c/Index.h:4847:25)
 	""" clang_getSpecializedCursorTemplate
 	export clang_getSpecializedCursorTemplate
 	𝐣𝐥.@cextern clang_getSpecializedCursorTemplate(C::CXCursor)::CXCursor
@@ -10273,7 +10507,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4803](./include/clang-c/Index.h:4803:30)
+	[Index.h:4867](./include/clang-c/Index.h:4867:30)
 	""" clang_getCursorReferenceNameRange
 	export clang_getCursorReferenceNameRange
 	𝐣𝐥.@cextern clang_getCursorReferenceNameRange(C::CXCursor, NameFlags::𝐣𝐥.Cuint, PieceIndex::𝐣𝐥.Cuint)::CXSourceRange
@@ -10283,7 +10517,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4812](./include/clang-c/Index.h:4812:3)
+	[Index.h:4875](./include/clang-c/Index.h:4875:3)
 	""" CXNameRange_WantQualifier
 	𝐣𝐥.@doc """
 	 If the name is non-contiguous, return the full spanning range.
@@ -10299,19 +10533,19 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4830](./include/clang-c/Index.h:4830:3)
+	[Index.h:4893](./include/clang-c/Index.h:4893:3)
 	""" CXNameRange_WantSinglePiece
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:4807](./include/clang-c/Index.h:4807:6)
+	[Index.h:4870](./include/clang-c/Index.h:4870:6)
 	""" CXNameRefFlags
 	𝐣𝐥.@doc """
 	 Include the explicit template arguments, e.g. <int> in x.f<int>, in the range.
 	
 	## Reference
 	
-	[Index.h:4818](./include/clang-c/Index.h:4818:3)
+	[Index.h:4881](./include/clang-c/Index.h:4881:3)
 	""" CXNameRange_WantTemplateArgs
 	export CXNameRange_WantQualifier, CXNameRange_WantSinglePiece, CXNameRange_WantTemplateArgs, CXNameRefFlags
 	𝐣𝐥.@cenum CXNameRefFlags {
@@ -10329,44 +10563,44 @@ using CBinding: 𝐣𝐥
 	
 	## References
 	
-	[Index.h:4850](./include/clang-c/Index.h:4850:14)
+	[Index.h:4913](./include/clang-c/Index.h:4913:14)
 	
-	[Index.h:4875](./include/clang-c/Index.h:4875:3)
+	[Index.h:4938](./include/clang-c/Index.h:4938:3)
 	""" CXTokenKind
 	𝐣𝐥.@doc """
 	 A comment.
 	
 	## Reference
 	
-	[Index.h:4874](./include/clang-c/Index.h:4874:3)
+	[Index.h:4937](./include/clang-c/Index.h:4937:3)
 	""" CXToken_Comment
 	𝐣𝐥.@doc """
 	 An identifier (that is not a keyword).
 	
 	## Reference
 	
-	[Index.h:4864](./include/clang-c/Index.h:4864:3)
+	[Index.h:4927](./include/clang-c/Index.h:4927:3)
 	""" CXToken_Identifier
 	𝐣𝐥.@doc """
 	 A language keyword.
 	
 	## Reference
 	
-	[Index.h:4859](./include/clang-c/Index.h:4859:3)
+	[Index.h:4922](./include/clang-c/Index.h:4922:3)
 	""" CXToken_Keyword
 	𝐣𝐥.@doc """
 	 A numeric, string, or character literal.
 	
 	## Reference
 	
-	[Index.h:4869](./include/clang-c/Index.h:4869:3)
+	[Index.h:4932](./include/clang-c/Index.h:4932:3)
 	""" CXToken_Literal
 	𝐣𝐥.@doc """
 	 A token that contains some kind of punctuation.
 	
 	## Reference
 	
-	[Index.h:4854](./include/clang-c/Index.h:4854:3)
+	[Index.h:4917](./include/clang-c/Index.h:4917:3)
 	""" CXToken_Punctuation
 	export CXTokenKind, CXToken_Comment, CXToken_Identifier, CXToken_Keyword, CXToken_Literal, CXToken_Punctuation
 	𝐣𝐥.@ctypedef CXTokenKind 𝐣𝐥.@cenum CXTokenKind {
@@ -10382,7 +10616,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4883](./include/clang-c/Index.h:4883:3)
+	[Index.h:4946](./include/clang-c/Index.h:4946:3)
 	""" CXToken
 	export CXToken
 	𝐣𝐥.@ctypedef CXToken 𝐣𝐥.@cstruct {
@@ -10408,7 +10642,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4896](./include/clang-c/Index.h:4896:25)
+	[Index.h:4959](./include/clang-c/Index.h:4959:25)
 	""" clang_getToken
 	export clang_getToken
 	𝐣𝐥.@cextern clang_getToken(TU::CXTranslationUnit, Location::CXSourceLocation)::𝐣𝐥.Ptr{CXToken}
@@ -10422,7 +10656,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4902](./include/clang-c/Index.h:4902:28)
+	[Index.h:4965](./include/clang-c/Index.h:4965:28)
 	""" clang_getTokenKind
 	export clang_getTokenKind
 	𝐣𝐥.@cextern clang_getTokenKind(var"?1?"::CXToken)::CXTokenKind
@@ -10440,7 +10674,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4910](./include/clang-c/Index.h:4910:25)
+	[Index.h:4973](./include/clang-c/Index.h:4973:25)
 	""" clang_getTokenSpelling
 	export clang_getTokenSpelling
 	𝐣𝐥.@cextern clang_getTokenSpelling(var"?1?"::CXTranslationUnit, var"?2?"::CXToken)::CXString
@@ -10454,7 +10688,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4915](./include/clang-c/Index.h:4915:33)
+	[Index.h:4978](./include/clang-c/Index.h:4978:33)
 	""" clang_getTokenLocation
 	export clang_getTokenLocation
 	𝐣𝐥.@cextern clang_getTokenLocation(var"?1?"::CXTranslationUnit, var"?2?"::CXToken)::CXSourceLocation
@@ -10468,7 +10702,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4921](./include/clang-c/Index.h:4921:30)
+	[Index.h:4984](./include/clang-c/Index.h:4984:30)
 	""" clang_getTokenExtent
 	export clang_getTokenExtent
 	𝐣𝐥.@cextern clang_getTokenExtent(var"?1?"::CXTranslationUnit, var"?2?"::CXToken)::CXSourceRange
@@ -10489,7 +10723,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4940](./include/clang-c/Index.h:4940:21)
+	[Index.h:5003](./include/clang-c/Index.h:5003:21)
 	""" clang_tokenize
 	export clang_tokenize
 	𝐣𝐥.@cextern clang_tokenize(TU::CXTranslationUnit, Range::CXSourceRange, Tokens::𝐣𝐥.Ptr{𝐣𝐥.Ptr{CXToken}}, NumTokens::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cvoid
@@ -10518,7 +10752,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4973](./include/clang-c/Index.h:4973:21)
+	[Index.h:5036](./include/clang-c/Index.h:5036:21)
 	""" clang_annotateTokens
 	export clang_annotateTokens
 	𝐣𝐥.@cextern clang_annotateTokens(TU::CXTranslationUnit, Tokens::𝐣𝐥.Ptr{CXToken}, NumTokens::𝐣𝐥.Cuint, Cursors::𝐣𝐥.Ptr{CXCursor})::𝐣𝐥.Cvoid
@@ -10532,14 +10766,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4980](./include/clang-c/Index.h:4980:21)
+	[Index.h:5042](./include/clang-c/Index.h:5042:21)
 	""" clang_disposeTokens
 	export clang_disposeTokens
 	𝐣𝐥.@cextern clang_disposeTokens(TU::CXTranslationUnit, Tokens::𝐣𝐥.Ptr{CXToken}, NumTokens::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCursorKindSpelling(Kind::CXCursorKind)::CXString
+	𝐣𝐥.@cextern clang_getCursorKindSpelling(Kind::𝐣𝐥.@cenum CXCursorKind)::CXString
 	```
 	
 	 CINDEX_DEBUG Debugging facilities
@@ -10552,10 +10786,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4997](./include/clang-c/Index.h:4997:25)
+	[Index.h:5059](./include/clang-c/Index.h:5059:25)
 	""" clang_getCursorKindSpelling
 	export clang_getCursorKindSpelling
-	𝐣𝐥.@cextern clang_getCursorKindSpelling(Kind::CXCursorKind)::CXString
+	𝐣𝐥.@cextern clang_getCursorKindSpelling(Kind::𝐣𝐥.@cenum CXCursorKind)::CXString
 	
 	𝐣𝐥.@doc """
 	```
@@ -10564,7 +10798,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:4998](./include/clang-c/Index.h:4998:21)
+	[Index.h:5060](./include/clang-c/Index.h:5060:21)
 	""" clang_getDefinitionSpellingAndExtent
 	export clang_getDefinitionSpellingAndExtent
 	𝐣𝐥.@cextern clang_getDefinitionSpellingAndExtent(var"?1?"::CXCursor, startBuf::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}}, endBuf::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}}, startLine::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, startColumn::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, endLine::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, endColumn::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cvoid
@@ -10576,7 +10810,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5005](./include/clang-c/Index.h:5005:21)
+	[Index.h:5063](./include/clang-c/Index.h:5063:21)
 	""" clang_enableStackTraces
 	export clang_enableStackTraces
 	𝐣𝐥.@cextern clang_enableStackTraces()::𝐣𝐥.Cvoid
@@ -10588,7 +10822,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5006](./include/clang-c/Index.h:5006:21)
+	[Index.h:5064](./include/clang-c/Index.h:5064:21)
 	""" clang_executeOnThread
 	export clang_executeOnThread
 	𝐣𝐥.@cextern clang_executeOnThread(fn::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}}, 𝐣𝐥.CDECL}}, user_data::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, stack_size::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
@@ -10602,7 +10836,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5038](./include/clang-c/Index.h:5038:15)
+	[Index.h:5096](./include/clang-c/Index.h:5096:15)
 	""" CXCompletionString
 	export CXCompletionString
 	𝐣𝐥.@ctypedef CXCompletionString 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -10612,11 +10846,11 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5061](./include/clang-c/Index.h:5061:3)
+	[Index.h:5119](./include/clang-c/Index.h:5119:3)
 	""" CXCompletionResult
 	export CXCompletionResult
 	𝐣𝐥.@ctypedef CXCompletionResult 𝐣𝐥.@cstruct {
-		CursorKind::CXCursorKind
+		CursorKind::𝐣𝐥.@cenum CXCursorKind
 		CompletionString::CXCompletionString
 	}
 	
@@ -10625,14 +10859,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5218](./include/clang-c/Index.h:5218:3)
+	[Index.h:5276](./include/clang-c/Index.h:5276:3)
 	""" CXCompletionChunk_SemiColon
 	𝐣𝐥.@doc """
 	 A comma separator (',').
 	
 	## Reference
 	
-	[Index.h:5202](./include/clang-c/Index.h:5202:3)
+	[Index.h:5260](./include/clang-c/Index.h:5260:3)
 	""" CXCompletionChunk_Comma
 	𝐣𝐥.@doc """
 	 A code-completion string that describes \"optional\" text that could be a part of the template (but is not required).
@@ -10651,14 +10885,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5104](./include/clang-c/Index.h:5104:3)
+	[Index.h:5162](./include/clang-c/Index.h:5162:3)
 	""" CXCompletionChunk_Optional
 	𝐣𝐥.@doc """
 	 An '=' sign.
 	
 	## Reference
 	
-	[Index.h:5222](./include/clang-c/Index.h:5222:3)
+	[Index.h:5280](./include/clang-c/Index.h:5280:3)
 	""" CXCompletionChunk_Equal
 	𝐣𝐥.@doc """
 	 Text that a user would be expected to type to get this code-completion result.
@@ -10669,7 +10903,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5115](./include/clang-c/Index.h:5115:3)
+	[Index.h:5173](./include/clang-c/Index.h:5173:3)
 	""" CXCompletionChunk_TypedText
 	𝐣𝐥.@doc """
 	 Text that describes the current parameter when code-completion is referring to function call, message send, or template specialization.
@@ -10686,49 +10920,49 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5164](./include/clang-c/Index.h:5164:3)
+	[Index.h:5222](./include/clang-c/Index.h:5222:3)
 	""" CXCompletionChunk_CurrentParameter
 	𝐣𝐥.@doc """
 	 A left parenthesis ('('), used to initiate a function call or signal the beginning of a function parameter list.
 	
 	## Reference
 	
-	[Index.h:5169](./include/clang-c/Index.h:5169:3)
+	[Index.h:5227](./include/clang-c/Index.h:5227:3)
 	""" CXCompletionChunk_LeftParen
 	𝐣𝐥.@doc """
 	 A right bracket (']').
 	
 	## Reference
 	
-	[Index.h:5182](./include/clang-c/Index.h:5182:3)
+	[Index.h:5240](./include/clang-c/Index.h:5240:3)
 	""" CXCompletionChunk_RightBracket
 	𝐣𝐥.@doc """
 	 Vertical space ('\\n'), after which it is generally a good idea to perform indentation.
 	
 	## Reference
 	
-	[Index.h:5231](./include/clang-c/Index.h:5231:3)
+	[Index.h:5289](./include/clang-c/Index.h:5289:3)
 	""" CXCompletionChunk_VerticalSpace
 	𝐣𝐥.@doc """
 	 A right brace ('}').
 	
 	## Reference
 	
-	[Index.h:5190](./include/clang-c/Index.h:5190:3)
+	[Index.h:5248](./include/clang-c/Index.h:5248:3)
 	""" CXCompletionChunk_RightBrace
 	𝐣𝐥.@doc """
 	 A left bracket ('[').
 	
 	## Reference
 	
-	[Index.h:5178](./include/clang-c/Index.h:5178:3)
+	[Index.h:5236](./include/clang-c/Index.h:5236:3)
 	""" CXCompletionChunk_LeftBracket
 	𝐣𝐥.@doc """
 	 A right parenthesis (')'), used to finish a function call or signal the end of a function parameter list.
 	
 	## Reference
 	
-	[Index.h:5174](./include/clang-c/Index.h:5174:3)
+	[Index.h:5232](./include/clang-c/Index.h:5232:3)
 	""" CXCompletionChunk_RightParen
 	𝐣𝐥.@doc """
 	 Text that specifies the result type of a given result.
@@ -10739,21 +10973,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5210](./include/clang-c/Index.h:5210:3)
+	[Index.h:5268](./include/clang-c/Index.h:5268:3)
 	""" CXCompletionChunk_ResultType
 	𝐣𝐥.@doc """
 	 Horizontal space (' ').
 	
 	## Reference
 	
-	[Index.h:5226](./include/clang-c/Index.h:5226:3)
+	[Index.h:5284](./include/clang-c/Index.h:5284:3)
 	""" CXCompletionChunk_HorizontalSpace
 	𝐣𝐥.@doc """
 	 A colon (':').
 	
 	## Reference
 	
-	[Index.h:5214](./include/clang-c/Index.h:5214:3)
+	[Index.h:5272](./include/clang-c/Index.h:5272:3)
 	""" CXCompletionChunk_Colon
 	𝐣𝐥.@doc """
 	 Text that should be inserted as part of a code-completion result.
@@ -10764,7 +10998,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5123](./include/clang-c/Index.h:5123:3)
+	[Index.h:5181](./include/clang-c/Index.h:5181:3)
 	""" CXCompletionChunk_Text
 	𝐣𝐥.@doc """
 	 Placeholder text that should be replaced by the user.
@@ -10775,21 +11009,21 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5134](./include/clang-c/Index.h:5134:3)
+	[Index.h:5192](./include/clang-c/Index.h:5192:3)
 	""" CXCompletionChunk_Placeholder
 	𝐣𝐥.@doc """
 	 A left brace ('{').
 	
 	## Reference
 	
-	[Index.h:5186](./include/clang-c/Index.h:5186:3)
+	[Index.h:5244](./include/clang-c/Index.h:5244:3)
 	""" CXCompletionChunk_LeftBrace
 	𝐣𝐥.@doc """
 	 A left angle bracket ('<').
 	
 	## Reference
 	
-	[Index.h:5194](./include/clang-c/Index.h:5194:3)
+	[Index.h:5252](./include/clang-c/Index.h:5252:3)
 	""" CXCompletionChunk_LeftAngle
 	𝐣𝐥.@doc """
 	 Describes a single piece of text within a code-completion string.
@@ -10800,7 +11034,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5070](./include/clang-c/Index.h:5070:6)
+	[Index.h:5128](./include/clang-c/Index.h:5128:6)
 	""" CXCompletionChunkKind
 	𝐣𝐥.@doc """
 	 Informative text that should be displayed but never inserted as part of the template.
@@ -10811,14 +11045,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5144](./include/clang-c/Index.h:5144:3)
+	[Index.h:5202](./include/clang-c/Index.h:5202:3)
 	""" CXCompletionChunk_Informative
 	𝐣𝐥.@doc """
 	 A right angle bracket ('>').
 	
 	## Reference
 	
-	[Index.h:5198](./include/clang-c/Index.h:5198:3)
+	[Index.h:5256](./include/clang-c/Index.h:5256:3)
 	""" CXCompletionChunk_RightAngle
 	export CXCompletionChunkKind, CXCompletionChunk_Colon, CXCompletionChunk_Comma, CXCompletionChunk_CurrentParameter, CXCompletionChunk_Equal, CXCompletionChunk_HorizontalSpace, CXCompletionChunk_Informative, CXCompletionChunk_LeftAngle, CXCompletionChunk_LeftBrace, CXCompletionChunk_LeftBracket, CXCompletionChunk_LeftParen, CXCompletionChunk_Optional, CXCompletionChunk_Placeholder, CXCompletionChunk_ResultType, CXCompletionChunk_RightAngle, CXCompletionChunk_RightBrace, CXCompletionChunk_RightBracket, CXCompletionChunk_RightParen, CXCompletionChunk_SemiColon, CXCompletionChunk_Text, CXCompletionChunk_TypedText, CXCompletionChunk_VerticalSpace
 	𝐣𝐥.@cenum CXCompletionChunkKind {
@@ -10847,7 +11081,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCompletionChunkKind(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::CXCompletionChunkKind
+	𝐣𝐥.@cextern clang_getCompletionChunkKind(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::𝐣𝐥.@cenum CXCompletionChunkKind
 	```
 	
 	 Determine the kind of a particular chunk within a completion string.
@@ -10863,10 +11097,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5244](./include/clang-c/Index.h:5244:1)
+	[Index.h:5302](./include/clang-c/Index.h:5302:1)
 	""" clang_getCompletionChunkKind
 	export clang_getCompletionChunkKind
-	𝐣𝐥.@cextern clang_getCompletionChunkKind(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::CXCompletionChunkKind
+	𝐣𝐥.@cextern clang_getCompletionChunkKind(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::𝐣𝐥.@cenum CXCompletionChunkKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -10886,7 +11120,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5258](./include/clang-c/Index.h:5258:1)
+	[Index.h:5315](./include/clang-c/Index.h:5315:25)
 	""" clang_getCompletionChunkText
 	export clang_getCompletionChunkText
 	𝐣𝐥.@cextern clang_getCompletionChunkText(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::CXString
@@ -10909,7 +11143,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5273](./include/clang-c/Index.h:5273:1)
+	[Index.h:5329](./include/clang-c/Index.h:5329:35)
 	""" clang_getCompletionChunkCompletionString
 	export clang_getCompletionChunkCompletionString
 	𝐣𝐥.@cextern clang_getCompletionChunkCompletionString(completion_string::CXCompletionString, chunk_number::𝐣𝐥.Cuint)::CXCompletionString
@@ -10923,7 +11157,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5280](./include/clang-c/Index.h:5280:1)
+	[Index.h:5336](./include/clang-c/Index.h:5336:1)
 	""" clang_getNumCompletionChunks
 	export clang_getNumCompletionChunks
 	𝐣𝐥.@cextern clang_getNumCompletionChunks(completion_string::CXCompletionString)::𝐣𝐥.Cuint
@@ -10949,14 +11183,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5295](./include/clang-c/Index.h:5295:1)
+	[Index.h:5351](./include/clang-c/Index.h:5351:1)
 	""" clang_getCompletionPriority
 	export clang_getCompletionPriority
 	𝐣𝐥.@cextern clang_getCompletionPriority(completion_string::CXCompletionString)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCompletionAvailability(completion_string::CXCompletionString)::CXAvailabilityKind
+	𝐣𝐥.@cextern clang_getCompletionAvailability(completion_string::CXCompletionString)::𝐣𝐥.@cenum CXAvailabilityKind
 	```
 	
 	 Determine the availability of the entity that this code-completion string refers to.
@@ -10971,10 +11205,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5306](./include/clang-c/Index.h:5306:1)
+	[Index.h:5362](./include/clang-c/Index.h:5362:1)
 	""" clang_getCompletionAvailability
 	export clang_getCompletionAvailability
-	𝐣𝐥.@cextern clang_getCompletionAvailability(completion_string::CXCompletionString)::CXAvailabilityKind
+	𝐣𝐥.@cextern clang_getCompletionAvailability(completion_string::CXCompletionString)::𝐣𝐥.@cenum CXAvailabilityKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -10993,7 +11227,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5318](./include/clang-c/Index.h:5318:1)
+	[Index.h:5374](./include/clang-c/Index.h:5374:1)
 	""" clang_getCompletionNumAnnotations
 	export clang_getCompletionNumAnnotations
 	𝐣𝐥.@cextern clang_getCompletionNumAnnotations(completion_string::CXCompletionString)::𝐣𝐥.Cuint
@@ -11016,14 +11250,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5332](./include/clang-c/Index.h:5332:1)
+	[Index.h:5387](./include/clang-c/Index.h:5387:25)
 	""" clang_getCompletionAnnotation
 	export clang_getCompletionAnnotation
 	𝐣𝐥.@cextern clang_getCompletionAnnotation(completion_string::CXCompletionString, annotation_number::𝐣𝐥.Cuint)::CXString
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_getCompletionParent(completion_string::CXCompletionString, kind::𝐣𝐥.Ptr{CXCursorKind})::CXString
+	𝐣𝐥.@cextern clang_getCompletionParent(completion_string::CXCompletionString, kind::𝐣𝐥.Ptr{𝐣𝐥.@cenum CXCursorKind})::CXString
 	```
 	
 	 Retrieve the parent context of the given completion string.
@@ -11043,10 +11277,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5352](./include/clang-c/Index.h:5352:1)
+	[Index.h:5406](./include/clang-c/Index.h:5406:25)
 	""" clang_getCompletionParent
 	export clang_getCompletionParent
-	𝐣𝐥.@cextern clang_getCompletionParent(completion_string::CXCompletionString, kind::𝐣𝐥.Ptr{CXCursorKind})::CXString
+	𝐣𝐥.@cextern clang_getCompletionParent(completion_string::CXCompletionString, kind::𝐣𝐥.Ptr{𝐣𝐥.@cenum CXCursorKind})::CXString
 	
 	𝐣𝐥.@doc """
 	```
@@ -11057,7 +11291,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5360](./include/clang-c/Index.h:5360:1)
+	[Index.h:5414](./include/clang-c/Index.h:5414:1)
 	""" clang_getCompletionBriefComment
 	export clang_getCompletionBriefComment
 	𝐣𝐥.@cextern clang_getCompletionBriefComment(completion_string::CXCompletionString)::CXString
@@ -11079,7 +11313,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5372](./include/clang-c/Index.h:5372:1)
+	[Index.h:5426](./include/clang-c/Index.h:5426:1)
 	""" clang_getCursorCompletionString
 	export clang_getCursorCompletionString
 	𝐣𝐥.@cextern clang_getCursorCompletionString(cursor::CXCursor)::CXCompletionString
@@ -11093,7 +11327,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5392](./include/clang-c/Index.h:5392:3)
+	[Index.h:5446](./include/clang-c/Index.h:5446:3)
 	""" CXCodeCompleteResults
 	export CXCodeCompleteResults
 	𝐣𝐥.@ctypedef CXCodeCompleteResults 𝐣𝐥.@cstruct {
@@ -11123,7 +11357,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5408](./include/clang-c/Index.h:5408:1)
+	[Index.h:5462](./include/clang-c/Index.h:5462:1)
 	""" clang_getCompletionNumFixIts
 	export clang_getCompletionNumFixIts
 	𝐣𝐥.@cextern clang_getCompletionNumFixIts(results::𝐣𝐥.Ptr{CXCodeCompleteResults}, completion_index::𝐣𝐥.Cuint)::𝐣𝐥.Cuint
@@ -11158,7 +11392,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5454](./include/clang-c/Index.h:5454:25)
+	[Index.h:5508](./include/clang-c/Index.h:5508:25)
 	""" clang_getCompletionFixIt
 	export clang_getCompletionFixIt
 	𝐣𝐥.@cextern clang_getCompletionFixIt(results::𝐣𝐥.Ptr{CXCodeCompleteResults}, completion_index::𝐣𝐥.Cuint, fixit_index::𝐣𝐥.Cuint, replacement_range::𝐣𝐥.Ptr{CXSourceRange})::CXString
@@ -11168,7 +11402,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5489](./include/clang-c/Index.h:5489:3)
+	[Index.h:5543](./include/clang-c/Index.h:5543:3)
 	""" CXCodeComplete_SkipPreamble
 	𝐣𝐥.@doc """
 	 Flags that can be passed to `clang_codeCompleteAt()` to modify its behavior.
@@ -11179,35 +11413,35 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5465](./include/clang-c/Index.h:5465:6)
+	[Index.h:5519](./include/clang-c/Index.h:5519:6)
 	""" CXCodeComplete_Flags
 	𝐣𝐥.@doc """
 	 Whether to include macros within the set of code completions returned.
 	
 	## Reference
 	
-	[Index.h:5470](./include/clang-c/Index.h:5470:3)
+	[Index.h:5524](./include/clang-c/Index.h:5524:3)
 	""" CXCodeComplete_IncludeMacros
 	𝐣𝐥.@doc """
 	 Whether to include completions with small fix-its, e.g. change '.' to '->' on member access, etc.
 	
 	## Reference
 	
-	[Index.h:5495](./include/clang-c/Index.h:5495:3)
+	[Index.h:5549](./include/clang-c/Index.h:5549:3)
 	""" CXCodeComplete_IncludeCompletionsWithFixIts
 	𝐣𝐥.@doc """
 	 Whether to include brief documentation within the set of code completions returned.
 	
 	## Reference
 	
-	[Index.h:5482](./include/clang-c/Index.h:5482:3)
+	[Index.h:5536](./include/clang-c/Index.h:5536:3)
 	""" CXCodeComplete_IncludeBriefComments
 	𝐣𝐥.@doc """
 	 Whether to include code patterns for language constructs within the set of code completions, e.g., for loops.
 	
 	## Reference
 	
-	[Index.h:5476](./include/clang-c/Index.h:5476:3)
+	[Index.h:5530](./include/clang-c/Index.h:5530:3)
 	""" CXCodeComplete_IncludeCodePatterns
 	export CXCodeComplete_Flags, CXCodeComplete_IncludeBriefComments, CXCodeComplete_IncludeCodePatterns, CXCodeComplete_IncludeCompletionsWithFixIts, CXCodeComplete_IncludeMacros, CXCodeComplete_SkipPreamble
 	𝐣𝐥.@cenum CXCodeComplete_Flags {
@@ -11223,14 +11457,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5605](./include/clang-c/Index.h:5605:3)
+	[Index.h:5659](./include/clang-c/Index.h:5659:3)
 	""" CXCompletionContext_ObjCClassMessage
 	𝐣𝐥.@doc """
 	 Completions for any possible value (variables, function calls, etc.) should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5520](./include/clang-c/Index.h:5520:3)
+	[Index.h:5574](./include/clang-c/Index.h:5574:3)
 	""" CXCompletionContext_AnyValue
 	𝐣𝐥.@doc """
 	 Bits that represent the context under which completion is occurring.
@@ -11241,168 +11475,168 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5504](./include/clang-c/Index.h:5504:6)
+	[Index.h:5558](./include/clang-c/Index.h:5558:6)
 	""" CXCompletionContext
 	𝐣𝐥.@doc """
 	 Natural language completions should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5621](./include/clang-c/Index.h:5621:3)
+	[Index.h:5675](./include/clang-c/Index.h:5675:3)
 	""" CXCompletionContext_NaturalLanguage
 	𝐣𝐥.@doc """
 	 Completions for fields of the member being accessed using the arrow operator should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5546](./include/clang-c/Index.h:5546:3)
+	[Index.h:5600](./include/clang-c/Index.h:5600:3)
 	""" CXCompletionContext_ArrowMemberAccess
 	𝐣𝐥.@doc """
 	 Completions for Objective-C instance messages should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5600](./include/clang-c/Index.h:5600:3)
+	[Index.h:5654](./include/clang-c/Index.h:5654:3)
 	""" CXCompletionContext_ObjCInstanceMessage
 	𝐣𝐥.@doc """
 	 Completions for values that resolve to an Objective-C object should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5525](./include/clang-c/Index.h:5525:3)
+	[Index.h:5579](./include/clang-c/Index.h:5579:3)
 	""" CXCompletionContext_ObjCObjectValue
 	𝐣𝐥.@doc """
 	 Completions for any possible type should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5514](./include/clang-c/Index.h:5514:3)
+	[Index.h:5568](./include/clang-c/Index.h:5568:3)
 	""" CXCompletionContext_AnyType
 	𝐣𝐥.@doc """
 	 Completions for values that resolve to a C++ class type should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5535](./include/clang-c/Index.h:5535:3)
+	[Index.h:5589](./include/clang-c/Index.h:5589:3)
 	""" CXCompletionContext_CXXClassTypeValue
 	𝐣𝐥.@doc """
 	 Completions for enum tags should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5556](./include/clang-c/Index.h:5556:3)
+	[Index.h:5610](./include/clang-c/Index.h:5610:3)
 	""" CXCompletionContext_EnumTag
 	𝐣𝐥.@doc """
 	 Completions for C++ namespaces and namespace aliases should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5574](./include/clang-c/Index.h:5574:3)
+	[Index.h:5628](./include/clang-c/Index.h:5628:3)
 	""" CXCompletionContext_Namespace
 	𝐣𝐥.@doc """
 	 Completions for Objective-C selector names should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5610](./include/clang-c/Index.h:5610:3)
+	[Index.h:5664](./include/clang-c/Index.h:5664:3)
 	""" CXCompletionContext_ObjCSelectorName
 	𝐣𝐥.@doc """
 	 Completions for C++ class names should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5569](./include/clang-c/Index.h:5569:3)
+	[Index.h:5623](./include/clang-c/Index.h:5623:3)
 	""" CXCompletionContext_ClassTag
 	𝐣𝐥.@doc """
 	 Completions for fields of the member being accessed using the dot operator should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5541](./include/clang-c/Index.h:5541:3)
+	[Index.h:5595](./include/clang-c/Index.h:5595:3)
 	""" CXCompletionContext_DotMemberAccess
 	𝐣𝐥.@doc """
 	 Completions for Objective-C interfaces (classes) should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5585](./include/clang-c/Index.h:5585:3)
+	[Index.h:5639](./include/clang-c/Index.h:5639:3)
 	""" CXCompletionContext_ObjCInterface
 	𝐣𝐥.@doc """
 	 Completions for preprocessor macro names should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5616](./include/clang-c/Index.h:5616:3)
+	[Index.h:5670](./include/clang-c/Index.h:5670:3)
 	""" CXCompletionContext_MacroName
 	𝐣𝐥.@doc """
 	 The current context is unknown, so set all contexts.
 	
 	## Reference
 	
-	[Index.h:5631](./include/clang-c/Index.h:5631:3)
+	[Index.h:5685](./include/clang-c/Index.h:5685:3)
 	""" CXCompletionContext_Unknown
 	𝐣𝐥.@doc """
 	 #include file completions should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5626](./include/clang-c/Index.h:5626:3)
+	[Index.h:5680](./include/clang-c/Index.h:5680:3)
 	""" CXCompletionContext_IncludedFile
 	𝐣𝐥.@doc """
 	 Completions for C++ nested name specifiers should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5579](./include/clang-c/Index.h:5579:3)
+	[Index.h:5633](./include/clang-c/Index.h:5633:3)
 	""" CXCompletionContext_NestedNameSpecifier
 	𝐣𝐥.@doc """
 	 Completions for Objective-C protocols should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5590](./include/clang-c/Index.h:5590:3)
+	[Index.h:5644](./include/clang-c/Index.h:5644:3)
 	""" CXCompletionContext_ObjCProtocol
 	𝐣𝐥.@doc """
 	 Completions for struct tags should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5564](./include/clang-c/Index.h:5564:3)
+	[Index.h:5618](./include/clang-c/Index.h:5618:3)
 	""" CXCompletionContext_StructTag
 	𝐣𝐥.@doc """
 	 The context for completions is unexposed, as only Clang results should be included. (This is equivalent to having no context bits set.)
 	
 	## Reference
 	
-	[Index.h:5509](./include/clang-c/Index.h:5509:3)
+	[Index.h:5563](./include/clang-c/Index.h:5563:3)
 	""" CXCompletionContext_Unexposed
 	𝐣𝐥.@doc """
 	 Completions for values that resolve to an Objective-C selector should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5530](./include/clang-c/Index.h:5530:3)
+	[Index.h:5584](./include/clang-c/Index.h:5584:3)
 	""" CXCompletionContext_ObjCSelectorValue
 	𝐣𝐥.@doc """
 	 Completions for properties of the Objective-C object being accessed using the dot operator should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5551](./include/clang-c/Index.h:5551:3)
+	[Index.h:5605](./include/clang-c/Index.h:5605:3)
 	""" CXCompletionContext_ObjCPropertyAccess
 	𝐣𝐥.@doc """
 	 Completions for Objective-C categories should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5595](./include/clang-c/Index.h:5595:3)
+	[Index.h:5649](./include/clang-c/Index.h:5649:3)
 	""" CXCompletionContext_ObjCCategory
 	𝐣𝐥.@doc """
 	 Completions for union tags should be included in the results.
 	
 	## Reference
 	
-	[Index.h:5560](./include/clang-c/Index.h:5560:3)
+	[Index.h:5614](./include/clang-c/Index.h:5614:3)
 	""" CXCompletionContext_UnionTag
 	export CXCompletionContext, CXCompletionContext_AnyType, CXCompletionContext_AnyValue, CXCompletionContext_ArrowMemberAccess, CXCompletionContext_CXXClassTypeValue, CXCompletionContext_ClassTag, CXCompletionContext_DotMemberAccess, CXCompletionContext_EnumTag, CXCompletionContext_IncludedFile, CXCompletionContext_MacroName, CXCompletionContext_Namespace, CXCompletionContext_NaturalLanguage, CXCompletionContext_NestedNameSpecifier, CXCompletionContext_ObjCCategory, CXCompletionContext_ObjCClassMessage, CXCompletionContext_ObjCInstanceMessage, CXCompletionContext_ObjCInterface, CXCompletionContext_ObjCObjectValue, CXCompletionContext_ObjCPropertyAccess, CXCompletionContext_ObjCProtocol, CXCompletionContext_ObjCSelectorName, CXCompletionContext_ObjCSelectorValue, CXCompletionContext_StructTag, CXCompletionContext_Unexposed, CXCompletionContext_UnionTag, CXCompletionContext_Unknown
 	𝐣𝐥.@cenum CXCompletionContext {
@@ -11442,14 +11676,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5638](./include/clang-c/Index.h:5638:25)
+	[Index.h:5692](./include/clang-c/Index.h:5692:25)
 	""" clang_defaultCodeCompleteOptions
 	export clang_defaultCodeCompleteOptions
 	𝐣𝐥.@cextern clang_defaultCodeCompleteOptions()::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_codeCompleteAt(TU::CXTranslationUnit, complete_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, complete_line::𝐣𝐥.Cuint, complete_column::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::𝐣𝐥.Ptr{CXCodeCompleteResults}
+	𝐣𝐥.@cextern clang_codeCompleteAt(TU::CXTranslationUnit, complete_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, complete_line::𝐣𝐥.Cuint, complete_column::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::𝐣𝐥.Ptr{CXCodeCompleteResults}
 	```
 	
 	 Perform code completion at a given location in a translation unit.
@@ -11476,10 +11710,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5709](./include/clang-c/Index.h:5709:24)
+	[Index.h:5764](./include/clang-c/Index.h:5764:1)
 	""" clang_codeCompleteAt
 	export clang_codeCompleteAt
-	𝐣𝐥.@cextern clang_codeCompleteAt(TU::CXTranslationUnit, complete_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, complete_line::𝐣𝐥.Cuint, complete_column::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::𝐣𝐥.Ptr{CXCodeCompleteResults}
+	𝐣𝐥.@cextern clang_codeCompleteAt(TU::CXTranslationUnit, complete_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, complete_line::𝐣𝐥.Cuint, complete_column::𝐣𝐥.Cuint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, options::𝐣𝐥.Cuint)::𝐣𝐥.Ptr{CXCodeCompleteResults}
 	
 	𝐣𝐥.@doc """
 	```
@@ -11495,7 +11729,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5725](./include/clang-c/Index.h:5725:6)
+	[Index.h:5777](./include/clang-c/Index.h:5777:6)
 	""" clang_sortCodeCompletionResults
 	export clang_sortCodeCompletionResults
 	𝐣𝐥.@cextern clang_sortCodeCompletionResults(Results::𝐣𝐥.Ptr{CXCompletionResult}, NumResults::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
@@ -11509,7 +11743,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5732](./include/clang-c/Index.h:5732:6)
+	[Index.h:5784](./include/clang-c/Index.h:5784:6)
 	""" clang_disposeCodeCompleteResults
 	export clang_disposeCodeCompleteResults
 	𝐣𝐥.@cextern clang_disposeCodeCompleteResults(Results::𝐣𝐥.Ptr{CXCodeCompleteResults})::𝐣𝐥.Cvoid
@@ -11523,7 +11757,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5739](./include/clang-c/Index.h:5739:10)
+	[Index.h:5791](./include/clang-c/Index.h:5791:10)
 	""" clang_codeCompleteGetNumDiagnostics
 	export clang_codeCompleteGetNumDiagnostics
 	𝐣𝐥.@cextern clang_codeCompleteGetNumDiagnostics(Results::𝐣𝐥.Ptr{CXCodeCompleteResults})::𝐣𝐥.Cuint
@@ -11546,7 +11780,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5751](./include/clang-c/Index.h:5751:14)
+	[Index.h:5803](./include/clang-c/Index.h:5803:14)
 	""" clang_codeCompleteGetDiagnostic
 	export clang_codeCompleteGetDiagnostic
 	𝐣𝐥.@cextern clang_codeCompleteGetDiagnostic(Results::𝐣𝐥.Ptr{CXCodeCompleteResults}, Index::𝐣𝐥.Cuint)::CXDiagnostic
@@ -11568,14 +11802,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5764](./include/clang-c/Index.h:5764:20)
+	[Index.h:5817](./include/clang-c/Index.h:5817:1)
 	""" clang_codeCompleteGetContexts
 	export clang_codeCompleteGetContexts
 	𝐣𝐥.@cextern clang_codeCompleteGetContexts(Results::𝐣𝐥.Ptr{CXCodeCompleteResults})::𝐣𝐥.Culonglong
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_codeCompleteGetContainerKind(Results::𝐣𝐥.Ptr{CXCodeCompleteResults}, IsIncomplete::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXCursorKind
+	𝐣𝐥.@cextern clang_codeCompleteGetContainerKind(Results::𝐣𝐥.Ptr{CXCodeCompleteResults}, IsIncomplete::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXCursorKind
 	```
 	
 	 Returns the cursor kind for the container for the current code completion context. The container is only guaranteed to be set for contexts where a container exists (i.e. member accesses or Objective-C message sends); if there is not a container, this function will return CXCursor_InvalidCode.
@@ -11591,10 +11825,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5784](./include/clang-c/Index.h:5784:19)
+	[Index.h:5837](./include/clang-c/Index.h:5837:1)
 	""" clang_codeCompleteGetContainerKind
 	export clang_codeCompleteGetContainerKind
-	𝐣𝐥.@cextern clang_codeCompleteGetContainerKind(Results::𝐣𝐥.Ptr{CXCodeCompleteResults}, IsIncomplete::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::CXCursorKind
+	𝐣𝐥.@cextern clang_codeCompleteGetContainerKind(Results::𝐣𝐥.Ptr{CXCodeCompleteResults}, IsIncomplete::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.@cenum CXCursorKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -11613,7 +11847,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5798](./include/clang-c/Index.h:5798:10)
+	[Index.h:5850](./include/clang-c/Index.h:5850:10)
 	""" clang_codeCompleteGetContainerUSR
 	export clang_codeCompleteGetContainerUSR
 	𝐣𝐥.@cextern clang_codeCompleteGetContainerUSR(Results::𝐣𝐥.Ptr{CXCodeCompleteResults})::CXString
@@ -11635,7 +11869,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5812](./include/clang-c/Index.h:5812:10)
+	[Index.h:5864](./include/clang-c/Index.h:5864:10)
 	""" clang_codeCompleteGetObjCSelector
 	export clang_codeCompleteGetObjCSelector
 	𝐣𝐥.@cextern clang_codeCompleteGetObjCSelector(Results::𝐣𝐥.Ptr{CXCodeCompleteResults})::CXString
@@ -11649,7 +11883,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5828](./include/clang-c/Index.h:5828:25)
+	[Index.h:5880](./include/clang-c/Index.h:5880:25)
 	""" clang_getClangVersion
 	export clang_getClangVersion
 	𝐣𝐥.@cextern clang_getClangVersion()::CXString
@@ -11667,7 +11901,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5836](./include/clang-c/Index.h:5836:21)
+	[Index.h:5888](./include/clang-c/Index.h:5888:21)
 	""" clang_toggleCrashRecovery
 	export clang_toggleCrashRecovery
 	𝐣𝐥.@cextern clang_toggleCrashRecovery(isEnabled::𝐣𝐥.Cuint)::𝐣𝐥.Cvoid
@@ -11681,7 +11915,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5849](./include/clang-c/Index.h:5849:16)
+	[Index.h:5901](./include/clang-c/Index.h:5901:16)
 	""" CXInclusionVisitor
 	export CXInclusionVisitor
 	𝐣𝐥.@ctypedef CXInclusionVisitor 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{CXFile, 𝐣𝐥.Ptr{CXSourceLocation}, 𝐣𝐥.Cuint, CXClientData}, 𝐣𝐥.CDECL}}
@@ -11695,7 +11929,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5860](./include/clang-c/Index.h:5860:21)
+	[Index.h:5912](./include/clang-c/Index.h:5912:21)
 	""" clang_getInclusions
 	export clang_getInclusions
 	𝐣𝐥.@cextern clang_getInclusions(tu::CXTranslationUnit, visitor::CXInclusionVisitor, client_data::CXClientData)::𝐣𝐥.Cvoid
@@ -11703,42 +11937,42 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:5870](./include/clang-c/Index.h:5870:3)
+	[Index.h:5922](./include/clang-c/Index.h:5922:3)
 	""" CXEval_Other
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:5867](./include/clang-c/Index.h:5867:3)
+	[Index.h:5919](./include/clang-c/Index.h:5919:3)
 	""" CXEval_ObjCStrLiteral
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:5868](./include/clang-c/Index.h:5868:3)
+	[Index.h:5920](./include/clang-c/Index.h:5920:3)
 	""" CXEval_StrLiteral
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:5874](./include/clang-c/Index.h:5874:3)
+	[Index.h:5926](./include/clang-c/Index.h:5926:3)
 	""" CXEvalResultKind
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:5865](./include/clang-c/Index.h:5865:3)
+	[Index.h:5917](./include/clang-c/Index.h:5917:3)
 	""" CXEval_Int
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:5872](./include/clang-c/Index.h:5872:3)
+	[Index.h:5924](./include/clang-c/Index.h:5924:3)
 	""" CXEval_UnExposed
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:5869](./include/clang-c/Index.h:5869:3)
+	[Index.h:5921](./include/clang-c/Index.h:5921:3)
 	""" CXEval_CFStr
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:5866](./include/clang-c/Index.h:5866:3)
+	[Index.h:5918](./include/clang-c/Index.h:5918:3)
 	""" CXEval_Float
 	export CXEvalResultKind, CXEval_CFStr, CXEval_Float, CXEval_Int, CXEval_ObjCStrLiteral, CXEval_Other, CXEval_StrLiteral, CXEval_UnExposed
 	𝐣𝐥.@ctypedef CXEvalResultKind 𝐣𝐥.@cenum {
@@ -11756,7 +11990,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5879](./include/clang-c/Index.h:5879:16)
+	[Index.h:5931](./include/clang-c/Index.h:5931:15)
 	""" CXEvalResult
 	export CXEvalResult
 	𝐣𝐥.@ctypedef CXEvalResult 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -11766,11 +12000,11 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@cextern clang_Cursor_Evaluate(C::CXCursor)::CXEvalResult
 	```
 	
-	 If cursor is a statement declaration tries to evaluate the statement and if its variable, tries to evaluate its initializer, into its corresponding type.
+	 If cursor is a statement declaration tries to evaluate the statement and if its variable, tries to evaluate its initializer, into its corresponding type. If it's an expression, tries to evaluate the expression.
 	
 	## Reference
 	
-	[Index.h:5886](./include/clang-c/Index.h:5886:29)
+	[Index.h:5939](./include/clang-c/Index.h:5939:29)
 	""" clang_Cursor_Evaluate
 	export clang_Cursor_Evaluate
 	𝐣𝐥.@cextern clang_Cursor_Evaluate(C::CXCursor)::CXEvalResult
@@ -11784,7 +12018,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5891](./include/clang-c/Index.h:5891:33)
+	[Index.h:5944](./include/clang-c/Index.h:5944:33)
 	""" clang_EvalResult_getKind
 	export clang_EvalResult_getKind
 	𝐣𝐥.@cextern clang_EvalResult_getKind(E::CXEvalResult)::CXEvalResultKind
@@ -11798,7 +12032,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5897](./include/clang-c/Index.h:5897:20)
+	[Index.h:5950](./include/clang-c/Index.h:5950:20)
 	""" clang_EvalResult_getAsInt
 	export clang_EvalResult_getAsInt
 	𝐣𝐥.@cextern clang_EvalResult_getAsInt(E::CXEvalResult)::𝐣𝐥.Cint
@@ -11812,7 +12046,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5904](./include/clang-c/Index.h:5904:26)
+	[Index.h:5957](./include/clang-c/Index.h:5957:26)
 	""" clang_EvalResult_getAsLongLong
 	export clang_EvalResult_getAsLongLong
 	𝐣𝐥.@cextern clang_EvalResult_getAsLongLong(E::CXEvalResult)::𝐣𝐥.Clonglong
@@ -11826,7 +12060,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5910](./include/clang-c/Index.h:5910:25)
+	[Index.h:5963](./include/clang-c/Index.h:5963:25)
 	""" clang_EvalResult_isUnsignedInt
 	export clang_EvalResult_isUnsignedInt
 	𝐣𝐥.@cextern clang_EvalResult_isUnsignedInt(E::CXEvalResult)::𝐣𝐥.Cuint
@@ -11840,7 +12074,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5916](./include/clang-c/Index.h:5916:35)
+	[Index.h:5970](./include/clang-c/Index.h:5970:1)
 	""" clang_EvalResult_getAsUnsigned
 	export clang_EvalResult_getAsUnsigned
 	𝐣𝐥.@cextern clang_EvalResult_getAsUnsigned(E::CXEvalResult)::𝐣𝐥.Culonglong
@@ -11854,7 +12088,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5922](./include/clang-c/Index.h:5922:23)
+	[Index.h:5976](./include/clang-c/Index.h:5976:23)
 	""" clang_EvalResult_getAsDouble
 	export clang_EvalResult_getAsDouble
 	𝐣𝐥.@cextern clang_EvalResult_getAsDouble(E::CXEvalResult)::𝐣𝐥.Cdouble
@@ -11868,7 +12102,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5930](./include/clang-c/Index.h:5930:28)
+	[Index.h:5984](./include/clang-c/Index.h:5984:28)
 	""" clang_EvalResult_getAsStr
 	export clang_EvalResult_getAsStr
 	𝐣𝐥.@cextern clang_EvalResult_getAsStr(E::CXEvalResult)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
@@ -11882,7 +12116,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5935](./include/clang-c/Index.h:5935:21)
+	[Index.h:5989](./include/clang-c/Index.h:5989:21)
 	""" clang_EvalResult_dispose
 	export clang_EvalResult_dispose
 	𝐣𝐥.@cextern clang_EvalResult_dispose(E::CXEvalResult)::𝐣𝐥.Cvoid
@@ -11892,7 +12126,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5948](./include/clang-c/Index.h:5948:15)
+	[Index.h:6002](./include/clang-c/Index.h:6002:15)
 	""" CXRemapping
 	export CXRemapping
 	𝐣𝐥.@ctypedef CXRemapping 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -11914,7 +12148,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5958](./include/clang-c/Index.h:5958:28)
+	[Index.h:6012](./include/clang-c/Index.h:6012:28)
 	""" clang_getRemappings
 	export clang_getRemappings
 	𝐣𝐥.@cextern clang_getRemappings(path::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::CXRemapping
@@ -11937,7 +12171,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5971](./include/clang-c/Index.h:5971:13)
+	[Index.h:6025](./include/clang-c/Index.h:6025:13)
 	""" clang_getRemappingsFromFileList
 	export clang_getRemappingsFromFileList
 	𝐣𝐥.@cextern clang_getRemappingsFromFileList(filePaths::𝐣𝐥.Ptr{𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}}, numFiles::𝐣𝐥.Cuint)::CXRemapping
@@ -11951,7 +12185,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5977](./include/clang-c/Index.h:5977:25)
+	[Index.h:6031](./include/clang-c/Index.h:6031:25)
 	""" clang_remap_getNumFiles
 	export clang_remap_getNumFiles
 	𝐣𝐥.@cextern clang_remap_getNumFiles(var"?1?"::CXRemapping)::𝐣𝐥.Cuint
@@ -11970,7 +12204,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5987](./include/clang-c/Index.h:5987:21)
+	[Index.h:6041](./include/clang-c/Index.h:6041:21)
 	""" clang_remap_getFilenames
 	export clang_remap_getFilenames
 	𝐣𝐥.@cextern clang_remap_getFilenames(var"?1?"::CXRemapping, index::𝐣𝐥.Cuint, original::𝐣𝐥.Ptr{CXString}, transformed::𝐣𝐥.Ptr{CXString})::𝐣𝐥.Cvoid
@@ -11984,7 +12218,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:5993](./include/clang-c/Index.h:5993:21)
+	[Index.h:6048](./include/clang-c/Index.h:6048:21)
 	""" clang_remap_dispose
 	export clang_remap_dispose
 	𝐣𝐥.@cextern clang_remap_dispose(var"?1?"::CXRemapping)::𝐣𝐥.Cvoid
@@ -11992,7 +12226,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6006](./include/clang-c/Index.h:6006:3)
+	[Index.h:6059](./include/clang-c/Index.h:6059:39)
 	""" CXVisit_Continue
 	𝐣𝐥.@doc """
 	 CINDEX_HIGH Higher level API functions
@@ -12003,12 +12237,12 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6004](./include/clang-c/Index.h:6004:6)
+	[Index.h:6059](./include/clang-c/Index.h:6059:6)
 	""" CXVisitorResult
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6005](./include/clang-c/Index.h:6005:3)
+	[Index.h:6059](./include/clang-c/Index.h:6059:24)
 	""" CXVisit_Break
 	export CXVisit_Break, CXVisit_Continue, CXVisitorResult
 	𝐣𝐥.@cenum CXVisitorResult {
@@ -12019,41 +12253,41 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## References
 	
-	[Index.h:6009](./include/clang-c/Index.h:6009:16)
+	[Index.h:6061](./include/clang-c/Index.h:6061:16)
 	
-	[Index.h:6012](./include/clang-c/Index.h:6012:3)
+	[Index.h:6064](./include/clang-c/Index.h:6064:3)
 	""" CXCursorAndRangeVisitor
 	export CXCursorAndRangeVisitor
 	𝐣𝐥.@ctypedef CXCursorAndRangeVisitor 𝐣𝐥.@cstruct CXCursorAndRangeVisitor {
 		context::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
-		visit::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{CXVisitorResult, 𝐣𝐥.Tuple{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, CXCursor, CXSourceRange}, 𝐣𝐥.CDECL}}
+		visit::𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cenum CXVisitorResult), 𝐣𝐥.Tuple{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, CXCursor, CXSourceRange}, 𝐣𝐥.CDECL}}
 	}
 	
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6029](./include/clang-c/Index.h:6029:3)
+	[Index.h:6081](./include/clang-c/Index.h:6081:3)
 	""" CXResult
 	𝐣𝐥.@doc """
 	 Function returned successfully.
 	
 	## Reference
 	
-	[Index.h:6018](./include/clang-c/Index.h:6018:3)
+	[Index.h:6070](./include/clang-c/Index.h:6070:3)
 	""" CXResult_Success
 	𝐣𝐥.@doc """
 	 One of the parameters was invalid for the function.
 	
 	## Reference
 	
-	[Index.h:6022](./include/clang-c/Index.h:6022:3)
+	[Index.h:6074](./include/clang-c/Index.h:6074:3)
 	""" CXResult_Invalid
 	𝐣𝐥.@doc """
 	 The function was terminated by a callback (e.g. it returned CXVisit_Break)
 	
 	## Reference
 	
-	[Index.h:6027](./include/clang-c/Index.h:6027:3)
+	[Index.h:6079](./include/clang-c/Index.h:6079:3)
 	""" CXResult_VisitBreak
 	export CXResult, CXResult_Invalid, CXResult_Success, CXResult_VisitBreak
 	𝐣𝐥.@ctypedef CXResult 𝐣𝐥.@cenum {
@@ -12081,7 +12315,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6045](./include/clang-c/Index.h:6045:25)
+	[Index.h:6097](./include/clang-c/Index.h:6097:25)
 	""" clang_findReferencesInFile
 	export clang_findReferencesInFile
 	𝐣𝐥.@cextern clang_findReferencesInFile(cursor::CXCursor, file::CXFile, visitor::CXCursorAndRangeVisitor)::CXResult
@@ -12105,7 +12339,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6060](./include/clang-c/Index.h:6060:25)
+	[Index.h:6112](./include/clang-c/Index.h:6112:25)
 	""" clang_findIncludesInFile
 	export clang_findIncludesInFile
 	𝐣𝐥.@cextern clang_findIncludesInFile(TU::CXTranslationUnit, file::CXFile, visitor::CXCursorAndRangeVisitor)::CXResult
@@ -12115,7 +12349,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6084](./include/clang-c/Index.h:6084:15)
+	[Index.h:6135](./include/clang-c/Index.h:6135:15)
 	""" CXIdxClientFile
 	export CXIdxClientFile
 	𝐣𝐥.@ctypedef CXIdxClientFile 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -12125,7 +12359,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6089](./include/clang-c/Index.h:6089:15)
+	[Index.h:6140](./include/clang-c/Index.h:6140:15)
 	""" CXIdxClientEntity
 	export CXIdxClientEntity
 	𝐣𝐥.@ctypedef CXIdxClientEntity 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -12135,7 +12369,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6095](./include/clang-c/Index.h:6095:15)
+	[Index.h:6146](./include/clang-c/Index.h:6146:15)
 	""" CXIdxClientContainer
 	export CXIdxClientContainer
 	𝐣𝐥.@ctypedef CXIdxClientContainer 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -12145,7 +12379,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6101](./include/clang-c/Index.h:6101:15)
+	[Index.h:6152](./include/clang-c/Index.h:6152:15)
 	""" CXIdxClientASTFile
 	export CXIdxClientASTFile
 	𝐣𝐥.@ctypedef CXIdxClientASTFile 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -12155,7 +12389,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6109](./include/clang-c/Index.h:6109:3)
+	[Index.h:6160](./include/clang-c/Index.h:6160:3)
 	""" CXIdxLoc
 	export CXIdxLoc
 	𝐣𝐥.@ctypedef CXIdxLoc 𝐣𝐥.@cstruct {
@@ -12168,7 +12402,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6134](./include/clang-c/Index.h:6134:3)
+	[Index.h:6185](./include/clang-c/Index.h:6185:3)
 	""" CXIdxIncludedFileInfo
 	export CXIdxIncludedFileInfo
 	𝐣𝐥.@ctypedef CXIdxIncludedFileInfo 𝐣𝐥.@cstruct {
@@ -12185,7 +12419,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6158](./include/clang-c/Index.h:6158:3)
+	[Index.h:6209](./include/clang-c/Index.h:6209:3)
 	""" CXIdxImportedASTFileInfo
 	export CXIdxImportedASTFileInfo
 	𝐣𝐥.@ctypedef CXIdxImportedASTFileInfo 𝐣𝐥.@cstruct {
@@ -12198,142 +12432,142 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6169](./include/clang-c/Index.h:6169:3)
+	[Index.h:6220](./include/clang-c/Index.h:6220:3)
 	""" CXIdxEntity_ObjCProtocol
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6187](./include/clang-c/Index.h:6187:3)
+	[Index.h:6238](./include/clang-c/Index.h:6238:3)
 	""" CXIdxEntity_CXXConstructor
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6185](./include/clang-c/Index.h:6185:3)
+	[Index.h:6236](./include/clang-c/Index.h:6236:3)
 	""" CXIdxEntity_CXXStaticMethod
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6188](./include/clang-c/Index.h:6188:3)
+	[Index.h:6239](./include/clang-c/Index.h:6239:3)
 	""" CXIdxEntity_CXXDestructor
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6168](./include/clang-c/Index.h:6168:3)
+	[Index.h:6219](./include/clang-c/Index.h:6219:3)
 	""" CXIdxEntity_ObjCClass
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6172](./include/clang-c/Index.h:6172:3)
+	[Index.h:6223](./include/clang-c/Index.h:6223:3)
 	""" CXIdxEntity_ObjCInstanceMethod
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6179](./include/clang-c/Index.h:6179:3)
+	[Index.h:6230](./include/clang-c/Index.h:6230:3)
 	""" CXIdxEntity_Union
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6164](./include/clang-c/Index.h:6164:3)
+	[Index.h:6215](./include/clang-c/Index.h:6215:3)
 	""" CXIdxEntity_Variable
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6161](./include/clang-c/Index.h:6161:3)
+	[Index.h:6212](./include/clang-c/Index.h:6212:3)
 	""" CXIdxEntity_Unexposed
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6178](./include/clang-c/Index.h:6178:3)
+	[Index.h:6229](./include/clang-c/Index.h:6229:3)
 	""" CXIdxEntity_Struct
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6170](./include/clang-c/Index.h:6170:3)
+	[Index.h:6221](./include/clang-c/Index.h:6221:3)
 	""" CXIdxEntity_ObjCCategory
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6190](./include/clang-c/Index.h:6190:3)
+	[Index.h:6241](./include/clang-c/Index.h:6241:3)
 	""" CXIdxEntity_CXXTypeAlias
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6183](./include/clang-c/Index.h:6183:3)
+	[Index.h:6234](./include/clang-c/Index.h:6234:3)
 	""" CXIdxEntity_CXXNamespaceAlias
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6177](./include/clang-c/Index.h:6177:3)
+	[Index.h:6228](./include/clang-c/Index.h:6228:3)
 	""" CXIdxEntity_Enum
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6165](./include/clang-c/Index.h:6165:3)
+	[Index.h:6216](./include/clang-c/Index.h:6216:3)
 	""" CXIdxEntity_Field
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6184](./include/clang-c/Index.h:6184:3)
+	[Index.h:6235](./include/clang-c/Index.h:6235:3)
 	""" CXIdxEntity_CXXStaticVariable
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6162](./include/clang-c/Index.h:6162:3)
+	[Index.h:6213](./include/clang-c/Index.h:6213:3)
 	""" CXIdxEntity_Typedef
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6163](./include/clang-c/Index.h:6163:3)
+	[Index.h:6214](./include/clang-c/Index.h:6214:3)
 	""" CXIdxEntity_Function
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6186](./include/clang-c/Index.h:6186:3)
+	[Index.h:6237](./include/clang-c/Index.h:6237:3)
 	""" CXIdxEntity_CXXInstanceMethod
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6189](./include/clang-c/Index.h:6189:3)
+	[Index.h:6240](./include/clang-c/Index.h:6240:3)
 	""" CXIdxEntity_CXXConversionFunction
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6166](./include/clang-c/Index.h:6166:3)
+	[Index.h:6217](./include/clang-c/Index.h:6217:3)
 	""" CXIdxEntity_EnumConstant
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6175](./include/clang-c/Index.h:6175:3)
+	[Index.h:6226](./include/clang-c/Index.h:6226:3)
 	""" CXIdxEntity_ObjCIvar
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6174](./include/clang-c/Index.h:6174:3)
+	[Index.h:6225](./include/clang-c/Index.h:6225:3)
 	""" CXIdxEntity_ObjCProperty
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6181](./include/clang-c/Index.h:6181:3)
+	[Index.h:6232](./include/clang-c/Index.h:6232:3)
 	""" CXIdxEntity_CXXClass
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6191](./include/clang-c/Index.h:6191:3)
+	[Index.h:6242](./include/clang-c/Index.h:6242:3)
 	""" CXIdxEntity_CXXInterface
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6173](./include/clang-c/Index.h:6173:3)
+	[Index.h:6224](./include/clang-c/Index.h:6224:3)
 	""" CXIdxEntity_ObjCClassMethod
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6182](./include/clang-c/Index.h:6182:3)
+	[Index.h:6233](./include/clang-c/Index.h:6233:3)
 	""" CXIdxEntity_CXXNamespace
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6193](./include/clang-c/Index.h:6193:3)
+	[Index.h:6244](./include/clang-c/Index.h:6244:3)
 	""" CXIdxEntityKind
 	export CXIdxEntityKind, CXIdxEntity_CXXClass, CXIdxEntity_CXXConstructor, CXIdxEntity_CXXConversionFunction, CXIdxEntity_CXXDestructor, CXIdxEntity_CXXInstanceMethod, CXIdxEntity_CXXInterface, CXIdxEntity_CXXNamespace, CXIdxEntity_CXXNamespaceAlias, CXIdxEntity_CXXStaticMethod, CXIdxEntity_CXXStaticVariable, CXIdxEntity_CXXTypeAlias, CXIdxEntity_Enum, CXIdxEntity_EnumConstant, CXIdxEntity_Field, CXIdxEntity_Function, CXIdxEntity_ObjCCategory, CXIdxEntity_ObjCClass, CXIdxEntity_ObjCClassMethod, CXIdxEntity_ObjCInstanceMethod, CXIdxEntity_ObjCIvar, CXIdxEntity_ObjCProperty, CXIdxEntity_ObjCProtocol, CXIdxEntity_Struct, CXIdxEntity_Typedef, CXIdxEntity_Unexposed, CXIdxEntity_Union, CXIdxEntity_Variable
 	𝐣𝐥.@ctypedef CXIdxEntityKind 𝐣𝐥.@cenum {
@@ -12369,32 +12603,32 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6200](./include/clang-c/Index.h:6200:3)
+	[Index.h:6251](./include/clang-c/Index.h:6251:3)
 	""" CXIdxEntityLang_Swift
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6198](./include/clang-c/Index.h:6198:3)
+	[Index.h:6249](./include/clang-c/Index.h:6249:3)
 	""" CXIdxEntityLang_ObjC
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6197](./include/clang-c/Index.h:6197:3)
+	[Index.h:6248](./include/clang-c/Index.h:6248:3)
 	""" CXIdxEntityLang_C
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6199](./include/clang-c/Index.h:6199:3)
+	[Index.h:6250](./include/clang-c/Index.h:6250:3)
 	""" CXIdxEntityLang_CXX
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6196](./include/clang-c/Index.h:6196:3)
+	[Index.h:6247](./include/clang-c/Index.h:6247:3)
 	""" CXIdxEntityLang_None
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6201](./include/clang-c/Index.h:6201:3)
+	[Index.h:6252](./include/clang-c/Index.h:6252:3)
 	""" CXIdxEntityLanguage
 	export CXIdxEntityLang_C, CXIdxEntityLang_CXX, CXIdxEntityLang_None, CXIdxEntityLang_ObjC, CXIdxEntityLang_Swift, CXIdxEntityLanguage
 	𝐣𝐥.@ctypedef CXIdxEntityLanguage 𝐣𝐥.@cenum {
@@ -12408,29 +12642,29 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6214](./include/clang-c/Index.h:6214:3)
+	[Index.h:6265](./include/clang-c/Index.h:6265:3)
 	""" CXIdxEntity_NonTemplate
 	𝐣𝐥.@doc """
 	 Extra C++ template information for an entity. This can apply to: CXIdxEntity_Function CXIdxEntity_CXXClass CXIdxEntity_CXXStaticMethod CXIdxEntity_CXXInstanceMethod CXIdxEntity_CXXConstructor CXIdxEntity_CXXConversionFunction CXIdxEntity_CXXTypeAlias
 	
 	## Reference
 	
-	[Index.h:6218](./include/clang-c/Index.h:6218:3)
+	[Index.h:6269](./include/clang-c/Index.h:6269:3)
 	""" CXIdxEntityCXXTemplateKind
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6216](./include/clang-c/Index.h:6216:3)
+	[Index.h:6267](./include/clang-c/Index.h:6267:3)
 	""" CXIdxEntity_TemplatePartialSpecialization
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6215](./include/clang-c/Index.h:6215:3)
+	[Index.h:6266](./include/clang-c/Index.h:6266:3)
 	""" CXIdxEntity_Template
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6217](./include/clang-c/Index.h:6217:3)
+	[Index.h:6268](./include/clang-c/Index.h:6268:3)
 	""" CXIdxEntity_TemplateSpecialization
 	export CXIdxEntityCXXTemplateKind, CXIdxEntity_NonTemplate, CXIdxEntity_Template, CXIdxEntity_TemplatePartialSpecialization, CXIdxEntity_TemplateSpecialization
 	𝐣𝐥.@ctypedef CXIdxEntityCXXTemplateKind 𝐣𝐥.@cenum {
@@ -12443,27 +12677,27 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6224](./include/clang-c/Index.h:6224:3)
+	[Index.h:6275](./include/clang-c/Index.h:6275:3)
 	""" CXIdxAttr_IBOutletCollection
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6221](./include/clang-c/Index.h:6221:3)
+	[Index.h:6272](./include/clang-c/Index.h:6272:3)
 	""" CXIdxAttr_Unexposed
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6225](./include/clang-c/Index.h:6225:3)
+	[Index.h:6276](./include/clang-c/Index.h:6276:3)
 	""" CXIdxAttrKind
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6222](./include/clang-c/Index.h:6222:3)
+	[Index.h:6273](./include/clang-c/Index.h:6273:3)
 	""" CXIdxAttr_IBAction
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6223](./include/clang-c/Index.h:6223:3)
+	[Index.h:6274](./include/clang-c/Index.h:6274:3)
 	""" CXIdxAttr_IBOutlet
 	export CXIdxAttrKind, CXIdxAttr_IBAction, CXIdxAttr_IBOutlet, CXIdxAttr_IBOutletCollection, CXIdxAttr_Unexposed
 	𝐣𝐥.@ctypedef CXIdxAttrKind 𝐣𝐥.@cenum {
@@ -12476,7 +12710,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6231](./include/clang-c/Index.h:6231:3)
+	[Index.h:6282](./include/clang-c/Index.h:6282:3)
 	""" CXIdxAttrInfo
 	export CXIdxAttrInfo
 	𝐣𝐥.@ctypedef CXIdxAttrInfo 𝐣𝐥.@cstruct {
@@ -12488,7 +12722,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6242](./include/clang-c/Index.h:6242:3)
+	[Index.h:6293](./include/clang-c/Index.h:6293:3)
 	""" CXIdxEntityInfo
 	export CXIdxEntityInfo
 	𝐣𝐥.@ctypedef CXIdxEntityInfo 𝐣𝐥.@cstruct {
@@ -12505,7 +12739,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6246](./include/clang-c/Index.h:6246:3)
+	[Index.h:6297](./include/clang-c/Index.h:6297:3)
 	""" CXIdxContainerInfo
 	export CXIdxContainerInfo
 	𝐣𝐥.@ctypedef CXIdxContainerInfo 𝐣𝐥.@cstruct {
@@ -12515,7 +12749,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6253](./include/clang-c/Index.h:6253:3)
+	[Index.h:6304](./include/clang-c/Index.h:6304:3)
 	""" CXIdxIBOutletCollectionAttrInfo
 	export CXIdxIBOutletCollectionAttrInfo
 	𝐣𝐥.@ctypedef CXIdxIBOutletCollectionAttrInfo 𝐣𝐥.@cstruct {
@@ -12528,12 +12762,12 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6256](./include/clang-c/Index.h:6256:3)
+	[Index.h:6306](./include/clang-c/Index.h:6306:16)
 	""" CXIdxDeclFlag_Skipped
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6257](./include/clang-c/Index.h:6257:3)
+	[Index.h:6306](./include/clang-c/Index.h:6306:46)
 	""" CXIdxDeclInfoFlags
 	export CXIdxDeclFlag_Skipped, CXIdxDeclInfoFlags
 	𝐣𝐥.@ctypedef CXIdxDeclInfoFlags 𝐣𝐥.@cenum {
@@ -12543,7 +12777,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6283](./include/clang-c/Index.h:6283:3)
+	[Index.h:6332](./include/clang-c/Index.h:6332:3)
 	""" CXIdxDeclInfo
 	export CXIdxDeclInfo
 	𝐣𝐥.@ctypedef CXIdxDeclInfo 𝐣𝐥.@cstruct {
@@ -12565,22 +12799,22 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6287](./include/clang-c/Index.h:6287:3)
+	[Index.h:6336](./include/clang-c/Index.h:6336:3)
 	""" CXIdxObjCContainer_Interface
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6286](./include/clang-c/Index.h:6286:3)
+	[Index.h:6335](./include/clang-c/Index.h:6335:3)
 	""" CXIdxObjCContainer_ForwardRef
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6288](./include/clang-c/Index.h:6288:3)
+	[Index.h:6337](./include/clang-c/Index.h:6337:3)
 	""" CXIdxObjCContainer_Implementation
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6289](./include/clang-c/Index.h:6289:3)
+	[Index.h:6338](./include/clang-c/Index.h:6338:3)
 	""" CXIdxObjCContainerKind
 	export CXIdxObjCContainerKind, CXIdxObjCContainer_ForwardRef, CXIdxObjCContainer_Implementation, CXIdxObjCContainer_Interface
 	𝐣𝐥.@ctypedef CXIdxObjCContainerKind 𝐣𝐥.@cenum {
@@ -12592,7 +12826,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6294](./include/clang-c/Index.h:6294:3)
+	[Index.h:6343](./include/clang-c/Index.h:6343:3)
 	""" CXIdxObjCContainerDeclInfo
 	export CXIdxObjCContainerDeclInfo
 	𝐣𝐥.@ctypedef CXIdxObjCContainerDeclInfo 𝐣𝐥.@cstruct {
@@ -12603,7 +12837,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6300](./include/clang-c/Index.h:6300:3)
+	[Index.h:6349](./include/clang-c/Index.h:6349:3)
 	""" CXIdxBaseClassInfo
 	export CXIdxBaseClassInfo
 	𝐣𝐥.@ctypedef CXIdxBaseClassInfo 𝐣𝐥.@cstruct {
@@ -12615,7 +12849,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6306](./include/clang-c/Index.h:6306:3)
+	[Index.h:6355](./include/clang-c/Index.h:6355:3)
 	""" CXIdxObjCProtocolRefInfo
 	export CXIdxObjCProtocolRefInfo
 	𝐣𝐥.@ctypedef CXIdxObjCProtocolRefInfo 𝐣𝐥.@cstruct {
@@ -12627,7 +12861,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6311](./include/clang-c/Index.h:6311:3)
+	[Index.h:6360](./include/clang-c/Index.h:6360:3)
 	""" CXIdxObjCProtocolRefListInfo
 	export CXIdxObjCProtocolRefListInfo
 	𝐣𝐥.@ctypedef CXIdxObjCProtocolRefListInfo 𝐣𝐥.@cstruct {
@@ -12638,7 +12872,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6317](./include/clang-c/Index.h:6317:3)
+	[Index.h:6366](./include/clang-c/Index.h:6366:3)
 	""" CXIdxObjCInterfaceDeclInfo
 	export CXIdxObjCInterfaceDeclInfo
 	𝐣𝐥.@ctypedef CXIdxObjCInterfaceDeclInfo 𝐣𝐥.@cstruct {
@@ -12650,7 +12884,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6325](./include/clang-c/Index.h:6325:3)
+	[Index.h:6374](./include/clang-c/Index.h:6374:3)
 	""" CXIdxObjCCategoryDeclInfo
 	export CXIdxObjCCategoryDeclInfo
 	𝐣𝐥.@ctypedef CXIdxObjCCategoryDeclInfo 𝐣𝐥.@cstruct {
@@ -12664,7 +12898,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6331](./include/clang-c/Index.h:6331:3)
+	[Index.h:6380](./include/clang-c/Index.h:6380:3)
 	""" CXIdxObjCPropertyDeclInfo
 	export CXIdxObjCPropertyDeclInfo
 	𝐣𝐥.@ctypedef CXIdxObjCPropertyDeclInfo 𝐣𝐥.@cstruct {
@@ -12676,7 +12910,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6337](./include/clang-c/Index.h:6337:3)
+	[Index.h:6386](./include/clang-c/Index.h:6386:3)
 	""" CXIdxCXXClassDeclInfo
 	export CXIdxCXXClassDeclInfo
 	𝐣𝐥.@ctypedef CXIdxCXXClassDeclInfo 𝐣𝐥.@cstruct {
@@ -12690,14 +12924,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6354](./include/clang-c/Index.h:6354:3)
+	[Index.h:6403](./include/clang-c/Index.h:6403:3)
 	""" CXIdxEntityRef_Implicit
 	𝐣𝐥.@doc """
 	 The entity is referenced directly in user's code.
 	
 	## Reference
 	
-	[Index.h:6349](./include/clang-c/Index.h:6349:3)
+	[Index.h:6398](./include/clang-c/Index.h:6398:3)
 	""" CXIdxEntityRef_Direct
 	𝐣𝐥.@doc """
 	 Data for IndexerCallbacks#indexEntityReference.
@@ -12708,7 +12942,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6355](./include/clang-c/Index.h:6355:3)
+	[Index.h:6404](./include/clang-c/Index.h:6404:3)
 	""" CXIdxEntityRefKind
 	export CXIdxEntityRefKind, CXIdxEntityRef_Direct, CXIdxEntityRef_Implicit
 	𝐣𝐥.@ctypedef CXIdxEntityRefKind 𝐣𝐥.@cenum {
@@ -12719,17 +12953,17 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6369](./include/clang-c/Index.h:6369:3)
+	[Index.h:6418](./include/clang-c/Index.h:6418:3)
 	""" CXSymbolRole_Write
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6370](./include/clang-c/Index.h:6370:3)
+	[Index.h:6419](./include/clang-c/Index.h:6419:3)
 	""" CXSymbolRole_Call
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6372](./include/clang-c/Index.h:6372:3)
+	[Index.h:6421](./include/clang-c/Index.h:6421:3)
 	""" CXSymbolRole_AddressOf
 	𝐣𝐥.@doc """
 	 Roles that are attributed to symbol occurrences.
@@ -12740,42 +12974,42 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6374](./include/clang-c/Index.h:6374:3)
+	[Index.h:6423](./include/clang-c/Index.h:6423:3)
 	""" CXSymbolRole
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6365](./include/clang-c/Index.h:6365:3)
+	[Index.h:6414](./include/clang-c/Index.h:6414:3)
 	""" CXSymbolRole_Declaration
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6366](./include/clang-c/Index.h:6366:3)
+	[Index.h:6415](./include/clang-c/Index.h:6415:3)
 	""" CXSymbolRole_Definition
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6373](./include/clang-c/Index.h:6373:3)
+	[Index.h:6422](./include/clang-c/Index.h:6422:3)
 	""" CXSymbolRole_Implicit
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6371](./include/clang-c/Index.h:6371:3)
+	[Index.h:6420](./include/clang-c/Index.h:6420:3)
 	""" CXSymbolRole_Dynamic
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6367](./include/clang-c/Index.h:6367:3)
+	[Index.h:6416](./include/clang-c/Index.h:6416:3)
 	""" CXSymbolRole_Reference
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6364](./include/clang-c/Index.h:6364:3)
+	[Index.h:6413](./include/clang-c/Index.h:6413:3)
 	""" CXSymbolRole_None
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6368](./include/clang-c/Index.h:6368:3)
+	[Index.h:6417](./include/clang-c/Index.h:6417:3)
 	""" CXSymbolRole_Read
 	export CXSymbolRole, CXSymbolRole_AddressOf, CXSymbolRole_Call, CXSymbolRole_Declaration, CXSymbolRole_Definition, CXSymbolRole_Dynamic, CXSymbolRole_Implicit, CXSymbolRole_None, CXSymbolRole_Read, CXSymbolRole_Reference, CXSymbolRole_Write
 	𝐣𝐥.@ctypedef CXSymbolRole 𝐣𝐥.@cenum {
@@ -12796,7 +13030,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6410](./include/clang-c/Index.h:6410:3)
+	[Index.h:6459](./include/clang-c/Index.h:6459:3)
 	""" CXIdxEntityRefInfo
 	export CXIdxEntityRefInfo
 	𝐣𝐥.@ctypedef CXIdxEntityRefInfo 𝐣𝐥.@cstruct {
@@ -12814,7 +13048,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6464](./include/clang-c/Index.h:6464:3)
+	[Index.h:6511](./include/clang-c/Index.h:6511:3)
 	""" IndexerCallbacks
 	export IndexerCallbacks
 	𝐣𝐥.@ctypedef IndexerCallbacks 𝐣𝐥.@cstruct {
@@ -12835,7 +13069,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6466](./include/clang-c/Index.h:6466:20)
+	[Index.h:6513](./include/clang-c/Index.h:6513:20)
 	""" clang_index_isEntityObjCContainerKind
 	export clang_index_isEntityObjCContainerKind
 	𝐣𝐥.@cextern clang_index_isEntityObjCContainerKind(var"?1?"::CXIdxEntityKind)::𝐣𝐥.Cint
@@ -12847,7 +13081,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6468](./include/clang-c/Index.h:6468:1)
+	[Index.h:6515](./include/clang-c/Index.h:6515:1)
 	""" clang_index_getObjCContainerDeclInfo
 	export clang_index_getObjCContainerDeclInfo
 	𝐣𝐥.@cextern clang_index_getObjCContainerDeclInfo(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxDeclInfo)})::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxObjCContainerDeclInfo)}
@@ -12859,7 +13093,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6471](./include/clang-c/Index.h:6471:1)
+	[Index.h:6518](./include/clang-c/Index.h:6518:1)
 	""" clang_index_getObjCInterfaceDeclInfo
 	export clang_index_getObjCInterfaceDeclInfo
 	𝐣𝐥.@cextern clang_index_getObjCInterfaceDeclInfo(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxDeclInfo)})::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxObjCInterfaceDeclInfo)}
@@ -12871,7 +13105,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6475](./include/clang-c/Index.h:6475:1)
+	[Index.h:6522](./include/clang-c/Index.h:6522:1)
 	""" clang_index_getObjCCategoryDeclInfo
 	export clang_index_getObjCCategoryDeclInfo
 	𝐣𝐥.@cextern clang_index_getObjCCategoryDeclInfo(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxDeclInfo)})::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxObjCCategoryDeclInfo)}
@@ -12883,7 +13117,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6478](./include/clang-c/Index.h:6478:1)
+	[Index.h:6525](./include/clang-c/Index.h:6525:1)
 	""" clang_index_getObjCProtocolRefListInfo
 	export clang_index_getObjCProtocolRefListInfo
 	𝐣𝐥.@cextern clang_index_getObjCProtocolRefListInfo(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxDeclInfo)})::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxObjCProtocolRefListInfo)}
@@ -12895,7 +13129,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6481](./include/clang-c/Index.h:6481:1)
+	[Index.h:6528](./include/clang-c/Index.h:6528:1)
 	""" clang_index_getObjCPropertyDeclInfo
 	export clang_index_getObjCPropertyDeclInfo
 	𝐣𝐥.@cextern clang_index_getObjCPropertyDeclInfo(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxDeclInfo)})::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxObjCPropertyDeclInfo)}
@@ -12907,7 +13141,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6484](./include/clang-c/Index.h:6484:1)
+	[Index.h:6531](./include/clang-c/Index.h:6531:1)
 	""" clang_index_getIBOutletCollectionAttrInfo
 	export clang_index_getIBOutletCollectionAttrInfo
 	𝐣𝐥.@cextern clang_index_getIBOutletCollectionAttrInfo(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxAttrInfo)})::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxIBOutletCollectionAttrInfo)}
@@ -12919,7 +13153,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6487](./include/clang-c/Index.h:6487:1)
+	[Index.h:6534](./include/clang-c/Index.h:6534:1)
 	""" clang_index_getCXXClassDeclInfo
 	export clang_index_getCXXClassDeclInfo
 	𝐣𝐥.@cextern clang_index_getCXXClassDeclInfo(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxDeclInfo)})::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxCXXClassDeclInfo)}
@@ -12933,7 +13167,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6494](./include/clang-c/Index.h:6494:1)
+	[Index.h:6541](./include/clang-c/Index.h:6541:1)
 	""" clang_index_getClientContainer
 	export clang_index_getClientContainer
 	𝐣𝐥.@cextern clang_index_getClientContainer(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxContainerInfo)})::CXIdxClientContainer
@@ -12947,7 +13181,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6501](./include/clang-c/Index.h:6501:1)
+	[Index.h:6547](./include/clang-c/Index.h:6547:21)
 	""" clang_index_setClientContainer
 	export clang_index_setClientContainer
 	𝐣𝐥.@cextern clang_index_setClientContainer(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxContainerInfo)}, var"?2?"::CXIdxClientContainer)::𝐣𝐥.Cvoid
@@ -12961,7 +13195,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6507](./include/clang-c/Index.h:6507:1)
+	[Index.h:6554](./include/clang-c/Index.h:6554:1)
 	""" clang_index_getClientEntity
 	export clang_index_getClientEntity
 	𝐣𝐥.@cextern clang_index_getClientEntity(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxEntityInfo)})::CXIdxClientEntity
@@ -12975,7 +13209,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6513](./include/clang-c/Index.h:6513:1)
+	[Index.h:6559](./include/clang-c/Index.h:6559:21)
 	""" clang_index_setClientEntity
 	export clang_index_setClientEntity
 	𝐣𝐥.@cextern clang_index_setClientEntity(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(CXIdxEntityInfo)}, var"?2?"::CXIdxClientEntity)::𝐣𝐥.Cvoid
@@ -12985,7 +13219,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6519](./include/clang-c/Index.h:6519:15)
+	[Index.h:6566](./include/clang-c/Index.h:6566:15)
 	""" CXIndexAction
 	export CXIndexAction
 	𝐣𝐥.@ctypedef CXIndexAction 𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
@@ -13003,7 +13237,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6527](./include/clang-c/Index.h:6527:30)
+	[Index.h:6574](./include/clang-c/Index.h:6574:30)
 	""" clang_IndexAction_create
 	export clang_IndexAction_create
 	𝐣𝐥.@cextern clang_IndexAction_create(CIdx::CXIndex)::CXIndexAction
@@ -13021,7 +13255,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6535](./include/clang-c/Index.h:6535:21)
+	[Index.h:6582](./include/clang-c/Index.h:6582:21)
 	""" clang_IndexAction_dispose
 	export clang_IndexAction_dispose
 	𝐣𝐥.@cextern clang_IndexAction_dispose(var"?1?"::CXIndexAction)::𝐣𝐥.Cvoid
@@ -13031,47 +13265,47 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6572](./include/clang-c/Index.h:6572:3)
+	[Index.h:6619](./include/clang-c/Index.h:6619:3)
 	""" CXIndexOpt_SkipParsedBodiesInSession
 	𝐣𝐥.@doc """
 	 Implicit function/class template instantiations should be indexed. If this is not set, implicit instantiations will be ignored.
 	
 	## Reference
 	
-	[Index.h:6560](./include/clang-c/Index.h:6560:3)
+	[Index.h:6607](./include/clang-c/Index.h:6607:3)
 	""" CXIndexOpt_IndexImplicitTemplateInstantiations
 	𝐣𝐥.@doc """
 	 Used to indicate that no special indexing options are needed.
 	
 	## Reference
 	
-	[Index.h:6541](./include/clang-c/Index.h:6541:3)
+	[Index.h:6588](./include/clang-c/Index.h:6588:3)
 	""" CXIndexOpt_None
 	𝐣𝐥.@doc """
 	## Reference
 	
-	[Index.h:6574](./include/clang-c/Index.h:6574:3)
+	[Index.h:6621](./include/clang-c/Index.h:6621:3)
 	""" CXIndexOptFlags
 	𝐣𝐥.@doc """
 	 Suppress all compiler warnings when parsing for indexing.
 	
 	## Reference
 	
-	[Index.h:6565](./include/clang-c/Index.h:6565:3)
+	[Index.h:6612](./include/clang-c/Index.h:6612:3)
 	""" CXIndexOpt_SuppressWarnings
 	𝐣𝐥.@doc """
 	 Used to indicate that IndexerCallbacks#indexEntityReference should be invoked for only one reference of an entity per source file that does not also include a declaration/definition of the entity.
 	
 	## Reference
 	
-	[Index.h:6548](./include/clang-c/Index.h:6548:3)
+	[Index.h:6595](./include/clang-c/Index.h:6595:3)
 	""" CXIndexOpt_SuppressRedundantRefs
 	𝐣𝐥.@doc """
 	 Function-local symbols should be indexed. If this is not set function-local symbols will be ignored.
 	
 	## Reference
 	
-	[Index.h:6554](./include/clang-c/Index.h:6554:3)
+	[Index.h:6601](./include/clang-c/Index.h:6601:3)
 	""" CXIndexOpt_IndexFunctionLocalSymbols
 	export CXIndexOptFlags, CXIndexOpt_IndexFunctionLocalSymbols, CXIndexOpt_IndexImplicitTemplateInstantiations, CXIndexOpt_None, CXIndexOpt_SkipParsedBodiesInSession, CXIndexOpt_SuppressRedundantRefs, CXIndexOpt_SuppressWarnings
 	𝐣𝐥.@ctypedef CXIndexOptFlags 𝐣𝐥.@cenum {
@@ -13085,7 +13319,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_indexSourceFile(var\"?1?\"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_indexSourceFile(var\"?1?\"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	```
 	
 	 Index the given source file and the translation unit corresponding to that file via callbacks implemented through #IndexerCallbacks.
@@ -13106,24 +13340,24 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6601](./include/clang-c/Index.h:6601:20)
+	[Index.h:6648](./include/clang-c/Index.h:6648:20)
 	""" clang_indexSourceFile
 	export clang_indexSourceFile
-	𝐣𝐥.@cextern clang_indexSourceFile(var"?1?"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_indexSourceFile(var"?1?"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_indexSourceFileFullArgv(var\"?1?\"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_indexSourceFileFullArgv(var\"?1?\"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	```
 	
 	 Same as clang_indexSourceFile but requires a full command line for `command_line_args` including argv[0]. This is useful if the standard library paths are relative to the binary.
 	
 	## Reference
 	
-	[Index.h:6619](./include/clang-c/Index.h:6619:20)
+	[Index.h:6660](./include/clang-c/Index.h:6660:20)
 	""" clang_indexSourceFileFullArgv
 	export clang_indexSourceFileFullArgv
-	𝐣𝐥.@cextern clang_indexSourceFileFullArgv(var"?1?"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern clang_indexSourceFileFullArgv(var"?1?"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, source_filename::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, command_line_args::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})}, num_command_line_args::𝐣𝐥.Cint, unsaved_files::𝐣𝐥.Ptr{𝐣𝐥.@cstruct CXUnsavedFile}, num_unsaved_files::𝐣𝐥.Cuint, out_TU::𝐣𝐥.Ptr{CXTranslationUnit}, TU_options::𝐣𝐥.Cuint)::𝐣𝐥.Cint
 	
 	𝐣𝐥.@doc """
 	```
@@ -13146,7 +13380,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6642](./include/clang-c/Index.h:6642:20)
+	[Index.h:6683](./include/clang-c/Index.h:6683:20)
 	""" clang_indexTranslationUnit
 	export clang_indexTranslationUnit
 	𝐣𝐥.@cextern clang_indexTranslationUnit(var"?1?"::CXIndexAction, client_data::CXClientData, index_callbacks::𝐣𝐥.Ptr{IndexerCallbacks}, index_callbacks_size::𝐣𝐥.Cuint, index_options::𝐣𝐥.Cuint, var"?6?"::CXTranslationUnit)::𝐣𝐥.Cint
@@ -13164,7 +13398,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6657](./include/clang-c/Index.h:6657:21)
+	[Index.h:6695](./include/clang-c/Index.h:6695:21)
 	""" clang_indexLoc_getFileLocation
 	export clang_indexLoc_getFileLocation
 	𝐣𝐥.@cextern clang_indexLoc_getFileLocation(loc::CXIdxLoc, indexFile::𝐣𝐥.Ptr{CXIdxClientFile}, file::𝐣𝐥.Ptr{CXFile}, line::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, column::𝐣𝐥.Ptr{𝐣𝐥.Cuint}, offset::𝐣𝐥.Ptr{𝐣𝐥.Cuint})::𝐣𝐥.Cvoid
@@ -13178,7 +13412,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6668](./include/clang-c/Index.h:6668:18)
+	[Index.h:6705](./include/clang-c/Index.h:6705:18)
 	""" clang_indexLoc_getCXSourceLocation
 	export clang_indexLoc_getCXSourceLocation
 	𝐣𝐥.@cextern clang_indexLoc_getCXSourceLocation(loc::CXIdxLoc)::CXSourceLocation
@@ -13194,10 +13428,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6681](./include/clang-c/Index.h:6681:32)
+	[Index.h:6718](./include/clang-c/Index.h:6718:32)
 	""" CXFieldVisitor
 	export CXFieldVisitor
-	𝐣𝐥.@ctypedef CXFieldVisitor 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{CXVisitorResult, 𝐣𝐥.Tuple{CXCursor, CXClientData}, 𝐣𝐥.CDECL}}
+	𝐣𝐥.@ctypedef CXFieldVisitor 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{(𝐣𝐥.@cenum CXVisitorResult), 𝐣𝐥.Tuple{CXCursor, CXClientData}, 𝐣𝐥.CDECL}}
 	
 	𝐣𝐥.@doc """
 	```
@@ -13222,7 +13456,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Index.h:6703](./include/clang-c/Index.h:6703:25)
+	[Index.h:6740](./include/clang-c/Index.h:6740:25)
 	""" clang_Type_visitFields
 	export clang_Type_visitFields
 	𝐣𝐥.@cextern clang_Type_visitFields(T::CXType, visitor::CXFieldVisitor, client_data::CXClientData)::𝐣𝐥.Cuint
@@ -13232,7 +13466,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:40](./include/clang-c/Documentation.h:40:3)
+	[Documentation.h:39](./include/clang-c/Documentation.h:39:3)
 	""" CXComment
 	export CXComment
 	𝐣𝐥.@ctypedef CXComment 𝐣𝐥.@cstruct {
@@ -13249,7 +13483,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:47](./include/clang-c/Documentation.h:47:26)
+	[Documentation.h:46](./include/clang-c/Documentation.h:46:26)
 	""" clang_Cursor_getParsedComment
 	export clang_Cursor_getParsedComment
 	𝐣𝐥.@cextern clang_Cursor_getParsedComment(C::CXCursor)::CXComment
@@ -13267,42 +13501,42 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:92](./include/clang-c/Documentation.h:92:3)
+	[Documentation.h:91](./include/clang-c/Documentation.h:91:3)
 	""" CXComment_HTMLEndTag
 	𝐣𝐥.@doc """
 	 Plain text.  Inline content.
 	
 	## Reference
 	
-	[Documentation.h:64](./include/clang-c/Documentation.h:64:3)
+	[Documentation.h:63](./include/clang-c/Documentation.h:63:3)
 	""" CXComment_Text
 	𝐣𝐥.@doc """
 	 Describes the type of the comment AST node (`CXComment).`  A comment node can be considered block content (e. g., paragraph), inline content (plain text) or neither (the root AST node).
 	
 	## Reference
 	
-	[Documentation.h:54](./include/clang-c/Documentation.h:54:6)
+	[Documentation.h:53](./include/clang-c/Documentation.h:53:6)
 	""" CXCommentKind
 	𝐣𝐥.@doc """
 	 A verbatim line command.  Verbatim line has an opening command, a single line of text (up to the newline after the opening command) and has no closing command.
 	
 	## Reference
 	
-	[Documentation.h:153](./include/clang-c/Documentation.h:153:3)
+	[Documentation.h:152](./include/clang-c/Documentation.h:152:3)
 	""" CXComment_VerbatimLine
 	𝐣𝐥.@doc """
 	 A paragraph, contains inline comment.  The paragraph itself is block content.
 	
 	## Reference
 	
-	[Documentation.h:98](./include/clang-c/Documentation.h:98:3)
+	[Documentation.h:97](./include/clang-c/Documentation.h:97:3)
 	""" CXComment_Paragraph
 	𝐣𝐥.@doc """
 	 A full comment attached to a declaration, contains block content.
 	
 	## Reference
 	
-	[Documentation.h:158](./include/clang-c/Documentation.h:158:3)
+	[Documentation.h:157](./include/clang-c/Documentation.h:157:3)
 	""" CXComment_FullComment
 	𝐣𝐥.@doc """
 	 A \\tparam command that describes a template parameter (name and description).
@@ -13313,7 +13547,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:128](./include/clang-c/Documentation.h:128:3)
+	[Documentation.h:127](./include/clang-c/Documentation.h:127:3)
 	""" CXComment_TParamCommand
 	𝐣𝐥.@doc """
 	 A verbatim block command (e. g., preformatted code).  Verbatim block has an opening and a closing command and contains multiple lines of text (`CXComment_VerbatimBlockLine` child nodes).
@@ -13324,7 +13558,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:140](./include/clang-c/Documentation.h:140:3)
+	[Documentation.h:139](./include/clang-c/Documentation.h:139:3)
 	""" CXComment_VerbatimBlockCommand
 	𝐣𝐥.@doc """
 	 HTML start tag with attributes (name-value pairs).  Considered inline content.
@@ -13339,7 +13573,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:82](./include/clang-c/Documentation.h:82:3)
+	[Documentation.h:81](./include/clang-c/Documentation.h:81:3)
 	""" CXComment_HTMLStartTag
 	𝐣𝐥.@doc """
 	 A command that has zero or more word-like arguments (number of word-like arguments depends on command name) and a paragraph as an argument.  Block command is block content.
@@ -13348,13 +13582,13 @@ using CBinding: 𝐣𝐥
 	
 	 Paragraph argument is also a child of the block command.
 	
-	 For example:  0 word-like arguments and a paragraph argument.
+	 For example: nothing 0 word-like arguments and a paragraph argument.
 	
 	 AST nodes of special kinds that parser knows about (e. g., \\param command) have their own node kinds.
 	
 	## Reference
 	
-	[Documentation.h:112](./include/clang-c/Documentation.h:112:3)
+	[Documentation.h:111](./include/clang-c/Documentation.h:111:3)
 	""" CXComment_BlockCommand
 	𝐣𝐥.@doc """
 	 A command with word-like arguments that is considered inline content.
@@ -13365,14 +13599,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:71](./include/clang-c/Documentation.h:71:3)
+	[Documentation.h:70](./include/clang-c/Documentation.h:70:3)
 	""" CXComment_InlineCommand
 	𝐣𝐥.@doc """
 	 A line of text that is contained within a CXComment_VerbatimBlockCommand node.
 	
 	## Reference
 	
-	[Documentation.h:146](./include/clang-c/Documentation.h:146:3)
+	[Documentation.h:145](./include/clang-c/Documentation.h:145:3)
 	""" CXComment_VerbatimBlockLine
 	𝐣𝐥.@doc """
 	 A \\param or \\arg command that describes the function parameter (name, passing direction, description).
@@ -13383,14 +13617,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:120](./include/clang-c/Documentation.h:120:3)
+	[Documentation.h:119](./include/clang-c/Documentation.h:119:3)
 	""" CXComment_ParamCommand
 	𝐣𝐥.@doc """
 	 Null comment.  No AST node is constructed at the requested location because there is no text or a syntax error.
 	
 	## Reference
 	
-	[Documentation.h:59](./include/clang-c/Documentation.h:59:3)
+	[Documentation.h:58](./include/clang-c/Documentation.h:58:3)
 	""" CXComment_Null
 	export CXCommentKind, CXComment_BlockCommand, CXComment_FullComment, CXComment_HTMLEndTag, CXComment_HTMLStartTag, CXComment_InlineCommand, CXComment_Null, CXComment_Paragraph, CXComment_ParamCommand, CXComment_TParamCommand, CXComment_Text, CXComment_VerbatimBlockCommand, CXComment_VerbatimBlockLine, CXComment_VerbatimLine
 	𝐣𝐥.@cenum CXCommentKind {
@@ -13414,42 +13648,50 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:179](./include/clang-c/Documentation.h:179:3)
+	[Documentation.h:178](./include/clang-c/Documentation.h:178:3)
 	""" CXCommentInlineCommandRenderKind_Monospaced
 	𝐣𝐥.@doc """
 	 Command argument should be rendered in a bold font.
 	
 	## Reference
 	
-	[Documentation.h:174](./include/clang-c/Documentation.h:174:3)
+	[Documentation.h:173](./include/clang-c/Documentation.h:173:3)
 	""" CXCommentInlineCommandRenderKind_Bold
 	𝐣𝐥.@doc """
 	 Command argument should be rendered emphasized (typically italic font).
 	
 	## Reference
 	
-	[Documentation.h:185](./include/clang-c/Documentation.h:185:3)
+	[Documentation.h:184](./include/clang-c/Documentation.h:184:3)
 	""" CXCommentInlineCommandRenderKind_Emphasized
 	𝐣𝐥.@doc """
 	 The most appropriate rendering mode for an inline command, chosen on command semantics in Doxygen.
 	
 	## Reference
 	
-	[Documentation.h:165](./include/clang-c/Documentation.h:165:6)
+	[Documentation.h:164](./include/clang-c/Documentation.h:164:6)
 	""" CXCommentInlineCommandRenderKind
 	𝐣𝐥.@doc """
 	 Command argument should be rendered in a normal font.
 	
 	## Reference
 	
-	[Documentation.h:169](./include/clang-c/Documentation.h:169:3)
+	[Documentation.h:168](./include/clang-c/Documentation.h:168:3)
 	""" CXCommentInlineCommandRenderKind_Normal
-	export CXCommentInlineCommandRenderKind, CXCommentInlineCommandRenderKind_Bold, CXCommentInlineCommandRenderKind_Emphasized, CXCommentInlineCommandRenderKind_Monospaced, CXCommentInlineCommandRenderKind_Normal
+	𝐣𝐥.@doc """
+	 Command argument should not be rendered (since it only defines an anchor).
+	
+	## Reference
+	
+	[Documentation.h:189](./include/clang-c/Documentation.h:189:3)
+	""" CXCommentInlineCommandRenderKind_Anchor
+	export CXCommentInlineCommandRenderKind, CXCommentInlineCommandRenderKind_Anchor, CXCommentInlineCommandRenderKind_Bold, CXCommentInlineCommandRenderKind_Emphasized, CXCommentInlineCommandRenderKind_Monospaced, CXCommentInlineCommandRenderKind_Normal
 	𝐣𝐥.@cenum CXCommentInlineCommandRenderKind {
 		CXCommentInlineCommandRenderKind_Normal = 𝐣𝐥.Cuint(0)
 		CXCommentInlineCommandRenderKind_Bold = 𝐣𝐥.Cuint(1)
 		CXCommentInlineCommandRenderKind_Monospaced = 𝐣𝐥.Cuint(2)
 		CXCommentInlineCommandRenderKind_Emphasized = 𝐣𝐥.Cuint(3)
+		CXCommentInlineCommandRenderKind_Anchor = 𝐣𝐥.Cuint(4)
 	}
 	
 	𝐣𝐥.@doc """
@@ -13457,28 +13699,28 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:195](./include/clang-c/Documentation.h:195:3)
+	[Documentation.h:199](./include/clang-c/Documentation.h:199:3)
 	""" CXCommentParamPassDirection_In
 	𝐣𝐥.@doc """
 	 The parameter is an output parameter.
 	
 	## Reference
 	
-	[Documentation.h:200](./include/clang-c/Documentation.h:200:3)
+	[Documentation.h:204](./include/clang-c/Documentation.h:204:3)
 	""" CXCommentParamPassDirection_Out
 	𝐣𝐥.@doc """
 	 Describes parameter passing direction for \\param or \\arg command.
 	
 	## Reference
 	
-	[Documentation.h:191](./include/clang-c/Documentation.h:191:6)
+	[Documentation.h:195](./include/clang-c/Documentation.h:195:6)
 	""" CXCommentParamPassDirection
 	𝐣𝐥.@doc """
 	 The parameter is an input and output parameter.
 	
 	## Reference
 	
-	[Documentation.h:205](./include/clang-c/Documentation.h:205:3)
+	[Documentation.h:209](./include/clang-c/Documentation.h:209:3)
 	""" CXCommentParamPassDirection_InOut
 	export CXCommentParamPassDirection, CXCommentParamPassDirection_In, CXCommentParamPassDirection_InOut, CXCommentParamPassDirection_Out
 	𝐣𝐥.@cenum CXCommentParamPassDirection {
@@ -13489,7 +13731,7 @@ using CBinding: 𝐣𝐥
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_Comment_getKind(Comment::CXComment)::CXCommentKind
+	𝐣𝐥.@cextern clang_Comment_getKind(Comment::CXComment)::𝐣𝐥.@cenum CXCommentKind
 	```
 	
 	## Parameters
@@ -13502,10 +13744,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:213](./include/clang-c/Documentation.h:213:35)
+	[Documentation.h:217](./include/clang-c/Documentation.h:217:35)
 	""" clang_Comment_getKind
 	export clang_Comment_getKind
-	𝐣𝐥.@cextern clang_Comment_getKind(Comment::CXComment)::CXCommentKind
+	𝐣𝐥.@cextern clang_Comment_getKind(Comment::CXComment)::𝐣𝐥.@cenum CXCommentKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -13522,7 +13764,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:220](./include/clang-c/Documentation.h:220:25)
+	[Documentation.h:224](./include/clang-c/Documentation.h:224:25)
 	""" clang_Comment_getNumChildren
 	export clang_Comment_getNumChildren
 	𝐣𝐥.@cextern clang_Comment_getNumChildren(Comment::CXComment)::𝐣𝐥.Cuint
@@ -13546,7 +13788,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:230](./include/clang-c/Documentation.h:230:11)
+	[Documentation.h:234](./include/clang-c/Documentation.h:234:11)
 	""" clang_Comment_getChild
 	export clang_Comment_getChild
 	𝐣𝐥.@cextern clang_Comment_getChild(Comment::CXComment, ChildIdx::𝐣𝐥.Cuint)::CXComment
@@ -13568,7 +13810,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:241](./include/clang-c/Documentation.h:241:25)
+	[Documentation.h:245](./include/clang-c/Documentation.h:245:25)
 	""" clang_Comment_isWhitespace
 	export clang_Comment_isWhitespace
 	𝐣𝐥.@cextern clang_Comment_isWhitespace(Comment::CXComment)::𝐣𝐥.Cuint
@@ -13584,7 +13826,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:249](./include/clang-c/Documentation.h:249:10)
+	[Documentation.h:253](./include/clang-c/Documentation.h:253:10)
 	""" clang_InlineContentComment_hasTrailingNewline
 	export clang_InlineContentComment_hasTrailingNewline
 	𝐣𝐥.@cextern clang_InlineContentComment_hasTrailingNewline(Comment::CXComment)::𝐣𝐥.Cuint
@@ -13604,7 +13846,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:256](./include/clang-c/Documentation.h:256:25)
+	[Documentation.h:260](./include/clang-c/Documentation.h:260:25)
 	""" clang_TextComment_getText
 	export clang_TextComment_getText
 	𝐣𝐥.@cextern clang_TextComment_getText(Comment::CXComment)::CXString
@@ -13624,14 +13866,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:264](./include/clang-c/Documentation.h:264:10)
+	[Documentation.h:268](./include/clang-c/Documentation.h:268:10)
 	""" clang_InlineCommandComment_getCommandName
 	export clang_InlineCommandComment_getCommandName
 	𝐣𝐥.@cextern clang_InlineCommandComment_getCommandName(Comment::CXComment)::CXString
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_InlineCommandComment_getRenderKind(Comment::CXComment)::CXCommentInlineCommandRenderKind
+	𝐣𝐥.@cextern clang_InlineCommandComment_getRenderKind(Comment::CXComment)::𝐣𝐥.@cenum CXCommentInlineCommandRenderKind
 	```
 	
 	## Parameters
@@ -13644,10 +13886,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:273](./include/clang-c/Documentation.h:273:1)
+	[Documentation.h:277](./include/clang-c/Documentation.h:277:1)
 	""" clang_InlineCommandComment_getRenderKind
 	export clang_InlineCommandComment_getRenderKind
-	𝐣𝐥.@cextern clang_InlineCommandComment_getRenderKind(Comment::CXComment)::CXCommentInlineCommandRenderKind
+	𝐣𝐥.@cextern clang_InlineCommandComment_getRenderKind(Comment::CXComment)::𝐣𝐥.@cenum CXCommentInlineCommandRenderKind
 	
 	𝐣𝐥.@doc """
 	```
@@ -13664,7 +13906,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:281](./include/clang-c/Documentation.h:281:10)
+	[Documentation.h:285](./include/clang-c/Documentation.h:285:10)
 	""" clang_InlineCommandComment_getNumArgs
 	export clang_InlineCommandComment_getNumArgs
 	𝐣𝐥.@cextern clang_InlineCommandComment_getNumArgs(Comment::CXComment)::𝐣𝐥.Cuint
@@ -13688,7 +13930,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:291](./include/clang-c/Documentation.h:291:10)
+	[Documentation.h:295](./include/clang-c/Documentation.h:295:10)
 	""" clang_InlineCommandComment_getArgText
 	export clang_InlineCommandComment_getArgText
 	𝐣𝐥.@cextern clang_InlineCommandComment_getArgText(Comment::CXComment, ArgIdx::𝐣𝐥.Cuint)::CXString
@@ -13708,7 +13950,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:300](./include/clang-c/Documentation.h:300:25)
+	[Documentation.h:304](./include/clang-c/Documentation.h:304:25)
 	""" clang_HTMLTagComment_getTagName
 	export clang_HTMLTagComment_getTagName
 	𝐣𝐥.@cextern clang_HTMLTagComment_getTagName(Comment::CXComment)::CXString
@@ -13728,7 +13970,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:308](./include/clang-c/Documentation.h:308:10)
+	[Documentation.h:312](./include/clang-c/Documentation.h:312:10)
 	""" clang_HTMLStartTagComment_isSelfClosing
 	export clang_HTMLStartTagComment_isSelfClosing
 	𝐣𝐥.@cextern clang_HTMLStartTagComment_isSelfClosing(Comment::CXComment)::𝐣𝐥.Cuint
@@ -13748,7 +13990,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:315](./include/clang-c/Documentation.h:315:25)
+	[Documentation.h:319](./include/clang-c/Documentation.h:319:25)
 	""" clang_HTMLStartTag_getNumAttrs
 	export clang_HTMLStartTag_getNumAttrs
 	𝐣𝐥.@cextern clang_HTMLStartTag_getNumAttrs(Comment::CXComment)::𝐣𝐥.Cuint
@@ -13772,7 +14014,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:325](./include/clang-c/Documentation.h:325:10)
+	[Documentation.h:329](./include/clang-c/Documentation.h:329:10)
 	""" clang_HTMLStartTag_getAttrName
 	export clang_HTMLStartTag_getAttrName
 	𝐣𝐥.@cextern clang_HTMLStartTag_getAttrName(Comment::CXComment, AttrIdx::𝐣𝐥.Cuint)::CXString
@@ -13796,7 +14038,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:335](./include/clang-c/Documentation.h:335:10)
+	[Documentation.h:339](./include/clang-c/Documentation.h:339:10)
 	""" clang_HTMLStartTag_getAttrValue
 	export clang_HTMLStartTag_getAttrValue
 	𝐣𝐥.@cextern clang_HTMLStartTag_getAttrValue(Comment::CXComment, AttrIdx::𝐣𝐥.Cuint)::CXString
@@ -13816,7 +14058,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:343](./include/clang-c/Documentation.h:343:10)
+	[Documentation.h:347](./include/clang-c/Documentation.h:347:10)
 	""" clang_BlockCommandComment_getCommandName
 	export clang_BlockCommandComment_getCommandName
 	𝐣𝐥.@cextern clang_BlockCommandComment_getCommandName(Comment::CXComment)::CXString
@@ -13836,7 +14078,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:351](./include/clang-c/Documentation.h:351:10)
+	[Documentation.h:355](./include/clang-c/Documentation.h:355:10)
 	""" clang_BlockCommandComment_getNumArgs
 	export clang_BlockCommandComment_getNumArgs
 	𝐣𝐥.@cextern clang_BlockCommandComment_getNumArgs(Comment::CXComment)::𝐣𝐥.Cuint
@@ -13860,7 +14102,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:361](./include/clang-c/Documentation.h:361:10)
+	[Documentation.h:365](./include/clang-c/Documentation.h:365:10)
 	""" clang_BlockCommandComment_getArgText
 	export clang_BlockCommandComment_getArgText
 	𝐣𝐥.@cextern clang_BlockCommandComment_getArgText(Comment::CXComment, ArgIdx::𝐣𝐥.Cuint)::CXString
@@ -13880,7 +14122,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:371](./include/clang-c/Documentation.h:371:11)
+	[Documentation.h:375](./include/clang-c/Documentation.h:375:11)
 	""" clang_BlockCommandComment_getParagraph
 	export clang_BlockCommandComment_getParagraph
 	𝐣𝐥.@cextern clang_BlockCommandComment_getParagraph(Comment::CXComment)::CXComment
@@ -13900,7 +14142,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:379](./include/clang-c/Documentation.h:379:10)
+	[Documentation.h:383](./include/clang-c/Documentation.h:383:10)
 	""" clang_ParamCommandComment_getParamName
 	export clang_ParamCommandComment_getParamName
 	𝐣𝐥.@cextern clang_ParamCommandComment_getParamName(Comment::CXComment)::CXString
@@ -13920,7 +14162,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:389](./include/clang-c/Documentation.h:389:10)
+	[Documentation.h:393](./include/clang-c/Documentation.h:393:10)
 	""" clang_ParamCommandComment_isParamIndexValid
 	export clang_ParamCommandComment_isParamIndexValid
 	𝐣𝐥.@cextern clang_ParamCommandComment_isParamIndexValid(Comment::CXComment)::𝐣𝐥.Cuint
@@ -13940,7 +14182,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:397](./include/clang-c/Documentation.h:397:10)
+	[Documentation.h:401](./include/clang-c/Documentation.h:401:10)
 	""" clang_ParamCommandComment_getParamIndex
 	export clang_ParamCommandComment_getParamIndex
 	𝐣𝐥.@cextern clang_ParamCommandComment_getParamIndex(Comment::CXComment)::𝐣𝐥.Cuint
@@ -13960,14 +14202,14 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:406](./include/clang-c/Documentation.h:406:10)
+	[Documentation.h:410](./include/clang-c/Documentation.h:410:10)
 	""" clang_ParamCommandComment_isDirectionExplicit
 	export clang_ParamCommandComment_isDirectionExplicit
 	𝐣𝐥.@cextern clang_ParamCommandComment_isDirectionExplicit(Comment::CXComment)::𝐣𝐥.Cuint
 	
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern clang_ParamCommandComment_getDirection(Comment::CXComment)::CXCommentParamPassDirection
+	𝐣𝐥.@cextern clang_ParamCommandComment_getDirection(Comment::CXComment)::𝐣𝐥.@cenum CXCommentParamPassDirection
 	```
 	
 	## Parameters
@@ -13980,10 +14222,10 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:414](./include/clang-c/Documentation.h:414:34)
+	[Documentation.h:418](./include/clang-c/Documentation.h:418:34)
 	""" clang_ParamCommandComment_getDirection
 	export clang_ParamCommandComment_getDirection
-	𝐣𝐥.@cextern clang_ParamCommandComment_getDirection(Comment::CXComment)::CXCommentParamPassDirection
+	𝐣𝐥.@cextern clang_ParamCommandComment_getDirection(Comment::CXComment)::𝐣𝐥.@cenum CXCommentParamPassDirection
 	
 	𝐣𝐥.@doc """
 	```
@@ -14000,7 +14242,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:423](./include/clang-c/Documentation.h:423:10)
+	[Documentation.h:427](./include/clang-c/Documentation.h:427:10)
 	""" clang_TParamCommandComment_getParamName
 	export clang_TParamCommandComment_getParamName
 	𝐣𝐥.@cextern clang_TParamCommandComment_getParamName(Comment::CXComment)::CXString
@@ -14020,7 +14262,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:435](./include/clang-c/Documentation.h:435:10)
+	[Documentation.h:439](./include/clang-c/Documentation.h:439:10)
 	""" clang_TParamCommandComment_isParamPositionValid
 	export clang_TParamCommandComment_isParamPositionValid
 	𝐣𝐥.@cextern clang_TParamCommandComment_isParamPositionValid(Comment::CXComment)::𝐣𝐥.Cuint
@@ -14049,7 +14291,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:451](./include/clang-c/Documentation.h:451:10)
+	[Documentation.h:455](./include/clang-c/Documentation.h:455:10)
 	""" clang_TParamCommandComment_getDepth
 	export clang_TParamCommandComment_getDepth
 	𝐣𝐥.@cextern clang_TParamCommandComment_getDepth(Comment::CXComment)::𝐣𝐥.Cuint
@@ -14080,7 +14322,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:472](./include/clang-c/Documentation.h:472:10)
+	[Documentation.h:476](./include/clang-c/Documentation.h:476:10)
 	""" clang_TParamCommandComment_getIndex
 	export clang_TParamCommandComment_getIndex
 	𝐣𝐥.@cextern clang_TParamCommandComment_getIndex(Comment::CXComment, Depth::𝐣𝐥.Cuint)::𝐣𝐥.Cuint
@@ -14100,7 +14342,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:480](./include/clang-c/Documentation.h:480:10)
+	[Documentation.h:484](./include/clang-c/Documentation.h:484:10)
 	""" clang_VerbatimBlockLineComment_getText
 	export clang_VerbatimBlockLineComment_getText
 	𝐣𝐥.@cextern clang_VerbatimBlockLineComment_getText(Comment::CXComment)::CXString
@@ -14120,7 +14362,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:487](./include/clang-c/Documentation.h:487:25)
+	[Documentation.h:491](./include/clang-c/Documentation.h:491:25)
 	""" clang_VerbatimLineComment_getText
 	export clang_VerbatimLineComment_getText
 	𝐣𝐥.@cextern clang_VerbatimLineComment_getText(Comment::CXComment)::CXString
@@ -14142,7 +14384,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:497](./include/clang-c/Documentation.h:497:25)
+	[Documentation.h:501](./include/clang-c/Documentation.h:501:25)
 	""" clang_HTMLTagComment_getAsString
 	export clang_HTMLTagComment_getAsString
 	𝐣𝐥.@cextern clang_HTMLTagComment_getAsString(Comment::CXComment)::CXString
@@ -14190,7 +14432,7 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:530](./include/clang-c/Documentation.h:530:25)
+	[Documentation.h:534](./include/clang-c/Documentation.h:534:25)
 	""" clang_FullComment_getAsHTML
 	export clang_FullComment_getAsHTML
 	𝐣𝐥.@cextern clang_FullComment_getAsHTML(Comment::CXComment)::CXString
@@ -14216,8 +14458,80 @@ using CBinding: 𝐣𝐥
 	
 	## Reference
 	
-	[Documentation.h:542](./include/clang-c/Documentation.h:542:25)
+	[Documentation.h:546](./include/clang-c/Documentation.h:546:25)
 	""" clang_FullComment_getAsXML
 	export clang_FullComment_getAsXML
 	𝐣𝐥.@cextern clang_FullComment_getAsXML(Comment::CXComment)::CXString
+	
+	𝐣𝐥.@doc """
+	```
+	𝐣𝐥.@cextern clang_install_aborting_llvm_fatal_error_handler()::𝐣𝐥.Cvoid
+	```
+	
+	 Installs error handler that prints error message to stderr and calls abort(). Replaces currently installed error handler (if any).
+	
+	## Reference
+	
+	[FatalErrorHandler.h:21](./include/clang-c/FatalErrorHandler.h:21:6)
+	""" clang_install_aborting_llvm_fatal_error_handler
+	export clang_install_aborting_llvm_fatal_error_handler
+	𝐣𝐥.@cextern clang_install_aborting_llvm_fatal_error_handler()::𝐣𝐥.Cvoid
+	
+	𝐣𝐥.@doc """
+	```
+	𝐣𝐥.@cextern clang_uninstall_llvm_fatal_error_handler()::𝐣𝐥.Cvoid
+	```
+	
+	 Removes currently installed error handler (if any). If no error handler is intalled, the default strategy is to print error message to stderr and call exit(1).
+	
+	## Reference
+	
+	[FatalErrorHandler.h:28](./include/clang-c/FatalErrorHandler.h:28:6)
+	""" clang_uninstall_llvm_fatal_error_handler
+	export clang_uninstall_llvm_fatal_error_handler
+	𝐣𝐥.@cextern clang_uninstall_llvm_fatal_error_handler()::𝐣𝐥.Cvoid
+	
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[ExternC.h:35](./include/clang-c/ExternC.h:35:9)
+	""" :(@LLVM_CLANG_C_EXTERN_C_BEGIN)
+	export @LLVM_CLANG_C_EXTERN_C_BEGIN
+	macro LLVM_CLANG_C_EXTERN_C_BEGIN() return quote (@LLVM_CLANG_C_STRICT_PROTOTYPES_BEGIN) end end
+	
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[ExternC.h:36](./include/clang-c/ExternC.h:36:9)
+	""" :(@LLVM_CLANG_C_EXTERN_C_END)
+	export @LLVM_CLANG_C_EXTERN_C_END
+	macro LLVM_CLANG_C_EXTERN_C_END() return quote (@LLVM_CLANG_C_STRICT_PROTOTYPES_END) end end
+	
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[Index.h:35](./include/clang-c/Index.h:35:9)
+	""" CINDEX_VERSION_MAJOR
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[Index.h:35](./include/clang-c/Index.h:35:9)
+	""" :(@CINDEX_VERSION_MAJOR)
+	export @CINDEX_VERSION_MAJOR, CINDEX_VERSION_MAJOR
+	macro CINDEX_VERSION_MAJOR() return quote 0 end end
+	const CINDEX_VERSION_MAJOR = (@CINDEX_VERSION_MAJOR)
+	
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[Index.h:36](./include/clang-c/Index.h:36:9)
+	""" :(@CINDEX_VERSION_MINOR)
+	𝐣𝐥.@doc """
+	## Reference
+	
+	[Index.h:36](./include/clang-c/Index.h:36:9)
+	""" CINDEX_VERSION_MINOR
+	export @CINDEX_VERSION_MINOR, CINDEX_VERSION_MINOR
+	macro CINDEX_VERSION_MINOR() return quote 60 end end
+	const CINDEX_VERSION_MINOR = (@CINDEX_VERSION_MINOR)
 end
