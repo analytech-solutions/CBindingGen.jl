@@ -1,3 +1,7 @@
+# CBinding.jl
+
+Features of this package are now available as https://github.com/analytech-solutions/CBinding.jl
+
 # CBindingGen.jl
 
 [![Build Status](https://github.com/analytech-solutions/CBindingGen.jl/workflows/CI/badge.svg)](https://github.com/analytech-solutions/CBindingGen.jl/actions)
